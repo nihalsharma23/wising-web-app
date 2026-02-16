@@ -1,5 +1,16 @@
 import { Header } from "./components/Header";
+import { Linkedin } from "lucide-react";
+import sarthakImg from "../../assets/sarthak-jalan.png";
+import nihalImg from "../../assets/nihal-sharma.jpg";
+import divanshuImg from "../../assets/divanshu-bansal.jpg";
+
 // I will use the remote URLs from the provided HTML for now as I don't have local portraits.
+
+const XIcon = ({ className }: { className?: string }) => (
+    <svg viewBox="0 0 24 24" className={className} fill="currentColor">
+        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+    </svg>
+);
 
 export function AboutUs() {
     return (
@@ -24,20 +35,30 @@ export function AboutUs() {
                     <div className="flex flex-col lg:flex-row gap-12 items-start">
                         {/* Profile Image & Socials */}
                         <div className="w-full lg:w-1/3 flex flex-col items-center lg:items-start space-y-6">
-                            <div className="w-64 h-80 grayscale overflow-hidden border border-zinc-800">
-                                {/* Using the image from the provided HTML as placeholder */}
+                            <div className="w-64 h-80 grayscale hover:grayscale-0 transition-all duration-500 overflow-hidden border border-zinc-800">
+                                {/* TODO: Replace with local image containing the new profile picture */}
                                 <img
                                     alt="Sarthak Jalan"
                                     className="w-full h-full object-cover"
-                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCG1HLQokknvUBwsdBawVio3EeeRcdvWvI_BObrSWvD2LI3rjjqL3rKOHgOrXtt69rzAgG-Vy6110wnAxvpUbPnFZqpm_VMDFb-o4uZDvIXwLG47pih_k_sh53pnuCOFQ_Xs8si7R6-sXO1meQ8PL-wzgI6E8tcJyqIWxVk9h-mEJTP35DBSSq-qcy3u8v14Zi6fq4KgSKN19YfW6w42JJICz6qzHKnO29cuhu1bsjhieB_r_kDAsvVxDvCF6tcGWW8Ceb8Ru9jXHM0"
+                                    src={sarthakImg}
                                 />
                             </div>
                             <div className="flex gap-4">
-                                <div className="w-8 h-8 bg-zinc-800 rounded-sm flex items-center justify-center opacity-40"></div>
-                                <div className="w-8 h-8 bg-zinc-800 rounded-sm flex items-center justify-center opacity-40"></div>
-                                <div className="w-8 h-8 bg-zinc-800 rounded-sm flex items-center justify-center opacity-40"></div>
-                                <a className="w-8 h-8 bg-zinc-800 rounded-sm flex items-center justify-center hover:bg-[#13a4ec] transition-colors" href="#">
-                                    <svg className="w-4 h-4 fill-white" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg>
+                                <a
+                                    href="https://www.linkedin.com/in/sarthak-jalan-392b5a17b/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="w-8 h-8 bg-zinc-800 rounded-sm flex items-center justify-center hover:bg-[#0077b5] transition-colors group"
+                                >
+                                    <Linkedin className="w-4 h-4 text-zinc-400 group-hover:text-white transition-colors" />
+                                </a>
+                                <a
+                                    href="https://x.com/SarthakJ456"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="w-8 h-8 bg-zinc-800 rounded-sm flex items-center justify-center hover:bg-black transition-colors group"
+                                >
+                                    <XIcon className="w-4 h-4 text-zinc-400 group-hover:text-white transition-colors" />
                                 </a>
                             </div>
                         </div>
@@ -50,26 +71,25 @@ export function AboutUs() {
                                 <div>
                                     <span className="block text-[0.65rem] tracking-[0.2em] text-zinc-500 uppercase mb-2">Experience</span>
                                     <p className="text-[0.85rem] leading-[1.6] text-zinc-300 font-light">
-                                        Focuses on the intersection of fintech and regulatory compliance. Built Wising's global operational framework.
+                                        Chartered Accountant and Investment Banking Associate with experience of advising startups on $10M+ fundraises and auditing Multi national banks and brokers. 4 years optimizing Web3 portfolios and attention market product strategies.
                                     </p>
                                 </div>
                                 <div>
                                     <span className="block text-[0.65rem] tracking-[0.2em] text-zinc-500 uppercase mb-2">Achievements</span>
-                                    <ul className="text-[0.85rem] leading-[1.6] text-zinc-300 font-light list-disc pl-4 space-y-1">
-                                        <li>Forbes 30 Under 30 - Finance</li>
-                                        <li>Featured Speaker at World Economic Forum 2025</li>
-                                    </ul>
+                                    <p className="text-[0.85rem] leading-[1.6] text-zinc-300 font-light">
+                                        Led $10M fundraising deals and achieved 70-75% investor introduction success rate, also headed Cyber security & System Audit of multinational brokers with market cap exceeding $200Bn & India’s top retail brokerage firms.
+                                    </p>
                                 </div>
                                 <div>
                                     <span className="block text-[0.65rem] tracking-[0.2em] text-zinc-500 uppercase mb-2">Career</span>
                                     <p className="text-[0.85rem] leading-[1.6] text-zinc-300 font-light">
-                                        Strategic Operations lead at Jio Financial. Spearheaded market expansion strategies in SE Asia.
+                                        Ex- Associate- Investment Banking at Felix Investment Banking, ANB Global- Cybersecurity & System Audit for Brokers & Exchanges, Ex-EY- Statutory Audit for MNC Banks.
                                     </p>
                                 </div>
                                 <div>
                                     <span className="block text-[0.65rem] tracking-[0.2em] text-zinc-500 uppercase mb-2">Education</span>
                                     <p className="text-[0.85rem] leading-[1.6] text-zinc-300 font-light">
-                                        MBA from London School of Economics. BA in Economics and Finance.
+                                        Chartered Accountant ICAI and B.Com (hons.) from Hansraj College, Delhi University
                                     </p>
                                 </div>
                             </div>
@@ -82,19 +102,25 @@ export function AboutUs() {
                     <div className="flex flex-col lg:flex-row gap-12 items-start">
                         {/* Profile Image & Socials */}
                         <div className="w-full lg:w-1/3 flex flex-col items-center lg:items-start space-y-6">
-                            <div className="w-64 h-80 grayscale overflow-hidden border border-zinc-800">
+                            <div className="w-64 h-80 grayscale hover:grayscale-0 transition-all duration-500 overflow-hidden border border-zinc-800">
                                 <img
                                     alt="Nihal Sharma"
-                                    className="w-full h-full object-cover"
-                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9RdMsaZJH6MHmQc_hZZqeItsYFnIt_mRMGgb2ZCBitHZ6W7h2oWZSQ78ILmMBcISp_Fx2-B1BtPr7qACKDaeOsKh5W22oiZhFK49hTQWE6oIuWuRrN9bz4qhJzjLLQ_HWiBRcMlDyGa16xXCTLujtXeirruEHFA5TNWnzwRP1Ye9lHTZGo1nM1Fql-45gAvykBR1pr-xJUrwS2r0yf39QYBgG62vlxWoQiIBQI8Upo02Ww9RoolbPxBtAIbQ_tdJoLfnF3bKvOvdG"
+                                    className="w-full h-full object-cover object-top"
+                                    src={nihalImg}
                                 />
                             </div>
                             <div className="flex gap-4">
-                                <div className="w-8 h-8 bg-zinc-800 rounded-sm flex items-center justify-center opacity-40"></div>
-                                <div className="w-8 h-8 bg-zinc-800 rounded-sm flex items-center justify-center opacity-40"></div>
-                                <div className="w-8 h-8 bg-zinc-800 rounded-sm flex items-center justify-center opacity-40"></div>
-                                <a className="w-8 h-8 bg-zinc-800 rounded-sm flex items-center justify-center hover:bg-[#13a4ec] transition-colors" href="#">
-                                    <svg className="w-4 h-4 fill-white" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg>
+                                <a
+                                    href="#"
+                                    className="w-8 h-8 bg-zinc-800 rounded-sm flex items-center justify-center hover:bg-[#0077b5] transition-colors group"
+                                >
+                                    <Linkedin className="w-4 h-4 text-zinc-400 group-hover:text-white transition-colors" />
+                                </a>
+                                <a
+                                    href="#"
+                                    className="w-8 h-8 bg-zinc-800 rounded-sm flex items-center justify-center hover:bg-black transition-colors group"
+                                >
+                                    <XIcon className="w-4 h-4 text-zinc-400 group-hover:text-white transition-colors" />
                                 </a>
                             </div>
                         </div>
@@ -139,16 +165,27 @@ export function AboutUs() {
                     <div className="flex flex-col lg:flex-row gap-12 items-start">
                         {/* Profile Image & Socials */}
                         <div className="w-full lg:w-1/3 flex flex-col items-center lg:items-start space-y-6">
-                            <div className="w-64 h-80 grayscale overflow-hidden border border-zinc-800 bg-zinc-900 flex items-center justify-center">
-                                {/* Placeholder for Divanshu Bansal */}
-                                <div className="text-zinc-700 font-['Syne'] text-6xl opacity-50">DB</div>
+                            <div className="w-64 h-80 grayscale hover:grayscale-0 transition-all duration-500 overflow-hidden border border-zinc-800 bg-zinc-900 flex items-center justify-center">
+                                <img
+                                    alt="Divanshu Bansal"
+                                    className="w-full h-full object-cover object-top"
+                                    src={divanshuImg}
+                                />
                             </div>
                             <div className="flex gap-4">
-                                <div className="w-8 h-8 bg-zinc-800 rounded-sm flex items-center justify-center opacity-40"></div>
-                                <div className="w-8 h-8 bg-zinc-800 rounded-sm flex items-center justify-center opacity-40"></div>
-                                <div className="w-8 h-8 bg-zinc-800 rounded-sm flex items-center justify-center opacity-40"></div>
-                                <a className="w-8 h-8 bg-zinc-800 rounded-sm flex items-center justify-center hover:bg-[#13a4ec] transition-colors" href="#">
-                                    <svg className="w-4 h-4 fill-white" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg>
+                                <a
+                                    href="https://www.linkedin.com/in/ikshvaku03/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="w-8 h-8 bg-zinc-800 rounded-sm flex items-center justify-center hover:bg-[#0077b5] transition-colors group"
+                                >
+                                    <Linkedin className="w-4 h-4 text-zinc-400 group-hover:text-white transition-colors" />
+                                </a>
+                                <a
+                                    href="#"
+                                    className="w-8 h-8 bg-zinc-800 rounded-sm flex items-center justify-center hover:bg-black transition-colors group"
+                                >
+                                    <XIcon className="w-4 h-4 text-zinc-400 group-hover:text-white transition-colors" />
                                 </a>
                             </div>
                         </div>
