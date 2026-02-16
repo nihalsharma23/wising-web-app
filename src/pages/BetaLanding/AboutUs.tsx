@@ -14,7 +14,10 @@ const XIcon = ({ className }: { className?: string }) => (
 
 export function AboutUs() {
     return (
-        <div className="relative min-h-screen bg-[#050505] text-white font-['Manrope',sans-serif] overflow-x-hidden selection:bg-cyan-500/30">
+        <div
+            className="relative min-h-screen bg-[#050505] text-white font-['Manrope',sans-serif] overflow-x-hidden selection:bg-cyan-500/30 select-none"
+            onContextMenu={(e) => e.preventDefault()}
+        >
             {/* Background Glow Elements */}
             <div className="fixed -top-[10%] -left-[5%] w-[50vw] h-[50vw] bg-[radial-gradient(circle,rgba(19,164,236,0.08)_0%,rgba(19,164,236,0)_70%)] pointer-events-none z-0"></div>
             <div className="fixed -bottom-[10%] -right-[5%] w-[50vw] h-[50vw] bg-[radial-gradient(circle,rgba(183,110,121,0.08)_0%,rgba(183,110,121,0)_70%)] pointer-events-none z-0"></div>
