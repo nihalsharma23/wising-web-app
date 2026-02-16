@@ -11,7 +11,10 @@ import { NetworkCanvas } from '../../components/ui/NetworkCanvas';
 
 export function BetaLanding() {
     return (
-        <div className="content-stretch flex flex-col items-start relative size-full min-h-screen overflow-x-hidden">
+        <div
+            className="content-stretch flex flex-col items-start relative size-full min-h-screen overflow-x-hidden select-none"
+            onContextMenu={(e) => e.preventDefault()}
+        >
             {/* Animation rendered internally in lower section to ensure visibility on all screens */}
             <NetworkCanvas />
             <Header />
