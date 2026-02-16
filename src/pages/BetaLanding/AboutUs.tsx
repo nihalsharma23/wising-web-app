@@ -20,7 +20,7 @@ export function AboutUs() {
             <div className="fixed -bottom-[10%] -right-[5%] w-[50vw] h-[50vw] bg-[radial-gradient(circle,rgba(183,110,121,0.08)_0%,rgba(183,110,121,0)_70%)] pointer-events-none z-0"></div>
 
             {/* Main Header */}
-            <Header />
+            <Header variant="about" />
 
             {/* Page Title */}
             <section className="relative z-10 pt-32 pb-20 text-center">
@@ -217,7 +217,7 @@ export function AboutUs() {
                                 <div>
                                     <span className="block text-[0.65rem] tracking-[0.2em] text-zinc-500 uppercase mb-2">Education</span>
                                     <p className="text-[0.85rem] leading-[1.6] text-zinc-300 font-light">
-                                        Computer Science graduate with specialization in Software and Data Engineering.
+                                        Computer Science Graduate from Chandigarh Group of Colleges, Punjab, specialising in Software Development and Data Engineering.
                                     </p>
                                 </div>
                             </div>

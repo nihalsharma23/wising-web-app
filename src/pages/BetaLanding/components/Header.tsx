@@ -2,7 +2,12 @@ import { Link } from "react-router-dom";
 import imgHeaderLogo from "../assets/header_logo.png";
 
 // Header Component with Logo
-export function Header() {
+interface HeaderProps {
+    variant?: 'landing' | 'about';
+}
+
+// Header Component with Logo
+export function Header({ variant = 'landing' }: HeaderProps) {
     return (
         <div className="absolute content-stretch flex items-center justify-between left-0 px-6 md:px-10 py-6 right-0 top-0 z-50">
             {/* Logo + WISING */}
@@ -22,13 +27,21 @@ export function Header() {
                 </Link>
             </div>
 
-            {/* About Us Link (Top Right) */}
+            {/* Navigation Link (Top Right) */}
             <div className="content-stretch flex h-10 items-center px-4 relative">
-                <Link to="/about" className="content-stretch flex flex-col h-10 items-end justify-center py-3 relative cursor-pointer hover:opacity-80 transition-opacity">
-                    <div className="flex flex-col font-['Syne',sans-serif] font-medium justify-center leading-[0] not-italic text-[#999] text-xs tracking-[4px] uppercase">
-                        <p className="leading-[15px] whitespace-pre-wrap">About Us</p>
-                    </div>
-                </Link>
+                {variant === 'landing' ? (
+                    <Link to="/about" className="content-stretch flex flex-col h-10 items-end justify-center py-3 relative cursor-pointer hover:opacity-80 transition-opacity">
+                        <div className="flex flex-col font-['Syne',sans-serif] font-medium justify-center leading-[0] not-italic text-[#999] text-xs tracking-[4px] uppercase">
+                            <p className="leading-[15px] whitespace-pre-wrap">About Us</p>
+                        </div>
+                    </Link>
+                ) : (
+                    <Link to="/" className="content-stretch flex flex-col h-10 items-end justify-center py-3 relative cursor-pointer hover:opacity-80 transition-opacity">
+                        <div className="flex flex-col font-['Syne',sans-serif] font-medium justify-center leading-[0] not-italic text-[#999] text-xs tracking-[4px] uppercase">
+                            <p className="leading-[15px] whitespace-pre-wrap">← Back</p>
+                        </div>
+                    </Link>
+                )}
             </div>
         </div>
     );

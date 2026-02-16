@@ -5,7 +5,7 @@ import { FeaturesSection } from './components/FeaturesSection';
 import { GridSection } from './components/GridSection';
 import { FoundingTeamSection } from './components/FoundingTeamSection';
 import { Footer } from './components/Footer';
-import { SupportButton } from './components/SupportButton';
+
 
 import { NetworkCanvas } from '../../components/ui/NetworkCanvas';
 
@@ -25,7 +25,7 @@ export function BetaLanding() {
             </main>
 
             <Footer />
-            <SupportButton />
+
         </div>
     );
 }
