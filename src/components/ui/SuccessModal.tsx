@@ -51,7 +51,7 @@ export function SuccessModal({ isOpen, onClose }: SuccessModalProps) {
                     </h3>
 
                     <p className="text-sm text-white font-['Inter'] font-light leading-relaxed">
-                        We will send a mail to notify you the beta launching.
+                        We will send you a mail when the beta launches.
                     </p>
                 </div>
             </div>
