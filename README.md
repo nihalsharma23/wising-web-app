@@ -1,11 +1,14 @@
 
-  # Wealth Intelligence Dashboard
-
-  This is a code bundle for Wealth Intelligence Dashboard. The original project is available at https://www.figma.com/design/6aeOL0BDdqvPYaVoZUqNC5/Wealth-Intelligence-Dashboard.
+  # Wealth Intelligence Application - Wising (beta)
+  is currently taking beta sign ups.
+  The original project is available at https://wising.pro
+  
 
   ## Running the code
 
   Run `npm i` to install the dependencies.
 
   Run `npm run dev` to start the development server.
-  
+
+
+  WISING © 2026 — Wising Intelligence Private Limited
