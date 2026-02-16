@@ -16,6 +16,11 @@ export function Footer() {
                                     <p className="leading-[13.5px] whitespace-pre-wrap">WISING © 2026 — Wising Intelligence Private Limited</p>
                                 </div>
                             </div>
+                            <div className="content-stretch flex flex-col items-start relative">
+                                <div className="flex flex-col font-['Inter:Regular',sans-serif] font-normal justify-center leading-[0] not-italic text-[9px] text-[rgba(153,153,153,0.4)] tracking-[2.7px] uppercase">
+                                    <p className="leading-[13.5px] whitespace-pre-wrap">Contact Us : info@wising.pro</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
