@@ -1,5 +1,6 @@
 import { Header } from "./components/Header";
 import { Linkedin } from "lucide-react";
+import { SEO } from "../../components/SEO";
 import sarthakImg from "../../assets/sarthak-jalan.png";
 import nihalImg from "../../assets/nihal-sharma.jpg";
 import divanshuImg from "../../assets/divanshu-bansal.jpg";
@@ -18,6 +19,11 @@ export function AboutUs() {
             className="relative min-h-screen bg-[#050505] text-white font-['Manrope',sans-serif] overflow-x-hidden selection:bg-cyan-500/30 select-none"
             onContextMenu={(e) => e.preventDefault()}
         >
+            <SEO
+                title="About Us"
+                description="We are building the future of wealth intelligence. Learn about our mission to democratize financial insights and the team behind Wising."
+                canonical="https://wising.pro/about"
+            />
             {/* Background Glow Elements */}
             <div className="fixed -top-[10%] -left-[5%] w-[50vw] h-[50vw] bg-[radial-gradient(circle,rgba(19,164,236,0.08)_0%,rgba(19,164,236,0)_70%)] pointer-events-none z-0"></div>
             <div className="fixed -bottom-[10%] -right-[5%] w-[50vw] h-[50vw] bg-[radial-gradient(circle,rgba(183,110,121,0.08)_0%,rgba(183,110,121,0)_70%)] pointer-events-none z-0"></div>
