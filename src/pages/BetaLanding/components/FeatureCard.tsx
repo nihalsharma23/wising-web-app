@@ -53,7 +53,7 @@ export function FeatureCard({ letter, title, description, hasTopDot = true, hasB
             <div className="content-stretch flex flex-col gap-8 md:gap-10 items-start max-w-[672px] relative px-4">
                 <div className="content-stretch flex flex-col items-center relative w-full">
                     <div
-                        className="flex flex-col font-['Montserrat:Bold',sans-serif] font-bold justify-center leading-[0] text-sm text-center tracking-[11.2px] uppercase bg-clip-text"
+                        className="flex flex-col font-['Montserrat:Bold',sans-serif] font-bold justify-center leading-[0] text-2xl text-center tracking-[11.2px] uppercase bg-clip-text"
                         style={{
                             backgroundImage: "linear-gradient(90deg, rgba(156, 163, 175, 0.6) 0%, rgba(209, 213, 219, 0.8) 20%, rgb(255, 255, 255) 50%, rgba(209, 213, 219, 0.8) 80%, rgba(156, 163, 175, 0.6) 100%)",
                             WebkitTextFillColor: "transparent",
@@ -61,11 +61,11 @@ export function FeatureCard({ letter, title, description, hasTopDot = true, hasB
                             animation: "shimmer-move 8s linear infinite"
                         }}
                     >
-                        <p className="leading-[21px] whitespace-pre-wrap">{title}</p>
+                        <p className="leading-[32px] whitespace-pre-wrap">{title}</p>
                     </div>
                 </div>
                 <div className="content-stretch flex flex-col items-center opacity-80 relative w-full">
-                    <div className="flex flex-col font-['Inter:Light',sans-serif] font-light justify-center leading-[40px] not-italic text-[#999] text-2xl md:text-3xl lg:text-[36px] text-center tracking-[-0.9px] whitespace-pre-wrap">
+                    <div className="flex flex-col font-['Inter:Light',sans-serif] font-light justify-center leading-[40px] not-italic text-[#999] text-2xl md:text-3xl lg:text-[36px] text-center tracking-[-0.9px] whitespace-pre-wrap capitalize">
                         {description}
                     </div>
                 </div>

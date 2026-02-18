@@ -3,7 +3,9 @@ import { motion } from "motion/react";
 // Marquee Component for Supported Integrations
 function MarqueeIntegrations() {
     const integrations = [
+        "Interactive Brokers", "Robinhood", "Alpaca", "Charles Schwab", "Fidelity",
         "Groww", "Zerodha", "Angel One", "Binance", "Coinbase", "Kraken", "CoinDCX", "Bybit",
+        "Interactive Brokers", "Robinhood", "Alpaca", "Charles Schwab", "Fidelity",
         "Groww", "Zerodha", "Angel One", "Binance", "Coinbase", "Kraken", "CoinDCX", "Bybit"
     ];
 

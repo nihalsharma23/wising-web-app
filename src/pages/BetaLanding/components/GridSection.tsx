@@ -32,7 +32,15 @@ export function GridSection() {
                                 {/* Tag */}
                                 <div className="relative w-full">
                                     <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col items-start relative w-full">
-                                        <div className="flex flex-col font-['Montserrat:Semi_Bold',sans-serif] justify-center leading-[0] not-italic text-[10px] text-[rgba(153,153,153,0.5)] tracking-[3px] uppercase">
+                                        <div
+                                            className="flex flex-col font-['Montserrat:Semi_Bold',sans-serif] justify-center leading-[0] not-italic text-[10px] text-center tracking-[3px] uppercase bg-clip-text"
+                                            style={{
+                                                backgroundImage: "linear-gradient(90deg, rgba(156, 163, 175, 0.6) 0%, rgba(209, 213, 219, 0.8) 20%, rgb(255, 255, 255) 50%, rgba(209, 213, 219, 0.8) 80%, rgba(156, 163, 175, 0.6) 100%)",
+                                                WebkitTextFillColor: "transparent",
+                                                backgroundSize: "200% auto",
+                                                animation: "shimmer-move 8s linear infinite"
+                                            }}
+                                        >
                                             <p className="leading-[15px] whitespace-pre-wrap">{feature.tag}</p>
                                         </div>
                                     </div>
@@ -42,7 +50,7 @@ export function GridSection() {
                                 <div className="relative w-full">
                                     <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col items-start relative w-full">
                                         <div
-                                            className="flex flex-col font-['Montserrat:Bold',sans-serif] font-bold justify-center leading-[0] text-2xl tracking-[-0.6px] uppercase bg-clip-text"
+                                            className="flex flex-col font-['Montserrat:Bold',sans-serif] font-bold justify-center leading-[0] text-3xl tracking-[-0.6px] uppercase bg-clip-text"
                                             style={{
                                                 backgroundImage: "linear-gradient(90deg, rgba(156, 163, 175, 0.6) 0%, rgba(209, 213, 219, 0.8) 20%, rgb(255, 255, 255) 50%, rgba(209, 213, 219, 0.8) 80%, rgba(156, 163, 175, 0.6) 100%)",
                                                 WebkitTextFillColor: "transparent",

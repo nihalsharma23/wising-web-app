@@ -99,13 +99,13 @@ export function HeroSection() {
                         className="flex flex-col items-center w-full"
                     >
                         <div
-                            className="bg-clip-text flex flex-col font-['Syne',sans-serif] font-medium justify-center leading-[0] text-center tracking-[7.8px] uppercase text-xs sm:text-[13px] px-4"
+                            className="bg-clip-text flex flex-col font-['Syne',sans-serif] font-medium justify-center leading-[0] text-center tracking-[7.8px] uppercase text-sm sm:text-base px-4"
                             style={{
                                 backgroundImage: "linear-gradient(90deg, rgba(156, 163, 175, 0.6) 0%, rgba(209, 213, 219, 0.8) 20%, rgb(255, 255, 255) 50%, rgba(209, 213, 219, 0.8) 80%, rgba(156, 163, 175, 0.6) 100%)",
                                 WebkitTextFillColor: "transparent"
                             }}
                         >
-                            <p className="leading-[19.5px] whitespace-pre-wrap">Complete Wealth. One Intelligence.</p>
+                            <p className="leading-[24px] whitespace-pre-wrap">Complete Wealth. One Intelligence.</p>
                         </div>
                     </motion.div>
 
@@ -116,38 +116,50 @@ export function HeroSection() {
                         transition={{ duration: 0.8, delay: 0.4 }}
                         className="flex flex-col items-center w-full max-w-[448px] px-4"
                     >
-                        <form onSubmit={handleSubmit} className="w-full">
-                            {/* Input */}
-                            <div className="backdrop-blur-[2px] bg-[rgba(255,255,255,0.02)] relative rounded-tl-[16px] rounded-tr-[16px] w-full">
-                                <div className="content-stretch flex flex-col items-start overflow-clip p-px relative rounded-[inherit] w-full">
+                        <form onSubmit={handleSubmit} className="w-full relative group">
+                            {/* Shimmering Border Container */}
+                            <div
+                                className="absolute -inset-[1px] rounded-[16px] pointer-events-none opacity-70"
+                                style={{
+                                    background: "linear-gradient(90deg, rgba(156, 163, 175, 0.3) 0%, rgba(209, 213, 219, 0.6) 20%, rgba(255, 255, 255, 0.8) 50%, rgba(209, 213, 219, 0.6) 80%, rgba(156, 163, 175, 0.3) 100%)",
+                                    backgroundSize: "200% auto",
+                                    animation: "shimmer-move 4s linear infinite"
+                                }}
+                            />
+
+                            {/* Input Content */}
+                            <div className="backdrop-blur-[2px] bg-[rgba(10,10,10,0.8)] relative rounded-tl-[16px] rounded-tr-[16px] w-full border border-b-0 border-[#1f1f1f]/0">
+                                <div className="content-stretch flex flex-col items-start overflow-clip relative rounded-[inherit] w-full">
                                     <div className="relative w-full">
-                                        <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex items-start justify-center overflow-clip px-6 md:px-8 py-5 md:py-6 relative rounded-[inherit] w-full">
+                                        <div className="bg-clip-padding content-stretch flex items-start justify-center overflow-clip px-6 md:px-8 py-5 md:py-6 relative rounded-[inherit] w-full">
                                             <div className="flex-1 min-w-0">
                                                 <input
                                                     type="text"
                                                     value={email}
                                                     onChange={(e) => setEmail(e.target.value)}
                                                     disabled={loading}
-                                                    className="w-full bg-transparent border-none text-white text-[11px] tracking-[1.1px] font-['Inter:Regular',sans-serif] placeholder:text-[rgba(153,153,153,0.4)] focus:ring-0 focus:outline-none disabled:opacity-50"
-                                                    placeholder="Enter your email address"
+                                                    className="w-full bg-transparent border-none text-[#C0C0C0] text-sm tracking-[1.1px] font-['Inter:Regular',sans-serif] placeholder:text-[#C0C0C0]/50 focus:ring-0 focus:outline-none disabled:opacity-50 shimmer-text"
+                                                    placeholder="Enter your Email ID here."
+                                                    style={{
+                                                        textShadow: "0 0 10px rgba(192, 192, 192, 0.3)"
+                                                    }}
                                                 />
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div aria-hidden="true" className="absolute border border-[#1f1f1f] border-solid inset-0 pointer-events-none rounded-tl-[16px] rounded-tr-[16px]" />
                             </div>
 
                             {/* Button */}
                             <button
                                 type="submit"
                                 disabled={loading}
-                                className="content-stretch flex gap-5 items-center justify-center overflow-clip py-5 relative rounded-bl-[16px] rounded-br-[16px] shadow-[0px_10px_30px_-10px_rgba(255,255,255,0.05)] w-full cursor-pointer hover:shadow-[0px_10px_40px_-5px_rgba(255,255,255,0.1)] transition-shadow disabled:opacity-70 disabled:cursor-not-allowed"
+                                className="content-stretch flex gap-5 items-center justify-center overflow-clip py-5 relative rounded-bl-[16px] rounded-br-[16px] shadow-[0px_10px_30px_-10px_rgba(255,255,255,0.05)] w-full cursor-pointer hover:shadow-[0px_10px_40px_-5px_rgba(255,255,255,0.1)] transition-shadow disabled:opacity-70 disabled:cursor-not-allowed z-10"
                                 style={{ backgroundImage: "linear-gradient(135deg, rgb(255, 255, 255) 0%, rgb(209, 213, 219) 50%, rgb(156, 163, 175) 100%)" }}
                             >
                                 <div className="absolute inset-0 opacity-30 rounded-bl-[16px] rounded-br-[16px]" />
-                                <div className="relative flex flex-col font-['Montserrat:Bold',sans-serif] font-bold justify-center leading-[0] text-[10px] text-black text-center tracking-[5px] uppercase">
-                                    <p className="leading-[15px] whitespace-pre-wrap">{loading ? 'Joining...' : 'Join the Beta'}</p>
+                                <div className="relative flex flex-col font-['Montserrat:Bold',sans-serif] font-bold justify-center leading-[0] text-sm text-black text-center tracking-[5px] uppercase">
+                                    <p className="leading-[15px] whitespace-pre-wrap">{loading ? 'Joining...' : 'Join the Waitlist'}</p>
                                 </div>
                                 {!loading && (
                                     <div className="relative flex flex-col justify-center leading-[0] not-italic text-[12px] text-black text-center">
