@@ -10,6 +10,8 @@ import { SEO } from '../../components/SEO';
 
 import { NetworkCanvas } from '../../components/ui/NetworkCanvas';
 
+import VisitorCounter from '../../components/VisitorCounter';
+
 export function BetaLanding() {
     return (
         <div
@@ -34,6 +36,7 @@ export function BetaLanding() {
             </main>
 
             <Footer />
+            <VisitorCounter />
 
         </div>
     );
