@@ -1,9 +1,32 @@
 
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 
 export const AddAssets = () => {
     const [startIndex, setStartIndex] = useState(0);
     const [selectedBroker, setSelectedBroker] = useState<{ name: string, logo: string } | null>(null);
+    const [activeSection, setActiveSection] = useState<string | null>("stock-brokers");
+
+    const toggleSection = (section: string) => {
+        setActiveSection(activeSection === section ? null : section);
+    };
+
+    const [isExchangeDropdownOpen, setIsExchangeDropdownOpen] = useState(false);
+    const [selectedExchange, setSelectedExchange] = useState<string | null>(null);
+    const dropdownRef = useRef<HTMLDivElement>(null);
+
+    // Close dropdown when clicking outside
+    useEffect(() => {
+        const handleClickOutside = (event: MouseEvent) => {
+            if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+                setIsExchangeDropdownOpen(false);
+            }
+        };
+
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, []);
 
     const getBrokerInstructions = (brokerName: string) => {
         switch (brokerName) {
@@ -65,6 +88,16 @@ export const AddAssets = () => {
         { name: "Fidelity", logo: "https://cdn.brandfetch.io/idzIUUVEBm/w/400/h/400/theme/dark/icon.jpeg?c=1bxid64Mup7aczewSAYMX&t=1752030331882" }
     ];
 
+    const cryptoExchanges = [
+        { name: "Binance", logo: "https://cdn.brandfetch.io/id-pjrLx_q/theme/dark/symbol.svg?c=1bxid64Mup7aczewSAYMX&t=1675846246641" },
+        { name: "Coinbase", logo: "https://cdn.brandfetch.io/idwDWo4ONQ/w/400/h/400/theme/dark/icon.png?c=1bxid64Mup7aczewSAYMX&t=1684846249499" },
+        { name: "Kraken", logo: "https://cdn.brandfetch.io/idYQrXoH-Q/theme/dark/symbol.svg?c=1bxid64Mup7aczewSAYMX&t=1668515586890" },
+        { name: "CoinDCX", logo: "https://cdn.brandfetch.io/idhwhCPzgz/theme/dark/symbol.svg?c=1bxid64Mup7aczewSAYMX&t=1668075036239" },
+        { name: "Hyperliquid", logo: "https://cdn.brandfetch.io/idGSMNVeGY/w/270/h/270/theme/dark/icon.png?c=1bxid64Mup7aczewSAYMX&t=1768327356373" },
+        { name: "Aster", logo: "https://cdn.brandfetch.io/idwaPsWkO2/theme/dark/symbol.svg?c=1bxid64Mup7aczewSAYMX&t=1768330266012" },
+        { name: "Lighter", logo: "https://cdn.brandfetch.io/idqhjfYVWp/w/400/h/400/theme/dark/icon.jpeg?c=1bxid64Mup7aczewSAYMX&t=1767805038314" }
+    ];
+
     const handleNext = () => {
         if (startIndex < brokers.length - 4) {
             setStartIndex(prev => prev + 1);
@@ -115,18 +148,20 @@ export const AddAssets = () => {
                         <div className="space-y-0">
                             {/* Stock Brokers */}
                             <div className="list-item-border group">
-                                <input className="peer sr-only" type="radio" name="asset_category" id="cat-stocks" defaultChecked />
-                                <label className="item-header flex items-center justify-between py-4 md:py-5 cursor-pointer text-text-secondary hover:text-white transition-all" htmlFor="cat-stocks">
+                                <div
+                                    className="item-header flex items-center justify-between py-4 md:py-5 cursor-default select-none text-text-secondary hover:text-white transition-all"
+                                    onClick={() => toggleSection('stock-brokers')}
+                                >
                                     <div className="flex items-center gap-4 md:gap-8">
                                         <span className="text-[10px] md:text-xs font-mono opacity-40">01/</span>
                                         <span className="text-base md:text-lg font-medium tracking-wide shimmer-header">Stock Brokers</span>
                                     </div>
                                     <div className="flex items-center gap-4">
-                                        <div className="glow-indicator opacity-0 w-1.5 h-1.5 rounded-full bg-blue-500 shadow-[0_0_15px_rgba(59,130,246,0.8)] transition-opacity"></div>
-                                        <span className="material-symbols-outlined text-xl transform transition-transform group-peer-checked:rotate-180">expand_more</span>
+                                        <div className={`glow-indicator w-1.5 h-1.5 rounded-full bg-blue-500 shadow-[0_0_15px_rgba(59,130,246,0.8)] transition-opacity ${activeSection === 'stock-brokers' ? 'opacity-100' : 'opacity-0'}`}></div>
+                                        <span className={`material-symbols-outlined text-xl transform transition-transform ${activeSection === 'stock-brokers' ? 'rotate-180' : ''}`}>expand_more</span>
                                     </div>
-                                </label>
-                                <div className="expanded-content max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out">
+                                </div>
+                                <div className={`expanded-content overflow-hidden transition-all duration-500 ease-in-out ${activeSection === 'stock-brokers' ? 'max-h-[1000px] opacity-100' : 'max-h-0 opacity-0'}`}>
                                     <div className="bg-white/[0.02] border border-white/5 rounded-2xl p-6 md:p-8 relative group/slider">
                                         <label className="block text-[9px] md:text-[10px] uppercase tracking-[0.2em] text-text-secondary font-bold mb-6 md:mb-8 text-center md:text-left">Link Your Brokerage</label>
 
@@ -174,32 +209,78 @@ export const AddAssets = () => {
 
                             {/* Crypto Assets (Active by default for demo or toggles via radio) */}
                             <div className="list-item-border group">
-                                <input className="peer sr-only" type="radio" name="asset_category" id="cat-crypto" />
-                                <label className="item-header flex items-center justify-between py-4 md:py-5 cursor-pointer text-text-secondary hover:text-white transition-all" htmlFor="cat-crypto">
+                                <div
+                                    className="item-header flex items-center justify-between py-4 md:py-5 cursor-default select-none text-text-secondary hover:text-white transition-all"
+                                    onClick={() => toggleSection('crypto-assets')}
+                                >
                                     <div className="flex items-center gap-4 md:gap-8">
                                         <span className="text-[10px] md:text-xs font-mono opacity-40">02/</span>
                                         <span className="text-base md:text-lg font-medium tracking-wide shimmer-header">Crypto Assets</span>
                                     </div>
                                     <div className="flex items-center gap-4">
-                                        <div className="glow-indicator opacity-0 w-1.5 h-1.5 rounded-full bg-blue-500 shadow-[0_0_15px_rgba(59,130,246,0.8)] transition-opacity"></div>
-                                        <span className="material-symbols-outlined text-xl transform transition-transform group-peer-checked:rotate-180">expand_more</span>
+                                        <div className={`glow-indicator w-1.5 h-1.5 rounded-full bg-blue-500 shadow-[0_0_15px_rgba(59,130,246,0.8)] transition-opacity ${activeSection === 'crypto-assets' ? 'opacity-100' : 'opacity-0'}`}></div>
+                                        <span className={`material-symbols-outlined text-xl transform transition-transform ${activeSection === 'crypto-assets' ? 'rotate-180' : ''}`}>expand_more</span>
                                     </div>
-                                </label>
-                                <div className="expanded-content max-h-0 opacity-0 overflow-hidden transition-all duration-500 ease-in-out">
+                                </div>
+                                <div
+                                    className={`expanded-content overflow-hidden transition-all duration-500 ease-in-out ${activeSection === 'crypto-assets' ? 'max-h-[1000px] opacity-100' : 'max-h-0 opacity-0'}`}
+                                    style={{ overflow: activeSection === 'crypto-assets' && isExchangeDropdownOpen ? 'visible' : undefined }}
+                                >
                                     <div className="space-y-6 bg-white/[0.02] border border-white/5 rounded-2xl p-4 md:p-6">
                                         <div className="space-y-4">
                                             <label className="block text-[10px] uppercase tracking-[0.2em] text-text-secondary font-bold">Select Exchange</label>
                                             <div className="flex flex-col sm:flex-row gap-3">
-                                                <div className="relative flex-1">
-                                                    <select className="w-full bg-white/[0.04] border-white/10 border rounded-xl focus:border-white focus:ring-0 text-white font-medium text-sm py-3 md:py-3.5 pl-6 pr-10 transition-colors appearance-none cursor-pointer">
-                                                        <option value="" disabled selected className="bg-neutral-900 text-white">Choose a global exchange</option>
-                                                        <option value="binance" className="bg-neutral-900 text-white">Binance</option>
-                                                        <option value="coinbase" className="bg-neutral-900 text-white">Coinbase</option>
-                                                        <option value="kraken" className="bg-neutral-900 text-white">Kraken</option>
-                                                    </select>
-                                                    <div className="absolute inset-y-0 right-4 flex items-center pointer-events-none">
-                                                        <span className="material-symbols-outlined text-lg text-white/40">expand_more</span>
-                                                    </div>
+                                                <div className="relative flex-1" ref={dropdownRef}>
+                                                    <button
+                                                        onClick={(e) => {
+                                                            e.stopPropagation();
+                                                            setIsExchangeDropdownOpen(!isExchangeDropdownOpen);
+                                                        }}
+                                                        className={`w-full bg-white/[0.04] border rounded-xl focus:border-[#C0C0C0] focus:ring-0 font-medium text-sm py-3 md:py-3.5 pl-6 pr-10 transition-colors text-left flex items-center gap-3 ${isExchangeDropdownOpen ? 'border-[#C0C0C0]' : 'border-white/10'}`}
+                                                    >
+                                                        {selectedExchange ? (
+                                                            <>
+                                                                <div className="w-5 h-5 rounded-full bg-white/10 flex-shrink-0 flex items-center justify-center overflow-hidden">
+                                                                    <img
+                                                                        src={cryptoExchanges.find(e => e.name === selectedExchange)?.logo}
+                                                                        alt={selectedExchange}
+                                                                        className="w-full h-full object-contain opacity-90"
+                                                                    />
+                                                                </div>
+                                                                <span className="text-[#C0C0C0]">{selectedExchange}</span>
+                                                            </>
+                                                        ) : (
+                                                            <span className="text-[#C0C0C0]">Choose a Global CEX or DEX.</span>
+                                                        )}
+                                                        <div className="absolute inset-y-0 right-4 flex items-center pointer-events-none">
+                                                            <span className={`material-symbols-outlined text-lg text-white/40 transition-transform ${isExchangeDropdownOpen ? 'rotate-180' : ''}`}>expand_more</span>
+                                                        </div>
+                                                    </button>
+
+                                                    {isExchangeDropdownOpen && (
+                                                        <div className="absolute z-20 w-full mt-2 bg-black border border-white/10 rounded-xl shadow-xl max-h-60 overflow-y-auto animate-in fade-in zoom-in duration-200 custom-scrollbar">
+                                                            {cryptoExchanges.map((exchange) => (
+                                                                <button
+                                                                    key={exchange.name}
+                                                                    onClick={(e) => {
+                                                                        e.stopPropagation();
+                                                                        setSelectedExchange(exchange.name);
+                                                                        setIsExchangeDropdownOpen(false);
+                                                                    }}
+                                                                    className="w-full px-6 py-3 text-left flex items-center gap-3 hover:bg-white/5 transition-colors group"
+                                                                >
+                                                                    <div className="w-6 h-6 rounded-full bg-white/10 border border-white/5 flex-shrink-0 flex items-center justify-center overflow-hidden group-hover:border-white/20 transition-colors">
+                                                                        <img
+                                                                            src={exchange.logo}
+                                                                            alt={exchange.name}
+                                                                            className="w-full h-full object-contain opacity-80 group-hover:opacity-100 transition-opacity"
+                                                                        />
+                                                                    </div>
+                                                                    <span className="text-[#C0C0C0] text-sm font-medium">{exchange.name}</span>
+                                                                </button>
+                                                            ))}
+                                                        </div>
+                                                    )}
                                                 </div>
                                                 <button className="px-6 md:px-8 py-3.5 md:py-0 bg-white text-black text-[10px] font-bold uppercase tracking-widest rounded-xl hover:bg-neutral-200 transition-all whitespace-nowrap w-full md:w-[170px] flex items-center justify-center">Link Account</button>
                                             </div>
@@ -212,7 +293,7 @@ export const AddAssets = () => {
                                                         <input
                                                             type="text"
                                                             placeholder="Paste your wallet address (ETH, BTC, SOL, BSC, POLY...)"
-                                                            className="w-full bg-white/[0.04] border-white/10 border rounded-xl focus:border-white focus:ring-0 text-white font-medium text-sm py-3 md:py-3.5 px-6 transition-colors placeholder:text-white/20"
+                                                            className="w-full bg-white/[0.04] border-white/10 border rounded-xl focus:border-[#C0C0C0] focus:ring-0 text-white font-medium text-sm py-3 md:py-3.5 px-6 transition-colors placeholder:text-white/20"
                                                         />
                                                     </div>
                                                     <button className="px-6 md:px-8 py-3.5 md:py-0 bg-blue-950/40 text-blue-400 text-[10px] font-['Syne'] font-medium uppercase tracking-widest rounded-xl border border-blue-500/30 hover:bg-blue-900/40 transition-all whitespace-nowrap flex items-center justify-center gap-2 backdrop-blur-sm w-full md:w-[170px]">
@@ -232,17 +313,25 @@ export const AddAssets = () => {
 
                             {/* Commodities */}
                             <div className="list-item-border group">
-                                <input className="peer sr-only" type="radio" name="asset_category" id="cat-commodities" />
-                                <label className="item-header flex items-center justify-between py-4 md:py-5 cursor-pointer text-text-secondary hover:text-white transition-all" htmlFor="cat-commodities">
+                                <div
+                                    className="item-header flex items-center justify-between py-4 md:py-5 cursor-pointer text-text-secondary hover:text-white transition-all"
+                                    onClick={() => toggleSection('commodities')}
+                                >
                                     <div className="flex items-center gap-4 md:gap-8">
                                         <span className="text-[10px] md:text-xs font-mono opacity-40">03/</span>
                                         <span className="text-base md:text-lg font-medium tracking-wide shimmer-header">Commodities</span>
                                     </div>
                                     <div className="flex items-center gap-4">
-                                        <div className="glow-indicator opacity-0 w-1.5 h-1.5 rounded-full bg-blue-500 shadow-[0_0_15px_rgba(59,130,246,0.8)] transition-opacity"></div>
-                                        <span className="material-symbols-outlined text-xl transform transition-transform group-peer-checked:rotate-180">expand_more</span>
+                                        <div className={`glow-indicator w-1.5 h-1.5 rounded-full bg-blue-500 shadow-[0_0_15px_rgba(59,130,246,0.8)] transition-opacity ${activeSection === 'commodities' ? 'opacity-100' : 'opacity-0'}`}></div>
+                                        <span className={`material-symbols-outlined text-xl transform transition-transform ${activeSection === 'commodities' ? 'rotate-180' : ''}`}>expand_more</span>
                                     </div>
-                                </label>
+                                </div>
+                                <div className={`expanded-content overflow-hidden transition-all duration-500 ease-in-out ${activeSection === 'commodities' ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'}`}>
+                                    {/* Placeholder content for Commodities */}
+                                    <div className="bg-white/[0.02] border border-white/5 rounded-2xl p-6 md:p-8">
+                                        <p className="text-text-secondary text-xs uppercase tracking-widest text-center opacity-50">Coming Soon</p>
+                                    </div>
+                                </div>
                             </div>
 
                             {/* Coming Soon Items */}
