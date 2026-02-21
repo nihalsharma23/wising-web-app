@@ -1,7 +1,12 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 
-export const AddAssets = () => {
+interface AddAssetsProps {
+    onClose?: () => void;
+}
+
+export const AddAssets = ({ onClose }: AddAssetsProps) => {
+
     const [startIndex, setStartIndex] = useState(0);
     const [selectedBroker, setSelectedBroker] = useState<{ name: string, logo: string } | null>(null);
     const [activeSection, setActiveSection] = useState<string | null>("stock-brokers");
@@ -314,7 +319,7 @@ export const AddAssets = () => {
                             {/* Commodities */}
                             <div className="list-item-border group">
                                 <div
-                                    className="item-header flex items-center justify-between py-4 md:py-5 cursor-pointer text-text-secondary hover:text-white transition-all"
+                                    className="item-header flex items-center justify-between py-4 md:py-5 cursor-default select-none text-text-secondary hover:text-white transition-all"
                                     onClick={() => toggleSection('commodities')}
                                 >
                                     <div className="flex items-center gap-4 md:gap-8">
@@ -343,9 +348,13 @@ export const AddAssets = () => {
                             <p className="text-text-secondary text-[10px] font-bold uppercase tracking-[0.2em] opacity-40">Copyright 2026 Wising Pvt. Ltd.</p>
                         </div>
                         <div className="flex items-center gap-3 w-full md:w-auto">
-                            <button className="flex-1 md:flex-none px-6 md:px-10 py-2.5 md:py-2.5 rounded-xl text-[10px] font-bold uppercase tracking-widest text-text-secondary hover:text-white transition-all border border-white/5 hover:border-white/10">
+                            <button
+                                onClick={onClose}
+                                className="flex-1 md:flex-none px-6 md:px-10 py-2.5 md:py-2.5 rounded-xl text-[10px] font-bold uppercase tracking-widest text-text-secondary hover:text-white transition-all border border-white/5 hover:border-white/10"
+                            >
                                 Cancel
                             </button>
+
                             <button className="flex-1 md:flex-none px-8 md:px-12 py-2.5 md:py-2.5 rounded-xl bg-white text-black text-[10px] font-bold uppercase tracking-widest hover:bg-neutral-200 transition-all shadow-[0_0_25px_rgba(255,255,255,0.15)] active:scale-95">
                                 Continue
                             </button>

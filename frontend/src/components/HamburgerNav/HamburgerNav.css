@@ -1,0 +1,200 @@
+/* HamburgerNav.css */
+
+.hamburger-nav-root {
+    /* Sits at the very top-left, above all content but below modals */
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 60;
+    display: flex;
+}
+
+/* Mobile dark backdrop */
+.hamburger-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    z-index: 55;
+}
+
+/* Hamburger button – always visible top-left */
+.hamburger-toggle {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 5rem;
+    /* 80px – matches header height on mobile */
+    height: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.6);
+    transition: color 0.3s;
+    z-index: 70;
+    background: transparent;
+    border: none;
+    outline: none;
+}
+
+.hamburger-toggle:hover,
+.hamburger-toggle.active {
+    color: white;
+}
+
+.hamburger-toggle .material-symbols-outlined {
+    font-size: 1.875rem;
+    /* text-3xl */
+    font-variation-settings: 'wght' 300;
+}
+
+/* Sidebar panel */
+.hamburger-aside {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 0;
+    transform: translateX(-100%);
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(48px);
+    -webkit-backdrop-filter: blur(48px);
+    border-right: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+        transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    z-index: 65;
+}
+
+/* Desktop: open on hover */
+@media (min-width: 1024px) {
+    .hamburger-nav-root:hover .hamburger-aside {
+        width: 280px;
+        transform: translateX(0);
+    }
+
+    .hamburger-nav-root:hover .nav-label {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Open state (click toggle) */
+.hamburger-aside.open {
+    width: 280px;
+    transform: translateX(0);
+}
+
+.hamburger-aside.open .nav-label {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Mobile: full width when open */
+@media (max-width: 1023px) {
+    .hamburger-aside.open {
+        width: 100vw;
+    }
+}
+
+/* Close button – only visible on mobile inside the sidebar */
+.hamburger-close {
+    position: absolute;
+    top: 1.75rem;
+    right: 1.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: rgba(255, 255, 255, 0.4);
+    transition: color 0.3s;
+    background: transparent;
+    border: none;
+    outline: none;
+}
+
+@media (min-width: 1024px) {
+    .hamburger-close {
+        display: none;
+    }
+}
+
+.hamburger-close:hover {
+    color: white;
+}
+
+.hamburger-close .material-symbols-outlined {
+    font-size: 1.5rem;
+    font-variation-settings: 'wght' 300;
+}
+
+/* Sidebar header */
+.hamburger-header {
+    height: 6rem;
+    display: flex;
+    align-items: center;
+    padding: 0 1.75rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    margin-bottom: 1.5rem;
+    flex-shrink: 0;
+    padding-top: 0.5rem;
+}
+
+.hamburger-header span {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.4);
+    margin-left: 3rem;
+    white-space: nowrap;
+}
+
+/* Nav list */
+.hamburger-nav {
+    flex: 1;
+    overflow-y: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.hamburger-nav::-webkit-scrollbar {
+    display: none;
+}
+
+/* Sidebar footer */
+.hamburger-footer {
+    padding: 0.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    flex-shrink: 0;
+}
+
+/* Nav label animation (set in Dashboard.css globally, duplicated here for safety) */
+.nav-label {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.25em;
+    color: #94a3b8;
+    transition: all 500ms ease-out;
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateX(-10px);
+}
+
+/* sidebar-item no-border variant */
+.sidebar-item--no-border {
+    border-left-color: transparent !important;
+}
+
+.sidebar-item--no-border:hover {
+    border-left-color: transparent !important;
+}

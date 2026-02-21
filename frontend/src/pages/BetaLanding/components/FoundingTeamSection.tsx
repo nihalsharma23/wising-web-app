@@ -1,4 +1,4 @@
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 import imgFounding1 from "../assets/founding_team_v2_1.png";
 import imgFounding2 from "../assets/founding_team_v2_2.png";
 import imgFounding3 from "../assets/founding_team_v2_3.png";

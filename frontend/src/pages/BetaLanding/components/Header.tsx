@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link } from "react-router-dom";
-import { motion, AnimatePresence } from "motion/react";
+import { motion, AnimatePresence } from "framer-motion";
 import imgHeaderLogo from "../assets/header_logo.png";
 
 interface HeaderProps {

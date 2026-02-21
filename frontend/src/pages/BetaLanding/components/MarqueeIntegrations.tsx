@@ -1,4 +1,4 @@
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 
 // Marquee Component for Supported Integrations
 function MarqueeIntegrations() {

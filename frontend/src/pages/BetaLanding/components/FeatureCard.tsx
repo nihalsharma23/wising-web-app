@@ -1,4 +1,4 @@
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 import { BlinkingDot } from "./BlinkingDot";
 
 export function FeatureCard({ letter, title, description, hasTopDot = true, hasBottomDot = false }: {
