@@ -2,12 +2,12 @@ import { motion } from "motion/react";
 
 export function GridSection() {
     const features = [
-        { tag: "01 / System", title: "Unified Wealth", desc: "What if you could see everything you own\nin 10 seconds instead of logging into 15\napps? Connect brokers, exchanges, and\nwallets for your complete net worth, live\nF&O trades, and margins in one place." },
-        { tag: "02 / Analysis", title: "Intelligence Layer", desc: "What if your portfolio could answer\nquestions like a human analyst? Ask\n\"How's my portfolio vs Nifty?\" in plain\nEnglish and get instant answers from your\nactual data." },
-        { tag: "04 / Evolution", title: "Behavioural Mirror", desc: "What if someone showed you exactly\nwhich habits are draining your wealth? AI\ntracks every trade, spots panic sells and\nFOMO buys, then shows what each\npattern costs you." },
-        { tag: "05 / Performance", title: "Performance Truth", desc: "What if you could know for certain if\nyou're beating the market or just riding\nluck? XIRR, weighted returns,\nbenchmarking against Nifty, S&P 500,\nBitcoin & 10+ indices to see what's\nactually working." },
-        { tag: "06 / Content", title: "Context Feed", desc: "What if news came pre-filtered for what\nactually affects YOUR money? AI scans\nthousands of articles and surfaces only\nwhat hits your holdings. Own TCS? See\nInfosys earnings." },
-        { tag: "07 / Vitality", title: "Health Metrics", desc: "What if you could measure your\nportfolio's health like your body's vitals?\nDiversification, volatility, concentration,\nbehavioral patterns. All from YOUR trades.\nSee it. Understand it." },
+        { tag: "01/ System", title: "Unified Wealth", desc: "What if you could see everything you own\nin 10 seconds instead of logging into 15\napps? Connect brokers, exchanges, and\nwallets for your complete net worth, live\nF&O trades, and margins in one place." },
+        { tag: "02 Analysis", title: "Intelligence Layer", desc: "What if your portfolio could answer\nquestions like a human analyst? Ask\n\"How's my portfolio vs Nifty?\" in plain\nEnglish and get instant answers from your\nactual data." },
+        { tag: "03/ Evaluation", title: "Behavioural Mirror", desc: "What if someone showed you exactly\nwhich habits are draining your wealth? AI\ntracks every trade, spots panic sells and\nFOMO buys, then shows what each\npattern costs you." },
+        { tag: "04 Performance", title: "Performance Truth", desc: "What if you could know for certain if\nyou're beating the market or just riding\nluck? XIRR, weighted returns,\nbenchmarking against Nifty, S&P 500,\nBitcoin & 10+ indices to see what's\nactually working." },
+        { tag: "05/ Content", title: "Context Feed", desc: "What if news came pre-filtered for what\nactually affects YOUR money? AI scans\nthousands of articles and surfaces only\nwhat hits your holdings. Own TCS? See\nInfosys earnings." },
+        { tag: "06 Vitality", title: "Health Metrics", desc: "What if you could measure your\nportfolio's health like your body's vitals?\nDiversification, volatility, concentration,\nbehavioral patterns. All from YOUR trades.\nSee it. Understand it." },
     ];
 
     return (

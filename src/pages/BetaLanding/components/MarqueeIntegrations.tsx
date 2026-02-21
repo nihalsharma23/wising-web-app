@@ -2,26 +2,29 @@ import { motion } from "motion/react";
 
 // Marquee Component for Supported Integrations
 function MarqueeIntegrations() {
-    const integrations = [
+    const rawIntegrations = [
         "Interactive Brokers", "Robinhood", "Alpaca", "Charles Schwab", "Fidelity",
         "Groww", "Zerodha", "Angel One", "Binance", "Coinbase", "Kraken", "CoinDCX", "Bybit",
-        "Interactive Brokers", "Robinhood", "Alpaca", "Charles Schwab", "Fidelity",
-        "Groww", "Zerodha", "Angel One", "Binance", "Coinbase", "Kraken", "CoinDCX", "Bybit"
+        "+5 Brokers", "On Chain Tracking"
     ];
+
+    // Double the list to create seamless loop
+    const integrations = [...rawIntegrations, ...rawIntegrations];
 
     return (
         <div className="relative overflow-hidden w-full h-[40px] flex items-center">
             <motion.div
                 className="flex gap-14 items-center whitespace-nowrap"
                 animate={{
-                    x: [0, -50 * integrations.length / 2],
+                    x: "-50%",
                 }}
                 transition={{
-                    x: {
-                        duration: 20,
-                        repeat: Infinity,
-                        ease: "linear",
-                    },
+                    duration: 40, // Slower duration for longer list
+                    repeat: Infinity,
+                    ease: "linear",
+                }}
+                style={{
+                    width: "fit-content",
                 }}
             >
                 {integrations.map((name, i) => (
