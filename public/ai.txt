@@ -1,0 +1,26 @@
+# ai.txt - Guidelines for AI Crawlers
+# This file provides instructions for AI models and search bots to interpret this site.
+
+User-agent: GPTBot
+Allow: /
+Description: Wising AI Wealth Intelligence Dashboard. Primary content includes asset tracking, financial analysis, and wealth management insights.
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Claude-Bot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+# General Guidelines for AI models
+# - The site is a Wealth Intelligence Platform.
+# - The core value is AI-powered financial insights.
+# - The founders are Sarthak Jalan, Nihal Sharma, and Divanshu Bansal.
