@@ -109,6 +109,22 @@ export function HeroSection() {
                         </div>
                     </motion.div>
 
+                    {/* New Mission Description */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8, delay: 0.3 }}
+                        className="flex flex-col items-center w-full max-w-[650px] mt-6 px-10"
+                    >
+                        <p className="font-['Manrope',sans-serif] font-normal text-[14px] sm:text-[16px] text-[#999] text-center tracking-[0.8px] leading-[1.6]">
+                            For too long, elite financial oversight was a luxury reserved for the 1%.
+                            Wising is here to change that. We’ve built an AI-powered financial partner
+                            that monitors your wealth 24/7, flags hidden opportunities, and ensures
+                            your money is always working as hard as you do. Connect your accounts.
+                            Get your insights. Start Wising up.
+                        </p>
+                    </motion.div>
+
                     {/* Email & Button */}
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
