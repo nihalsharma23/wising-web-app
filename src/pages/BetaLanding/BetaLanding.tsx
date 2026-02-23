@@ -20,6 +20,21 @@ export function BetaLanding() {
                 title="AI Wealth Intelligence Dashboard"
                 description="Wising is the world's first AI-powered Wealth Intelligence Dashboard. Track net worth, analyze assets, and get personalized financial insights."
                 canonical="https://wising.pro/"
+                keywords="ai wealth management, wealth intelligence, portfolio tracker, net worth tracker, financial analytics"
+                structuredData={{
+                    "@context": "https://schema.org",
+                    "@type": "WebApplication",
+                    "name": "Wising",
+                    "description": "AI-powered Wealth Intelligence Dashboard",
+                    "url": "https://wising.pro/",
+                    "applicationCategory": "FinanceApplication",
+                    "operatingSystem": "Web",
+                    "offers": {
+                        "@type": "Offer",
+                        "price": "0",
+                        "priceCurrency": "USD"
+                    }
+                }}
             />
             {/* Animation rendered internally in lower section to ensure visibility on all screens */}
             <NetworkCanvas />

@@ -142,6 +142,16 @@
     justify-content: center;
   }
 
+  .chrome-silver-metallic {
+    background: linear-gradient(90deg, #e0e0e0 0%, #ffffff 20%, #7a7a7a 50%, #ffffff 80%, #e0e0e0 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmer-move 8s linear infinite;
+    display: inline-flex;
+    align-items: center;
+  }
+
   .shimmer-header {
     position: relative;
     overflow: hidden;
@@ -197,6 +207,30 @@
     100% {
       background-position: -200% 0;
     }
+  }
+
+  @keyframes border-shine-continuous {
+    0% {
+      background-position: 200% -200%;
+    }
+
+    100% {
+      background-position: -200% 200%;
+    }
+  }
+
+  .metallic-border-shine {
+    position: relative;
+    border: 1px solid transparent;
+    background: linear-gradient(black, black) padding-box,
+      linear-gradient(225deg,
+        rgba(192, 192, 192, 0.1) 0%,
+        rgba(192, 192, 192, 0.1) 45%,
+        rgba(255, 255, 255, 0.8) 50%,
+        rgba(192, 192, 192, 0.1) 55%,
+        rgba(192, 192, 192, 0.1) 100%) border-box;
+    background-size: 400% 400%;
+    animation: border-shine-continuous 7s linear infinite;
   }
 }
 

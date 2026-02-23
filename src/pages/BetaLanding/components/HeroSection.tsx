@@ -69,7 +69,7 @@ export function HeroSection() {
 
             {/* Hero Content - Centered */}
             <div className="relative z-10 max-w-[1400px] w-full mx-auto">
-                <div className="flex flex-col items-center justify-center gap-6 md:gap-8 lg:gap-10 py-12 md:py-16 lg:py-20">
+                <div className="flex flex-col items-center justify-center gap-6 md:gap-8 lg:gap-10 pt-24 pb-16 md:pt-32 md:pb-20 lg:pt-40 lg:pb-24">
                     {/* Headline */}
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
@@ -78,7 +78,7 @@ export function HeroSection() {
                         className="flex flex-col items-center w-full"
                     >
                         <div
-                            className="bg-clip-text flex flex-col font-['Syne',sans-serif] font-normal justify-center leading-[1.6] text-center tracking-[15.4px] uppercase whitespace-pre-wrap text-3xl sm:text-4xl md:text-5xl lg:text-[44px] px-4"
+                            className="bg-clip-text flex flex-col font-['Syne',sans-serif] font-normal justify-center leading-[1.6] text-center tracking-[15.4px] uppercase whitespace-pre-wrap text-[1.8rem] sm:text-[2.2rem] md:text-[2.9rem] lg:text-[43.3px] px-4"
                             style={{
                                 backgroundImage: "linear-gradient(90deg, rgba(156, 163, 175, 0.6) 0%, rgba(209, 213, 219, 0.8) 20%, rgb(255, 255, 255) 50%, rgba(209, 213, 219, 0.8) 80%, rgba(156, 163, 175, 0.6) 100%)",
                                 WebkitTextFillColor: "transparent",
@@ -99,7 +99,7 @@ export function HeroSection() {
                         className="flex flex-col items-center w-full"
                     >
                         <div
-                            className="bg-clip-text flex flex-col font-['Syne',sans-serif] font-medium justify-center leading-[0] text-center tracking-[7.8px] uppercase text-sm sm:text-base px-4"
+                            className="bg-clip-text flex flex-col font-['Syne',sans-serif] font-medium justify-center leading-[0] text-center tracking-[7.8px] uppercase text-[13.3px] sm:text-[15.3px] px-4"
                             style={{
                                 backgroundImage: "linear-gradient(90deg, rgba(156, 163, 175, 0.6) 0%, rgba(209, 213, 219, 0.8) 20%, rgb(255, 255, 255) 50%, rgba(209, 213, 219, 0.8) 80%, rgba(156, 163, 175, 0.6) 100%)",
                                 WebkitTextFillColor: "transparent"
@@ -158,7 +158,7 @@ export function HeroSection() {
                                 style={{ backgroundImage: "linear-gradient(135deg, rgb(255, 255, 255) 0%, rgb(209, 213, 219) 50%, rgb(156, 163, 175) 100%)" }}
                             >
                                 <div className="absolute inset-0 opacity-30 rounded-bl-[16px] rounded-br-[16px]" />
-                                <div className="relative flex flex-col font-['Montserrat:Bold',sans-serif] font-bold justify-center leading-[0] text-sm text-black text-center tracking-[5px] uppercase">
+                                <div className="relative flex flex-col font-['Montserrat',sans-serif] font-medium justify-center leading-[0] text-sm text-black text-center tracking-[5px] uppercase">
                                     <p className="leading-[15px] whitespace-pre-wrap">{loading ? 'Joining...' : 'Join the Waitlist'}</p>
                                 </div>
                                 {!loading && (
@@ -176,6 +176,43 @@ export function HeroSection() {
                                 </div>
                             )}
                         </form>
+
+                        {/* Progress Breadcrumb & Commitments */}
+                        <div className="mt-8 flex flex-col items-center gap-4">
+                            <div className="px-5 py-3 bg-black rounded-lg flex flex-col items-center gap-1.5 shadow-[0_0_20px_rgba(255,255,255,0.02)] metallic-border-shine">
+                                <span className="text-[10px] font-['Manrope',sans-serif] text-[#C0C0C0] tracking-[3px] uppercase font-normal whitespace-nowrap">
+                                    458 / 500 WAITLIST MEMBERS JOINED.
+                                </span>
+                                <span className="text-[9px] font-['Manrope',sans-serif] text-[#C0C0C0]/60 tracking-[1.2px] font-normal whitespace-nowrap">
+                                    Free premium tier for first 500 waitlist members and get early access.
+                                </span>
+                            </div>
+
+                            {/* No Commitments Text */}
+                            <div className="flex items-center gap-2">
+                                <div className="flex items-center justify-center w-2 h-2 rounded-full border-[0.4px] border-white/30">
+                                    <svg
+                                        width="6"
+                                        height="6"
+                                        viewBox="0 0 10 10"
+                                        fill="none"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        className="text-[#C0C0C0]/80"
+                                    >
+                                        <path
+                                            d="M2 5L4 7L8 3"
+                                            stroke="currentColor"
+                                            strokeWidth="0.8"
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                        />
+                                    </svg>
+                                </div>
+                                <span className="text-[10px] font-['Manrope',sans-serif] text-[#C0C0C0]/80 tracking-[2px] uppercase font-normal">
+                                    NO COMMITMENTS REQUIRED
+                                </span>
+                            </div>
+                        </div>
                     </motion.div>
                 </div>
             </div>

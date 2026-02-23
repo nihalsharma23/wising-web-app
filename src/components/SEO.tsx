@@ -7,6 +7,9 @@ interface SEOProps {
     ogImage?: string;
     ogType?: 'website' | 'article';
     twitterHandle?: string;
+    keywords?: string;
+    robots?: string;
+    structuredData?: object;
 }
 
 export function SEO({
@@ -15,7 +18,10 @@ export function SEO({
     canonical,
     ogImage = 'https://wising.pro/og-image.png',
     ogType = 'website',
-    twitterHandle = '@wising_app'
+    twitterHandle = '@wising_app',
+    keywords = 'wealth intelligence, ai finance, asset tracking, portfolio analysis, wising',
+    robots = 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1',
+    structuredData
 }: SEOProps) {
     const siteTitle = 'Wising';
     const fullTitle = `${title} | ${siteTitle}`;
@@ -25,6 +31,8 @@ export function SEO({
             {/* Standard Metadata */}
             <title>{fullTitle}</title>
             <meta name="description" content={description} />
+            <meta name="keywords" content={keywords} />
+            <meta name="robots" content={robots} />
             {canonical && <link rel="canonical" href={canonical} />}
 
             {/* Open Graph / Facebook */}
@@ -37,10 +45,18 @@ export function SEO({
 
             {/* Twitter */}
             <meta name="twitter:card" content="summary_large_image" />
+            <meta name="twitter:site" content={twitterHandle} />
             <meta name="twitter:creator" content={twitterHandle} />
             <meta name="twitter:title" content={fullTitle} />
             <meta name="twitter:description" content={description} />
             <meta name="twitter:image" content={ogImage} />
+
+            {/* Structured Data (JSON-LD) */}
+            {structuredData && (
+                <script type="application/ld+json">
+                    {JSON.stringify(structuredData)}
+                </script>
+            )}
         </Helmet>
     );
 }

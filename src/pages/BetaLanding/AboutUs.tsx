@@ -20,9 +20,22 @@ export function AboutUs() {
             onContextMenu={(e) => e.preventDefault()}
         >
             <SEO
-                title="About Us"
+                title="About Our Mission"
                 description="We are building the future of wealth intelligence. Learn about our mission to democratize financial insights and the team behind Wising."
                 canonical="https://wising.pro/about"
+                keywords="wising founders, sarthak jalan, nihal sharma, divanshu bansal, wealth intelligence team"
+                structuredData={{
+                    "@context": "https://schema.org",
+                    "@type": "Organization",
+                    "name": "Wising Intelligence Private Limited",
+                    "url": "https://wising.pro/about",
+                    "logo": "https://wising.pro/src/pages/BetaLanding/assets/favicon.png",
+                    "founder": [
+                        { "@type": "Person", "name": "Sarthak Jalan" },
+                        { "@type": "Person", "name": "Nihal Sharma" },
+                        { "@type": "Person", "name": "Divanshu Bansal" }
+                    ]
+                }}
             />
             {/* Background Glow Elements */}
             <div className="fixed -top-[10%] -left-[5%] w-[50vw] h-[50vw] bg-[radial-gradient(circle,rgba(19,164,236,0.08)_0%,rgba(19,164,236,0)_70%)] pointer-events-none z-0"></div>

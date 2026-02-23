@@ -1,6 +1,6 @@
 export function Footer() {
     return (
-        <div className="bg-[#0a0a0a] relative w-full">
+        <footer className="bg-[#0a0a0a] relative w-full">
             <div aria-hidden="true" className="absolute border-[#1f1f1f] border-solid border-t inset-0 pointer-events-none" />
             <div className="content-stretch flex flex-col items-start pb-6 md:pb-8 pt-6 md:pt-8 px-6 md:px-16 relative w-full">
                 <div className="relative w-full">
@@ -25,6 +25,6 @@ export function Footer() {
                     </div>
                 </div>
             </div>
-        </div>
+        </footer>
     );
 }
