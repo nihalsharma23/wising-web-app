@@ -68,8 +68,8 @@ export function HeroSection() {
             <AnimatedBackground />
 
             {/* Hero Content - Centered */}
-            <div className="relative z-10 max-w-[1400px] w-full mx-auto">
-                <div className="flex flex-col items-center justify-center gap-6 md:gap-8 lg:gap-10 pt-24 pb-16 md:pt-32 md:pb-20 lg:pt-40 lg:pb-24">
+            <div className="relative z-10 max-w-[1400px] w-full mx-auto transform translate-y-[-5vh]">
+                <div className="flex flex-col items-center justify-center gap-4 md:gap-6 lg:gap-8 pt-20 pb-12 md:pt-24 md:pb-16 lg:pt-28 lg:pb-20">
                     {/* Headline */}
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
@@ -114,7 +114,7 @@ export function HeroSection() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.3 }}
-                        className="flex flex-col items-center w-full max-w-[650px] mt-6 px-10"
+                        className="flex flex-col items-center w-full max-w-[850px] mt-4 px-10"
                     >
                         <p className="font-['Manrope',sans-serif] font-normal text-[14px] sm:text-[16px] text-[#999] text-center tracking-[0.8px] leading-[1.6]">
                             For too long, elite financial oversight was a luxury reserved for the 1%.
