@@ -14,7 +14,62 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="google-site-verification" content="KezI-OcYvB144R7ZuMgr8seZAfVWHe6KLFRJbONLbbM" />
-  <title>Wising</title>
+  <title>Wising | Wealth Intelligence</title>
+  <meta name="description"
+    content="Wising - Advanced Wealth Intelligence and Portfolio Analysis. Track your assets, analyze performance, and evolve your wealth strategy." />
+  <meta name="keywords"
+    content="wealth intelligence, ai finance, asset tracking, portfolio analysis, wising, fintech" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Wising | Wealth Intelligence" />
+  <meta property="og:description"
+    content="Advanced Wealth Intelligence and Portfolio Analysis. Track your assets, analyze performance, and evolve your wealth strategy." />
+  <meta property="og:image" content="https://wising.app/og-image.png" />
+  <meta property="og:url" content="https://wising.app/" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Wising | Wealth Intelligence" />
+  <meta name="twitter:description"
+    content="Advanced Wealth Intelligence and Portfolio Analysis. Track your assets, analyze performance, and evolve your wealth strategy." />
+  <meta name="twitter:image" content="https://wising.app/og-image.png" />
+
+  <!-- IndexNow API Call -->
+  <script>
+    (function () {
+      const indexNowEndpoint = 'https://api.indexnow.org/IndexNow';
+      const key = '846394871d2141deb28e4d4cd2392903';
+
+      const data = {
+        "host": "wising.app",
+        "key": key,
+        "keyLocation": `https://wising.app/${key}.txt`,
+        "urlList": [
+          "https://wising.app/",
+          "https://wising.app/dashboard",
+          "https://wising.app/about"
+        ]
+      };
+
+      fetch(indexNowEndpoint, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json; charset=utf-8'
+        },
+        body: JSON.stringify(data)
+      }).then(response => {
+        if (response.ok) {
+          console.log('IndexNow request successful');
+        } else {
+          console.error('IndexNow request failed', response.statusText);
+        }
+      }).catch(error => {
+        console.error('IndexNow request error', error);
+      });
+    })();
+  </script>
+
   <link rel="icon" type="image/png" href="/src/pages/BetaLanding/assets/favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

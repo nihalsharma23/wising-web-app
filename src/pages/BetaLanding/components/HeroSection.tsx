@@ -78,7 +78,7 @@ export function HeroSection() {
                         className="flex flex-col items-center w-full"
                     >
                         <div
-                            className="bg-clip-text flex flex-col font-['Syne',sans-serif] font-normal justify-center leading-[1.6] text-center tracking-[15.4px] uppercase whitespace-pre-wrap text-[1.8rem] sm:text-[2.2rem] md:text-[2.9rem] lg:text-[43.3px] px-4"
+                            className="bg-clip-text flex flex-col font-['Syne',sans-serif] font-normal justify-center leading-[1.3] text-center tracking-[clamp(8px,2vw,15.4px)] uppercase whitespace-pre-wrap text-[clamp(1.8rem,5vw,48px)] px-4"
                             style={{
                                 backgroundImage: "linear-gradient(90deg, rgba(156, 163, 175, 0.6) 0%, rgba(209, 213, 219, 0.8) 20%, rgb(255, 255, 255) 50%, rgba(209, 213, 219, 0.8) 80%, rgba(156, 163, 175, 0.6) 100%)",
                                 WebkitTextFillColor: "transparent",
@@ -86,8 +86,8 @@ export function HeroSection() {
                                 animation: "shimmer-move 8s linear infinite"
                             }}
                         >
-                            <p className="mb-0">Pioneering AI Wealth</p>
-                            <p>Intelligence</p>
+                            <h1 className="mb-0">Master Your Wealth</h1>
+                            <h1>With Intelligence</h1>
                         </div>
                     </motion.div>
 
@@ -99,13 +99,13 @@ export function HeroSection() {
                         className="flex flex-col items-center w-full"
                     >
                         <div
-                            className="bg-clip-text flex flex-col font-['Syne',sans-serif] font-medium justify-center leading-[0] text-center tracking-[7.8px] uppercase text-[13.3px] sm:text-[15.3px] px-4"
+                            className="bg-clip-text flex flex-col font-['Syne',sans-serif] font-medium justify-center leading-[1.4] text-center tracking-[clamp(4px,1vw,7.8px)] uppercase text-[clamp(12px,2vw,15.3px)] px-4"
                             style={{
                                 backgroundImage: "linear-gradient(90deg, rgba(156, 163, 175, 0.6) 0%, rgba(209, 213, 219, 0.8) 20%, rgb(255, 255, 255) 50%, rgba(209, 213, 219, 0.8) 80%, rgba(156, 163, 175, 0.6) 100%)",
                                 WebkitTextFillColor: "transparent"
                             }}
                         >
-                            <p className="leading-[24px] whitespace-pre-wrap">Complete Wealth. One Intelligence.</p>
+                            <p className="whitespace-pre-wrap">Complete Control. One Intelligent Feed.</p>
                         </div>
                     </motion.div>
 
@@ -114,14 +114,13 @@ export function HeroSection() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.3 }}
-                        className="flex flex-col items-center w-full max-w-[850px] mt-4 px-10"
+                        className="flex flex-col items-center w-full max-w-[900px] mt-2 px-6"
                     >
-                        <p className="font-['Manrope',sans-serif] font-normal text-[14px] sm:text-[16px] text-[#999] text-center tracking-[0.8px] leading-[1.6]">
-                            For too long, elite financial oversight was a luxury reserved for the 1%.
-                            Wising is here to change that. We’ve built an AI-powered financial partner
-                            that monitors your wealth 24/7, flags hidden opportunities, and ensures
-                            your money is always working as hard as you do. Connect your accounts.
-                            Get your insights. Start Wising up.
+                        <p className="font-['Manrope',sans-serif] font-normal text-[clamp(14px,1.5vw,18px)] text-[#999] text-center tracking-[0.5px] leading-[1.6]">
+                            Elite financial oversight is no longer a luxury. Gain the AI-powered intelligence
+                            of the top 1%—monitoring your wealth 24/7, spotting hidden opportunities,
+                            and ensuring your money never rests. Connect your assets.
+                            Start Wising up.
                         </p>
                     </motion.div>
 
@@ -196,11 +195,11 @@ export function HeroSection() {
                         {/* Progress Breadcrumb & Commitments */}
                         <div className="mt-8 flex flex-col items-center gap-4">
                             <div className="px-5 py-3 bg-black rounded-lg flex flex-col items-center gap-1.5 shadow-[0_0_20px_rgba(255,255,255,0.02)] metallic-border-shine">
-                                <span className="text-[10px] font-['Manrope',sans-serif] text-[#C0C0C0] tracking-[3px] uppercase font-normal whitespace-nowrap">
-                                    458 / 500 WAITLIST MEMBERS JOINED.
+                                <span className="text-[clamp(9px,1.2vw,11px)] font-['Manrope',sans-serif] text-white tracking-[clamp(2px,0.5vw,4px)] uppercase font-semibold whitespace-nowrap">
+                                    ONLY 42 SPOTS LEFT FOR FREE PREMIUM ACCESS.
                                 </span>
-                                <span className="text-[9px] font-['Manrope',sans-serif] text-[#C0C0C0]/60 tracking-[1.2px] font-normal whitespace-nowrap">
-                                    Free premium tier for first 500 waitlist members and get early access.
+                                <span className="text-[clamp(8px,1vw,10px)] font-['Manrope',sans-serif] text-[#C0C0C0]/80 tracking-[1.2px] font-normal whitespace-nowrap">
+                                    Join 458 members securing their financial future today.
                                 </span>
                             </div>
 

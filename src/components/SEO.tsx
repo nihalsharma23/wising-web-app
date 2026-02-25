@@ -16,7 +16,7 @@ export function SEO({
     title,
     description,
     canonical,
-    ogImage = 'https://wising.pro/og-image.png',
+    ogImage = 'https://wising.app/og-image.png',
     ogType = 'website',
     twitterHandle = '@wising_app',
     keywords = 'wealth intelligence, ai finance, asset tracking, portfolio analysis, wising',

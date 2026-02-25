@@ -22,14 +22,14 @@ export function AboutUs() {
             <SEO
                 title="About Our Mission"
                 description="We are building the future of wealth intelligence. Learn about our mission to democratize financial insights and the team behind Wising."
-                canonical="https://wising.pro/about"
+                canonical="https://wising.app/about"
                 keywords="wising founders, sarthak jalan, nihal sharma, divanshu bansal, wealth intelligence team"
                 structuredData={{
                     "@context": "https://schema.org",
                     "@type": "Organization",
                     "name": "Wising Intelligence Private Limited",
-                    "url": "https://wising.pro/about",
-                    "logo": "https://wising.pro/src/pages/BetaLanding/assets/favicon.png",
+                    "url": "https://wising.app/about",
+                    "logo": "https://wising.app/src/pages/BetaLanding/assets/favicon.png",
                     "founder": [
                         { "@type": "Person", "name": "Sarthak Jalan" },
                         { "@type": "Person", "name": "Nihal Sharma" },

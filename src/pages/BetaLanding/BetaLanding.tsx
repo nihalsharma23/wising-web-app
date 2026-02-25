@@ -19,14 +19,14 @@ export function BetaLanding() {
             <SEO
                 title="AI Wealth Intelligence Dashboard"
                 description="Wising is the world's first AI-powered Wealth Intelligence Dashboard. Track net worth, analyze assets, and get personalized financial insights."
-                canonical="https://wising.pro/"
+                canonical="https://wising.app/"
                 keywords="ai wealth management, wealth intelligence, portfolio tracker, net worth tracker, financial analytics"
                 structuredData={{
                     "@context": "https://schema.org",
                     "@type": "WebApplication",
                     "name": "Wising",
                     "description": "AI-powered Wealth Intelligence Dashboard",
-                    "url": "https://wising.pro/",
+                    "url": "https://wising.app/",
                     "applicationCategory": "FinanceApplication",
                     "operatingSystem": "Web",
                     "offers": {

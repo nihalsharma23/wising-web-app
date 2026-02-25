@@ -38,22 +38,22 @@ export function FeatureCard({ letter, title, description, hasTopDot = true, hasB
             </div>
 
             {/* Letter */}
-            <div className="content-stretch flex flex-col items-start pb-10 md:pb-14 relative">
+            <div className="content-stretch flex flex-col items-start pb-6 md:pb-10 lg:pb-14 relative">
                 <div className="content-stretch flex flex-col items-center relative">
                     <div
-                        className="bg-clip-text bg-gradient-to-b flex flex-col font-['Cormorant_Garamond',serif] from-[30%] from-white justify-center leading-[0] not-italic text-center to-[rgba(255,255,255,0.1)] tracking-[-3.2px] text-7xl md:text-9xl lg:text-[160px]"
+                        className="bg-clip-text bg-gradient-to-b flex flex-col font-['Cormorant_Garamond',serif] from-[30%] from-white justify-center leading-[0] not-italic text-center to-[rgba(255,255,255,0.1)] tracking-[-3.2px] text-[clamp(80px,15vw,160px)]"
                         style={{ WebkitTextFillColor: "transparent" }}
                     >
-                        <p className="leading-[128px] whitespace-pre-wrap">{letter}</p>
+                        <p className="leading-[1] whitespace-pre-wrap">{letter}</p>
                     </div>
                 </div>
             </div>
 
             {/* Content */}
-            <div className="content-stretch flex flex-col gap-8 md:gap-10 items-start max-w-[672px] relative px-4">
+            <div className="content-stretch flex flex-col gap-6 md:gap-8 lg:gap-10 items-start max-w-[800px] relative px-4">
                 <div className="content-stretch flex flex-col items-center relative w-full">
                     <div
-                        className="flex flex-col font-['Syne',sans-serif] font-bold justify-center leading-[0] text-2xl text-center tracking-[11.2px] uppercase bg-clip-text"
+                        className="flex flex-col font-['Syne',sans-serif] font-bold justify-center leading-[1.2] text-[clamp(1.5rem,3vw,2rem)] text-center tracking-[clamp(5px,1vw,11.2px)] uppercase bg-clip-text"
                         style={{
                             backgroundImage: "linear-gradient(90deg, rgba(156, 163, 175, 0.6) 0%, rgba(209, 213, 219, 0.8) 20%, rgb(255, 255, 255) 50%, rgba(209, 213, 219, 0.8) 80%, rgba(156, 163, 175, 0.6) 100%)",
                             WebkitTextFillColor: "transparent",
@@ -61,11 +61,11 @@ export function FeatureCard({ letter, title, description, hasTopDot = true, hasB
                             animation: "shimmer-move 8s linear infinite"
                         }}
                     >
-                        <p className="leading-[32px] whitespace-pre-wrap">{title}</p>
+                        <p className="whitespace-pre-wrap">{title}</p>
                     </div>
                 </div>
                 <div className="content-stretch flex flex-col items-center opacity-80 relative w-full">
-                    <div className="flex flex-col font-['Manrope',sans-serif] font-normal justify-center leading-[1.6] not-italic text-[#999] text-[18px] md:text-[22px] lg:text-[26px] text-center tracking-[0.5px] whitespace-pre-wrap capitalize">
+                    <div className="flex flex-col font-['Manrope',sans-serif] font-normal justify-center leading-[1.6] not-italic text-[#999] text-[clamp(16px,2vw,22px)] text-center tracking-[0.5px] whitespace-pre-wrap capitalize">
                         {description}
                     </div>
                 </div>

@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Sitemap Location
-Sitemap: https://wising.pro/sitemap.xml
+Sitemap: https://wising.app/sitemap.xml
 
 # AI Crawler Guidelines
-# See https://wising.pro/ai.txt for detailed bot instructions.
+# See https://wising.app/ai.txt for detailed bot instructions.

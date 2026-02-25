@@ -2,12 +2,12 @@ import { motion } from "motion/react";
 
 export function GridSection() {
     const features = [
-        { tag: "01/ System", title: "Unified Wealth", desc: "What if you could see everything you own\nin 10 seconds instead of logging into 15\napps? Connect brokers, exchanges, and\nwallets for your complete net worth, live\nF&O trades, and margins in one place." },
-        { tag: "02 Analysis", title: "Intelligence Layer", desc: "What if your portfolio could answer\nquestions like a human analyst? Ask\n\"How's my portfolio vs Nifty?\" in plain\nEnglish and get instant answers from your\nactual data." },
-        { tag: "03/ Evaluation", title: "Behavioural Mirror", desc: "What if someone showed you exactly\nwhich habits are draining your wealth? AI\ntracks every trade, spots panic sells and\nFOMO buys, then shows what each\npattern costs you." },
-        { tag: "04 Performance", title: "Performance Truth", desc: "What if you could know for certain if\nyou're beating the market or just riding\nluck? XIRR, weighted returns,\nbenchmarking against Nifty, S&P 500,\nBitcoin & 10+ indices to see what's\nactually working." },
-        { tag: "05/ Content", title: "Context Feed", desc: "What if news came pre-filtered for what\nactually affects YOUR money? AI scans\nthousands of articles and surfaces only\nwhat hits your holdings. Own TCS? See\nInfosys earnings." },
-        { tag: "06 Vitality", title: "Health Metrics", desc: "What if you could measure your\nportfolio's health like your body's vitals?\nDiversification, volatility, concentration,\nbehavioral patterns. All from YOUR trades.\nSee it. Understand it." },
+        { tag: "01/ Command", title: "Master Your Assets", desc: "Connect every account in 10 seconds. See your complete net worth and live trades in one unified, master feed." },
+        { tag: "02/ Insights", title: "Talk To Your Data", desc: "Ask questions in plain English. Get instant, pro-level analysis from your actual data without the complex jargon." },
+        { tag: "03/ Habit", title: "Unmask Your Patterns", desc: "Identify the behaviors draining your wealth. Spot panic sells and FOMO buys before they cost you another trade." },
+        { tag: "04/ Performance", title: "Prove Your Growth", desc: "Finally know if you're winning. Benchmark against Nifty, S&P 500, and Bitcoin to prove what's actually working." },
+        { tag: "05/ Intelligence", title: "Filter The Noise", desc: "Only see news that hits your portfolio. AI filters thousands of articles to surface what actually impacts your money." },
+        { tag: "06/ Vitals", title: "Read Your Health", desc: "Measure your financial health daily. Monitor diversification, volatility, and concentration with professional precision." },
     ];
 
     return (
@@ -25,7 +25,7 @@ export function GridSection() {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.6, delay: idx * 0.1 }}
                                 viewport={{ once: true }}
-                                className="relative content-stretch flex flex-col gap-4 items-start p-8 md:p-10 lg:p-14"
+                                className="relative content-stretch flex flex-col gap-4 items-start p-[clamp(2.5rem,5vw,5rem)]"
                             >
                                 <div aria-hidden="true" className="absolute border-[#1f1f1f] border-b border-r border-solid inset-0 pointer-events-none" />
 

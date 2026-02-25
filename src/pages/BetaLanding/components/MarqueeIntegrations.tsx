@@ -52,7 +52,7 @@ export function SupportedIntegrationsSection() {
                 <div className="relative w-full">
                     <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col items-center relative w-full px-4">
                         <div
-                            className="bg-clip-text flex flex-col font-['Syne:Medium',sans-serif] font-medium justify-center leading-[0] text-center tracking-[9.8px] uppercase text-sm px-4"
+                            className="bg-clip-text flex flex-col font-['Syne:Medium',sans-serif] font-medium justify-center leading-[1.2] text-center tracking-[clamp(6px,1.5vw,9.8px)] uppercase text-[clamp(12px,1.5vw,14px)] px-4"
                             style={{
                                 backgroundImage: "linear-gradient(90deg, rgba(156, 163, 175, 0.6) 0%, rgba(209, 213, 219, 0.8) 20%, rgb(255, 255, 255) 50%, rgba(209, 213, 219, 0.8) 80%, rgba(156, 163, 175, 0.6) 100%)",
                                 WebkitTextFillColor: "transparent",
@@ -60,7 +60,7 @@ export function SupportedIntegrationsSection() {
                                 animation: "shimmer-move 8s linear infinite"
                             }}
                         >
-                            <p className="leading-[21px] whitespace-pre-wrap">Supported Integrations</p>
+                            <p className="whitespace-pre-wrap">Supported Integrations</p>
                         </div>
                     </div>
                 </div>
