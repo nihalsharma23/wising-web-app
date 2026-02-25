@@ -1,7 +1,7 @@
 
   # Wealth Intelligence Application - Wising (beta)
   is currently taking beta sign ups.
-  The original project is available at https://wising.pro
+  The original project is available at https://wising.app
   
 
   ## Running the code

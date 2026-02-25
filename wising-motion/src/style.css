@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.metallic-text {
+    background: linear-gradient(90deg, #9ca3af 0%, #d1d5d8 20%, #ffffff 50%, #d1d5d8 80%, #9ca3af 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% auto;
+}

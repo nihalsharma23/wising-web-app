@@ -1,0 +1,30 @@
+{
+    "name": "wising-motion",
+    "version": "1.0.0",
+    "description": "Wising Motion Graphics",
+    "main": "index.js",
+    "scripts": {
+        "start": "remotion preview",
+        "build": "remotion render Scene out/video.mp4"
+    },
+    "dependencies": {
+        "@remotion/cli": "4.0.428",
+        "@remotion/google-fonts": "4.0.428",
+        "@remotion/paths": "4.0.428",
+        "@remotion/player": "4.0.428",
+        "@remotion/renderer": "4.0.428",
+        "@remotion/tailwind": "4.0.428",
+        "@remotion/transitions": "^4.0.428",
+        "lucide-react": "^0.284.0",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "remotion": "4.0.428",
+        "remotion-animated": "^2.2.0",
+        "tailwindcss": "^3.4.1"
+    },
+    "devDependencies": {
+        "@types/react": "18.2.0",
+        "@types/react-dom": "18.2.0",
+        "typescript": "5.1.3"
+    }
+}
