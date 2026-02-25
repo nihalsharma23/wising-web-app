@@ -37,18 +37,17 @@ export function Header({ variant = 'landing' }: HeaderProps) {
                 initial={{ x: -150, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-                style={{ top: '12px', left: '6rem', scale: 1 }}
-                className="fixed z-[60] flex items-center cursor-pointer pointer-events-auto select-none"
+                className="fixed z-[60] top-[12px] left-6 md:left-[6rem] flex items-center cursor-pointer pointer-events-auto select-none"
                 onClick={() => navigate('/')}
             >
                 <div className="flex items-center" style={{ gap: '0.1rem' }}>
                     <img
                         src={imgHeaderLogo}
                         alt="Wising Logo"
-                        className="h-[32px] md:h-[40px] w-auto object-contain"
+                        className="h-[28px] md:h-[40px] w-auto object-contain"
                     />
                     <div
-                        className="flex flex-col font-['Montserrat:Semi_Bold',sans-serif] justify-center leading-[0] not-italic text-[14px] tracking-[10px] uppercase pl-1 chrome-silver-metallic"
+                        className="flex flex-col font-['Montserrat:Semi_Bold',sans-serif] justify-center leading-[0] not-italic text-[12px] md:text-[14px] tracking-[4px] md:tracking-[10px] uppercase pl-1 chrome-silver-metallic"
                         style={{ paddingTop: '0.1rem' }}
                     >
                         <p className="leading-[20px] whitespace-pre-wrap font-[Aboreto] flex items-center pt-1">WISING</p>
