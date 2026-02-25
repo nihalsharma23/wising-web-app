@@ -33,15 +33,16 @@ export function SEO({
             <meta name="description" content={description} />
             <meta name="keywords" content={keywords} />
             <meta name="robots" content={robots} />
-            {canonical && <link rel="canonical" href={canonical} />}
+            <link rel="canonical" href={canonical} />
 
             {/* Open Graph / Facebook */}
             <meta property="og:type" content={ogType} />
             <meta property="og:title" content={fullTitle} />
             <meta property="og:description" content={description} />
             <meta property="og:image" content={ogImage} />
-            {canonical && <meta property="og:url" content={canonical} />}
+            <meta property="og:url" content={canonical} />
             <meta property="og:site_name" content={siteTitle} />
+            <meta property="og:locale" content="en_US" />
 
             {/* Twitter */}
             <meta name="twitter:card" content="summary_large_image" />
@@ -50,6 +51,11 @@ export function SEO({
             <meta name="twitter:title" content={fullTitle} />
             <meta name="twitter:description" content={description} />
             <meta name="twitter:image" content={ogImage} />
+
+            {/* Additional Ranking Cues */}
+            <meta name="application-name" content="Wising" />
+            <meta name="apple-mobile-web-app-title" content="Wising" />
+            <meta name="format-detection" content="telephone=no" />
 
             {/* Structured Data (JSON-LD) */}
             {structuredData && (

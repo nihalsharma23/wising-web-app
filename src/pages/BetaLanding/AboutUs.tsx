@@ -1,11 +1,10 @@
 import { Header } from "./components/Header";
 import { Linkedin } from "lucide-react";
 import { SEO } from "../../components/SEO";
+import { seoConfig } from "../../config/seoData";
 import sarthakImg from "../../assets/sarthak-jalan.png";
 import nihalImg from "../../assets/nihal-sharma.jpg";
 import divanshuImg from "../../assets/divanshu-bansal.jpg";
-
-// I will use the remote URLs from the provided HTML for now as I don't have local portraits.
 
 const XIcon = ({ className }: { className?: string }) => (
     <svg viewBox="0 0 24 24" className={className} fill="currentColor">
@@ -19,24 +18,7 @@ export function AboutUs() {
             className="relative min-h-screen bg-[#050505] text-white font-['Manrope',sans-serif] overflow-x-hidden selection:bg-cyan-500/30 select-none"
             onContextMenu={(e) => e.preventDefault()}
         >
-            <SEO
-                title="About Our Mission"
-                description="We are building the future of wealth intelligence. Learn about our mission to democratize financial insights and the team behind Wising."
-                canonical="https://wising.app/about"
-                keywords="wising founders, sarthak jalan, nihal sharma, divanshu bansal, wealth intelligence team"
-                structuredData={{
-                    "@context": "https://schema.org",
-                    "@type": "Organization",
-                    "name": "Wising Intelligence Private Limited",
-                    "url": "https://wising.app/about",
-                    "logo": "https://wising.app/src/pages/BetaLanding/assets/favicon.png",
-                    "founder": [
-                        { "@type": "Person", "name": "Sarthak Jalan" },
-                        { "@type": "Person", "name": "Nihal Sharma" },
-                        { "@type": "Person", "name": "Divanshu Bansal" }
-                    ]
-                }}
-            />
+            <SEO {...seoConfig.about} />
             {/* Background Glow Elements */}
             <div className="fixed -top-[10%] -left-[5%] w-[50vw] h-[50vw] bg-[radial-gradient(circle,rgba(19,164,236,0.08)_0%,rgba(19,164,236,0)_70%)] pointer-events-none z-0"></div>
             <div className="fixed -bottom-[10%] -right-[5%] w-[50vw] h-[50vw] bg-[radial-gradient(circle,rgba(183,110,121,0.08)_0%,rgba(183,110,121,0)_70%)] pointer-events-none z-0"></div>

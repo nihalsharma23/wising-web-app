@@ -1,7 +1,8 @@
 User-agent: *
 Allow: /
+Disallow: /api/
 
-# Sitemap Location
+Host: https://wising.app
 Sitemap: https://wising.app/sitemap.xml
 
 # AI Crawler Guidelines
