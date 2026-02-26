@@ -10,7 +10,7 @@ export interface SEOData {
 
 export const seoConfig = {
     landing: {
-        title: "Agentic AI Wealth Intelligence | Master Your Assets",
+        title: "Wising | Agentic AI Wealth Intelligence",
         description: "Experience the world's first Agentic AI Wealth Intelligence platform. Aggregate assets, talk to your data, and optimize your portfolio with hyper-personalized AI insights.",
         keywords: "agentic ai wealth management, ai portfolio optimization, hyper-personalization wealth management, tracking net worth, wising intelligence",
         canonical: "https://wising.app/",
