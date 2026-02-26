@@ -6,7 +6,7 @@ import { imgImage } from '../imports/svg-rvsnx';
 import imgImage1 from "../assets/adfcaf135cf274bec4ed10a218ab0f6e8d577b58.png";
 
 // PLACEHOLDER: Replace this with your actual Google Apps Script Web App URL
-const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbx1KqSJmsLlfsbidue2cpv90_Kpk7-yme9komomreCflbYN5jKZp1FoJI3SIBew45OJ1A/exec';
+const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw4jarZsUnoMMlGuEX8qvdXj7IAwxrNo5-SpROrQIGL01V3vBYYaxg44XMFneXSZ5Macg/exec';
 
 export function HeroSection() {
     const [email, setEmail] = useState('');
@@ -43,7 +43,7 @@ export function HeroSection() {
             await fetch(GOOGLE_SCRIPT_URL, {
                 method: 'POST',
                 mode: 'no-cors',
-                body: new URLSearchParams({
+                body: JSON.stringify({
                     email,
                     timestamp: now.toLocaleTimeString(),
                     date: now.toLocaleDateString()
