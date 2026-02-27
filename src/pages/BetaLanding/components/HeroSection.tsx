@@ -83,7 +83,7 @@ export function HeroSection() {
                         className="flex flex-col items-center w-full"
                     >
                         <div
-                            className="bg-clip-text flex flex-col font-['Syne',sans-serif] font-normal justify-center leading-[1.3] text-center tracking-[clamp(8px,2vw,15.4px)] uppercase whitespace-pre-wrap text-[clamp(3.6rem,10vw,96px)] px-4"
+                            className="bg-clip-text flex flex-col font-['Syne',sans-serif] font-normal justify-center leading-[1.1] text-center tracking-[clamp(8px,2vw,15.4px)] uppercase whitespace-pre-wrap text-[clamp(4rem,15vw,120px)] px-4"
                             style={{
                                 backgroundImage: "linear-gradient(90deg, rgba(156, 163, 175, 0.6) 0%, rgba(209, 213, 219, 0.8) 20%, rgb(255, 255, 255) 50%, rgba(209, 213, 219, 0.8) 80%, rgba(156, 163, 175, 0.6) 100%)",
                                 WebkitTextFillColor: "transparent",
@@ -121,7 +121,7 @@ export function HeroSection() {
                         transition={{ duration: 0.8, delay: 0.3 }}
                         className="flex flex-col items-center w-full max-w-[900px] mt-2 px-6"
                     >
-                        <p className="font-['Manrope',sans-serif] font-normal text-[clamp(14px,1.5vw,18px)] text-[#999] text-center tracking-[0.5px] leading-[1.6]">
+                        <p className="font-['Manrope',sans-serif] font-normal text-[clamp(13.3px,1.4vw,17.1px)] text-[#999] text-center tracking-[0.5px] leading-[1.6]">
                             Elite financial oversight is no longer a luxury. Gain the AI-powered intelligence
                             of the top 1%—monitoring your wealth 24/7, spotting hidden opportunities,
                             and ensuring your money never rests. Connect your assets.

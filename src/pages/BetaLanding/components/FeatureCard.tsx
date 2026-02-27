@@ -53,13 +53,7 @@ export function FeatureCard({ letter, title, description, hasTopDot = true, hasB
             <div className="content-stretch flex flex-col gap-6 md:gap-8 lg:gap-10 items-start max-w-[800px] relative px-4">
                 <div className="content-stretch flex flex-col items-center relative w-full">
                     <div
-                        className="flex flex-col font-['Syne',sans-serif] font-bold justify-center leading-[1.2] text-[clamp(1.5rem,3vw,2rem)] text-center tracking-[clamp(5px,1vw,11.2px)] uppercase bg-clip-text"
-                        style={{
-                            backgroundImage: "linear-gradient(90deg, rgba(156, 163, 175, 0.6) 0%, rgba(209, 213, 219, 0.8) 20%, rgb(255, 255, 255) 50%, rgba(209, 213, 219, 0.8) 80%, rgba(156, 163, 175, 0.6) 100%)",
-                            WebkitTextFillColor: "transparent",
-                            backgroundSize: "200% auto",
-                            animation: "shimmer-move 8s linear infinite"
-                        }}
+                        className="flex flex-col font-['Syne',sans-serif] font-bold justify-center leading-[1.2] text-[clamp(1.5rem,3vw,2rem)] text-zinc-100 text-center tracking-[clamp(5px,1vw,11.2px)] uppercase"
                     >
                         <p className="whitespace-pre-wrap">{title}</p>
                     </div>

@@ -2,14 +2,16 @@ import { Header } from "./components/Header";
 import { Linkedin } from "lucide-react";
 import { SEO } from "../../components/SEO";
 import { seoConfig } from "../../config/seoData";
-import sarthakImg from "../../assets/sarthak-jalan.png";
-import nihalImg from "../../assets/nihal-sharma.jpg";
-import divanshuImg from "../../assets/divanshu-bansal.jpg";
-import eyLogo from "./assets/ey.svg";
-import jioLogo from "./assets/jio.svg";
-import coforgeLogo from "./assets/coforge.svg";
-import hansrajLogo from "./assets/hansraj.svg";
-import icaiLogo from "./assets/icai.svg";
+import sarthakImg from "@/assets/sarthak-jalan.png";
+import nihalImg from "@/assets/nihal-sharma.jpg";
+import divanshuImg from "@/assets/divanshu-bansal.jpg";
+import eyLogo from "@/pages/BetaLanding/assets/ey.png";
+import jioLogo from "@/pages/BetaLanding/assets/jio.svg";
+import coforgeLogo from "@/pages/BetaLanding/assets/coforge.svg";
+import hansrajLogo from "@/pages/BetaLanding/assets/founding_team_v2_6.png";
+import icaiLogo from "@/pages/BetaLanding/assets/icai.svg";
+import divanshuTeamImg from "@/pages/BetaLanding/assets/founding_team_v2_3.png";
+import cgcLogo from "@/pages/BetaLanding/assets/cgc.svg";
 
 const XIcon = ({ className }: { className?: string }) => (
     <svg viewBox="0 0 24 24" className={className} fill="currentColor">
@@ -97,20 +99,16 @@ export function AboutUs() {
                                 </div>
                                 <div>
                                     <span className="block text-[0.65rem] tracking-[0.2em] text-zinc-500 uppercase mb-2">Education</span>
-                                    <div className="flex items-center gap-4">
-                                        <p className="text-[0.85rem] leading-[1.6] text-zinc-300 font-light">
-                                            Chartered Accountant ICAI and B.Com (hons.) from Hansraj College, Delhi University
-                                        </p>
-                                        <div className="flex gap-2 shrink-0">
-                                            <img src={icaiLogo} alt="ICAI" className="h-8 w-auto opacity-50 grayscale hover:grayscale-0 hover:opacity-100 transition-all" />
-                                            <img src={hansrajLogo} alt="Hansraj" className="h-8 w-auto opacity-50 grayscale hover:grayscale-0 hover:opacity-100 transition-all" />
-                                        </div>
-                                    </div>
+                                    <p className="text-[0.85rem] leading-[1.6] text-zinc-300 font-light">
+                                        Chartered Accountant ICAI and B.Com (hons.) from Hansraj College, Delhi University
+                                    </p>
                                 </div>
                                 <div className="md:col-span-2 pt-4 border-t border-zinc-900/50">
                                     <span className="block text-[0.65rem] tracking-[0.2em] text-zinc-500 uppercase mb-3">Previous Experience</span>
                                     <div className="flex items-center gap-6">
                                         <img src={eyLogo} alt="EY" className="h-6 w-auto opacity-40 grayscale hover:grayscale-0 hover:opacity-100 transition-all" />
+                                        <img src={icaiLogo} alt="ICAI" className="h-6 w-auto opacity-40 grayscale hover:grayscale-0 hover:opacity-100 transition-all" />
+                                        <img src={hansrajLogo} alt="Hansraj" className="h-6 w-auto opacity-40 grayscale hover:grayscale-0 hover:opacity-100 transition-all" />
                                     </div>
                                 </div>
                             </div>
@@ -132,13 +130,17 @@ export function AboutUs() {
                             </div>
                             <div className="flex gap-4">
                                 <a
-                                    href="#"
+                                    href="https://www.linkedin.com/in/nihalsharma120396"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
                                     className="w-8 h-8 bg-zinc-800 rounded-sm flex items-center justify-center hover:bg-[#0077b5] transition-colors group"
                                 >
                                     <Linkedin className="w-4 h-4 text-zinc-400 group-hover:text-white transition-colors" />
                                 </a>
                                 <a
-                                    href="#"
+                                    href="https://x.com/NiaalSharma"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
                                     className="w-8 h-8 bg-zinc-800 rounded-sm flex items-center justify-center hover:bg-black transition-colors group"
                                 >
                                     <XIcon className="w-4 h-4 text-zinc-400 group-hover:text-white transition-colors" />
@@ -178,8 +180,9 @@ export function AboutUs() {
                                 </div>
                                 <div className="md:col-span-2 pt-4 border-t border-zinc-900/50">
                                     <span className="block text-[0.65rem] tracking-[0.2em] text-zinc-500 uppercase mb-3">Previous Experience</span>
-                                    <div className="flex items-center gap-6">
-                                        <img src={jioLogo} alt="Reliance Jio" className="h-8 w-auto opacity-40 grayscale hover:grayscale-0 hover:opacity-100 transition-all" />
+                                    <div className="flex items-center gap-0.5">
+                                        <img src={jioLogo} alt="Reliance Jio" className="h-12 w-auto opacity-40 grayscale hover:grayscale-0 hover:opacity-100 transition-all" />
+                                        <img src={cgcLogo} alt="CGC" className="h-[49px] w-auto opacity-40 grayscale hover:grayscale-0 hover:opacity-100 transition-all" />
                                     </div>
                                 </div>
                             </div>
@@ -249,8 +252,14 @@ export function AboutUs() {
                                 </div>
                                 <div className="md:col-span-2 pt-4 border-t border-zinc-900/50">
                                     <span className="block text-[0.65rem] tracking-[0.2em] text-zinc-500 uppercase mb-3">Previous Experience</span>
-                                    <div className="flex items-center gap-6">
+                                    <div className="flex items-center gap-6 flex-wrap">
                                         <img src={coforgeLogo} alt="Coforge" className="h-6 w-auto opacity-40 grayscale hover:grayscale-0 hover:opacity-100 transition-all" />
+                                        <img src={cgcLogo} alt="CGC" className="h-[49px] w-auto opacity-40 grayscale hover:grayscale-0 hover:opacity-100 transition-all" />
+                                        <img
+                                            src={divanshuTeamImg}
+                                            alt="Team Collaboration"
+                                            className="h-[72px] w-auto rounded-sm border border-zinc-900/50 opacity-70 grayscale hover:grayscale-0 hover:opacity-100 transition-all shadow-lg"
+                                        />
                                     </div>
                                 </div>
                             </div>

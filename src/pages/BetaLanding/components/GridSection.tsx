@@ -33,13 +33,7 @@ export function GridSection() {
                                 <div className="relative w-full">
                                     <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col items-start relative w-full">
                                         <div
-                                            className="flex flex-col font-['Montserrat:Semi_Bold',sans-serif] justify-center leading-[0] not-italic text-[10px] text-center tracking-[3px] uppercase bg-clip-text"
-                                            style={{
-                                                backgroundImage: "linear-gradient(90deg, rgba(156, 163, 175, 0.6) 0%, rgba(209, 213, 219, 0.8) 20%, rgb(255, 255, 255) 50%, rgba(209, 213, 219, 0.8) 80%, rgba(156, 163, 175, 0.6) 100%)",
-                                                WebkitTextFillColor: "transparent",
-                                                backgroundSize: "200% auto",
-                                                animation: "shimmer-move 8s linear infinite"
-                                            }}
+                                            className="flex flex-col font-['Montserrat:Semi_Bold',sans-serif] justify-center leading-[0] not-italic text-[10px] text-zinc-400 text-center tracking-[3px] uppercase"
                                         >
                                             <p className="leading-[15px] whitespace-pre-wrap">{feature.tag}</p>
                                         </div>
@@ -50,13 +44,7 @@ export function GridSection() {
                                 <div className="relative w-full">
                                     <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col items-start relative w-full">
                                         <div
-                                            className="flex flex-col font-['Montserrat:Bold',sans-serif] font-bold justify-center leading-[0] text-3xl tracking-[-0.6px] uppercase bg-clip-text"
-                                            style={{
-                                                backgroundImage: "linear-gradient(90deg, rgba(156, 163, 175, 0.6) 0%, rgba(209, 213, 219, 0.8) 20%, rgb(255, 255, 255) 50%, rgba(209, 213, 219, 0.8) 80%, rgba(156, 163, 175, 0.6) 100%)",
-                                                WebkitTextFillColor: "transparent",
-                                                backgroundSize: "200% auto",
-                                                animation: "shimmer-move 8s linear infinite"
-                                            }}
+                                            className="flex flex-col font-['Montserrat:Bold',sans-serif] font-bold justify-center leading-[0] text-3xl tracking-[-0.6px] uppercase text-zinc-100"
                                         >
                                             <p className="leading-[32px] whitespace-pre-wrap">{feature.title}</p>
                                         </div>
