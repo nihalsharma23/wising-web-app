@@ -83,7 +83,7 @@ export function HeroSection() {
                         className="flex flex-col items-center w-full"
                     >
                         <div
-                            className="bg-clip-text flex flex-col font-['Syne',sans-serif] font-normal justify-center leading-[1.3] text-center tracking-[clamp(8px,2vw,15.4px)] uppercase whitespace-pre-wrap text-[clamp(1.8rem,5vw,48px)] px-4"
+                            className="bg-clip-text flex flex-col font-['Syne',sans-serif] font-normal justify-center leading-[1.3] text-center tracking-[clamp(8px,2vw,15.4px)] uppercase whitespace-pre-wrap text-[clamp(3.6rem,10vw,96px)] px-4"
                             style={{
                                 backgroundImage: "linear-gradient(90deg, rgba(156, 163, 175, 0.6) 0%, rgba(209, 213, 219, 0.8) 20%, rgb(255, 255, 255) 50%, rgba(209, 213, 219, 0.8) 80%, rgba(156, 163, 175, 0.6) 100%)",
                                 WebkitTextFillColor: "transparent",
@@ -104,13 +104,13 @@ export function HeroSection() {
                         className="flex flex-col items-center w-full"
                     >
                         <div
-                            className="bg-clip-text flex flex-col font-['Syne',sans-serif] font-medium justify-center leading-[1.4] text-center tracking-[clamp(4px,1vw,7.8px)] uppercase text-[clamp(12px,2vw,15.3px)] px-4"
+                            className="bg-clip-text flex flex-col font-['Syne',sans-serif] font-medium justify-center leading-[1.4] text-center tracking-[clamp(2px,0.5vw,4px)] uppercase text-[clamp(10px,1.5vw,13px)] px-4"
                             style={{
                                 backgroundImage: "linear-gradient(90deg, rgba(156, 163, 175, 0.6) 0%, rgba(209, 213, 219, 0.8) 20%, rgb(255, 255, 255) 50%, rgba(209, 213, 219, 0.8) 80%, rgba(156, 163, 175, 0.6) 100%)",
                                 WebkitTextFillColor: "transparent"
                             }}
                         >
-                            <p className="whitespace-pre-wrap">Complete Control. One Intelligent Feed.</p>
+                            <p className="whitespace-pre-wrap">Complete Control. One Intelligence.</p>
                         </div>
                     </motion.div>
 
@@ -197,41 +197,29 @@ export function HeroSection() {
                             )}
                         </form>
 
-                        {/* Progress Breadcrumb & Commitments */}
-                        <div className="mt-8 flex flex-col items-center gap-4">
-                            <div className="px-5 py-3 bg-black rounded-lg flex flex-col items-center gap-1.5 shadow-[0_0_20px_rgba(255,255,255,0.02)] metallic-border-shine">
-                                <span className="text-[clamp(9px,1.2vw,11px)] font-['Manrope',sans-serif] text-white tracking-[clamp(2px,0.5vw,4px)] uppercase font-semibold whitespace-nowrap">
-                                    ONLY 42 SPOTS LEFT FOR FREE PREMIUM ACCESS.
-                                </span>
-                                <span className="text-[clamp(8px,1vw,10px)] font-['Manrope',sans-serif] text-[#C0C0C0]/80 tracking-[1.2px] font-normal whitespace-nowrap">
-                                    Join 458 members securing their financial future today.
-                                </span>
+                        {/* No Commitments Text */}
+                        <div className="mt-4 flex items-center gap-2">
+                            <div className="flex items-center justify-center w-2 h-2 rounded-full border-[0.4px] border-white/30">
+                                <svg
+                                    width="6"
+                                    height="6"
+                                    viewBox="0 0 10 10"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    className="text-[#C0C0C0]/80"
+                                >
+                                    <path
+                                        d="M2 5L4 7L8 3"
+                                        stroke="currentColor"
+                                        strokeWidth="0.8"
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                    />
+                                </svg>
                             </div>
-
-                            {/* No Commitments Text */}
-                            <div className="flex items-center gap-2">
-                                <div className="flex items-center justify-center w-2 h-2 rounded-full border-[0.4px] border-white/30">
-                                    <svg
-                                        width="6"
-                                        height="6"
-                                        viewBox="0 0 10 10"
-                                        fill="none"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        className="text-[#C0C0C0]/80"
-                                    >
-                                        <path
-                                            d="M2 5L4 7L8 3"
-                                            stroke="currentColor"
-                                            strokeWidth="0.8"
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                        />
-                                    </svg>
-                                </div>
-                                <span className="text-[10px] font-['Manrope',sans-serif] text-[#C0C0C0]/80 tracking-[2px] uppercase font-normal">
-                                    NO COMMITMENTS REQUIRED
-                                </span>
-                            </div>
+                            <span className="text-[10px] font-['Manrope',sans-serif] text-[#C0C0C0]/80 tracking-[2px] uppercase font-normal">
+                                NO COMMITMENTS REQUIRED
+                            </span>
                         </div>
                     </motion.div>
                 </div>

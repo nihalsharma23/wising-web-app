@@ -1,0 +1,5 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <path d="M100 10 L180 40 V100 C180 150 100 190 100 190 C100 190 20 150 20 100 V40 L100 10 Z" fill="#ffffff" stroke="#000000" stroke-width="5"/>
+  <text x="100" y="110" font-family="Arial" font-size="20" font-weight="bold" text-anchor="middle" fill="#000000">Hansraj</text>
+  <text x="100" y="130" font-family="Arial" font-size="20" font-weight="bold" text-anchor="middle" fill="#000000">College</text>
+</svg>

@@ -5,6 +5,11 @@ import { seoConfig } from "../../config/seoData";
 import sarthakImg from "../../assets/sarthak-jalan.png";
 import nihalImg from "../../assets/nihal-sharma.jpg";
 import divanshuImg from "../../assets/divanshu-bansal.jpg";
+import eyLogo from "./assets/ey.svg";
+import jioLogo from "./assets/jio.svg";
+import coforgeLogo from "./assets/coforge.svg";
+import hansrajLogo from "./assets/hansraj.svg";
+import icaiLogo from "./assets/icai.svg";
 
 const XIcon = ({ className }: { className?: string }) => (
     <svg viewBox="0 0 24 24" className={className} fill="currentColor">
@@ -92,9 +97,21 @@ export function AboutUs() {
                                 </div>
                                 <div>
                                     <span className="block text-[0.65rem] tracking-[0.2em] text-zinc-500 uppercase mb-2">Education</span>
-                                    <p className="text-[0.85rem] leading-[1.6] text-zinc-300 font-light">
-                                        Chartered Accountant ICAI and B.Com (hons.) from Hansraj College, Delhi University
-                                    </p>
+                                    <div className="flex items-center gap-4">
+                                        <p className="text-[0.85rem] leading-[1.6] text-zinc-300 font-light">
+                                            Chartered Accountant ICAI and B.Com (hons.) from Hansraj College, Delhi University
+                                        </p>
+                                        <div className="flex gap-2 shrink-0">
+                                            <img src={icaiLogo} alt="ICAI" className="h-8 w-auto opacity-50 grayscale hover:grayscale-0 hover:opacity-100 transition-all" />
+                                            <img src={hansrajLogo} alt="Hansraj" className="h-8 w-auto opacity-50 grayscale hover:grayscale-0 hover:opacity-100 transition-all" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="md:col-span-2 pt-4 border-t border-zinc-900/50">
+                                    <span className="block text-[0.65rem] tracking-[0.2em] text-zinc-500 uppercase mb-3">Previous Experience</span>
+                                    <div className="flex items-center gap-6">
+                                        <img src={eyLogo} alt="EY" className="h-6 w-auto opacity-40 grayscale hover:grayscale-0 hover:opacity-100 transition-all" />
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -158,6 +175,12 @@ export function AboutUs() {
                                     <p className="text-[0.85rem] leading-[1.6] text-zinc-300 font-light">
                                         Computer Science graduate from Chandigarh Group of Colleges, Punjab, with a strong grounding in AI, Data Science, and scalable system architecture.
                                     </p>
+                                </div>
+                                <div className="md:col-span-2 pt-4 border-t border-zinc-900/50">
+                                    <span className="block text-[0.65rem] tracking-[0.2em] text-zinc-500 uppercase mb-3">Previous Experience</span>
+                                    <div className="flex items-center gap-6">
+                                        <img src={jioLogo} alt="Reliance Jio" className="h-8 w-auto opacity-40 grayscale hover:grayscale-0 hover:opacity-100 transition-all" />
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -223,6 +246,12 @@ export function AboutUs() {
                                     <p className="text-[0.85rem] leading-[1.6] text-zinc-300 font-light">
                                         Computer Science Graduate from Chandigarh Group of Colleges, Punjab, specialising in Software Development and Data Engineering.
                                     </p>
+                                </div>
+                                <div className="md:col-span-2 pt-4 border-t border-zinc-900/50">
+                                    <span className="block text-[0.65rem] tracking-[0.2em] text-zinc-500 uppercase mb-3">Previous Experience</span>
+                                    <div className="flex items-center gap-6">
+                                        <img src={coforgeLogo} alt="Coforge" className="h-6 w-auto opacity-40 grayscale hover:grayscale-0 hover:opacity-100 transition-all" />
+                                    </div>
                                 </div>
                             </div>
                         </div>
