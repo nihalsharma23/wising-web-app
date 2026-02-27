@@ -82,8 +82,11 @@ export function HeroSection() {
                         transition={{ duration: 0.8 }}
                         className="flex flex-col items-center w-full"
                     >
-                        <div
-                            className="bg-clip-text flex flex-col font-['Syne',sans-serif] font-normal justify-center leading-[1.1] text-center tracking-[clamp(8px,2vw,15.4px)] uppercase whitespace-pre-wrap text-[clamp(4rem,15vw,120px)] px-4"
+                        <motion.h1
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+                            className="bg-clip-text font-['Syne',sans-serif] font-bold leading-[1.1] text-center tracking-[clamp(3px,0.8vw,6px)] uppercase whitespace-pre-wrap text-[clamp(1.6rem,6.1vw,61px)] px-4 m-0"
                             style={{
                                 backgroundImage: "linear-gradient(90deg, rgba(156, 163, 175, 0.6) 0%, rgba(209, 213, 219, 0.8) 20%, rgb(255, 255, 255) 50%, rgba(209, 213, 219, 0.8) 80%, rgba(156, 163, 175, 0.6) 100%)",
                                 WebkitTextFillColor: "transparent",
@@ -91,9 +94,22 @@ export function HeroSection() {
                                 animation: "shimmer-move 8s linear infinite"
                             }}
                         >
-                            <h1 className="mb-0">Master Your Wealth</h1>
-                            <h1>With Intelligence</h1>
-                        </div>
+                            Pioneering AI
+                        </motion.h1>
+                        <motion.h1
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                            className="bg-clip-text font-['Syne',sans-serif] font-bold leading-[1.1] text-center tracking-[clamp(3px,0.8vw,6px)] uppercase whitespace-pre-wrap text-[clamp(1.6rem,6.1vw,61px)] px-4 m-0"
+                            style={{
+                                backgroundImage: "linear-gradient(90deg, rgba(156, 163, 175, 0.6) 0%, rgba(209, 213, 219, 0.8) 20%, rgb(255, 255, 255) 50%, rgba(209, 213, 219, 0.8) 80%, rgba(156, 163, 175, 0.6) 100%)",
+                                WebkitTextFillColor: "transparent",
+                                backgroundSize: "200% auto",
+                                animation: "shimmer-move 8s linear infinite"
+                            }}
+                        >
+                            Wealth Intelligence
+                        </motion.h1>
                     </motion.div>
 
                     {/* Description */}

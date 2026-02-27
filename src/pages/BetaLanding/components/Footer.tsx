@@ -30,7 +30,7 @@ export function Footer() {
                     <div className="flex items-center gap-3 px-4 py-2 border border-white/10 rounded-lg bg-white/[0.02]">
                         <span className="material-symbols-outlined text-white/40" style={{ fontSize: '24px' }}>security</span>
                         <div className="flex flex-col">
-                            <span className="text-[9px] font-bold text-white/60 tracking-widest uppercase">Wising</span>
+                            <span className="text-[9px] font-bold tracking-widest uppercase chrome-silver-metallic">Wising</span>
                             <span className="text-[8px] font-medium text-[#22C55E] tracking-widest uppercase leading-none">Trusted</span>
                         </div>
                     </div>
@@ -40,8 +40,8 @@ export function Footer() {
                     <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex items-center relative w-full">
                         <div className="content-stretch flex flex-col md:flex-row gap-6 md:gap-12 items-center md:items-center relative w-full text-center md:text-left">
                             <div className="content-stretch flex flex-col items-start relative">
-                                <div className="flex flex-col font-['Montserrat:Semi_Bold',sans-serif] justify-center leading-[0] not-italic text-[#999] text-[10px] tracking-[10px] uppercase">
-                                    <p className="leading-[1.5] whitespace-pre-wrap">wising</p>
+                                <div className="flex flex-col font-['Montserrat:Semi_Bold',sans-serif] justify-center leading-[0] not-italic text-[10px] tracking-[10px] uppercase chrome-silver-metallic">
+                                    <p className="leading-[1.5] whitespace-pre-wrap font-bold">wising</p>
                                 </div>
                             </div>
                             <div className="content-stretch flex flex-col items-start relative flex-1">

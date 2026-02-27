@@ -1,4 +1,3 @@
-import { motion } from "motion/react";
 
 export function GridSection() {
     const features = [
@@ -19,12 +18,8 @@ export function GridSection() {
                 <div className="relative w-full">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full">
                         {features.map((feature, idx) => (
-                            <motion.div
+                            <div
                                 key={idx}
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.6, delay: idx * 0.1 }}
-                                viewport={{ once: true }}
                                 className="relative content-stretch flex flex-col gap-4 items-start p-[clamp(2.5rem,5vw,5rem)]"
                             >
                                 <div aria-hidden="true" className="absolute border-[#1f1f1f] border-b border-r border-solid inset-0 pointer-events-none" />
@@ -59,7 +54,7 @@ export function GridSection() {
                                         </div>
                                     </div>
                                 </div>
-                            </motion.div>
+                            </div>
                         ))}
                     </div>
                 </div>

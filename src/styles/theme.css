@@ -143,13 +143,23 @@
   }
 
   .chrome-silver-metallic {
-    background: linear-gradient(90deg, #e0e0e0 0%, #ffffff 20%, #7a7a7a 50%, #ffffff 80%, #e0e0e0 100%);
+    background: linear-gradient(
+      90deg,
+      #999999 0%,
+      #e0e0e0 20%,
+      #ffffff 45%,
+      #7a7a7a 50%,
+      #ffffff 55%,
+      #e0e0e0 80%,
+      #999999 100%
+    );
     background-size: 200% auto;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    animation: shimmer-move 8s linear infinite;
+    animation: shimmer-move 6s linear infinite;
     display: inline-flex;
     align-items: center;
+    font-weight: 700;
   }
 
   .shimmer-header {

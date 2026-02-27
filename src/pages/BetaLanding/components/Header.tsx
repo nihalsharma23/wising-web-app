@@ -50,7 +50,7 @@ export function Header({ variant = 'landing' }: HeaderProps) {
                         className="flex flex-col font-['Montserrat:Semi_Bold',sans-serif] justify-center leading-[0] not-italic text-[12px] md:text-[14px] tracking-[4px] md:tracking-[10px] uppercase pl-1 chrome-silver-metallic"
                         style={{ paddingTop: '0.1rem' }}
                     >
-                        <p className="leading-[20px] whitespace-pre-wrap font-[Aboreto] flex items-center pt-1">WISING</p>
+                        <p className="leading-[20px] whitespace-pre-wrap font-[Aboreto] font-bold flex items-center pt-1">WISING</p>
                     </div>
                 </div>
             </motion.div>

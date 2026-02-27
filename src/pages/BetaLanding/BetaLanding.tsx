@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+import { motion } from 'motion/react';
 import { Header } from './components/Header';
 import { HeroSection } from './components/HeroSection';
 import { SupportedIntegrationsSection } from './components/MarqueeIntegrations';
@@ -10,8 +12,16 @@ import { NetworkCanvas } from '../../components/ui/NetworkCanvas';
 import { seoConfig } from '../../config/seoData';
 
 export function BetaLanding() {
+    useEffect(() => {
+        // Ensure page starts at the top
+        window.scrollTo(0, 0);
+    }, []);
+
     return (
-        <div
+        <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
             className="content-stretch flex flex-col items-start relative size-full min-h-screen overflow-x-hidden select-none"
             onContextMenu={(e) => e.preventDefault()}
         >
@@ -30,6 +40,6 @@ export function BetaLanding() {
 
             <Footer />
 
-        </div>
+        </motion.div>
     );
 }
