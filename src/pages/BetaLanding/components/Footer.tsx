@@ -9,19 +9,19 @@ export function Footer() {
                 <div className="w-full flex flex-col md:flex-row items-center justify-between gap-8 py-8 border-y border-white/[0.03]">
                     <div className="flex flex-wrap justify-center md:justify-start gap-x-8 gap-y-4">
                         <div className="flex items-center gap-2">
-                            <span className="material-symbols-outlined text-[#22C55E] text-[18px]">verified_user</span>
+                            <span className="material-symbols-outlined text-[#14b8a6] text-[18px]">verified_user</span>
                             <span className="text-[10px] font-['Manrope',sans-serif] text-[#999] tracking-[2px] uppercase whitespace-nowrap">SSL Secured</span>
                         </div>
                         <div className="flex items-center gap-2">
-                            <span className="material-symbols-outlined text-[#22C55E] text-[18px]">lock</span>
+                            <span className="material-symbols-outlined text-[#14b8a6] text-[18px]">lock</span>
                             <span className="text-[10px] font-['Manrope',sans-serif] text-[#999] tracking-[2px] uppercase whitespace-nowrap">Non-custodial</span>
                         </div>
                         <div className="flex items-center gap-2">
-                            <span className="material-symbols-outlined text-[#22C55E] text-[18px]">visibility_off</span>
+                            <span className="material-symbols-outlined text-[#14b8a6] text-[18px]">visibility_off</span>
                             <span className="text-[10px] font-['Manrope',sans-serif] text-[#999] tracking-[2px] uppercase whitespace-nowrap">No Data Sold</span>
                         </div>
                         <div className="flex items-center gap-2">
-                            <span className="material-symbols-outlined text-[#22C55E] text-[18px]">payments</span>
+                            <span className="material-symbols-outlined text-[#14b8a6] text-[18px]">payments</span>
                             <span className="text-[10px] font-['Manrope',sans-serif] text-[#999] tracking-[2px] uppercase whitespace-nowrap">No Payment Required</span>
                         </div>
                     </div>
@@ -30,8 +30,8 @@ export function Footer() {
                     <div className="flex items-center gap-3 px-4 py-2 border border-white/10 rounded-lg bg-white/[0.02]">
                         <span className="material-symbols-outlined text-white/40" style={{ fontSize: '24px' }}>security</span>
                         <div className="flex flex-col">
-                            <span className="text-[9px] font-bold tracking-widest uppercase chrome-silver-metallic">Wising</span>
-                            <span className="text-[8px] font-medium text-[#22C55E] tracking-widest uppercase leading-none">Trusted</span>
+                            <span className="text-[9px] font-bold tracking-[0.3em] uppercase chrome-silver-metallic">Wising</span>
+                            <span className="text-[8px] font-medium text-[#14b8a6] tracking-[0.3em] uppercase leading-none">Trusted</span>
                         </div>
                     </div>
                 </div>

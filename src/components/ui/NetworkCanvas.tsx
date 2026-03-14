@@ -44,8 +44,6 @@ export function NetworkCanvas({ className }: NetworkCanvasProps) {
 
             draw() {
                 if (!ctx) return;
-                // HEADER MASK: Do not draw in the top 40% of the screen (Headline area)
-                if (this.y < height * 0.40) return;
 
                 // Shimmer effect
                 const shimmer = Math.sin(time * 0.1 + this.x) * 0.2 + 0.8;
@@ -85,8 +83,8 @@ export function NetworkCanvas({ className }: NetworkCanvasProps) {
 
         const init = () => {
             particles = [];
-            // Density logic from original code: (w*h) / 12000
-            const numberOfParticles = (width * height) / 12000;
+            // Reduced density by 50%: (w*h) / 24000
+            const numberOfParticles = (width * height) / 24000;
             for (let i = 0; i < numberOfParticles; i++) {
                 particles.push(new Particle());
             }
@@ -95,12 +93,7 @@ export function NetworkCanvas({ className }: NetworkCanvasProps) {
         const connect = () => {
             let opacityValue = 1;
             for (let a = 0; a < particles.length; a++) {
-                // Skip if particle A is in the masked area
-                if (particles[a].y < height * 0.40) continue;
-
                 for (let b = a; b < particles.length; b++) {
-                    // Skip if particle B is in the masked area
-                    if (particles[b].y < height * 0.40) continue;
 
                     let dx = particles[a].x - particles[b].x;
                     let dy = particles[a].y - particles[b].y;

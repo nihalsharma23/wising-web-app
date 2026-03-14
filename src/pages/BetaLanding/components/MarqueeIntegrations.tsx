@@ -28,7 +28,7 @@ function MarqueeIntegrations() {
                 }}
             >
                 {integrations.map((name, i) => (
-                    <div key={i} className="flex flex-col font-['Inter:Light',sans-serif] font-light justify-center leading-[0] not-italic text-[#999] text-[16px] tracking-[4.8px] uppercase whitespace-nowrap">
+                    <div key={i} className="flex flex-col font-['Inter:Light',sans-serif] font-light justify-center leading-[0] not-italic text-[#999] hover:text-[#14b8a6] transition-colors duration-300 cursor-default text-[16px] tracking-[4.8px] uppercase whitespace-nowrap">
                         <p className="leading-[24px]">{name}</p>
                     </div>
                 ))}

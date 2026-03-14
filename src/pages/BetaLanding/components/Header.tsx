@@ -32,25 +32,24 @@ export function Header({ variant = 'landing' }: HeaderProps) {
 
     return (
         <>
-            {/* Floating Logo with Entrance Motion */}
             <motion.div
-                initial={{ x: -150, opacity: 0 }}
+                initial={{ x: -100, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-                className="fixed z-[60] top-[12px] left-6 md:left-[6rem] flex items-center cursor-pointer pointer-events-auto select-none"
+                className="fixed z-[60] top-[14px] left-6 md:left-10 flex items-center cursor-pointer pointer-events-auto select-none"
                 onClick={() => navigate('/')}
             >
-                <div className="flex items-center" style={{ gap: '0.1rem' }}>
+                <div className="flex items-center" style={{ gap: '0rem' }}>
                     <img
                         src={imgHeaderLogo}
-                        alt="Wising Logo"
-                        className="h-[28px] md:h-[40px] w-auto object-contain"
+                        alt=""
+                        className="h-[26px] md:h-[36px] w-auto object-contain brightness-[1.15]"
                     />
                     <div
-                        className="flex flex-col font-['Montserrat:Semi_Bold',sans-serif] justify-center leading-[0] not-italic text-[12px] md:text-[14px] tracking-[4px] md:tracking-[10px] uppercase pl-1 chrome-silver-metallic"
+                        className="flex flex-col font-['Montserrat:Semi_Bold',sans-serif] justify-center leading-[0] not-italic text-[14px] md:text-[17px] tracking-[1.1px] md:tracking-[3.6px] uppercase ml-[-2px] md:ml-[-4px] text-[#E2E2E2] h-[26px] md:h-[36px]"
                         style={{ paddingTop: '0.1rem' }}
                     >
-                        <p className="leading-[20px] whitespace-pre-wrap font-[Aboreto] font-bold flex items-center pt-1">WISING</p>
+                        <p className="leading-[20px] whitespace-pre-wrap font-[Aboreto] font-bold flex items-center pt-1">ISING</p>
                     </div>
                 </div>
             </motion.div>
@@ -78,7 +77,7 @@ export function Header({ variant = 'landing' }: HeaderProps) {
 
                                 {/* About Us Link */}
                                 <Link to="/about" className="flex content-stretch flex-col h-10 items-end justify-center py-3 relative cursor-pointer hover:opacity-80 transition-opacity">
-                                    <div className="flex flex-col font-['Syne',sans-serif] font-medium justify-center leading-[0] not-italic text-[#999] text-xs tracking-[4px] uppercase whitespace-nowrap">
+                                    <div className="flex flex-col font-['Manrope',sans-serif] font-medium justify-center leading-[0] not-italic text-[#14b8a6] text-sm tracking-normal capitalize whitespace-nowrap">
                                         <p className="leading-[15px] whitespace-pre-wrap">About Us</p>
                                     </div>
                                 </Link>

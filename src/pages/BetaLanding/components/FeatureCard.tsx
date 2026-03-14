@@ -9,7 +9,11 @@ export function FeatureCard({ letter, title, description, hasTopDot = true, hasB
     hasBottomDot?: boolean;
 }) {
     return (
-        <div
+        <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
             className="content-stretch flex flex-col items-center relative w-full"
         >
             {/* Blinking Dot(s) */}
@@ -54,12 +58,12 @@ export function FeatureCard({ letter, title, description, hasTopDot = true, hasB
                         <p className="whitespace-pre-wrap">{title}</p>
                     </div>
                 </div>
-                <div className="content-stretch flex flex-col items-center opacity-80 relative w-full">
-                    <div className="flex flex-col font-['Manrope',sans-serif] font-normal justify-center leading-[1.6] not-italic text-[#999] text-[clamp(16px,2vw,22px)] text-center tracking-[0.5px] whitespace-pre-wrap capitalize">
+                <div className="content-stretch flex flex-col items-center relative w-full">
+                    <div className="flex flex-col font-['Inter',sans-serif] font-light justify-center leading-[1.6] not-italic text-zinc-400 text-[clamp(16px,2vw,22px)] text-center tracking-[0.5px] whitespace-pre-wrap capitalize">
                         {description}
                     </div>
                 </div>
             </div>
-        </div>
+        </motion.div>
     );
 }

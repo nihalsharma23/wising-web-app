@@ -1,3 +1,4 @@
+import { motion } from 'motion/react';
 
 export function GridSection() {
     const features = [
@@ -16,19 +17,39 @@ export function GridSection() {
 
                 {/* Grid */}
                 <div className="relative w-full">
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full">
+                    <motion.div 
+                        initial="hidden"
+                        whileInView="show"
+                        viewport={{ once: true, amount: 0.1 }}
+                        variants={{
+                            hidden: { opacity: 0 },
+                            show: {
+                                opacity: 1,
+                                transition: {
+                                    staggerChildren: 0.1
+                                }
+                            }
+                        }}
+                        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-full"
+                    >
                         {features.map((feature, idx) => (
-                            <div
+                            <motion.div
                                 key={idx}
-                                className="relative content-stretch flex flex-col gap-4 items-start p-[clamp(2.5rem,5vw,5rem)]"
+                                variants={{
+                                    hidden: { opacity: 0, y: 20 },
+                                    show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } }
+                                }}
+                                whileHover={{ scale: 1.01, transition: { duration: 0.2 } }}
+                                className="relative content-stretch flex flex-col gap-4 items-start p-[clamp(2.5rem,5vw,5rem)] group cursor-default"
                             >
-                                <div aria-hidden="true" className="absolute border-[#1f1f1f] border-b border-r border-solid inset-0 pointer-events-none" />
+                                <div aria-hidden="true" className="absolute border-[#1f1f1f] border-b border-r border-solid inset-0 pointer-events-none group-hover:border-white/20 transition-colors duration-300" />
+                                <div className="absolute inset-0 bg-white/[0.02] opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
 
                                 {/* Tag */}
                                 <div className="relative w-full">
                                     <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col items-start relative w-full">
                                         <div
-                                            className="flex flex-col font-['Montserrat:Semi_Bold',sans-serif] justify-center leading-[0] not-italic text-[10px] text-zinc-400 text-center tracking-[3px] uppercase"
+                                            className="flex flex-col font-['Montserrat:Semi_Bold',sans-serif] justify-center leading-[0] not-italic text-[10px] text-[#14b8a6] text-center tracking-[4px] uppercase transition-colors"
                                         >
                                             <p className="leading-[15px] whitespace-pre-wrap">{feature.tag}</p>
                                         </div>
@@ -39,7 +60,7 @@ export function GridSection() {
                                 <div className="relative w-full">
                                     <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col items-start relative w-full">
                                         <div
-                                            className="flex flex-col font-['Montserrat:Bold',sans-serif] font-bold justify-center leading-[0] text-3xl tracking-[-0.6px] uppercase text-zinc-100"
+                                            className="flex flex-col font-['Montserrat:Bold',sans-serif] font-bold justify-center leading-[0] text-3xl tracking-tight uppercase text-zinc-100 group-hover:text-white transition-colors"
                                         >
                                             <p className="leading-[32px] whitespace-pre-wrap">{feature.title}</p>
                                         </div>
@@ -49,14 +70,14 @@ export function GridSection() {
                                 {/* Description */}
                                 <div className="max-w-[448px] relative w-full">
                                     <div className="bg-clip-padding border-0 border-[transparent] border-solid content-stretch flex flex-col items-start max-w-[inherit] relative w-full">
-                                        <div className="flex flex-col font-['Inter:Light',sans-serif] font-light justify-center leading-[26px] not-italic text-[#999] text-[16px] w-full whitespace-pre-wrap">
+                                        <div className="flex flex-col font-['Inter:Light',sans-serif] font-light justify-center leading-[26px] not-italic text-zinc-500 text-[16px] w-full whitespace-pre-wrap group-hover:text-zinc-400 transition-colors">
                                             {feature.desc}
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </motion.div>
                         ))}
-                    </div>
+                    </motion.div>
                 </div>
             </div>
         </div>

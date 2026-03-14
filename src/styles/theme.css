@@ -242,6 +242,41 @@
     background-size: 400% 400%;
     animation: border-shine-continuous 7s linear infinite;
   }
+
+  .mesh-gradient-bg {
+    background-color: #030213;
+    background-image: 
+      radial-gradient(at 0% 0%, hsla(253,16%,7%,1) 0, transparent 50%), 
+      radial-gradient(at 50% 0%, hsla(225,39%,30%,0.15) 0, transparent 50%), 
+      radial-gradient(at 100% 0%, hsla(339,49%,30%,0.05) 0, transparent 50%), 
+      radial-gradient(at 0% 50%, hsla(225,39%,30%,0.15) 0, transparent 50%), 
+      radial-gradient(at 50% 50%, hsla(253,16%,7%,1) 0, transparent 50%), 
+      radial-gradient(at 100% 50%, hsla(225,39%,30%,0.15) 0, transparent 50%), 
+      radial-gradient(at 0% 100%, hsla(339,49%,30%,0.05) 0, transparent 50%), 
+      radial-gradient(at 50% 100%, hsla(225,39%,30%,0.15) 0, transparent 50%), 
+      radial-gradient(at 100% 100%, hsla(253,16%,7%,1) 0, transparent 50%);
+    background-size: 200% 200%;
+    animation: mesh-move 20s ease infinite;
+    will-change: background-position;
+  }
+
+  .text-editorial-header {
+    letter-spacing: -0.04em;
+    line-height: 0.9;
+    text-transform: uppercase;
+  }
+
+  .text-editorial-tag {
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  @keyframes mesh-move {
+    0% { background-position: 0% 0%; }
+    50% { background-position: 100% 100%; }
+    100% { background-position: 0% 0%; }
+  }
 }
 
 @layer base {
