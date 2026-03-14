@@ -14,7 +14,7 @@ export const seoConfig = {
         description: "Experience the world's first Agentic AI Wealth Intelligence platform. Aggregate assets, talk to your data, and optimize your portfolio with hyper-personalized AI insights.",
         keywords: "agentic ai wealth management, ai portfolio optimization, hyper-personalization wealth management, tracking net worth, wising intelligence",
         canonical: "https://wising.app/",
-        ogImage: "https://wising.app/og-image.jpg",
+        ogImage: "https://wising.app/og-image.png",
         structuredData: {
             "@context": "https://schema.org",
             "@type": "WebApplication",
