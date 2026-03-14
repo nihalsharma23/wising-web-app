@@ -4,8 +4,8 @@ export function GridSection() {
         { tag: "01/ Command", title: "Master Your Assets", desc: "Connect every account in 10 seconds. See your complete net worth and live trades in one unified, master feed." },
         { tag: "02/ Insights", title: "Talk To Your Data", desc: "Ask questions in plain English. Get instant, pro-level analysis from your actual data without the complex jargon." },
         { tag: "03/ Habit", title: "Unmask Your Patterns", desc: "Identify the behaviors draining your wealth. Spot panic sells and FOMO buys before they cost you another trade." },
-        { tag: "04/ Performance", title: "Prove Your Growth", desc: "Finally know if you're winning. Benchmark against Nifty, S&P 500, and Bitcoin to prove what's actually working." },
-        { tag: "05/ Intelligence", title: "Filter The Noise", desc: "Only see news that hits your portfolio. AI filters thousands of articles to surface what actually impacts your money." },
+        { tag: "04/ Intelligence", title: "Filter The Noise", desc: "Only see news that hits your portfolio. AI filters thousands of articles to surface what actually impacts your money." },
+        { tag: "05/ Taxation", title: "Simplify Global Taxes", desc: "Navigate cross-border complexities with ease. Use the Causal Chain Explorer to effortlessly identify and claim Tax credits, optimizing your global wealth." },
         { tag: "06/ Vitals", title: "Read Your Health", desc: "Measure your financial health daily. Monitor diversification, volatility, and concentration with professional precision." },
     ];
 
