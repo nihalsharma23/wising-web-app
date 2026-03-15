@@ -1,4 +1,4 @@
-import { useEffect, lazy, Suspense } from 'react';
+import { useEffect, useLayoutEffect, lazy, Suspense } from 'react';
 import { motion } from 'motion/react';
 import { Header } from './components/Header';
 import { HeroSection } from './components/HeroSection';
@@ -13,8 +13,25 @@ const FoundingTeamSection = lazy(() => import('./components/FoundingTeamSection'
 const Footer = lazy(() => import('./components/Footer').then(m => ({ default: m.Footer })));
 
 export function BetaLanding() {
+    useLayoutEffect(() => {
+        // Disable browser's automatic scroll restoration to prevent jumping
+        if ('scrollRestoration' in window.history) {
+            window.history.scrollRestoration = 'manual';
+        }
+        
+        // Force the page to start at the absolute top immediately
+        window.scrollTo(0, 0);
+        
+        return () => {
+            // Re-enable on cleanup if navigating away (optional, but good practice)
+            if ('scrollRestoration' in window.history) {
+                window.history.scrollRestoration = 'auto';
+            }
+        };
+    }, []);
+
     useEffect(() => {
-        // Ensure page starts at the top
+        // Double-check scroll position after mount
         window.scrollTo(0, 0);
     }, []);
 
