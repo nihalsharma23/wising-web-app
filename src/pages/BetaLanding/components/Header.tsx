@@ -39,17 +39,17 @@ export function Header({ variant = 'landing' }: HeaderProps) {
                 className="fixed z-[60] top-[14px] left-6 md:left-10 flex items-center cursor-pointer pointer-events-auto select-none"
                 onClick={() => navigate('/')}
             >
-                <div className="flex items-center" style={{ gap: '0rem' }}>
+                <div className="flex items-center" style={{ gap: '0.1rem' }}>
                     <img
                         src={imgHeaderLogo}
-                        alt=""
+                        alt="Wising Logo"
                         className="h-[26px] md:h-[36px] w-auto object-contain brightness-[1.15]"
                     />
                     <div
-                        className="flex flex-col font-['Montserrat:Semi_Bold',sans-serif] justify-center leading-[0] not-italic text-[14px] md:text-[17px] tracking-[1.1px] md:tracking-[3.6px] uppercase ml-[-2px] md:ml-[-4px] text-[#E2E2E2] h-[26px] md:h-[36px]"
+                        className="flex flex-col font-['Montserrat:Semi_Bold',sans-serif] justify-center leading-[0] not-italic text-[12.5px] md:text-[14.5px] tracking-[4px] md:tracking-[10px] uppercase pl-1 chrome-silver-metallic h-[26px] md:h-[36px]"
                         style={{ paddingTop: '0.1rem' }}
                     >
-                        <p className="leading-[20px] whitespace-pre-wrap font-[Aboreto] font-bold flex items-center pt-1">ISING</p>
+                        <p className="leading-[20px] whitespace-pre-wrap font-[Aboreto] font-bold flex items-center pt-1">WISING</p>
                     </div>
                 </div>
             </motion.div>
