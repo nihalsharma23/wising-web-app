@@ -4,13 +4,10 @@ import { SEO } from "../../components/SEO";
 import { seoConfig } from "../../config/seoData";
 import sarthakImg from "@/assets/sarthak-jalan.png";
 import nihalImg from "@/assets/nihal-sharma.jpg";
-import divanshuImg from "@/assets/divanshu-bansal.jpg";
 import eyLogo from "@/pages/BetaLanding/assets/ey.png";
 import jioLogo from "@/pages/BetaLanding/assets/jio.svg";
-import coforgeLogo from "@/pages/BetaLanding/assets/coforge.svg";
 import hansrajLogo from "@/pages/BetaLanding/assets/founding_team_v2_6.png";
 import icaiLogo from "@/pages/BetaLanding/assets/icai.svg";
-import divanshuTeamImg from "@/pages/BetaLanding/assets/founding_team_v2_3.png";
 import cgcLogo from "@/pages/BetaLanding/assets/cgc.svg";
 
 const XIcon = ({ className }: { className?: string }) => (
@@ -190,82 +187,7 @@ export function AboutUs() {
                     </div>
                 </article>
 
-                {/* Founder 3: DIVANSHU BANSAL */}
-                <article className="bg-[#0a0a0a]/40 border border-zinc-900 rounded-lg p-8 lg:p-12 backdrop-blur-sm">
-                    <div className="flex flex-col lg:flex-row gap-12 items-start">
-                        {/* Profile Image & Socials */}
-                        <div className="w-full lg:w-1/3 flex flex-col items-center lg:items-start space-y-6">
-                            <div className="w-64 h-80 grayscale hover:grayscale-0 transition-all duration-500 overflow-hidden border border-zinc-800 bg-zinc-900 flex items-center justify-center">
-                                <img
-                                    alt="Divanshu Bansal"
-                                    className="w-full h-full object-cover object-top"
-                                    src={divanshuImg}
-                                />
-                            </div>
-                            <div className="flex gap-4">
-                                <a
-                                    href="https://www.linkedin.com/in/ikshvaku03/"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="w-8 h-8 bg-zinc-800 rounded-sm flex items-center justify-center hover:bg-[#0077b5] transition-colors group"
-                                >
-                                    <Linkedin className="w-4 h-4 text-zinc-400 group-hover:text-white transition-colors" />
-                                </a>
-                                <a
-                                    href="#"
-                                    className="w-8 h-8 bg-zinc-800 rounded-sm flex items-center justify-center hover:bg-black transition-colors group"
-                                >
-                                    <XIcon className="w-4 h-4 text-zinc-400 group-hover:text-white transition-colors" />
-                                </a>
-                            </div>
-                        </div>
-                        {/* Content */}
-                        <div className="w-full lg:w-2/3">
-                            <h2 className="text-3xl lg:text-5xl mb-12 uppercase tracking-[0.4em] font-light bg-gradient-to-br from-white via-[#a1a1a1] to-white bg-clip-text text-transparent">
-                                DIVANSHU BANSAL
-                            </h2>
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8">
-                                <div>
-                                    <span className="block text-[0.65rem] tracking-[0.2em] text-zinc-500 uppercase mb-2">Experience</span>
-                                    <p className="text-[0.85rem] leading-[1.6] text-zinc-300 font-light">
-                                        5+ years of experience building scalable systems across cross-functional roles. Designed solution architectures from MVPs to enterprise-scale platforms for global clients including US Bank and Toyota Motors.
-                                    </p>
-                                </div>
-                                <div>
-                                    <span className="block text-[0.65rem] tracking-[0.2em] text-zinc-500 uppercase mb-2">Achievements</span>
-                                    <ul className="text-[0.85rem] leading-[1.6] text-zinc-300 font-light list-disc pl-4 space-y-1">
-                                        <li>Best Performer on US Bank project; Developer of the Quarter at Toyota Motors.</li>
-                                        <li>Recognized as a core engineering contributor and high-impact problem solver.</li>
-                                    </ul>
-                                </div>
-                                <div>
-                                    <span className="block text-[0.65rem] tracking-[0.2em] text-zinc-500 uppercase mb-2">Career</span>
-                                    <p className="text-[0.85rem] leading-[1.6] text-zinc-300 font-light">
-                                        Ex-Wipro Software Engineer; currently Senior Software Engineer at Coforge. Delivered mission-critical solutions with strong ownership and execution excellence.
-                                    </p>
-                                </div>
-                                <div>
-                                    <span className="block text-[0.65rem] tracking-[0.2em] text-zinc-500 uppercase mb-2">Education</span>
-                                    <p className="text-[0.85rem] leading-[1.6] text-zinc-300 font-light">
-                                        Computer Science Graduate from Chandigarh Group of Colleges, Punjab, specialising in Software Development and Data Engineering.
-                                    </p>
-                                </div>
-                                <div className="md:col-span-2 pt-4 border-t border-zinc-900/50">
-                                    <span className="block text-[0.65rem] tracking-[0.2em] text-zinc-500 uppercase mb-3">Previous Experience</span>
-                                    <div className="flex items-center gap-6 flex-wrap">
-                                        <img src={coforgeLogo} alt="Coforge" className="h-6 w-auto opacity-40 grayscale hover:grayscale-0 hover:opacity-100 transition-all" />
-                                        <img src={cgcLogo} alt="CGC" className="h-[49px] w-auto opacity-40 grayscale hover:grayscale-0 hover:opacity-100 transition-all" />
-                                        <img
-                                            src={divanshuTeamImg}
-                                            alt="Team Collaboration"
-                                            className="h-[72px] w-auto rounded-sm border border-zinc-900/50 opacity-70 grayscale hover:grayscale-0 hover:opacity-100 transition-all shadow-lg"
-                                        />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </article>
+
 
             </main>
 

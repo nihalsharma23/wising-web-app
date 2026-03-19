@@ -1,17 +1,17 @@
 import { motion } from "motion/react";
+import imgAmazon from "../assets/amazon_logo_final.png";
 import imgFounding1 from "../assets/founding_team_v2_1.png";
 import imgFounding2 from "../assets/founding_team_v2_2.png";
-import imgFounding3 from "../assets/founding_team_v2_3.png";
-import imgFounding4 from "../assets/founding_team_v2_4.png";
 import imgFounding5 from "../assets/founding_team_v2_5.png";
 import imgFounding6 from "../assets/founding_team_v2_6.png";
+import imgDeloitte from "../assets/deloitte_logo_new.png";
 
 export function FoundingTeamSection() {
     const logos = [
-        { src: imgFounding1, alt: "Founding Team 1" },
+        { src: imgAmazon, alt: "Amazon" },
+        { src: imgFounding1, alt: "Wipro" },
         { src: imgFounding2, alt: "Founding Team 2" },
-        { src: imgFounding3, alt: "Founding Team 3" },
-        { src: imgFounding4, alt: "Founding Team 4" },
+        { src: imgDeloitte, alt: "Deloitte" },
         { src: imgFounding5, alt: "Founding Team 5" },
         { src: imgFounding6, alt: "Founding Team 6" },
     ];
@@ -77,7 +77,7 @@ export function FoundingTeamSection() {
                                 <img
                                     src={logo.src}
                                     alt={logo.alt}
-                                    className={`${(logo.src === imgFounding3 || logo.src === imgFounding6) ? 'h-[80px]' : 'h-[50px]'} w-auto object-contain brightness-100`} // brightness-100 ensures original color
+                                    className={`${(logo.src === imgDeloitte) ? 'h-[100px]' : (logo.src === imgFounding6) ? 'h-[40px]' : (logo.src === imgAmazon) ? 'h-[40px]' : 'h-[50px]'} w-auto object-contain brightness-100`} // brightness-100 ensures original color
                                 />
                             </div>
                         ))}
