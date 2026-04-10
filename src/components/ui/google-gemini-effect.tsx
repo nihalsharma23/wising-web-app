@@ -30,16 +30,28 @@ export const GoogleGeminiEffect = ({
   const leftOpacity3 = useTransform(pathLengths[2], [0, 0.05], [0, 1]);
   const leftOpacity4 = useTransform(pathLengths[3], [0, 0.05], [0, 1]);
 
+  const [isMobile, setIsMobile] = React.useState(false);
+
+  React.useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
   return (
     <div className={cn("sticky relative top-0 flex flex-col items-center", className)}>
-      {/* Title & Description Section - Clear of Graphics */}
-      <div className="flex flex-col items-center justify-center text-center pt-24 pb-16 px-6 z-20">
-         <h2 className="text-4xl md:text-7xl lg:text-8xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-neutral-100 to-neutral-400 font-['Syne',sans-serif] tracking-tighter mb-6">
-          {title || `Zero Touch Tracking`}
+      {/* Standardized Header Section */}
+      <div className="flex flex-col items-center justify-center text-center pt-32 pb-24 px-6 z-20 space-y-6">
+         <span className="px-4 py-1.5 text-sm bg-teal-500/10 text-teal-400 border border-teal-500/20 rounded-full font-['Manrope',sans-serif] w-max font-bold tracking-wide uppercase">
+            Passive Intelligence
+         </span>
+         <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white font-['Syne',sans-serif] tracking-tight max-w-4xl leading-tight">
+          {title || `Zero Touch Tracking Engine`}
          </h2>
-         <p className="text-base md:text-xl font-normal text-neutral-400 max-w-2xl mx-auto font-['Manrope',sans-serif] leading-relaxed">
+         <p className="text-base md:text-lg font-normal text-neutral-400 max-w-2xl mx-auto font-['Manrope',sans-serif] leading-relaxed">
            {description ||
-             `Connect your accounts once and let the engine take over. Wising passively monitors global regulatory changes to keep your data current.`}
+             `Automated regulatory monitoring for global assets. We handle the complexity of IRS and India Tax compliance so you don't have to.`}
          </p>
       </div>
       
@@ -47,19 +59,19 @@ export const GoogleGeminiEffect = ({
       <div className="w-full h-[1000px] relative flex items-center justify-center mt-12 bg-transparent overflow-visible">
         
         {/* US Jurisdiction Anchor */}
-        <div className="absolute top-[150px] left-[5%] md:left-[10%] z-[80] flex flex-col items-start opacity-100 pointer-events-auto">
-            <div className="w-16 h-16 bg-white shadow-2xl rounded-2xl flex items-center justify-center mb-4 border border-gray-100 p-2 transform hover:scale-110 transition-transform duration-300">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Seal_of_the_Internal_Revenue_Service.svg/512px-Seal_of_the_Internal_Revenue_Service.svg.png" alt="IRS" className="w-[80%] h-[80%] object-contain" />
+        <div className="absolute top-[300px] left-[2%] md:left-[8%] z-[80] flex flex-col items-start opacity-100 pointer-events-auto">
+            <div className="w-12 h-12 md:w-16 md:h-16 bg-white shadow-[0_0_30px_rgba(255,255,255,0.1)] rounded-xl md:rounded-2xl flex items-center justify-center mb-2 md:mb-4 border border-gray-100 p-1.5 md:p-2 transform hover:scale-110 transition-transform duration-300">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Seal_of_the_Internal_Revenue_Service.svg/128px-Seal_of_the_Internal_Revenue_Service.svg.png" alt="IRS" className="w-[85%] h-[85%] object-contain" />
             </div>
-            <h3 className="text-white text-xl md:text-3xl font-bold font-['Syne',sans-serif] tracking-tighter">US Jurisdiction</h3>
+            <h3 className="text-white text-lg md:text-2xl font-bold font-['Syne',sans-serif] tracking-tighter">US (IRS)</h3>
         </div>
 
         {/* India Jurisdiction Anchor */}
-        <div className="absolute top-[150px] right-[5%] md:right-[10%] z-[80] flex flex-col items-end text-right opacity-100 pointer-events-auto">
-            <div className="w-16 h-16 bg-white shadow-2xl rounded-2xl flex items-center justify-center mb-4 border border-gray-100 p-2 transform hover:scale-110 transition-transform duration-300">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Income_Tax_Department_Logo.png/512px-Income_Tax_Department_Logo.png" alt="India Tax" className="w-[80%] h-[80%] object-contain" />
+        <div className="absolute top-[300px] right-[2%] md:right-[8%] z-[80] flex flex-col items-end text-right opacity-100 pointer-events-auto">
+            <div className="w-12 h-12 md:w-16 md:h-16 bg-white shadow-[0_0_30px_rgba(255,255,255,0.1)] rounded-xl md:rounded-2xl flex items-center justify-center mb-2 md:mb-4 border border-gray-100 p-1.5 md:p-2 transform hover:scale-110 transition-transform duration-300">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Income_Tax_Department_Logo.png/128px-Income_Tax_Department_Logo.png" alt="India Tax" className="w-[85%] h-[85%] object-contain" />
             </div>
-            <h3 className="text-white text-xl md:text-3xl font-bold font-['Syne',sans-serif] tracking-tighter">India Jurisdiction</h3>
+            <h3 className="text-white text-lg md:text-2xl font-bold font-['Syne',sans-serif] tracking-tighter">India (ITD)</h3>
         </div>
 
         {/* Central Wising Logo Hub */}
@@ -69,8 +81,16 @@ export const GoogleGeminiEffect = ({
                 <div className="absolute -inset-12 bg-teal-500/10 rounded-full blur-3xl pointer-events-none"></div>
                 
                 {/* Clean Black Container */}
-                <div className="relative z-10 w-24 h-24 md:w-44 md:h-44 bg-black border-2 border-white/10 rounded-full shadow-[0_0_50px_rgba(0,0,0,0.8)] flex items-center justify-center p-6 md:p-10 overflow-hidden">
-                    <img src="/src/assets/header_logo.png" alt="Wising Logo" className="w-full h-full object-contain relative z-20" />
+                <div className="relative z-10 w-20 h-20 md:w-36 md:h-36 bg-black border border-white/10 rounded-full shadow-[0_0_50px_rgba(0,0,0,1)] flex items-center justify-center p-5 md:p-8 overflow-hidden">
+                    <img 
+                        src="/src/assets/header_logo.png" 
+                        alt="Wising Logo" 
+                        className="w-full h-full object-contain relative z-20"
+                        onError={(e) => {
+                            // Fallback to absolute path if Vite dev server path fails
+                            (e.currentTarget as HTMLImageElement).src = "/assets/header_logo.png";
+                        }}
+                    />
                     
                     {/* Subtle internal shine effect */}
                     <div className="absolute inset-0 bg-gradient-to-tr from-white/5 to-transparent pointer-events-none"></div>
@@ -100,12 +120,16 @@ export const GoogleGeminiEffect = ({
             transition={transition}
           />
           {/* Label Path 1 */}
-          <motion.foreignObject x="40" y="625" width="300" height="40" style={{ opacity: leftOpacity1 }}>
-             <p className="text-[#FFB7C5] font-['Manrope'] font-bold text-[15px]">FBAR Filed</p>
-          </motion.foreignObject>
-          <motion.foreignObject x="1100" y="625" width="300" height="40" style={{ opacity: rightOpacity1 }} className="text-right">
-             <p className="text-[#FFB7C5] font-['Manrope'] font-bold text-[15px]">LRS Remittance Tracked ($145k/$250K)</p>
-          </motion.foreignObject>
+          {!isMobile && (
+            <>
+              <motion.foreignObject x="40" y="625" width="300" height="40" style={{ opacity: leftOpacity1 }}>
+                 <p className="text-[#FFB7C5] font-['Manrope'] font-bold text-[15px]">FBAR Filed</p>
+              </motion.foreignObject>
+              <motion.foreignObject x="1100" y="625" width="300" height="40" style={{ opacity: rightOpacity1 }} className="text-right">
+                 <p className="text-[#FFB7C5] font-['Manrope'] font-bold text-[15px]">LRS Remittance Tracked ($145k/$250K)</p>
+              </motion.foreignObject>
+            </>
+          )}
 
           {/* Path 2 (y=587.5) */}
           <motion.path
@@ -118,12 +142,16 @@ export const GoogleGeminiEffect = ({
             transition={transition}
           />
           {/* Label Path 2 */}
-          <motion.foreignObject x="40" y="550" width="300" height="40" style={{ opacity: leftOpacity2 }}>
-             <p className="text-[#FFDDB7] font-['Manrope'] font-bold text-[15px]">FORM 8621(PFIC) Optimized</p>
-          </motion.foreignObject>
-          <motion.foreignObject x="1100" y="550" width="300" height="40" style={{ opacity: rightOpacity2 }} className="text-right">
-             <p className="text-[#FFDDB7] font-['Manrope'] font-bold text-[15px]">FEMA Residency : 120 Days</p>
-          </motion.foreignObject>
+          {!isMobile && (
+            <>
+              <motion.foreignObject x="40" y="550" width="300" height="40" style={{ opacity: leftOpacity2 }}>
+                 <p className="text-[#FFDDB7] font-['Manrope'] font-bold text-[15px]">FORM 8621(PFIC) Optimized</p>
+              </motion.foreignObject>
+              <motion.foreignObject x="1100" y="550" width="300" height="40" style={{ opacity: rightOpacity2 }} className="text-right">
+                 <p className="text-[#FFDDB7] font-['Manrope'] font-bold text-[15px]">FEMA Residency : 120 Days</p>
+              </motion.foreignObject>
+            </>
+          )}
 
           {/* Path 3 (y=514) */}
           <motion.path
@@ -136,12 +164,16 @@ export const GoogleGeminiEffect = ({
             transition={transition}
           />
           {/* Label Path 3 */}
-          <motion.foreignObject x="40" y="475" width="300" height="40" style={{ opacity: leftOpacity3 }}>
-             <p className="text-[#B1C5FF] font-['Manrope'] font-bold text-[15px]">FATCA Verified</p>
-          </motion.foreignObject>
-          <motion.foreignObject x="1100" y="475" width="300" height="40" style={{ opacity: rightOpacity3 }} className="text-right">
-             <p className="text-[#B1C5FF] font-['Manrope'] font-bold text-[15px]">DTAA Relief Applied</p>
-          </motion.foreignObject>
+          {!isMobile && (
+            <>
+              <motion.foreignObject x="40" y="475" width="300" height="40" style={{ opacity: leftOpacity3 }}>
+                 <p className="text-[#B1C5FF] font-['Manrope'] font-bold text-[15px]">FATCA Verified</p>
+              </motion.foreignObject>
+              <motion.foreignObject x="1100" y="475" width="300" height="40" style={{ opacity: rightOpacity3 }} className="text-right">
+                 <p className="text-[#B1C5FF] font-['Manrope'] font-bold text-[15px]">DTAA Relief Applied</p>
+              </motion.foreignObject>
+            </>
+          )}
 
           {/* Path 4 (y=438) */}
           <motion.path
@@ -154,12 +186,16 @@ export const GoogleGeminiEffect = ({
             transition={transition}
           />
           {/* Label Path 4 */}
-          <motion.foreignObject x="40" y="400" width="300" height="40" style={{ opacity: leftOpacity4 }}>
-             <p className="text-[#4FABFF] font-['Manrope'] font-bold text-[15px]">IRS Compliance : Pass</p>
-          </motion.foreignObject>
-          <motion.foreignObject x="1100" y="400" width="300" height="40" style={{ opacity: rightOpacity4 }} className="text-right">
-             <p className="text-[#4FABFF] font-['Manrope'] font-bold text-[15px]">India Tax: Compliant</p>
-          </motion.foreignObject>
+          {!isMobile && (
+            <>
+              <motion.foreignObject x="40" y="400" width="300" height="40" style={{ opacity: leftOpacity4 }}>
+                 <p className="text-[#4FABFF] font-['Manrope'] font-bold text-[15px]">IRS Compliance : Pass</p>
+              </motion.foreignObject>
+              <motion.foreignObject x="1100" y="400" width="300" height="40" style={{ opacity: rightOpacity4 }} className="text-right">
+                 <p className="text-[#4FABFF] font-['Manrope'] font-bold text-[15px]">India Tax: Compliant</p>
+              </motion.foreignObject>
+            </>
+          )}
 
           {/* Path 5 Background aesthetic (No labels, just glow wire) */}
           <motion.path

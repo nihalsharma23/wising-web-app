@@ -38,7 +38,7 @@ export default function HeroText({
                   animate={{ opacity: 1, filter: "blur(0px)" }}
                   transition={{ delay: i * 0.04 + 0.3, duration: 0.8 }}
                   className="text-[9.5vw] sm:text-[8vw] leading-none text-white tracking-tighter"
-                  style={{ fontFamily: "'Inter', sans-serif" }}
+                  style={{ fontFamily: "'Playfair Display', serif" }}
                 >
                   {char === " " ? "\u00A0" : char}
                 </motion.span>

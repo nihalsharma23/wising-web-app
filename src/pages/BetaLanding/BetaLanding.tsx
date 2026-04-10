@@ -94,7 +94,7 @@ export function BetaLanding() {
             </main>
 
             {/* Scroll-Revealed Text Section */}
-            <div className="bg-white text-black relative flex flex-col items-center justify-center pb-[20rem] pt-[20rem] px-4 md:px-12 lg:px-24 z-20">
+            <div className="bg-white text-black relative flex flex-col items-center justify-center pb-[8rem] pt-[12rem] px-4 md:px-12 lg:px-24 z-20">
                 <div className="max-w-5xl w-full">
                     <MagicText
                         text="Wising Enforces real-time US (IRS), Indian Tax Law and FEMA Compliance on every agentic action. You get instant feedback. Your CAs, CPAs and Wealth Manager receive a Professional Brief about the action. Issues get fixed at the source. Everyone Moves Faster."
@@ -106,7 +106,7 @@ export function BetaLanding() {
             <FeatureSection />
 
             {/* Section 4: Magic Text Reveal 2 */}
-            <div className="bg-white text-black relative flex flex-col items-center justify-center pb-[20rem] pt-[20rem] px-4 md:px-12 lg:px-24 z-20 overflow-hidden">
+            <div className="bg-white text-black relative flex flex-col items-center justify-center pb-[8rem] pt-[12rem] px-4 md:px-12 lg:px-24 z-20 overflow-hidden">
                 <div className="max-w-5xl w-full">
                     <MagicText
                         text="Every Brokerage handles the same trades. [fidelity] [zerodha] [groww] [robinhood] [binance] The Difference is Infrastructure. Too many tools leave blind spots that trigger massive fines. Too many manual spreadsheets waste your time. Wising builds the right infrastructure - So every action is fast, legally sound and 100% compliant."
@@ -123,8 +123,8 @@ export function BetaLanding() {
             <div className="bg-[#050505] text-white relative py-10 px-4 md:px-12 lg:px-24 z-20 overflow-hidden border-t border-white/5">
                 <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-16">
                     {/* Left: Text */}
-                    <div className="flex-[1.2] space-y-6 z-10 w-full mb-10 md:mb-0">
-                        <span className="px-4 py-1.5 text-sm bg-teal-500/10 text-teal-400 border border-teal-500/20 rounded-full font-['Manrope',sans-serif] w-max font-bold tracking-wide uppercase">
+                    <div className="flex-[1.2] space-y-12 z-10 w-full mb-10 md:mb-0">
+                        <span className="px-4 py-1.5 text-sm bg-white/10 text-white border-0 rounded-full font-['Manrope',sans-serif] w-max font-bold tracking-wide uppercase">
                             Security Core
                         </span>
                         <h2 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold font-['Syne',sans-serif] leading-[1.1] tracking-tight">
