@@ -11,6 +11,7 @@ import { CpuArchitecture } from '../../components/ui/cpu-architecture';
 import SkewCards from '../../components/ui/gradient-card-showcase';
 import CACPASection from '../../components/ui/CACPA';
 import { ZeroTouchTrackingSection } from '../../components/ui/ZeroTouch';
+import { FlickeringFooter } from '../../components/ui/flickering-footer';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ReactLenis } from 'lenis/react';
 import { ArrowRight } from 'lucide-react';
@@ -150,6 +151,9 @@ export function BetaLanding() {
 
             {/* Section 9: Zero Touch Tracking Engine */}
             <ZeroTouchTrackingSection />
+
+            {/* Final Section: High-Fidelity Footer */}
+            <FlickeringFooter />
         </div>
         </ReactLenis>
     )
