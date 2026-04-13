@@ -20,7 +20,7 @@ export function ZeroTouchTrackingSection() {
 
   return (
     <section 
-      className="h-[600vh] bg-black w-full relative overflow-clip border-t border-white/5"
+      className="h-[600vh] bg-transparent w-full relative overflow-clip border-t border-white/5"
       ref={ref}
     >
       <div className="sticky top-0 h-screen w-full flex flex-col items-center justify-center">

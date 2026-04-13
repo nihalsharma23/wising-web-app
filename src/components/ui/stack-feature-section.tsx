@@ -22,7 +22,7 @@ export default function StackFeatureSection() {
   const iconsPerOrbit = Math.ceil(iconConfigs.length / orbitCount);
 
   return (
-    <section className="relative w-full max-w-7xl mx-auto my-12 px-6 md:px-12 flex flex-col md:flex-row items-center justify-between h-auto md:h-[40rem] border border-white/10 bg-[#0a0a0a] overflow-hidden rounded-[2.5rem] z-20 shadow-2xl">
+    <section className="relative w-full max-w-7xl mx-auto my-12 px-6 md:px-12 flex flex-col md:flex-row items-center justify-between h-auto md:h-[40rem] border border-white/10 bg-transparent overflow-hidden rounded-[2.5rem] z-20 shadow-2xl">
       <style>{`
         @keyframes orbit-spin {
           from { transform: rotate(0deg); }

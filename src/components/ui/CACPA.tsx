@@ -29,10 +29,10 @@ const avatars = [
 
 export default function CACPASection() {
   return (
-    <section className="bg-white text-black py-32 px-4 md:px-12 lg:px-24 border-t border-gray-200 z-20 relative">
+    <section className="bg-transparent text-white py-32 px-4 md:px-12 lg:px-24 border-t border-white/10 z-20 relative">
       <div className="max-w-6xl mx-auto flex flex-col items-center">
         
-        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-['Syne',sans-serif] text-center mb-12 tracking-tight text-gray-900">
+        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold font-['Syne',sans-serif] text-center mb-12 tracking-tight text-white">
           Active Sync
         </h2>
 
@@ -49,7 +49,7 @@ export default function CACPASection() {
               
               {/* Chat Bubble animated sequence */}
               <motion.div
-                className="absolute bottom-[110%] mb-4 w-[280px] bg-gray-50 border border-gray-200 text-gray-900 p-5 rounded-3xl shadow-xl z-20 text-sm font-['Manrope',sans-serif] text-center font-medium"
+                className="absolute bottom-[110%] mb-4 w-[280px] bg-[#1a1a1a] border border-white/10 text-white p-5 rounded-3xl shadow-xl z-20 text-sm font-['Manrope',sans-serif] text-center font-medium"
                 initial={{ opacity: 0, y: -10, scale: 0.95 }}
                 animate={{
                   opacity: [0, 1, 1, 0],
@@ -65,20 +65,20 @@ export default function CACPASection() {
                 }}
               >
                 {/* Tail for bubble */}
-                <div className="absolute -bottom-[8px] left-1/2 -translate-x-1/2 w-4 h-4 bg-gray-50 border-b border-r border-gray-200 transform rotate-45"></div>
+                <div className="absolute -bottom-[8px] left-1/2 -translate-x-1/2 w-4 h-4 bg-[#1a1a1a] border-b border-r border-white/10 transform rotate-45"></div>
                 {avatar.message}
               </motion.div>
 
-              <h3 className="text-lg font-extrabold font-['Manrope',sans-serif] mb-5 text-gray-900 tracking-wide">{avatar.title}</h3>
+              <h3 className="text-lg font-extrabold font-['Manrope',sans-serif] mb-5 text-white tracking-wide">{avatar.title}</h3>
               
-              <div className="w-[120px] h-[120px] rounded-full overflow-hidden border-[6px] border-white shadow-2xl relative z-10 transition-transform hover:scale-105 duration-300 ring-4 ring-teal-500/10 bg-gray-50">
+              <div className="w-[120px] h-[120px] rounded-full overflow-hidden border-[6px] border-[#1a1a1a] shadow-2xl relative z-10 transition-transform hover:scale-105 duration-300 ring-4 ring-teal-500/30 bg-[#1a1a1a]">
                 <img src={avatar.img} alt={avatar.title} className="w-full h-full object-cover transition-all duration-500 p-2" />
               </div>
             </div>
           ))}
         </div>
 
-        <p className="text-gray-600 font-['Manrope',sans-serif] text-[18px] md:text-xl text-center max-w-3xl leading-relaxed mt-10">
+        <p className="text-gray-300 font-['Manrope',sans-serif] text-[18px] md:text-xl text-center max-w-3xl leading-relaxed mt-10">
           Share verified financial data securely with your CA, CPA or your Wealth Manager. Everyone on the same page without manual back-and-forth information sharing.
         </p>
       </div>

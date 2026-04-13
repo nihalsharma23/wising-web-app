@@ -24,7 +24,7 @@ const cards = [
 export default function SkewCards() {
   return (
     <>
-      <div className="flex justify-center items-center flex-wrap py-24 bg-[#020202] min-h-screen">
+      <div className="flex justify-center items-center flex-wrap py-24 bg-transparent min-h-screen">
         {cards.map(({ title, desc, gradientFrom, gradientTo }, idx) => (
           <div
             key={idx}

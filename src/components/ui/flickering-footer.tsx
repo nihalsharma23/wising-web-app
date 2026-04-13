@@ -329,7 +329,7 @@ export const FlickeringFooter = () => {
   const tablet = useMediaQuery("(max-width: 1024px)");
 
   return (
-    <footer id="footer" className="w-full pb-0 bg-black border-t border-white/5 font-['Manrope',sans-serif]">
+    <footer id="footer" className="w-full pb-0 bg-transparent border-t border-white/5 font-['Manrope',sans-serif]">
       <div className="flex flex-col md:flex-row md:items-start md:justify-between p-10 md:p-20">
         <div className="flex flex-col items-start justify-start gap-y-6 max-w-sm mx-0">
           <Link to="/" className="flex items-center gap-2">

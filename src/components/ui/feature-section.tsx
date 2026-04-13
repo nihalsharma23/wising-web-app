@@ -13,7 +13,7 @@ const tasks = [
 
 export default function FeatureSection() {
   return (
-    <section className="relative w-full py-32 px-4 bg-black text-white font-['Syne',sans-serif]">
+    <section className="relative w-full py-32 px-4 bg-transparent text-white font-['Syne',sans-serif]">
       <div className="mx-auto max-w-6xl flex flex-col md:flex-row items-start gap-16">
         
         {/* LEFT SIDE - Content */}

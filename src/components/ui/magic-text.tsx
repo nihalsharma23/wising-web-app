@@ -24,19 +24,22 @@ interface WordProps {
  
 const Word: React.FC<WordProps> = ({ children, progress, range }) => {
   const opacity = useTransform(progress, range, [0, 1]);
+  const y = useTransform(progress, range, [10, 0]);
+  const blurValue = useTransform(progress, range, [4, 0]);
+  const filter = useTransform(blurValue, (b) => `blur(${b}px)`);
  
   const isImageToken = typeof children === "string" && contentMapping[children];
 
   const content = isImageToken ? (
-    <img src={contentMapping[children]} alt="icon" className="inline-block w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 rounded-full object-cover align-middle border border-gray-200/20 shadow-lg mx-1" />
+    <img src={contentMapping[children]} alt="icon" className="inline-block w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10 rounded-full object-cover align-middle border border-gray-200/20 shadow-lg mx-1" />
   ) : (
     children
   );
 
   return (
-    <span className="relative mt-[12px] mr-2 text-2xl md:text-3xl lg:text-4xl font-semibold font-['Manrope',sans-serif] tracking-tight">
-      <span className="absolute opacity-20">{content}</span>
-      <motion.span style={{ opacity: opacity }}>{content}</motion.span>
+    <span className="relative mt-[12px] mr-2 text-xl md:text-2xl lg:text-[1.75rem] font-normal font-['Manrope',sans-serif] tracking-normal">
+      <span className="absolute opacity-10 blur-sm">{content}</span>
+      <motion.span style={{ opacity, y, filter }} className="inline-block">{content}</motion.span>
     </span>
   );
 };
@@ -44,18 +47,21 @@ const Word: React.FC<WordProps> = ({ children, progress, range }) => {
 export const MagicText: React.FC<MagicTextProps> = ({ text }) => {
   const container = useRef(null);
  
+  // Offset changed to make reveal slower (over a longer scroll distance).
+  // "start 0.8" = starts revealing when top of container hits 80% of screen.
+  // "start 0.3" = finishes revealing when top of container hits 30% of screen.
   const { scrollYProgress } = useScroll({
     target: container,
-    offset: ["start 0.9", "start 0.25"],
+    offset: ["start 0.8", "start 0.3"],
   });
   
   const words = text.split(" ");
  
   return (
-    <p ref={container} className="flex flex-wrap leading-snug p-4 justify-center">
+    <p ref={container} className="flex flex-wrap leading-relaxed p-4 justify-start max-w-full">
       {words.map((word, i) => {
         const start = i / words.length;
-        const end = start + 1 / words.length;
+        const end = start + (1 / words.length);
  
         return (
           <Word key={i} progress={scrollYProgress} range={[start, end]}>
