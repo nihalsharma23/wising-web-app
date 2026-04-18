@@ -335,9 +335,6 @@ export const FlickeringFooter = () => {
           <Link to="/" className="flex items-center gap-2">
             <Icons.logo />
           </Link>
-          <p className="tracking-tight text-neutral-400 font-medium leading-relaxed">
-            {siteConfig.description}
-          </p>
         </div>
 
         <div className="pt-10 md:pt-0 md:w-1/2">
