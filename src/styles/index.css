@@ -1,6 +1,13 @@
 @import './fonts.css';
 @import './tailwind.css';
 @import './theme.css';
+
+body {
+  background-color: #000;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+}
 .cpu-architecture {
   offset-anchor: 10px 0px;
   animation: animation-path;
