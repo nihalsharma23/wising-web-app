@@ -35,10 +35,8 @@ export const PulsatingBeamSection = () => {
       className="h-[300vh] bg-[#020202] w-full relative overflow-clip"
       ref={ref}
     >
-      <div className="sticky top-[80px] h-[calc(100vh-90px)] w-full flex items-center justify-center px-2 md:px-6 pb-2">
-        
-        {/* --- GLASSMOPRHISM CONTAINER --- */}
-        <div className="w-full h-full relative overflow-hidden rounded-[2.5rem] md:rounded-[3rem] bg-[#020202]/95 border border-white/10 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15),inset_0_-1px_1px_rgba(255,255,255,0.05)] ring-1 ring-white/5 flex flex-col items-center justify-center">
+      <div className="sticky top-[40px] h-[calc(100vh-40px)] w-full flex items-center justify-center px-2 md:px-6">
+        {/* --- CONTENT AREA (Container Removed) --- */}
           
           <StarBorder as="div" color="#001f3f" speed="8s" thickness={3} className="w-full h-full">
             {/* Top Edge Corner Shine highlights */}
@@ -271,7 +269,6 @@ export const PulsatingBeamSection = () => {
 
             </div>
           </StarBorder>
-        </div>
       </div>
     </section>
   );
