@@ -302,16 +302,6 @@ export const siteConfig = {
       links: [
         { id: 1, title: "Home", url: "/" },
         { id: 2, title: "About Us", url: "/about" },
-        { id: 3, title: "Waitlist", url: "#" },
-      ],
-    },
-    {
-      title: "Compliance",
-      links: [
-        { id: 4, title: "US (IRS)", url: "#" },
-        { id: 5, title: "India (ITD)", url: "#" },
-        { id: 6, title: "FATCA/FBAR", url: "#" },
-        { id: 7, title: "FEMA", url: "#" },
       ],
     },
     {
@@ -338,7 +328,7 @@ export const FlickeringFooter = () => {
         </div>
 
         <div className="pt-10 md:pt-0 md:w-1/2">
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-10 lg:pl-10">
+          <div className="grid grid-cols-2 gap-10 lg:pl-10">
             {siteConfig.footerLinks.map((column, columnIndex) => (
               <ul key={columnIndex} className="flex flex-col gap-y-3">
                 <li className="mb-2 text-xs font-bold uppercase tracking-widest text-[#14b8a6]">
@@ -365,7 +355,7 @@ export const FlickeringFooter = () => {
         <div className="absolute inset-0 bg-gradient-to-t from-transparent to-black z-10 from-10%" />
         <div className="absolute inset-0 mx-6">
           <FlickeringGrid
-            text={tablet ? "WISING" : "WEALTH INTELLIGENCE"}
+            text="WISING"
             fontSize={tablet ? 80 : 160}
             className="h-full w-full"
             squareSize={3}
