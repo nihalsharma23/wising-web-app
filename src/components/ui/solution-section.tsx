@@ -5,7 +5,7 @@ import { Badge } from "./badge";
 
 export default function SolutionSection() {
   return (
-    <section className="relative w-full max-w-7xl mx-auto py-12 px-6 md:px-12 flex flex-col lg:flex-row items-start justify-between gap-12 z-20">
+    <section className="relative w-full max-w-7xl mx-auto pb-12 pt-0 px-6 md:px-12 flex flex-col lg:flex-row items-start justify-between gap-12 z-20">
       
       {/* Left Column: Text */}
       <div className="flex-1 flex flex-col items-start gap-8">

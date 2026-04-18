@@ -185,15 +185,15 @@ export function BetaLanding() {
 
                 {/* Section 4: The Problem / Feature Section */}
                 <StickyCard index={0}>
-                    <div className="w-full py-10 scale-95 transform-gpu origin-center">
+                    <div className="w-full pt-0">
                         <FeatureSection />
                     </div>
                 </StickyCard>
 
                 {/* Section 4: Magic Text Reveal 2 (Previously white bg) */}
                 <StickyCard index={1}>
-                    <div className="w-full flex justify-center px-4 md:px-12 lg:px-24">
-                        <div className="max-w-5xl w-full py-12">
+                    <div className="w-full flex justify-center px-4 md:px-12 lg:px-24 pt-0">
+                        <div className="max-w-5xl w-full">
                             <MagicText
                                 text="Every Brokerage handles the same trades. [fidelity] [zerodha] [groww] [robinhood] [binance] The Difference is Infrastructure. Too many tools leave blind spots that trigger massive fines. Too many manual spreadsheets waste your time. Wising builds the right infrastructure - So every action is fast, legally sound and 100% compliant."
                             />
@@ -203,14 +203,14 @@ export function BetaLanding() {
 
                 {/* Section 5: Stack Interface */}
                 <StickyCard index={2}>
-                    <div className="w-full py-12">
+                    <div className="w-full pt-0">
                         <StackFeatureSection />
                     </div>
                 </StickyCard>
 
                 {/* Section 6: The Solution (Animated Graph) */}
                 <StickyCard index={3}>
-                    <div className="w-full py-12 bg-[#020202]">
+                    <div className="w-full pt-0 bg-[#020202]">
                         <SolutionSection />
                     </div>
                 </StickyCard>
