@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="400" height="500">
+  <!-- Background Rect for visibility during development, can be removed -->
+  <rect width="400" height="400" fill="#6CCFF6"/>
+  
+  <!-- Outer Gear/Wheel Structure -->
+  <path d="M200 60 C185 60 172 70 168 83 L155 80 C150 65 135 55 120 55 C105 55 90 65 85 80 L72 83 C68 70 55 60 40 60 C25 60 10 75 10 90 C10 105 25 120 40 120 L53 118 C57 131 70 141 85 141 C100 141 113 131 118 118 L131 121 C135 136 150 146 165 146 C180 146 195 136 199 121 L212 118 C216 131 229 141 244 141 C259 141 272 131 276 118 L289 120 C304 120 319 105 319 90 C319 75 304 60 289 60 L276 63 C272 70 259 80 244 80 C229 80 216 70 212 57 L199 60 Z" fill="#333" transform="translate(40, 10)"/>
+  
+  <!-- Stylized Globe -->
+  <circle cx="200" cy="150" r="50" fill="#fff" stroke="#0077B5" stroke-width="2"/>
+  <path d="M170 135 Q185 110 215 125 T230 165" fill="none" stroke="#00AEEF" stroke-width="3"/>
+  <path d="M180 170 Q200 190 220 170" fill="none" stroke="#00AEEF" stroke-width="2"/>
+
+  <!-- CGC Text -->
+  <text x="200" y="320" font-family="Arial, sans-serif" font-weight="900" font-size="110" text-anchor="middle" fill="#222" letter-spacing="-5">CGC</text>
+  
+  <!-- Subtitle -->
+  <rect x="25" y="350" width="350" height="120" fill="#222"/>
+  <text x="200" y="405" font-family="Arial, sans-serif" font-weight="700" font-size="34" text-anchor="middle" fill="#fff">CHANDIGARH</text>
+  <text x="200" y="445" font-family="Arial, sans-serif" font-weight="400" font-size="28" text-anchor="middle" fill="#fff">GROUP OF COLLEGES</text>
+</svg>

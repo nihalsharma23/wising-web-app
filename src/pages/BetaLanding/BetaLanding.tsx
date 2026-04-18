@@ -7,10 +7,11 @@ import HoverBorderGradient from '../../components/ui/hover-border-gradient';
 import { MagicText } from '../../components/ui/magic-text';
 import FeatureSection from '../../components/ui/feature-section';
 import StackFeatureSection from '../../components/ui/stack-feature-section';
+import SolutionSection from '../../components/ui/solution-section';
 import { CpuArchitecture } from '../../components/ui/cpu-architecture';
 import SkewCards from '../../components/ui/gradient-card-showcase';
-import CACPASection from '../../components/ui/CACPA';
-import { ZeroTouchTrackingSection } from '../../components/ui/ZeroTouch';
+import { PulsatingBeamSection } from '../../components/ui/PulsatingBeam';
+
 import { FlickeringFooter } from '../../components/ui/flickering-footer';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ReactLenis } from 'lenis/react';
@@ -18,11 +19,38 @@ import { ArrowRight } from 'lucide-react';
 import { StickyCard } from '../../components/layout/StickyCard';
 
 export function BetaLanding() {
-    const [showEmailInput, setShowEmailInput] = useState(false);
+    const [email, setEmail] = useState('');
+    const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+
+    const handleJoinWaitlist = async (e: React.FormEvent) => {
+        e.preventDefault();
+        if (!email) return;
+        setStatus('loading');
+        
+        try {
+            const formData = new FormData();
+            formData.append("email", email);
+
+            await fetch("https://script.google.com/macros/s/AKfycbw4jarZsUnoMMlGuEX8qvdXj7IAwxrNo5-SpROrQIGL01V3vBYYaxg44XMFneXSZ5Macg/exec", {
+                method: "POST",
+                body: formData,
+                mode: "no-cors"
+            });
+            
+            setStatus('success');
+            setTimeout(() => setStatus('idle'), 3000);
+            setEmail('');
+        } catch (error) {
+            console.error("Error joining waitlist:", error);
+            setStatus('error');
+            setTimeout(() => setStatus('idle'), 3000);
+        }
+    };
 
     return (
         <ReactLenis root options={{ lerp: 0.05, duration: 2, smoothWheel: true, wheelMultiplier: 0.6 }}>
             <div className="bg-[#050505] font-['Syne',sans-serif] min-h-screen text-white relative">
+                <Header />
                 {/* Anchor Wrapper for EarthGlobe (Hero + Section 2) */}
                 <div className="relative w-full z-0 bg-black">
                     {/* Background Sticky Layer */}
@@ -32,7 +60,6 @@ export function BetaLanding() {
                     
                     {/* Foreground Content */}
                     <div className="relative w-full z-10 flex flex-col">
-                        <Header />
                         
                         {/* Hero Section */}
                         <main className="w-full flex flex-col items-center justify-center relative min-h-screen bg-transparent overflow-hidden">
@@ -53,53 +80,89 @@ export function BetaLanding() {
                                         animationType="letters"
                                         staggerDelay={0.04}
                                         duration={0.8}
-                                        delay={0.5}
                                     />
                                 </div>
+                            </div>
 
-                                <div className="mt-16 pt-8 pb-8 flex items-center justify-center min-h-[100px]">
-                                    <AnimatePresence mode="wait">
-                                        {!showEmailInput ? (
-                                            <motion.div
-                                                key="button"
-                                                initial={{ opacity: 0, y: 20 }}
-                                                animate={{ opacity: 1, y: 0 }}
-                                                exit={{ opacity: 0, y: -20 }}
-                                                transition={{ duration: 0.3 }}
-                                            >
-                                                <HoverBorderGradient
-                                                    onClick={() => setShowEmailInput(true)}
-                                                    className="bg-black text-white px-8 py-3 flex items-center space-x-2"
-                                                >
-                                                    <span className="font-['Manrope',sans-serif] tracking-wider uppercase text-sm">Join the waitlist</span>
-                                                </HoverBorderGradient>
-                                            </motion.div>
-                                        ) : (
-                                            <motion.form
-                                                key="input"
-                                                initial={{ opacity: 0, scale: 0.95 }}
-                                                animate={{ opacity: 1, scale: 1 }}
-                                                exit={{ opacity: 0, scale: 0.95 }}
-                                                transition={{ duration: 0.3 }}
-                                                className="flex items-center gap-2 w-full max-w-md mx-auto"
-                                                onSubmit={(e) => { e.preventDefault(); alert("Thanks for joining!"); setShowEmailInput(false); }}
-                                            >
-                                                <input 
-                                                    type="email" 
-                                                    required
-                                                    placeholder="Enter your email..." 
-                                                    className="flex-1 bg-white/10 border border-white/20 rounded-full px-6 py-3 text-white placeholder:text-white/50 focus:outline-none focus:ring-2 focus:ring-teal-500 font-['Manrope',sans-serif]"
-                                                    autoFocus
-                                                />
-                                                <button 
-                                                    type="submit"
-                                                    className="bg-teal-500 hover:bg-teal-400 text-black rounded-full w-[46px] h-[46px] flex items-center justify-center font-semibold transition-colors flex-shrink-0"
-                                                >
-                                                    <ArrowRight size={20} />
-                                                </button>
-                                            </motion.form>
+                            {/* Spacer to maintain headline centering as it was previously */}
+                            <div className="mt-12 w-full h-[100px] pointer-events-none invisible" />
+
+                            {/* Actual Waitlist positioned at bottom */}
+                            <div className="absolute bottom-[40px] left-0 w-full flex flex-col items-center z-20 px-4">
+                                <form onSubmit={handleJoinWaitlist} className="w-full max-w-[380px] mx-auto relative group">
+                                    {/* Shimmering Border Container */}
+                                    <div
+                                        className="absolute -inset-[1px] rounded-[16px] pointer-events-none opacity-70"
+                                        style={{
+                                            background: "linear-gradient(90deg, rgba(156, 163, 175, 0.3) 0%, rgba(209, 213, 219, 0.6) 20%, rgba(255, 255, 255, 0.8) 50%, rgba(209, 213, 219, 0.6) 80%, rgba(156, 163, 175, 0.3) 100%)",
+                                            backgroundSize: "200% auto",
+                                            animation: "shimmer-move 4s linear infinite"
+                                        }}
+                                    />
+
+                                    {/* Input Content */}
+                                    <div className="bg-[#0b0b0b] relative rounded-tl-[16px] rounded-tr-[16px] w-full border border-b-0 border-[#1f1f1f]/0">
+                                        <div className="content-stretch flex flex-col items-start overflow-clip relative rounded-[inherit] w-full">
+                                            <div className="relative w-full">
+                                                <div className="bg-clip-padding content-stretch flex items-start justify-center overflow-clip px-6 md:px-8 py-5 md:py-6 relative rounded-[inherit] w-full">
+                                                    <div className="flex-1 min-w-0">
+                                                        <input
+                                                            type="email"
+                                                            value={email}
+                                                            onChange={(e) => setEmail(e.target.value)}
+                                                            disabled={status === 'loading'}
+                                                            required
+                                                            className="w-full bg-transparent border-none text-[#C0C0C0] text-sm tracking-[1.1px] font-['Manrope',sans-serif] placeholder:text-[#C0C0C0]/50 focus:ring-0 focus:outline-none disabled:opacity-50"
+                                                            placeholder="Your Email ID Here."
+                                                        />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {/* Button */}
+                                    <button
+                                        type="submit"
+                                        disabled={status === 'loading'}
+                                        className="content-stretch flex gap-5 items-center justify-center overflow-clip py-5 relative rounded-bl-[16px] rounded-br-[16px] shadow-[0px_10px_30px_-10px_rgba(255,255,255,0.05)] w-full cursor-pointer hover:shadow-[0px_10px_40px_-5px_rgba(255,255,255,0.1)] transition-shadow disabled:opacity-70 disabled:cursor-not-allowed z-10"
+                                        style={{ backgroundImage: "linear-gradient(135deg, rgb(255, 255, 255) 0%, rgb(209, 213, 219) 50%, rgb(156, 163, 175) 100%)" }}
+                                    >
+                                        <div className="absolute inset-0 opacity-30 rounded-bl-[16px] rounded-br-[16px]" />
+                                        <div className="relative flex flex-col font-['Montserrat',sans-serif] font-medium justify-center leading-[0] text-sm text-black text-center tracking-[5px] uppercase">
+                                            <p className="leading-[15px] whitespace-pre-wrap">{status === 'loading' ? 'Joining...' : status === 'success' ? 'Joined!' : 'Join the Waitlist'}</p>
+                                        </div>
+                                        {status !== 'loading' && status !== 'success' && (
+                                            <div className="relative flex flex-col justify-center leading-[0] not-italic text-[12px] text-black text-center">
+                                                <span className="material-symbols-outlined text-[12px] font-thin">arrow_forward_ios</span>
+                                            </div>
                                         )}
-                                    </AnimatePresence>
+                                    </button>
+                                </form>
+
+                                {/* No Commitments Text */}
+                                <div className="mt-4 flex items-center justify-center gap-2">
+                                    <div className="flex items-center justify-center w-2 h-2 rounded-full border-[0.4px] border-white/30">
+                                        <svg
+                                            width="6"
+                                            height="6"
+                                            viewBox="0 0 10 10"
+                                            fill="none"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            className="text-[#C0C0C0]/80"
+                                        >
+                                            <path
+                                                d="M2 5L4 7L8 3"
+                                                stroke="currentColor"
+                                                strokeWidth="0.8"
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                            />
+                                        </svg>
+                                    </div>
+                                    <span className="text-[10px] font-['Manrope',sans-serif] text-[#C0C0C0]/80 tracking-[2px] uppercase font-normal">
+                                        NO COMMITMENTS REQUIRED
+                                    </span>
                                 </div>
                             </div>
                         </main>
@@ -115,7 +178,12 @@ export function BetaLanding() {
                     </div>
                 </div>
 
-                {/* Section 3: The Problem / Feature Section */}
+                {/* Section 3: Pulsating Beam */}
+                <div className="w-full relative z-20">
+                    <PulsatingBeamSection />
+                </div>
+
+                {/* Section 4: The Problem / Feature Section */}
                 <StickyCard index={0}>
                     <div className="w-full py-10 scale-95 transform-gpu origin-center">
                         <FeatureSection />
@@ -140,8 +208,22 @@ export function BetaLanding() {
                     </div>
                 </StickyCard>
 
-                {/* Section 6: Security / Zero Trust */}
+                {/* Section 6: The Solution (Animated Graph) */}
                 <StickyCard index={3}>
+                    <div className="w-full py-12 bg-[#020202]">
+                        <SolutionSection />
+                    </div>
+                </StickyCard>
+
+                {/* Section 7: Gradient Showcase Cards */}
+                <StickyCard index={4}>
+                    <div className="w-full h-full flex items-center justify-center">
+                        <SkewCards />
+                    </div>
+                </StickyCard>
+
+                {/* Section 8: Security / Zero Trust - MOVED TO END */}
+                <StickyCard index={5}>
                     <div className="w-full px-4 md:px-12 lg:px-24 py-16">
                         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-16">
                             {/* Left: Text */}
@@ -163,19 +245,7 @@ export function BetaLanding() {
                     </div>
                 </StickyCard>
 
-                {/* Section 7: Gradient Showcase Cards */}
-                <StickyCard index={4}>
-                    <div className="w-full h-full flex flex-col items-center justify-center py-10 scale-[0.85] origin-center">
-                        <SkewCards />
-                    </div>
-                </StickyCard>
-
-                {/* Section 9: Zero Touch Tracking Engine (Standalone Scroll Theater) */}
-                <div className="w-full relative z-20">
-                    <ZeroTouchTrackingSection />
-                </div>
-
-                {/* Final Section: High-Fidelity Footer */}
+                {/* Final Section: High-Fidelity Footer — Restored to end */}
                 <div className="relative z-30 w-full min-h-screen bg-black flex flex-col items-center justify-end rounded-t-[3rem] mt-[-2rem] border-t border-white/10 overflow-hidden shadow-[0_-20px_50px_rgba(0,0,0,0.8)]">
                     <FlickeringFooter />
                 </div>

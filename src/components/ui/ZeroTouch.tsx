@@ -12,18 +12,18 @@ export function ZeroTouchTrackingSection() {
     offset: ["start center", "end end"],
   });
 
-  const pathLengthFirst = useTransform(scrollYProgress, [0, 0.8], [0.2, 1.2]);
-  const pathLengthSecond = useTransform(scrollYProgress, [0, 0.8], [0.15, 1.2]);
-  const pathLengthThird = useTransform(scrollYProgress, [0, 0.8], [0.1, 1.2]);
-  const pathLengthFourth = useTransform(scrollYProgress, [0, 0.8], [0.05, 1.2]);
-  const pathLengthFifth = useTransform(scrollYProgress, [0, 0.8], [0, 1.2]);
+  const pathLengthFirst = useTransform(scrollYProgress, [0, 0.3], [0, 1]);
+  const pathLengthSecond = useTransform(scrollYProgress, [0, 0.3], [0, 1]);
+  const pathLengthThird = useTransform(scrollYProgress, [0, 0.3], [0, 1]);
+  const pathLengthFourth = useTransform(scrollYProgress, [0, 0.3], [0, 1]);
+  const pathLengthFifth = useTransform(scrollYProgress, [0, 0.3], [0, 1]);
 
   return (
     <section 
-      className="h-[600vh] bg-transparent w-full relative overflow-clip border-t border-white/5"
+      className="h-[600vh] bg-transparent w-full relative overflow-clip border-t border-white/5 pt-0"
       ref={ref}
     >
-      <div className="sticky top-0 h-screen w-full flex flex-col items-center justify-center">
+      <div className="sticky top-0 h-screen w-full flex flex-col items-center justify-start pt-0 pb-12">
         <GoogleGeminiEffect
           pathLengths={[
             pathLengthFirst,

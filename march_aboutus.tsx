@@ -1,14 +1,14 @@
-import { Header } from "../../components/layout/Header";
+import { Header } from "./components/Header";
 import { Linkedin } from "lucide-react";
 import { SEO } from "../../components/SEO";
 import { seoConfig } from "../../config/seoData";
-import sarthakImg from "../../assets/sarthak-jalan.png";
-import nihalImg from "../../assets/nihal-sharma.jpg";
-import eyLogo from "../../assets/logos/ey.png";
-import jioLogo from "../../assets/logos/jio.svg";
-import hansrajLogo from "../../assets/logos/hansraj.svg";
-import icaiLogo from "../../assets/logos/icai.svg";
-import cgcLogo from "../../assets/logos/cgc.svg";
+import sarthakImg from "@/assets/sarthak-jalan.png";
+import nihalImg from "@/assets/nihal-sharma.jpg";
+import eyLogo from "@/pages/BetaLanding/assets/ey.png";
+import jioLogo from "@/pages/BetaLanding/assets/jio.svg";
+import hansrajLogo from "@/pages/BetaLanding/assets/founding_team_v2_6.png";
+import icaiLogo from "@/pages/BetaLanding/assets/icai.svg";
+import cgcLogo from "@/pages/BetaLanding/assets/cgc.svg";
 
 const XIcon = ({ className }: { className?: string }) => (
     <svg viewBox="0 0 24 24" className={className} fill="currentColor">
@@ -44,6 +44,7 @@ export function AboutUs() {
                         {/* Profile Image & Socials */}
                         <div className="w-full lg:w-1/3 flex flex-col items-center lg:items-start space-y-6">
                             <div className="w-64 h-80 grayscale hover:grayscale-0 transition-all duration-500 overflow-hidden border border-zinc-800">
+                                {/* TODO: Replace with local image containing the new profile picture */}
                                 <img
                                     alt="Sarthak Jalan"
                                     className="w-full h-full object-cover"
@@ -186,16 +187,16 @@ export function AboutUs() {
                     </div>
                 </article>
 
+
+
             </main>
 
             {/* Footer */}
             <footer className="relative z-10 py-12 border-t border-zinc-900 text-center">
                 <p className="text-[10px] uppercase tracking-[0.3em] text-zinc-600">
-                    WISING © {new Date().getFullYear()} — WISING INTELLIGENCE PRIVATE LIMITED
+                    WISING © 2026 — WISING INTELLIGENCE PRIVATE LIMITED
                 </p>
             </footer>
         </div>
     );
 }
-
-export default AboutUs;
