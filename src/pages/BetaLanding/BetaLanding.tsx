@@ -185,14 +185,14 @@ export function BetaLanding() {
 
                 {/* Section 4: The Problem / Feature Section */}
                 <StickyCard index={0}>
-                    <div className="w-full pt-0">
+                    <div className="w-full pt-0 bg-[#020202]">
                         <FeatureSection />
                     </div>
                 </StickyCard>
 
                 {/* Section 4: Magic Text Reveal 2 (Previously white bg) */}
                 <StickyCard index={1}>
-                    <div className="w-full flex justify-center px-4 md:px-12 lg:px-24 pt-0">
+                    <div className="w-full flex justify-center px-4 md:px-12 lg:px-24 pt-0 bg-[#020202]">
                         <div className="max-w-5xl w-full">
                             <MagicText
                                 text="Every Brokerage handles the same trades. [fidelity] [zerodha] [groww] [robinhood] [binance] The Difference is Infrastructure. Too many tools leave blind spots that trigger massive fines. Too many manual spreadsheets waste your time. Wising builds the right infrastructure - So every action is fast, legally sound and 100% compliant."
@@ -203,7 +203,7 @@ export function BetaLanding() {
 
                 {/* Section 5: Stack Interface */}
                 <StickyCard index={2}>
-                    <div className="w-full pt-0">
+                    <div className="w-full pt-0 bg-[#020202]">
                         <StackFeatureSection />
                     </div>
                 </StickyCard>
@@ -224,8 +224,8 @@ export function BetaLanding() {
 
                 {/* Section 8: Security / Zero Trust - MOVED TO END */}
                 <StickyCard index={5}>
-                    <div className="w-full px-4 md:px-12 lg:px-24 py-16">
-                        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-16">
+                    <div className="w-full px-4 md:px-12 lg:px-24 py-0 bg-[#020202]">
+                        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-16 min-h-screen">
                             {/* Left: Text */}
                             <div className="flex-[1.2] space-y-12 z-10 w-full mb-10 md:mb-0">
                                 <span className="px-4 py-1.5 text-sm bg-white/10 text-white border-0 rounded-full font-['Manrope',sans-serif] w-max font-bold tracking-wide uppercase">
@@ -238,7 +238,7 @@ export function BetaLanding() {
                                     Our core architecture assumes no entity is trustworthy by default. Wising integrates SASE to enforce least-privilege access, continuous microsegmentation, and strict verification—minimizing the attack surface and proactively preventing lateral movement across your resources.
                                 </p>
                             </div>
-                            <div className="flex-1 w-full max-w-xl md:max-w-2xl bg-transparent rounded-[2rem] border border-white/10 p-6 md:p-12 shadow-[0_0_80px_rgba(20,184,166,0.05)] flex items-center justify-center">
+                            <div className="flex-1 w-full max-w-xl md:max-w-2xl bg-transparent rounded-[2rem] border border-white/10 p-6 md:p-12 flex items-center justify-center">
                                 <CpuArchitecture text="Zero Trust Security" className="w-full h-auto drop-shadow-2xl opacity-90" />
                             </div>
                         </div>
