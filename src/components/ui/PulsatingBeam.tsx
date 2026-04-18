@@ -3,6 +3,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import LaserFlow from "./LaserFlow";
 
 import StarBorder from "./StarBorder";
+import wisingLogo from "../../assets/header_logo.png";
 
 export const PulsatingBeamSection = () => {
   const ref = useRef<HTMLElement>(null);
@@ -175,12 +176,9 @@ export const PulsatingBeamSection = () => {
                   >
                     <div className="relative z-10 w-20 h-20 md:w-28 md:h-28 flex items-center justify-center">
                       <img
-                        src="/src/assets/header_logo.png"
+                        src={wisingLogo}
                         alt="Wising"
                         className="w-full h-full object-contain filter drop-shadow-[0_0_30px_rgba(0,102,204,0.8)]"
-                        onError={(e) => {
-                          (e.currentTarget as HTMLImageElement).src = "/assets/header_logo.png";
-                        }}
                       />
                     </div>
                     <motion.div
