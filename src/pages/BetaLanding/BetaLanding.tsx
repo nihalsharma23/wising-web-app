@@ -201,29 +201,22 @@ export function BetaLanding() {
                     </div>
                 </StickyCard>
 
-                {/* Section 5: Stack Interface */}
-                <StickyCard index={2}>
-                    <div className="w-full py-12">
-                        <StackFeatureSection />
-                    </div>
-                </StickyCard>
-
                 {/* Section 6: The Solution (Animated Graph) */}
-                <StickyCard index={3}>
+                <StickyCard index={2}>
                     <div className="w-full py-12 bg-[#020202]">
                         <SolutionSection />
                     </div>
                 </StickyCard>
 
                 {/* Section 7: Gradient Showcase Cards */}
-                <StickyCard index={4}>
+                <StickyCard index={3}>
                     <div className="w-full h-full flex items-center justify-center">
                         <SkewCards />
                     </div>
                 </StickyCard>
 
                 {/* Section 8: Security / Zero Trust - MOVED TO END */}
-                <StickyCard index={5}>
+                <StickyCard index={4}>
                     <div className="w-full px-4 md:px-12 lg:px-24 py-16">
                         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-16">
                             {/* Left: Text */}

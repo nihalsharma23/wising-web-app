@@ -31,13 +31,13 @@ const Word: React.FC<WordProps> = ({ children, progress, range }) => {
   const isImageToken = typeof children === "string" && contentMapping[children];
 
   const content = isImageToken ? (
-    <img src={contentMapping[children]} alt="icon" className="inline-block w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10 rounded-full object-cover align-middle border border-gray-200/20 shadow-lg mx-1" />
+    <img src={contentMapping[children]} alt="icon" className="inline-block w-8 h-8 md:w-12 md:h-12 lg:w-14 lg:h-14 rounded-full object-cover align-middle border border-gray-200/20 shadow-lg mx-1" />
   ) : (
     children
   );
 
   return (
-    <span className="relative mt-[12px] mr-2 text-xl md:text-2xl lg:text-[1.75rem] font-normal font-['Manrope',sans-serif] tracking-normal">
+    <span className="relative mt-2 mr-3 text-2xl md:text-4xl lg:text-[3.5rem] font-bold font-['Syne',sans-serif] tracking-tighter leading-[1.1]">
       <span className="absolute opacity-10 blur-sm">{content}</span>
       <motion.span style={{ opacity, y, filter }} className="inline-block">{content}</motion.span>
     </span>
