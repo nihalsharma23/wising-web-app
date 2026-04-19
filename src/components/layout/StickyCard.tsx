@@ -23,17 +23,30 @@ export function StickyCard({ children, index }: StickyCardProps) {
   return (
     <div ref={container} className="h-screen w-full relative">
       <div 
-        className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden"
+        className="sticky top-[80px] h-[calc(100vh-90px)] w-full flex items-center justify-center px-2 md:px-6 pb-2"
       >
         <motion.div 
           style={{ scale, filter }}
-          className="w-full h-full transform-origin-top relative"
+          className="w-full h-full transform-origin-top relative overflow-hidden rounded-[2.5rem] md:rounded-[3rem] bg-[#020202]/95 border border-white/10 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15),inset_0_-1px_1px_rgba(255,255,255,0.05)] ring-1 ring-white/5"
         >
-          <div className="w-full h-full overflow-hidden [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']">
-             <div className="min-h-full flex flex-col items-center justify-center">
-                 {children}
-             </div>
-          </div>
+          <StarBorder 
+            as="div" 
+            color="#001f3f" 
+            speed="8s" 
+            thickness={3}
+            className="w-full h-full"
+          >
+            {/* Top Edge Corner Shine highlights */}
+            <div className="absolute top-0 left-0 w-[150px] h-[1px] bg-gradient-to-r from-transparent via-white/40 to-transparent pointer-events-none" />
+            <div className="absolute top-0 right-0 w-[150px] h-[1px] bg-gradient-to-r from-transparent via-white/40 to-transparent pointer-events-none" />
+            <div className="absolute inset-x-0 -top-[50px] h-[100px] w-full bg-gradient-to-b from-white/5 to-transparent pointer-events-none" />
+            
+            <div className="w-full h-full overflow-hidden [&::-webkit-scrollbar]:hidden [-ms-overflow-style:'none'] [scrollbar-width:'none']">
+               <div className="min-h-full flex flex-col items-center justify-center">
+                   {children}
+               </div>
+            </div>
+          </StarBorder>
         </motion.div>
       </div>
     </div>

@@ -57,7 +57,7 @@ export default function StackFeatureSection() {
             return (
               <div
                 key={orbitIdx}
-                className="absolute rounded-full"
+                className="absolute rounded-full border border-dashed border-white/5 md:border-white/10"
                 style={{
                   width: size,
                   height: size,
@@ -66,7 +66,7 @@ export default function StackFeatureSection() {
               >
                 {iconConfigs
                   .slice(orbit.offset, orbit.offset + orbit.count)
-                   .map((cfg, iconIdx) => {
+                  .map((cfg, iconIdx) => {
                     const angle = iconIdx * angleStep;
                     const x = 50 + 50 * Math.cos(angle);
                     const y = 50 + 50 * Math.sin(angle);
@@ -74,7 +74,7 @@ export default function StackFeatureSection() {
                     return (
                       <div
                         key={iconIdx}
-                        className="absolute flex items-center justify-center overflow-hidden"
+                        className="absolute bg-[#1a1a1a] border border-white/10 rounded-full p-1.5 shadow-2xl flex items-center justify-center overflow-hidden"
                         style={{
                           left: `${x}%`,
                           top: `${y}%`,

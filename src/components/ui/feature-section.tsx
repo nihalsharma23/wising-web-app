@@ -42,7 +42,7 @@ export default function FeatureSection() {
             </Badge>
           </div>
 
-          <Card className="bg-transparent border-none shadow-none relative w-full h-[420px]">
+          <Card className="overflow-hidden bg-[#111111]/80 backdrop-blur-md border border-white/10 shadow-2xl rounded-2xl relative w-full h-[420px]">
             <CardContent className="relative h-full p-0 overflow-hidden">
               
               {/* Scrollable Container */}
@@ -61,7 +61,7 @@ export default function FeatureSection() {
                   {[...tasks, ...tasks].map((task, i) => (
                     <div
                       key={i}
-                      className="flex items-center gap-3 px-5 py-3 relative"
+                      className="flex items-center gap-3 px-5 py-3 border-b border-white/5 relative"
                     >
                       <div className="flex items-center justify-between w-full">
                         <div className="flex items-center gap-3">
