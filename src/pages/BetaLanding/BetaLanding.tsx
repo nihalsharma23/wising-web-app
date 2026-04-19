@@ -193,8 +193,8 @@ export function BetaLanding() {
                 </StickyCard>
 
                 {/* Section 4: Magic Text Reveal 2 (Section 5 in User Request) - REMOVED STICKYCARD CONTAINER */}
-                <div className="w-full flex justify-center px-4 md:px-12 lg:px-24 py-32 bg-transparent relative z-20">
-                    <div className="max-w-5xl w-full py-12">
+                <div className="w-full flex justify-center px-4 md:px-12 lg:px-24 py-[5px] bg-transparent relative z-20">
+                    <div className="max-w-5xl w-full py-0">
                         <MagicText
                             text="Every Brokerage handles the same trades. [fidelity] [zerodha] [groww] [robinhood] [binance] The Difference is Infrastructure. Too many tools leave blind spots that trigger massive fines. Too many manual spreadsheets waste your time. Wising builds the right infrastructure - So every action is fast, legally sound and 100% compliant."
                             wordClassName="text-[22px] md:text-[26px] lg:text-[30px] font-normal font-['Manrope',sans-serif]"
