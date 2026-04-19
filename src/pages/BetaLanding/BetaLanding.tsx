@@ -44,6 +44,7 @@ export function BetaLanding() {
             console.error("Error joining waitlist:", error);
             setStatus('error');
             setTimeout(() => setStatus('idle'), 3000);
+            setEmail('');
         }
     };
 
@@ -167,11 +168,12 @@ export function BetaLanding() {
                             </div>
                         </main>
 
-                        {/* Tracking/Value Prop Section 1 (Merged directly into flow, no StickyCard) */}
+                        {/* Tracking/Value Prop Section 1 (Section 2 in User Request) */}
                         <section className="w-full flex items-center justify-start px-4 md:px-12 lg:px-24 min-h-screen bg-transparent pb-32">
                             <div className="max-w-2xl w-full text-left pl-0 md:pl-8">
                                 <MagicText
                                     text="Wising Enforces real-time US (IRS), Indian Tax Law and FEMA Compliance on every agentic action. You get instant feedback. Your CAs, CPAs and Wealth Manager receive a Professional Brief about the action. Issues get fixed at the source. Everyone Moves Faster."
+                                    wordClassName="text-xl md:text-2xl lg:text-[1.75rem] font-normal font-['Manrope',sans-serif]"
                                 />
                             </div>
                         </section>
@@ -190,33 +192,33 @@ export function BetaLanding() {
                     </div>
                 </StickyCard>
 
-                {/* Section 4: Magic Text Reveal 2 (Previously white bg) */}
-                <StickyCard index={1}>
-                    <div className="w-full flex justify-center px-4 md:px-12 lg:px-24">
-                        <div className="max-w-5xl w-full py-12">
-                            <MagicText
-                                text="Every Brokerage handles the same trades. [fidelity] [zerodha] [groww] [robinhood] [binance] The Difference is Infrastructure. Too many tools leave blind spots that trigger massive fines. Too many manual spreadsheets waste your time. Wising builds the right infrastructure - So every action is fast, legally sound and 100% compliant."
-                            />
-                        </div>
+                {/* Section 4: Magic Text Reveal 2 (Section 5 in User Request) - REMOVED STICKYCARD CONTAINER */}
+                <div className="w-full flex justify-center px-4 md:px-12 lg:px-24 py-32 bg-transparent relative z-20">
+                    <div className="max-w-5xl w-full py-12">
+                        <MagicText
+                            text="Every Brokerage handles the same trades. [fidelity] [zerodha] [groww] [robinhood] [binance] The Difference is Infrastructure. Too many tools leave blind spots that trigger massive fines. Too many manual spreadsheets waste your time. Wising builds the right infrastructure - So every action is fast, legally sound and 100% compliant."
+                            wordClassName="text-[22px] md:text-[26px] lg:text-[30px] font-normal font-['Manrope',sans-serif]"
+                            iconSizeClassName="w-7 h-7 md:w-9 md:h-9 lg:w-11 lg:h-11"
+                        />
                     </div>
-                </StickyCard>
+                </div>
 
                 {/* Section 6: The Solution (Animated Graph) */}
-                <StickyCard index={2}>
+                <StickyCard index={1}>
                     <div className="w-full py-12 bg-[#020202]">
                         <SolutionSection />
                     </div>
                 </StickyCard>
 
                 {/* Section 7: Gradient Showcase Cards */}
-                <StickyCard index={3}>
+                <StickyCard index={2}>
                     <div className="w-full h-full flex items-center justify-center">
                         <SkewCards />
                     </div>
                 </StickyCard>
 
                 {/* Section 8: Security / Zero Trust - MOVED TO END */}
-                <StickyCard index={4}>
+                <StickyCard index={3}>
                     <div className="w-full px-4 md:px-12 lg:px-24 py-16">
                         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-16">
                             {/* Left: Text */}

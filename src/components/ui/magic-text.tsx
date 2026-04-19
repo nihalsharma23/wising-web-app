@@ -3,9 +3,18 @@
 import * as React from "react"
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
+import { twMerge } from "tailwind-merge";
+import { clsx, type ClassValue } from "clsx";
+
+function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}
  
 export interface MagicTextProps {
   text: string;
+  className?: string; // For the outer paragraph
+  wordClassName?: string; // For each word span
+  iconSizeClassName?: string; // Optional custom icon size
 }
 
 const contentMapping: Record<string, string> = {
@@ -20,9 +29,11 @@ interface WordProps {
   children: string;
   progress: any;
   range: number[];
+  wordClassName?: string;
+  iconSizeClassName?: string;
 }
- 
-const Word: React.FC<WordProps> = ({ children, progress, range }) => {
+  
+const Word: React.FC<WordProps> = ({ children, progress, range, wordClassName, iconSizeClassName }) => {
   const opacity = useTransform(progress, range, [0, 1]);
   const y = useTransform(progress, range, [10, 0]);
   const blurValue = useTransform(progress, range, [4, 0]);
@@ -31,25 +42,28 @@ const Word: React.FC<WordProps> = ({ children, progress, range }) => {
   const isImageToken = typeof children === "string" && contentMapping[children];
 
   const content = isImageToken ? (
-    <img src={contentMapping[children]} alt="icon" className="inline-block w-8 h-8 md:w-12 md:h-12 lg:w-14 lg:h-14 rounded-full object-cover align-middle border border-gray-200/20 shadow-lg mx-1" />
+    <img 
+      src={contentMapping[children]} 
+      alt="icon" 
+      className={cn("inline-block rounded-full object-cover align-middle border border-gray-200/20 shadow-lg mx-1", 
+         iconSizeClassName || "w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10"
+      )} 
+    />
   ) : (
     children
   );
 
   return (
-    <span className="relative mt-2 mr-3 text-2xl md:text-4xl lg:text-[3.5rem] font-bold font-['Syne',sans-serif] tracking-tighter leading-[1.1]">
+    <span className={cn("relative mt-2 mr-2 leading-tight", wordClassName)}>
       <span className="absolute opacity-10 blur-sm">{content}</span>
       <motion.span style={{ opacity, y, filter }} className="inline-block">{content}</motion.span>
     </span>
   );
 };
  
-export const MagicText: React.FC<MagicTextProps> = ({ text }) => {
+export const MagicText: React.FC<MagicTextProps> = ({ text, className, wordClassName, iconSizeClassName }) => {
   const container = useRef(null);
  
-  // Offset changed to make reveal slower (over a longer scroll distance).
-  // "start 0.8" = starts revealing when top of container hits 80% of screen.
-  // "start 0.3" = finishes revealing when top of container hits 30% of screen.
   const { scrollYProgress } = useScroll({
     target: container,
     offset: ["start 0.8", "start 0.3"],
@@ -58,13 +72,19 @@ export const MagicText: React.FC<MagicTextProps> = ({ text }) => {
   const words = text.split(" ");
  
   return (
-    <p ref={container} className="flex flex-wrap leading-relaxed p-4 justify-start max-w-full">
+    <p ref={container} className={cn("flex flex-wrap leading-relaxed p-4 justify-start max-w-full", className)}>
       {words.map((word, i) => {
         const start = i / words.length;
         const end = start + (1 / words.length);
  
         return (
-          <Word key={i} progress={scrollYProgress} range={[start, end]}>
+          <Word 
+            key={i} 
+            progress={scrollYProgress} 
+            range={[start, end]}
+            wordClassName={wordClassName}
+            iconSizeClassName={iconSizeClassName}
+          >
             {word}
           </Word>
         );
