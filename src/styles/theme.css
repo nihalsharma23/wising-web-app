@@ -162,6 +162,37 @@
     font-weight: 700;
   }
 
+  .chrome-silver-static {
+    background: linear-gradient(
+      180deg,
+      #ffffff 0%,
+      #a1a1a1 50%,
+      #ffffff 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-flex;
+    align-items: center;
+    font-weight: 700;
+  }
+
+  .globe-color-shimmer {
+    background: linear-gradient(
+      90deg,
+      #3b82f6 0%,
+      #10b981 40%,
+      #ffffff 50%,
+      #10b981 60%,
+      #6366f1 100%
+    );
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shimmer-move 4s linear infinite;
+    display: inline-flex;
+    align-items: center;
+  }
+
   .shimmer-header {
     position: relative;
     overflow: hidden;
@@ -276,6 +307,67 @@
     0% { background-position: 0% 0%; }
     50% { background-position: 100% 100%; }
     100% { background-position: 0% 0%; }
+  }
+
+  .glass-navy-container {
+    background: linear-gradient(135deg, rgba(6, 12, 34, 0.6) 0%, rgba(3, 7, 18, 0.8) 100%);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 
+      0 25px 50px -12px rgba(0, 0, 0, 0.5),
+      inset 0 1px 0.5px rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+    color: #ffffff;
+    font-family: 'Manrope', sans-serif;
+  }
+
+  .glass-batman-container {
+    background: linear-gradient(135deg, rgba(2, 2, 5, 0.92) 0%, rgba(5, 5, 8, 0.96) 100%);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    box-shadow: 
+      0 40px 80px -20px rgba(0, 0, 0, 0.9),
+      inset 0 1px 1px rgba(255, 255, 255, 0.02);
+    position: relative;
+    overflow: hidden;
+    color: #ffffff;
+    font-family: 'Manrope', sans-serif;
+  }
+
+  .dark-gradient-bg {
+    background: linear-gradient(180deg, #000000 0%, #030712 100%);
+  }
+
+  .glass-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .glass-navy-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(
+      120deg,
+      transparent,
+      rgba(255, 255, 255, 0.05),
+      transparent
+    );
+    transition: 0.5s;
+    pointer-events: none;
+  }
+
+  .glass-navy-container:hover::before {
+    left: 100%;
   }
 }
 

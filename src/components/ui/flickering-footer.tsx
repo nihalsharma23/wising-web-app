@@ -331,13 +331,13 @@ export const FlickeringFooter = () => {
           <div className="grid grid-cols-2 gap-10 lg:pl-10">
             {siteConfig.footerLinks.map((column, columnIndex) => (
               <ul key={columnIndex} className="flex flex-col gap-y-3">
-                <li className="mb-2 text-xs font-bold uppercase tracking-widest text-[#14b8a6]">
+                <li className="mb-2 text-xs font-bold uppercase tracking-widest text-white/40">
                   {column.title}
                 </li>
                 {column.links.map((link) => (
                   <li
                     key={link.id}
-                    className="group inline-flex cursor-pointer items-center justify-start gap-1 text-[15px] text-neutral-400 hover:text-white transition-colors duration-300"
+                    className="group inline-flex cursor-pointer items-center justify-start gap-1 text-[15px] text-white/60 hover:text-white transition-colors duration-300"
                   >
                     <Link to={link.url}>{link.title}</Link>
                     <div className="flex size-4 items-center justify-center border border-white/10 rounded translate-x-0 transform opacity-0 transition-all duration-300 ease-out group-hover:translate-x-1 group-hover:opacity-100">
@@ -366,7 +366,7 @@ export const FlickeringFooter = () => {
           />
         </div>
       </div>
-      <div className="w-full py-8 text-center text-neutral-600 text-xs border-t border-white/5">
+      <div className="w-full py-8 text-center text-white/30 text-xs border-t border-white/5">
         &copy; {new Date().getFullYear()} Wising. All rights reserved.
       </div>
     </footer>

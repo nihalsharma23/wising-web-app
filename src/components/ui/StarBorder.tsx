@@ -30,20 +30,6 @@ const StarBorder = <T extends React.ElementType = 'button'>({
         ...((rest as any).style || {})
       }}
     >
-      <div
-        className="border-gradient-bottom"
-        style={{
-          background: `radial-gradient(circle, ${color}, transparent 10%)`,
-          animationDuration: speed
-        }}
-      ></div>
-      <div
-        className="border-gradient-top"
-        style={{
-          background: `radial-gradient(circle, ${color}, transparent 10%)`,
-          animationDuration: speed
-        }}
-      ></div>
       <div className="inner-content">{children}</div>
     </Component>
   );

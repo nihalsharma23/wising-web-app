@@ -42,19 +42,25 @@ const Word: React.FC<WordProps> = ({ children, progress, range, wordClassName, i
   const isImageToken = typeof children === "string" && contentMapping[children];
 
   const content = isImageToken ? (
-    <img 
-      src={contentMapping[children]} 
-      alt="icon" 
-      className={cn("inline-block rounded-full object-cover align-middle border border-gray-200/20 shadow-lg mx-1", 
-         iconSizeClassName || "w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10"
-      )} 
-    />
+    <div className="relative inline-block align-middle mx-0.5 group">
+      {/* Dark Navy Blue Glow Effect */}
+      <div className="absolute -inset-1 bg-[#001f3f]/60 blur-md rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+      <div className="absolute inset-0 bg-[#001f3f]/40 blur-sm rounded-full" />
+      
+      <img 
+        src={contentMapping[children]} 
+        alt="icon" 
+        className={cn("relative inline-block rounded-full object-cover border border-white/10 shadow-[0_0_15px_rgba(0,31,63,0.8)]", 
+           iconSizeClassName || "w-6 h-6 md:w-8 md:h-8 lg:w-10 lg:h-10"
+        )} 
+      />
+    </div>
   ) : (
     children
   );
 
   return (
-    <span className={cn("relative mt-2 mr-2 leading-tight", wordClassName)}>
+    <span className={cn("relative mt-2 leading-tight", isImageToken ? "mr-1" : "mr-2", wordClassName)}>
       <span className="absolute opacity-10 blur-sm">{content}</span>
       <motion.span style={{ opacity, y, filter }} className="inline-block">{content}</motion.span>
     </span>

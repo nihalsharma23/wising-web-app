@@ -1,46 +1,54 @@
 "use client"
-import { useEffect, useRef, useCallback, useState } from "react"
+
+import { useEffect, useRef, useCallback, useState, useMemo } from "react"
 import createGlobe from "cobe"
 
-interface CdnMarker {
+export interface ComplianceNode {
   id: string
   location: [number, number]
-  region: string
+  country: string
+  alertType: string
+  baseFine: number
+  fineLabel: string
 }
-interface CdnArc {
+
+export interface ComplianceTransaction {
   id: string
   from: [number, number]
   to: [number, number]
+  description: string
 }
-interface GlobeCdnProps {
-  markers?: CdnMarker[]
-  arcs?: CdnArc[]
+
+export interface GlobeCdnProps {
+  nodes?: ComplianceNode[]
+  transactions?: ComplianceTransaction[]
   className?: string
   speed?: number
 }
-const defaultMarkers: CdnMarker[] = [
-  { id: "cdn-iad", location: [38.95, -77.45], region: "iad1" },
-  { id: "cdn-sfo", location: [37.62, -122.38], region: "sfo1" },
-  { id: "cdn-cdg", location: [49.01, 2.55], region: "cdg1" },
-  { id: "cdn-hnd", location: [35.55, 139.78], region: "hnd1" },
-  { id: "cdn-syd", location: [-33.95, 151.18], region: "syd1" },
-  { id: "cdn-gru", location: [-23.43, -46.47], region: "gru1" },
-  { id: "cdn-sin", location: [1.36, 103.99], region: "sin1" },
-  { id: "cdn-arn", location: [59.65, 17.93], region: "arn1" },
-  { id: "cdn-dub", location: [53.43, -6.25], region: "dub1" },
-  { id: "cdn-bom", location: [19.09, 72.87], region: "bom1" },
+
+const defaultNodes: ComplianceNode[] = [
+  { id: "node-ind", location: [20.59, 78.96], country: "India", alertType: "FEMA Violation", baseFine: 10000, fineLabel: "$10,000+" },
+  { id: "node-usa", location: [37.09, -95.71], country: "USA", alertType: "Double Tax", baseFine: 8500, fineLabel: "$8,500+" },
+  { id: "node-uae", location: [23.42, 53.85], country: "UAE", alertType: "Undetected PFIC", baseFine: 5000, fineLabel: "$5,000+" },
+  { id: "node-gbr", location: [55.38, -3.44], country: "UK", alertType: "Penalty", baseFine: 5000, fineLabel: "$5,000+" },
+  { id: "node-sgp", location: [1.36, 103.82], country: "Singapore", alertType: "Double Tax", baseFine: 8500, fineLabel: "$8,500+" },
+  { id: "node-deu", location: [51.17, 10.45], country: "Germany", alertType: "PFIC", baseFine: 5000, fineLabel: "$5,000+" },
+  { id: "node-can", location: [56.13, -106.35], country: "Canada", alertType: "Penalty", baseFine: 5000, fineLabel: "$5,000+" },
+  { id: "node-aus", location: [-25.27, 133.77], country: "Australia", alertType: "FEMA", baseFine: 10000, fineLabel: "$10,000+" }
 ]
-const defaultArcs: CdnArc[] = [
-  { id: "cdn-arc-1", from: [38.95, -77.45], to: [49.01, 2.55] },
-  { id: "cdn-arc-2", from: [37.62, -122.38], to: [35.55, 139.78] },
-  { id: "cdn-arc-3", from: [49.01, 2.55], to: [1.36, 103.99] },
-  { id: "cdn-arc-4", from: [38.95, -77.45], to: [-23.43, -46.47] },
-  { id: "cdn-arc-5", from: [35.55, 139.78], to: [-33.95, 151.18] },
-  { id: "cdn-arc-6", from: [49.01, 2.55], to: [19.09, 72.87] },
+
+const defaultTransactions: ComplianceTransaction[] = [
+  { id: "tx-ind-usa", from: [20.59, 78.96], to: [37.09, -95.71], description: "Equity Redemption" },
+  { id: "tx-ind-uae", from: [20.59, 78.96], to: [23.42, 53.85], description: "NRI Remittance" },
+  { id: "tx-usa-gbr", from: [37.09, -95.71], to: [55.38, -3.44], description: "PFIC Distribution" },
+  { id: "tx-sgp-ind", from: [1.36, 103.82], to: [20.59, 78.96], description: "Wire Transfer" },
+  { id: "tx-deu-usa", from: [51.17, 10.45], to: [37.09, -95.71], description: "Dividend Repatriation" },
+  { id: "tx-aus-sgp", from: [-25.27, 133.77], to: [1.36, 103.82], description: "Fund Redemption" }
 ]
+
 export function GlobeCdn({
-  markers = defaultMarkers,
-  arcs = defaultArcs,
+  nodes = defaultNodes,
+  transactions = defaultTransactions,
   className = "",
   speed = 0.003,
 }: GlobeCdnProps) {
@@ -50,25 +58,60 @@ export function GlobeCdn({
   const phiOffsetRef = useRef(0)
   const thetaOffsetRef = useRef(0)
   const isPausedRef = useRef(false)
-  const [traffic, setTraffic] = useState(() =>
-    defaultArcs.map((a, i) => ({ id: a.id, value: [420, 380, 290, 185, 156, 134][i] || 100 }))
+  
+  const [activeArcIndices, setActiveArcIndices] = useState<number[]>([0, 1])
+  const activeTransactions = useMemo(() => {
+    return transactions.filter((_, i) => activeArcIndices.includes(i))
+  }, [transactions, activeArcIndices])
+
+  const [liveAlerts, setLiveAlerts] = useState(() =>
+    defaultTransactions.map((t) => ({ 
+        id: t.id, 
+        amount: [8500, 10200, 5300, 9800, 5100, 7600][defaultTransactions.indexOf(t)] || 5000,
+        label: ""
+    }))
   )
+
   useEffect(() => {
+    const cycleInterval = setInterval(() => {
+      setActiveArcIndices(prev => [
+        (prev[0] + 2) % defaultTransactions.length,
+        (prev[1] + 2) % defaultTransactions.length
+      ])
+    }, 4000)
+    return () => clearInterval(cycleInterval)
+  }, [])
+
+  useEffect(() => {
+    // Initial formatting
+    setLiveAlerts(prev => prev.map(a => ({
+        ...a,
+        label: a.amount.toLocaleString('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 })
+    })));
+
     const interval = setInterval(() => {
-      setTraffic((data) =>
-        data.map((t) => ({
-          ...t,
-          value: Math.max(50, t.value + Math.floor(Math.random() * 21) - 10),
-        }))
+      setLiveAlerts((data) =>
+        data.map((t) => {
+          const delta = Math.floor(Math.random() * 650) + 150; // Random change between 150 and 800
+          const direction = Math.random() > 0.5 ? 1 : -1;
+          const newAmount = Math.max(5000, t.amount + (delta * direction));
+          return {
+            ...t,
+            amount: newAmount,
+            label: newAmount.toLocaleString('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 })
+          }
+        })
       )
-    }, 250)
+    }, 600)
     return () => clearInterval(interval)
   }, [])
+
   const handlePointerDown = useCallback((e: React.PointerEvent) => {
     pointerInteracting.current = { x: e.clientX, y: e.clientY }
     if (canvasRef.current) canvasRef.current.style.cursor = "grabbing"
     isPausedRef.current = true
   }, [])
+
   const handlePointerUp = useCallback(() => {
     if (pointerInteracting.current !== null) {
       phiOffsetRef.current += dragOffset.current.phi
@@ -79,6 +122,7 @@ export function GlobeCdn({
     if (canvasRef.current) canvasRef.current.style.cursor = "grab"
     isPausedRef.current = false
   }, [])
+
   useEffect(() => {
     const handlePointerMove = (e: PointerEvent) => {
       if (pointerInteracting.current !== null) {
@@ -95,40 +139,45 @@ export function GlobeCdn({
       window.removeEventListener("pointerup", handlePointerUp)
     }
   }, [handlePointerUp])
+
   useEffect(() => {
     if (!canvasRef.current) return
     const canvas = canvasRef.current
     let globe: ReturnType<typeof createGlobe> | null = null
     let animationId: number
     let phi = 0
+
     function init() {
       const width = canvas.offsetWidth
       if (width === 0 || globe) return
+
       globe = createGlobe(canvas, {
-      devicePixelRatio: Math.min(window.devicePixelRatio || 1, 2),
-      width, height: width,
-      phi: 0, theta: 0.2, dark: 0, diffuse: 1.5,
-      mapSamples: 16000, mapBrightness: 10,
-      baseColor: [1, 1, 1],
-      markerColor: [0, 0, 0],
-      glowColor: [0.94, 0.93, 0.91],
-      markerElevation: 0.02,
-      markers: markers.map((m) => ({ location: m.location, size: 0.012, id: m.id })),
-      arcs: arcs.map((a) => ({ from: a.from, to: a.to, id: a.id })),
-      arcColor: [0, 0, 0],
-      arcWidth: 0.5, arcHeight: 0.25, opacity: 0.7,
-    })
-    function animate() {
-      if (!isPausedRef.current) phi += speed
-      globe!.update({
-        phi: phi + phiOffsetRef.current + dragOffset.current.phi,
-        theta: 0.2 + thetaOffsetRef.current + dragOffset.current.theta,
+        devicePixelRatio: Math.min(window.devicePixelRatio || 1, 2),
+        width, height: width,
+        phi: 0, theta: 0.2, dark: 0, diffuse: 1.2,
+        mapSamples: 16000, mapBrightness: 6, // Adjusted to make white dots visible against black background
+        baseColor: [0, 0, 0], // True black surface
+        markerColor: [1, 1, 1], // White markers
+        glowColor: [0.1, 0.1, 0.15], // Subtle dark glow
+        markerElevation: 0.02,
+        markers: nodes.map((n) => ({ location: n.location, size: 0.02, id: n.id })),
+        arcs: activeTransactions.map((t) => ({ from: t.from, to: t.to, id: t.id })),
+        arcColor: [1, 1, 1], // White arcs
+        arcWidth: 0.8, arcHeight: 0.3, opacity: 0.85,
       })
-      animationId = requestAnimationFrame(animate)
-    }
+      
+      function animate() {
+        if (!isPausedRef.current) phi += (speed * 2.5) // Increased speed to 2.5x to be noticeably faster
+        globe!.update({
+          phi: phi + phiOffsetRef.current + dragOffset.current.phi,
+          theta: 0.2 + thetaOffsetRef.current + dragOffset.current.theta,
+        })
+        animationId = requestAnimationFrame(animate)
+      }
       animate()
       setTimeout(() => canvas && (canvas.style.opacity = "1"))
     }
+
     if (canvas.offsetWidth > 0) {
       init()
     } else {
@@ -140,37 +189,15 @@ export function GlobeCdn({
       })
       ro.observe(canvas)
     }
+
     return () => {
       if (animationId) cancelAnimationFrame(animationId)
       if (globe) globe.destroy()
     }
-  }, [markers, arcs, speed])
-  const pyramidFaceStyle = (nth: number): React.CSSProperties => {
-    const transforms = [
-      "rotateY(0deg) translateZ(4px) rotateX(19.5deg)",
-      "rotateY(120deg) translateZ(4px) rotateX(19.5deg)",
-      "rotateY(240deg) translateZ(4px) rotateX(19.5deg)",
-      "rotateX(-90deg) rotateZ(60deg) translateY(4px)",
-    ]
-    const colors = ["#111", "#333", "#555", "#222"]
-    return {
-      position: "absolute", left: -0.5, top: 0,
-      width: 0, height: 0,
-      borderLeft: "6.5px solid transparent",
-      borderRight: "6.5px solid transparent",
-      borderBottom: `13px solid ${colors[nth]}`,
-      transformOrigin: "center bottom",
-      transform: transforms[nth],
-    }
-  }
+  }, [nodes, activeTransactions, speed])
+
   return (
     <div className={`relative aspect-square select-none ${className}`}>
-      <style>{`
-        @keyframes pyramid-spin {
-          0% { transform: rotateX(20deg) rotateY(0deg); }
-          100% { transform: rotateX(20deg) rotateY(360deg); }
-        }
-      `}</style>
       <canvas
         ref={canvasRef}
         onPointerDown={handlePointerDown}
@@ -179,44 +206,49 @@ export function GlobeCdn({
           transition: "opacity 1.2s ease", borderRadius: "50%", touchAction: "none",
         }}
       />
-      {markers.map((m) => (
+      {nodes.map((n) => (
         <div
-          key={m.id}
+          key={n.id}
           style={{
             position: "absolute",
             // @ts-expect-error CSS Anchor Positioning
-            positionAnchor: `--cobe-${m.id}`,
+            positionAnchor: `--cobe-${n.id}`,
             bottom: "anchor(top)",
             left: "anchor(center)",
-            translate: "-50% 0",
+            translate: "-50% -8px",
             display: "flex",
             flexDirection: "column" as const,
             alignItems: "center",
-            gap: 6,
+            gap: 4,
             pointerEvents: "none" as const,
-            opacity: `var(--cobe-visible-${m.id}, 0)`,
-            filter: `blur(calc((1 - var(--cobe-visible-${m.id}, 0)) * 8px))`,
+            opacity: `var(--cobe-visible-${n.id}, 0)`,
+            filter: `drop-shadow(0 0 6px rgba(239,68,68,0.7)) blur(calc((1 - var(--cobe-visible-${n.id}, 0)) * 8px))`,
             transition: "opacity 0.3s, filter 0.3s",
+            zIndex: 10
           }}
         >
+          {/* Alert Card (Reduced Size & No Dot) */}
           <div style={{
-            width: 12, height: 12, position: "relative",
-            transformStyle: "preserve-3d" as const,
-            animation: "pyramid-spin 4s linear infinite",
+            background: "rgba(180,0,0,0.92)", 
+            border: "1px solid rgba(255,80,80,0.6)", 
+            borderRadius: "4px", 
+            padding: "2px 6px", 
+            display: "flex", 
+            flexDirection: "column", 
+            alignItems: "center", 
+            gap: "0px"
           }}>
-            {[0, 1, 2, 3].map((n) => (
-              <div key={n} style={pyramidFaceStyle(n)} />
-            ))}
+            <span style={{ fontFamily: "monospace", fontSize: "0.45rem", color: "rgba(255,200,200,1)", fontWeight: "bold", letterSpacing: "0.04em", whiteSpace: "nowrap" }}>
+                {n.alertType}
+            </span>
+            <span style={{ fontFamily: "monospace", fontSize: "0.55rem", color: "#ffffff", fontWeight: 800, letterSpacing: "0.03em" }}>
+                {n.fineLabel}
+            </span>
           </div>
-          <span style={{
-            fontFamily: "monospace", fontSize: "0.55rem", color: "#000",
-            background: "#000", padding: "2px 6px", borderRadius: 3,
-            letterSpacing: "0.05em", whiteSpace: "nowrap" as const,
-            boxShadow: "0 1px 3px rgba(0,0,0,0.2)",
-          }}>{m.region}</span>
         </div>
       ))}
-      {traffic.map((t) => (
+      
+      {liveAlerts.filter((_, i) => activeArcIndices.includes(i)).map((t) => (
         <div
           key={t.id}
           style={{
@@ -227,19 +259,23 @@ export function GlobeCdn({
             left: "anchor(center)",
             translate: "-50% 0",
             fontFamily: "monospace",
-            fontSize: "0.5rem",
-            color: "#fff",
-            background: "#000",
-            padding: "3px 8px",
-            borderRadius: 4,
+            fontSize: "0.45rem",
+            color: "#ffffff",
+            background: "rgba(180, 0, 0, 0.88)",
+            border: "1px solid rgba(255, 100, 100, 0.5)",
+            padding: "2px 7px",
+            borderRadius: "3px",
+            boxShadow: "0 0 8px rgba(239,68,68,0.5)",
             whiteSpace: "nowrap" as const,
             pointerEvents: "none" as const,
             opacity: `var(--cobe-visible-arc-${t.id}, 0)`,
             filter: `blur(calc((1 - var(--cobe-visible-arc-${t.id}, 0)) * 8px))`,
             transition: "opacity 0.3s, filter 0.3s",
+            fontWeight: 700,
+            zIndex: 5
           }}
         >
-          {t.value}k req/s
+          {t.label || t.amount}
         </div>
       ))}
     </div>

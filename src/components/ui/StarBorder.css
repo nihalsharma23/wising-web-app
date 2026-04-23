@@ -7,59 +7,13 @@
   height: 100%;
 }
 
-.border-gradient-bottom {
-  position: absolute;
-  width: 300%;
-  height: 50%;
-  opacity: 0.7;
-  bottom: -12px;
-  right: -250%;
-  border-radius: 50%;
-  animation: star-movement-bottom linear infinite alternate;
-  z-index: 0;
-}
-
-.border-gradient-top {
-  position: absolute;
-  opacity: 0.7;
-  width: 300%;
-  height: 50%;
-  top: -12px;
-  left: -250%;
-  border-radius: 50%;
-  animation: star-movement-top linear infinite alternate;
-  z-index: 0;
-}
-
 .inner-content {
   position: relative;
   width: 100%;
   height: 100%;
   z-index: 1;
-  background: #020202; /* Solid background to make border visible */
+  background: transparent; /* Changed from #020202 to avoid nested black containers */
   border-radius: inherit;
   display: flex;
   flex-direction: column;
-}
-
-@keyframes star-movement-bottom {
-  0% {
-    transform: translate(0%, 0%);
-    opacity: 1;
-  }
-  100% {
-    transform: translate(-100%, 0%);
-    opacity: 0;
-  }
-}
-
-@keyframes star-movement-top {
-  0% {
-    transform: translate(0%, 0%);
-    opacity: 1;
-  }
-  100% {
-    transform: translate(100%, 0%);
-    opacity: 0;
-  }
 }

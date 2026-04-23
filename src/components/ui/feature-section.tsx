@@ -12,37 +12,61 @@ const tasks = [
 ];
 
 export default function FeatureSection() {
+  const headline = "Managing Global Wealth Means Guessing The Laws Every Time.";
+  const bottomText = "Same Wealth. Better Protection.";
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.08,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 15 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        ease: [0.215, 0.61, 0.355, 1],
+      },
+    },
+  };
+
   return (
-    <section className="relative w-full pt-[5px] pb-32 px-4 bg-transparent text-white font-['Syne',sans-serif]">
+    <section className="relative w-full pt-[5px] pb-32 px-4 bg-transparent text-white font-['Manrope',sans-serif]">
       <div className="mx-auto max-w-6xl flex flex-col md:flex-row items-start gap-16">
         
         {/* LEFT SIDE - Content */}
-        <div className="space-y-8 flex-1 order-2 md:order-1 pt-12">
-          <Badge variant="secondary" className="px-3 py-1 text-xs bg-gradient-to-b from-[#1a1a1a] to-[#0a0a0a] text-white border border-white/20 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] rounded-full font-['Manrope',sans-serif] uppercase tracking-wider w-max">
+        <div className="space-y-8 flex-1 order-2 md:order-1 pt-14">
+          <Badge variant="secondary" className="px-6 py-2 text-[13px] bg-black text-white border border-white/20 rounded-full font-['Manrope',sans-serif] font-bold tracking-wider w-max">
             The Problem
           </Badge>
           <motion.h2 
-            className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold leading-[1.1] tracking-tight font-['Raleway',sans-serif] capitalize bg-[length:200%_auto] bg-clip-text text-transparent"
-            style={{
-              backgroundImage: 'linear-gradient(110deg, #ffffff 0%, #a1a1a1 25%, #ffffff 50%, #a1a1a1 75%, #ffffff 100%)',
-            }}
-            animate={{ backgroundPosition: ['0% center', '200% center'] }}
-            transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold leading-[1.1] tracking-tight font-['Manrope',sans-serif] capitalize !text-white"
           >
             Managing Global Wealth Means Guessing The Laws Every Time.
           </motion.h2>
         </div>
-
+ 
         {/* RIGHT SIDE - Task Loop with Vertical Bar */}
-        <div className="relative w-full max-w-sm flex-1 order-1 md:order-2 flex flex-col items-center pt-2">
+        <div className="relative w-full max-w-sm flex-1 order-1 md:order-2 flex flex-col items-center pt-14">
           
-          <div className="w-full max-w-xs mb-4">
-            <Badge variant="secondary" className="px-3 py-1.5 text-[11px] bg-gradient-to-b from-[#1a1a1a] to-[#0a0a0a] text-white border border-white/20 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)] rounded-full font-['Manrope',sans-serif] uppercase tracking-wider w-max break-words whitespace-normal text-left">
-              Average Cost of Manual Cross-Border Wealth
+          <div className="w-full max-w-xs mb-10">
+            <Badge variant="secondary" className="px-6 py-2 text-[13px] bg-black text-white border border-white/20 rounded-full font-['Manrope',sans-serif] font-bold tracking-wider w-max break-words whitespace-normal text-left">
+              Average Cost Of Manual Cross-Border Wealth
             </Badge>
           </div>
-
-          <Card className="overflow-hidden bg-[#111111]/80 backdrop-blur-md border border-white/10 shadow-2xl rounded-2xl relative w-full h-[420px]">
+ 
+          <Card className="overflow-hidden glass-navy-container border-white/10 shadow-2xl rounded-[2rem] relative w-full h-[420px]">
             <CardContent className="relative h-full p-0 overflow-hidden">
               
               {/* Scrollable Container */}
@@ -77,38 +101,41 @@ export default function FeatureSection() {
                     </div>
                   ))}
                 </motion.div>
-
+ 
                 {/* Fade effect top */}
                 <div className="absolute top-0 left-0 w-full h-16 bg-gradient-to-b from-[#111111] to-transparent pointer-events-none z-10" />
               </div>
-
+ 
               {/* Sticky bottom bar inside card */}
-              <div className="absolute bottom-0 left-0 w-full bg-[#1a1a1a] border-t border-white/10 p-5 z-20 flex items-center justify-between shadow-[0_-20px_40px_rgba(0,0,0,0.6)]">
+              <div className="absolute bottom-0 left-0 w-full bg-[#0a0a0a]/60 backdrop-blur-xl border-t border-white/10 p-5 z-20 flex items-center justify-between shadow-[0_-20px_40px_rgba(0,0,0,0.6)]">
                  <div className="flex items-center gap-3 w-full">
                     <div className="bg-gradient-to-br from-[#1a1a1a] to-[#0a0a0a] w-10 h-10 flex-shrink-0 rounded-xl flex items-center justify-center border border-white/20 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15)]">
-                      <ShieldCheck className="text-slate-300 w-5 h-5 drop-shadow-md" />
+                      <ShieldCheck className="text-white/80 w-5 h-5 drop-shadow-md" />
                     </div>
                     <div>
                       <motion.p 
-                        className="text-[15px] font-bold tracking-[0.2em] uppercase font-['Manrope',sans-serif] bg-[length:200%_auto] bg-clip-text text-transparent"
-                        style={{ backgroundImage: 'linear-gradient(110deg, #ffffff 0%, #a1a1a1 25%, #ffffff 50%, #a1a1a1 75%, #ffffff 100%)' }}
-                        animate={{ backgroundPosition: ['0% center', '200% center'] }}
-                        transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+                        className="text-[15px] font-bold tracking-[0.2em] uppercase font-['Manrope',sans-serif] text-white"
                       >
                         With Wising
                       </motion.p>
-                      <p className="text-[11px] font-bold text-slate-400 tracking-wider mt-0.5 font-['Manrope',sans-serif]">$0 Penalties + 100% Automation</p>
+                      <p className="text-[11px] font-bold text-white tracking-wider mt-0.5 font-['Manrope',sans-serif]">$0 Penalties + 100% Automation</p>
                     </div>
                  </div>
               </div>
             </CardContent>
           </Card>
-
-          <p className="text-center text-lg md:text-xl font-semibold text-white font-['Manrope',sans-serif] tracking-tight mt-5">
+ 
+          <motion.p 
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="text-center text-lg md:text-xl font-semibold !text-white font-['Manrope',sans-serif] tracking-tight mt-10 w-full z-30"
+          >
             Same Wealth. Better Protection.
-          </p>
+          </motion.p>
         </div>
-
+ 
       </div>
     </section>
   );

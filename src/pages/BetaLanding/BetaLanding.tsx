@@ -11,6 +11,7 @@ import SolutionSection from '../../components/ui/solution-section';
 import { CpuArchitecture } from '../../components/ui/cpu-architecture';
 import SkewCards from '../../components/ui/gradient-card-showcase';
 import { PulsatingBeamSection } from '../../components/ui/PulsatingBeam';
+import Starfield from '../../components/ui/Starfield';
 
 import { FlickeringFooter } from '../../components/ui/flickering-footer';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -50,10 +51,11 @@ export function BetaLanding() {
 
     return (
         <ReactLenis root options={{ lerp: 0.05, duration: 2, smoothWheel: true, wheelMultiplier: 0.6 }}>
-            <div className="bg-[#050505] font-['Syne',sans-serif] min-h-screen text-white relative">
+            <div className="dark-gradient-bg font-['Manrope',sans-serif] min-h-screen text-white relative px-[15px]">
+                <Starfield />
                 <Header />
                 {/* Anchor Wrapper for EarthGlobe (Hero + Section 2) */}
-                <div className="relative w-full z-0 bg-black">
+                <div className="relative w-full z-0 bg-transparent">
                     {/* Background Sticky Layer */}
                     <div className="absolute inset-0 z-0 pointer-events-none">
                         <EarthGlobe />
@@ -68,18 +70,28 @@ export function BetaLanding() {
                             <div className="relative z-10 flex flex-col items-center text-center space-y-4 pt-16 px-4">
                                 <AnimatedText 
                                     text="CROSS BORDER WEALTH" 
-                                    className="font-['Raleway'] text-3xl md:text-5xl lg:text-7xl font-bold tracking-tight bg-gradient-to-b from-gray-100 via-gray-400 to-gray-600 bg-clip-text text-transparent mb-2"
+                                    className="font-['Cormorant_Garamond',serif] text-lg md:text-xl lg:text-2xl font-bold tracking-[0.3em] text-white mb-2"
                                     animationType="letters"
                                     staggerDelay={0.06}
                                     duration={0.8}
                                 />
                                 
-                                <div className="mt-4">
+                                <div className="mt-1">
                                     <AnimatedText 
                                         text="COMPLIANCE FIREWALL" 
-                                        className="font-['Syne'] text-xl md:text-3xl lg:text-4xl font-bold tracking-[0.4em] bg-gradient-to-b from-gray-100 via-gray-400 to-gray-600 bg-clip-text text-transparent"
+                                        className="font-['Syne',sans-serif] text-[32px] md:text-[50px] lg:text-[74px] font-bold tracking-[0.1em] globe-color-shimmer"
                                         animationType="letters"
                                         staggerDelay={0.04}
+                                        duration={0.8}
+                                    />
+                                </div>
+
+                                <div className="mt-2">
+                                    <AnimatedText 
+                                        text="For Future Agents" 
+                                        className="font-['Playfair_Display',serif] text-sm md:text-base lg:text-lg italic tracking-[0.5em] bg-gradient-to-r from-blue-400 via-emerald-400 to-indigo-500 bg-clip-text text-transparent uppercase"
+                                        animationType="letters"
+                                        staggerDelay={0.05}
                                         duration={0.8}
                                     />
                                 </div>
@@ -90,7 +102,7 @@ export function BetaLanding() {
 
                             {/* Actual Waitlist positioned at bottom */}
                             <div className="absolute bottom-[40px] left-0 w-full flex flex-col items-center z-20 px-4">
-                                <form onSubmit={handleJoinWaitlist} className="w-full max-w-[380px] mx-auto relative group">
+                                <form onSubmit={handleJoinWaitlist} className="w-full max-w-[304px] mx-auto relative group">
                                     {/* Shimmering Border Container */}
                                     <div
                                         className="absolute -inset-[1px] rounded-[16px] pointer-events-none opacity-70"
@@ -105,7 +117,7 @@ export function BetaLanding() {
                                     <div className="bg-[#0b0b0b] relative rounded-tl-[16px] rounded-tr-[16px] w-full border border-b-0 border-[#1f1f1f]/0">
                                         <div className="content-stretch flex flex-col items-start overflow-clip relative rounded-[inherit] w-full">
                                             <div className="relative w-full">
-                                                <div className="bg-clip-padding content-stretch flex items-start justify-center overflow-clip px-6 md:px-8 py-5 md:py-6 relative rounded-[inherit] w-full">
+                                                <div className="bg-clip-padding content-stretch flex items-start justify-center overflow-clip px-5 md:px-6 py-4 md:py-5 relative rounded-[inherit] w-full">
                                                     <div className="flex-1 min-w-0">
                                                         <input
                                                             type="email"
@@ -113,7 +125,7 @@ export function BetaLanding() {
                                                             onChange={(e) => setEmail(e.target.value)}
                                                             disabled={status === 'loading'}
                                                             required
-                                                            className="w-full bg-transparent border-none text-[#C0C0C0] text-sm tracking-[1.1px] font-['Manrope',sans-serif] placeholder:text-[#C0C0C0]/50 focus:ring-0 focus:outline-none disabled:opacity-50"
+                                                            className="w-full bg-transparent border-none text-white text-xs tracking-[1px] font-['Manrope',sans-serif] placeholder:text-white/40 focus:ring-0 focus:outline-none disabled:opacity-50"
                                                             placeholder="Your Email ID Here."
                                                         />
                                                     </div>
@@ -126,16 +138,16 @@ export function BetaLanding() {
                                     <button
                                         type="submit"
                                         disabled={status === 'loading'}
-                                        className="content-stretch flex gap-5 items-center justify-center overflow-clip py-5 relative rounded-bl-[16px] rounded-br-[16px] shadow-[0px_10px_30px_-10px_rgba(255,255,255,0.05)] w-full cursor-pointer hover:shadow-[0px_10px_40px_-5px_rgba(255,255,255,0.1)] transition-shadow disabled:opacity-70 disabled:cursor-not-allowed z-10"
+                                        className="content-stretch flex gap-4 items-center justify-center overflow-clip py-[15px] relative rounded-bl-[16px] rounded-br-[16px] shadow-[0px_10px_30px_-10px_rgba(255,255,255,0.05)] w-full cursor-pointer hover:shadow-[0px_10px_40px_-5px_rgba(255,255,255,0.1)] transition-shadow disabled:opacity-70 disabled:cursor-not-allowed z-10"
                                         style={{ backgroundImage: "linear-gradient(135deg, rgb(255, 255, 255) 0%, rgb(209, 213, 219) 50%, rgb(156, 163, 175) 100%)" }}
                                     >
                                         <div className="absolute inset-0 opacity-30 rounded-bl-[16px] rounded-br-[16px]" />
-                                        <div className="relative flex flex-col font-['Montserrat',sans-serif] font-medium justify-center leading-[0] text-sm text-black text-center tracking-[5px] uppercase">
+                                        <div className="relative flex flex-col font-['Montserrat',sans-serif] font-medium justify-center leading-[0] text-xs text-black text-center tracking-[4px] uppercase">
                                             <p className="leading-[15px] whitespace-pre-wrap">{status === 'loading' ? 'Joining...' : status === 'success' ? 'Joined!' : 'Join the Waitlist'}</p>
                                         </div>
                                         {status !== 'loading' && status !== 'success' && (
-                                            <div className="relative flex flex-col justify-center leading-[0] not-italic text-[12px] text-black text-center">
-                                                <span className="material-symbols-outlined text-[12px] font-thin">arrow_forward_ios</span>
+                                            <div className="relative flex flex-col justify-center leading-[0] not-italic text-[10px] text-black text-center">
+                                                <span className="material-symbols-outlined text-[10px] font-thin">arrow_forward_ios</span>
                                             </div>
                                         )}
                                     </button>
@@ -161,7 +173,7 @@ export function BetaLanding() {
                                             />
                                         </svg>
                                     </div>
-                                    <span className="text-[10px] font-['Manrope',sans-serif] text-[#C0C0C0]/80 tracking-[2px] uppercase font-normal">
+                                    <span className="text-[10px] font-['Manrope',sans-serif] text-white/60 tracking-[2px] uppercase font-normal">
                                         NO COMMITMENTS REQUIRED
                                     </span>
                                 </div>
@@ -173,7 +185,7 @@ export function BetaLanding() {
                             <div className="max-w-2xl w-full text-left pl-0 md:pl-8">
                                 <MagicText
                                     text="Wising Enforces real-time US (IRS), Indian Tax Law and FEMA Compliance on every agentic action. You get instant feedback. Your CAs, CPAs and Wealth Manager receive a Professional Brief about the action. Issues get fixed at the source. Everyone Moves Faster."
-                                    wordClassName="text-xl md:text-2xl lg:text-[1.75rem] font-normal font-['Manrope',sans-serif]"
+                                    wordClassName="text-xl md:text-2xl lg:text-[1.75rem] font-normal font-['Manrope',sans-serif] text-white"
                                 />
                             </div>
                         </section>
@@ -187,49 +199,43 @@ export function BetaLanding() {
 
                 {/* Section 4: The Problem / Feature Section */}
                 <StickyCard index={0}>
-                    <div className="w-full py-10 scale-95 transform-gpu origin-center">
+                    <div className="w-full h-full transform-gpu glass-navy-container rounded-[2.5rem] flex items-center justify-center">
                         <FeatureSection />
                     </div>
                 </StickyCard>
 
                 {/* Section 4: Magic Text Reveal 2 (Section 5 in User Request) - REMOVED STICKYCARD CONTAINER */}
-                <div className="w-full flex justify-center px-4 md:px-12 lg:px-24 pt-[5px] pb-[10px] bg-transparent relative z-20">
-                    <div className="max-w-5xl w-full py-0">
+                <div className="w-full flex justify-center pt-[5px] pb-[10px] bg-transparent relative z-20">
+                    <div className="w-full py-0 glass-navy-container rounded-[2rem] px-8 md:px-12 py-12">
                         <MagicText
                             text="Every Brokerage handles the same trades. [fidelity] [zerodha] [groww] [robinhood] [binance] The Difference is Infrastructure. Too many tools leave blind spots that trigger massive fines. Too many manual spreadsheets waste your time. Wising builds the right infrastructure - So every action is fast, legally sound and 100% compliant."
-                            wordClassName="text-[22px] md:text-[26px] lg:text-[30px] font-normal font-['Manrope',sans-serif]"
-                            iconSizeClassName="w-7 h-7 md:w-9 md:h-9 lg:w-11 lg:h-11"
+                            className="px-0"
+                            wordClassName="text-[24px] md:text-[29px] lg:text-[33px] font-normal font-['Manrope',sans-serif]"
+                            iconSizeClassName="w-10 h-10 md:w-12 md:h-12 lg:w-14 lg:h-14"
                         />
                     </div>
                 </div>
 
-                {/* Section 6: The Solution (Animated Graph) */}
-                <StickyCard index={1}>
-                    <div className="w-full py-12 bg-[#020202]">
+                {/* Combined Section 6 & 7: The Solution & Story */}
+                <div className="w-full flex justify-center pt-[15px] pb-32 bg-transparent relative z-20">
+                    <div className="w-full glass-navy-container rounded-[3rem]">
                         <SolutionSection />
                     </div>
-                </StickyCard>
-
-                {/* Section 7: Gradient Showcase Cards */}
-                <StickyCard index={2}>
-                    <div className="w-full h-full flex items-center justify-center">
-                        <SkewCards />
-                    </div>
-                </StickyCard>
+                </div>
 
                 {/* Section 8: Security / Zero Trust - MOVED TO END */}
                 <StickyCard index={3}>
-                    <div className="w-full px-4 md:px-12 lg:px-24 py-16">
+                    <div className="w-full px-4 md:px-12 lg:px-24 py-16 glass-navy-container rounded-[3rem]">
                         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-16">
                             {/* Left: Text */}
                             <div className="flex-[1.2] space-y-12 z-10 w-full mb-10 md:mb-0">
-                                <span className="px-4 py-1.5 text-sm bg-white/10 text-white border-0 rounded-full font-['Manrope',sans-serif] w-max font-bold tracking-wide uppercase">
+                                <span className="px-6 py-2 text-[13px] bg-black text-white border border-white/20 rounded-full font-['Manrope',sans-serif] w-max font-bold tracking-wide">
                                     Security Core
                                 </span>
-                                <h2 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold font-['Syne',sans-serif] leading-[1.1] tracking-tight">
+                                <h2 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold font-['Manrope',sans-serif] leading-[1.1] tracking-tight">
                                     Zero Trust Validation
                                 </h2>
-                                <p className="text-gray-300 font-['Manrope',sans-serif] text-base md:text-lg leading-relaxed max-w-lg mt-6">
+                                <p className="text-white/80 font-['Manrope',sans-serif] text-base md:text-lg leading-relaxed max-w-lg mt-6">
                                     Our core architecture assumes no entity is trustworthy by default. Wising integrates SASE to enforce least-privilege access, continuous microsegmentation, and strict verification—minimizing the attack surface and proactively preventing lateral movement across your resources.
                                 </p>
                             </div>

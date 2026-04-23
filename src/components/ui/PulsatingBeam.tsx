@@ -5,6 +5,7 @@ import LaserFlow from "./LaserFlow";
 import StarBorder from "./StarBorder";
 import wisingLogo from "../../assets/header_logo.png";
 import irsLogo from "../../assets/logos/irs-logo.png";
+import secLogo from "../../assets/logos/sec-logo.png";
 import indiaEmblem from "../../assets/logos/india-emblem.png";
 
 export const PulsatingBeamSection = () => {
@@ -34,31 +35,19 @@ export const PulsatingBeamSection = () => {
 
   return (
     <section
-      className="h-[300vh] bg-[#020202] w-full relative overflow-clip"
+      className="h-[300vh] bg-transparent w-full relative overflow-clip"
       ref={ref}
     >
       <div className="sticky top-[80px] h-[calc(100vh-90px)] w-full flex items-center justify-center px-2 md:px-6 pb-2">
         
         {/* --- GLASSMOPRHISM CONTAINER --- */}
-        <div className="w-full h-full relative overflow-hidden rounded-[2.5rem] md:rounded-[3rem] bg-[#020202]/95 border border-white/10 shadow-[inset_0_1px_1px_rgba(255,255,255,0.15),inset_0_-1px_1px_rgba(255,255,255,0.05)] ring-1 ring-white/5 flex flex-col items-center justify-center">
+        <div className="w-full h-full relative overflow-hidden rounded-[2.5rem] md:rounded-[3rem] glass-batman-container flex flex-col items-center justify-center">
           
           <StarBorder as="div" color="#001f3f" speed="8s" thickness={3} className="w-full h-full">
             {/* Top Edge Corner Shine highlights */}
             <div className="absolute top-0 left-0 w-[150px] h-[1px] bg-gradient-to-r from-transparent via-white/40 to-transparent pointer-events-none z-10" />
             <div className="absolute top-0 right-0 w-[150px] h-[1px] bg-gradient-to-r from-transparent via-white/40 to-transparent pointer-events-none z-10" />
             <div className="absolute inset-x-0 -top-[50px] h-[100px] w-full bg-gradient-to-b from-white/5 to-transparent pointer-events-none z-10" />
-
-            {/* Technical Grid Background */}
-            <div className="absolute inset-0 opacity-[0.12]" 
-              style={{ 
-                backgroundImage: `linear-gradient(rgba(0,51,102,0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(0,51,102,0.3) 1px, transparent 1px)`,
-                backgroundSize: '30px 30px',
-                maskImage: 'radial-gradient(ellipse at center, black 40%, transparent 90%)'
-              }} 
-            />
-
-            {/* Technical Labeling on Beams Axis */}
-            <div className="absolute top-1/2 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-900/20 to-transparent z-0" />
 
             {/* --- MAIN CONTENT: FLEX ROW FOR AUTO-ALIGNMENT --- */}
             <div className="relative w-full h-full flex flex-col items-center justify-center z-10 px-4 md:px-20">
@@ -71,40 +60,39 @@ export const PulsatingBeamSection = () => {
                    style={{
                      opacity: dashboardsOpacity,
                      scale: dashboardsScale,
-                     background: useTransform(chargingGlow, [0, 1], ["rgba(2,2,2,0.95)", "rgba(0,31,63,0.2)"]),
-                     border: useTransform(chargingGlow, [0, 1], ["1px solid rgba(161,161,161,0.15)", "1px solid rgba(161,161,161,0.5)"]),
+                     background: useTransform(chargingGlow, [0, 1], ["rgba(0, 0, 0, 0.8)", "rgba(0, 31, 63, 0.4)"]),
+                     border: useTransform(chargingGlow, [0, 1], ["1px solid rgba(255, 255, 255, 0.02)", "1px solid rgba(255, 255, 255, 0.2)"]),
                    }}
                 >
 
-                  <div className="px-5 py-2 rounded-xl bg-white/[0.03] border border-white/10 backdrop-blur-lg mb-2 shadow-[0_0_30px_rgba(255,255,255,0.02)]">
-                     <motion.span 
-                       className="text-[12px] font-extrabold tracking-[0.3em] uppercase font-['Manrope',sans-serif] bg-[length:200%_auto] bg-clip-text text-transparent"
-                       style={{
-                         backgroundImage: 'linear-gradient(110deg, #ffffff 0%, #a1a1a1 25%, #ffffff 50%, #a1a1a1 75%, #ffffff 100%)',
-                       }}
-                       animate={{ backgroundPosition: ['0% center', '200% center'] }}
-                       transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
-                     >
-                       US Jurisdiction
-                     </motion.span>
-                  </div>
+                   <div className="px-6 py-2 rounded-full bg-black text-white border border-white/20 mb-2 shadow-[0_0_30px_rgba(0,0,0,0.6)]">
+                      <motion.span 
+                        className="text-[13px] font-extrabold tracking-[0.2em] font-['Manrope',sans-serif] bg-[length:200%_auto] bg-clip-text text-transparent"
+                        style={{
+                          backgroundImage: 'linear-gradient(110deg, #ffffff 0%, #a1a1a1 25%, #ffffff 50%, #a1a1a1 75%, #ffffff 100%)',
+                        }}
+                        animate={{ backgroundPosition: ['0% center', '200% center'] }}
+                        transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+                      >
+                        Us Jurisdiction
+                      </motion.span>
+                   </div>
 
-                  <div className="flex flex-col items-start gap-3">
-                    <div className="w-14 h-14 bg-white/[0.03] rounded-xl border border-white/10 p-2 backdrop-blur-md flex items-center justify-center">
-                      <img 
-                        src={irsLogo} 
-                        alt="IRS" 
-                        className="w-full h-full object-contain filter brightness-0 invert" 
-                      />
-                    </div>
-                    <div className="flex flex-col">
-                      <span className="text-white/90 font-['Manrope',sans-serif] text-[11px] font-bold tracking-wider uppercase">Internal Revenue Service</span>
-                      <span className="text-slate-500 text-[9px] uppercase tracking-widest leading-none mt-0.5">Federal Agency</span>
-                    </div>
+                  <div className="flex items-center gap-4 mt-2">
+                    <img 
+                      src={irsLogo} 
+                      alt="IRS" 
+                      className="w-[56px] h-[56px] object-contain filter brightness-0 invert opacity-90" 
+                    />
+                    <img 
+                      src={secLogo} 
+                      alt="SEC" 
+                      className="w-[56px] h-[56px] object-contain filter grayscale(1) invert(1)" 
+                    />
                   </div>
 
                   <div className="flex flex-col gap-3.5 mt-2">
-                    {[ "FBAR FILED", "FORM 8621 OPTIMIZED", "FATCA VERIFIED" ].map((text, i) => (
+                    {[ "Fbar Filed", "Form 8621 Optimized", "Fatca Verified" ].map((text, i) => (
                       <div key={i} className="flex items-center gap-2">
                         <motion.div 
                           className="w-1.5 h-1.5 rounded-full bg-blue-500" 
@@ -112,7 +100,7 @@ export const PulsatingBeamSection = () => {
                           transition={{ duration: 1.5, repeat: Infinity, delay: i * 0.3 }}
                           style={{ boxShadow: "0 0 12px #0066cc" }} 
                         />
-                        <span className="text-slate-200 font-['Manrope',sans-serif] text-xs font-bold tracking-wider uppercase">{text}</span>
+                        <span className="text-white/90 font-['Manrope',sans-serif] text-xs font-bold tracking-wider capitalize">{text}</span>
                       </div>
                     ))}
                   </div>
@@ -131,14 +119,14 @@ export const PulsatingBeamSection = () => {
                 >
                   <div className="w-[800px] h-full flex items-center justify-end pointer-events-none pr-0">
                     <LaserFlow
-                      color="#0066cc"
+                      color="#004080"
                       width={800}  
                       height={6} // Sleeker thickness
                       direction="horizontal"
                       flowSpeed={0.5}
-                      flowStrength={1.5}
+                      flowStrength={1.2}
                       sharpEnds={true}
-                      wispIntensity={2.5}
+                      wispIntensity={2.0}
                     />
                   </div>
                 </motion.div>
@@ -153,17 +141,17 @@ export const PulsatingBeamSection = () => {
                     {[...Array(4)].map((_, i) => (
                       <motion.div
                         key={i}
-                        className="absolute border border-blue-600/20 rounded-full"
-                        initial={{ width: 100, height: 100, opacity: 0.5 }}
+                        className="absolute border border-slate-500/10 rounded-full"
+                        initial={{ width: 100, height: 100, opacity: 0.3 }}
                         animate={{
                           width: [100, 500],
                           height: [100, 500],
-                          opacity: [0.5, 0],
+                          opacity: [0.3, 0],
                         }}
                         transition={{
-                          duration: 4.4, // 2x Slower
+                          duration: 5,
                           repeat: Infinity,
-                          delay: i * 1.1, // 2x Slower
+                          delay: i * 1.25,
                           ease: "linear"
                         }}
                       />
@@ -204,14 +192,14 @@ export const PulsatingBeamSection = () => {
                 >
                   <div className="w-[800px] h-full flex items-center justify-start pointer-events-none pl-0">
                     <LaserFlow
-                      color="#0066cc"
+                      color="#004080"
                       width={800} 
                       height={6}
                       direction="horizontal"
                       flowSpeed={0.5}
-                      flowStrength={1.5}
+                      flowStrength={1.2}
                       sharpEnds={true}
-                      wispIntensity={2.5}
+                      wispIntensity={2.0}
                     />
                   </div>
                 </motion.div>
@@ -222,42 +210,36 @@ export const PulsatingBeamSection = () => {
                   style={{
                     opacity: dashboardsOpacity,
                     scale: dashboardsScale,
-                    background: useTransform(chargingGlow, [0, 1], ["rgba(2,2,2,0.95)", "rgba(0,31,63,0.2)"]),
-                    border: useTransform(chargingGlow, [0, 1], ["1px solid rgba(161,161,161,0.15)", "1px solid rgba(161,161,161,0.5)"]),
+                    background: useTransform(chargingGlow, [0, 1], ["rgba(0, 0, 0, 0.8)", "rgba(0, 31, 63, 0.4)"]),
+                    border: useTransform(chargingGlow, [0, 1], ["1px solid rgba(255, 255, 255, 0.02)", "1px solid rgba(255, 255, 255, 0.2)"]),
                   }}
                 >
 
-                  <div className="px-5 py-2 rounded-xl bg-white/[0.03] border border-white/10 backdrop-blur-lg mb-2 shadow-[0_0_30px_rgba(255,255,255,0.02)]">
-                     <motion.span 
-                       className="text-[12px] font-extrabold tracking-[0.3em] uppercase font-['Manrope',sans-serif] bg-[length:200%_auto] bg-clip-text text-transparent"
-                       style={{
-                         backgroundImage: 'linear-gradient(110deg, #ffffff 0%, #a1a1a1 25%, #ffffff 50%, #a1a1a1 75%, #ffffff 100%)',
-                       }}
-                       animate={{ backgroundPosition: ['0% center', '200% center'] }}
-                       transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
-                     >
-                       Indian Jurisdiction
-                     </motion.span>
-                  </div>
+                   <div className="px-6 py-2 rounded-full bg-black text-white border border-white/20 mb-2 shadow-[0_0_30px_rgba(0,0,0,0.6)]">
+                      <motion.span 
+                        className="text-[13px] font-extrabold tracking-[0.2em] font-['Manrope',sans-serif] bg-[length:200%_auto] bg-clip-text text-transparent"
+                        style={{
+                          backgroundImage: 'linear-gradient(110deg, #ffffff 0%, #a1a1a1 25%, #ffffff 50%, #a1a1a1 75%, #ffffff 100%)',
+                        }}
+                        animate={{ backgroundPosition: ['0% center', '200% center'] }}
+                        transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+                      >
+                        Indian Jurisdiction
+                      </motion.span>
+                   </div>
 
-                  <div className="flex flex-col items-end gap-3">
-                    <div className="w-12 h-14 bg-white/[0.03] rounded-xl border border-white/10 p-2 backdrop-blur-md flex items-center justify-center">
-                      <img 
-                        src={indiaEmblem} 
-                        alt="ITD" 
-                       className="w-full h-full object-contain filter brightness-125 grayscale" 
-                      />
-                    </div>
-                    <div className="flex flex-col items-end">
-                      <span className="text-white/90 font-['Manrope',sans-serif] text-[11px] font-bold tracking-wider uppercase">Income Tax Department</span>
-                      <span className="text-slate-500 text-[9px] uppercase tracking-widest leading-none mt-0.5">Government of India</span>
-                    </div>
+                  <div className="flex items-center justify-end mt-2">
+                    <img 
+                      src={indiaEmblem} 
+                      alt="ITD" 
+                      className="w-[56px] h-[65px] object-contain filter brightness-0 invert opacity-90" 
+                    />
                   </div>
 
                   <div className="flex flex-col gap-3.5 items-end mt-2">
-                    {[ "LRS Remittance Tracked", "FEMA RESIDENCY VERIFIED", "DTAA Relief Applied" ].map((text, i) => (
+                    {[ "LRS Remittance Tracked", "FEMA Residency Verified", "DTAA Relief Applied" ].map((text, i) => (
                       <div key={i} className="flex items-center gap-2 justify-end">
-                        <span className="text-slate-200 font-['Manrope',sans-serif] text-xs font-bold tracking-wider uppercase">{text}</span>
+                        <span className="text-white/90 font-['Manrope',sans-serif] text-xs font-bold tracking-wider capitalize">{text}</span>
                         <motion.div 
                           className="w-1.5 h-1.5 rounded-full bg-blue-500" 
                           animate={{ opacity: [0.4, 1, 0.4], scale: [1, 1.3, 1] }} 

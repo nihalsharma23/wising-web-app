@@ -50,9 +50,9 @@ export default function SkewCards() {
             />
 
             {/* Content Box */}
-            <div className="absolute inset-0 z-20 p-8 lg:p-10 bg-[#0a0a0a]/90 border border-white/5 backdrop-blur-[15px] shadow-2xl rounded-3xl text-white transition-all duration-500 group-hover:translate-y-[-10px] flex flex-col items-start justify-center text-left">
+            <div className="absolute inset-0 z-20 p-8 lg:p-10 glass-navy-container border-white/5 shadow-2xl rounded-3xl text-white transition-all duration-500 group-hover:translate-y-[-10px] flex flex-col items-start justify-center text-left">
               
-              <h2 className="text-3xl lg:text-4xl mb-6 font-bold font-['Syne',sans-serif] tracking-tighter uppercase leading-none">
+              <h2 className="text-3xl lg:text-4xl mb-6 font-bold font-['Manrope',sans-serif] tracking-tighter uppercase leading-none">
                 {title}
               </h2>
               
