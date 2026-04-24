@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Header } from '../../components/layout/Header';
+import { Badge } from '../../components/ui/badge';
 import EarthGlobe from '../../components/ui/earth-globe';
 import AnimatedText from '../../components/ui/animated-text';
 import HeroText from '../../components/ui/hero-shutter-text';
@@ -8,6 +9,7 @@ import { MagicText } from '../../components/ui/magic-text';
 import FeatureSection from '../../components/ui/feature-section';
 import StackFeatureSection from '../../components/ui/stack-feature-section';
 import SolutionSection from '../../components/ui/solution-section';
+import { BentoGrid } from '../../components/ui/bento-grid';
 import { CpuArchitecture } from '../../components/ui/cpu-architecture';
 import SkewCards from '../../components/ui/gradient-card-showcase';
 import { PulsatingBeamSection } from '../../components/ui/PulsatingBeam';
@@ -50,8 +52,8 @@ export function BetaLanding() {
     };
 
     return (
-        <ReactLenis root options={{ lerp: 0.05, duration: 2, smoothWheel: true, wheelMultiplier: 0.6 }}>
-            <div className="dark-gradient-bg font-['Manrope',sans-serif] min-h-screen text-white relative px-[15px]">
+        <ReactLenis root options={{ lerp: 0.1, duration: 1.5, smoothWheel: true }}>
+            <div className="bg-black font-['Manrope',sans-serif] min-h-screen text-white relative px-[15px]">
                 <Starfield />
                 <Header />
                 {/* Anchor Wrapper for EarthGlobe (Hero + Section 2) */}
@@ -138,15 +140,14 @@ export function BetaLanding() {
                                     <button
                                         type="submit"
                                         disabled={status === 'loading'}
-                                        className="content-stretch flex gap-4 items-center justify-center overflow-clip py-[15px] relative rounded-bl-[16px] rounded-br-[16px] shadow-[0px_10px_30px_-10px_rgba(255,255,255,0.05)] w-full cursor-pointer hover:shadow-[0px_10px_40px_-5px_rgba(255,255,255,0.1)] transition-shadow disabled:opacity-70 disabled:cursor-not-allowed z-10"
-                                        style={{ backgroundImage: "linear-gradient(135deg, rgb(255, 255, 255) 0%, rgb(209, 213, 219) 50%, rgb(156, 163, 175) 100%)" }}
+                                        className="content-stretch flex gap-4 items-center justify-center overflow-clip py-[15px] relative rounded-bl-[16px] rounded-br-[16px] shadow-[0px_10px_30px_-10px_rgba(255,255,255,0.05)] w-full cursor-pointer hover:shadow-[0px_10px_40px_-5px_rgba(255,255,255,0.1)] transition-all disabled:opacity-70 disabled:cursor-not-allowed z-10 bg-white/10 backdrop-blur-xl border border-white/10"
                                     >
                                         <div className="absolute inset-0 opacity-30 rounded-bl-[16px] rounded-br-[16px]" />
-                                        <div className="relative flex flex-col font-['Montserrat',sans-serif] font-medium justify-center leading-[0] text-xs text-black text-center tracking-[4px] uppercase">
+                                        <div className="relative flex flex-col font-['Montserrat',sans-serif] font-medium justify-center leading-[0] text-xs text-white text-center tracking-[1.5px] uppercase">
                                             <p className="leading-[15px] whitespace-pre-wrap">{status === 'loading' ? 'Joining...' : status === 'success' ? 'Joined!' : 'Join the Waitlist'}</p>
                                         </div>
                                         {status !== 'loading' && status !== 'success' && (
-                                            <div className="relative flex flex-col justify-center leading-[0] not-italic text-[10px] text-black text-center">
+                                            <div className="relative flex flex-col justify-center leading-[0] not-italic text-[10px] text-white text-center">
                                                 <span className="material-symbols-outlined text-[10px] font-thin">arrow_forward_ios</span>
                                             </div>
                                         )}
@@ -193,20 +194,20 @@ export function BetaLanding() {
                 </div>
 
                 {/* Section 3: Pulsating Beam */}
-                <div className="w-full relative z-20">
+                <div className="w-full relative z-20 pt-[5px] pb-[5px]">
                     <PulsatingBeamSection />
                 </div>
 
                 {/* Section 4: The Problem / Feature Section */}
-                <StickyCard index={0}>
-                    <div className="w-full h-full transform-gpu glass-navy-container rounded-[2.5rem] flex items-center justify-center">
+                <div className="w-full flex justify-center pt-[5px] pb-[5px] bg-transparent relative z-20">
+                    <div className="w-full glass-navy-container rounded-[2.5rem]">
                         <FeatureSection />
                     </div>
-                </StickyCard>
+                </div>
 
-                {/* Section 4: Magic Text Reveal 2 (Section 5 in User Request) - REMOVED STICKYCARD CONTAINER */}
-                <div className="w-full flex justify-center pt-[5px] pb-[10px] bg-transparent relative z-20">
-                    <div className="w-full py-0 glass-navy-container rounded-[2rem] px-8 md:px-12 py-12">
+                {/* Section 5: Magic Text Reveal */}
+                <div className="w-full flex justify-center pt-[5px] pb-[5px] bg-transparent relative z-20">
+                    <div className="w-full glass-batman-container rounded-[2rem] px-8 md:px-12 py-12">
                         <MagicText
                             text="Every Brokerage handles the same trades. [fidelity] [zerodha] [groww] [robinhood] [binance] The Difference is Infrastructure. Too many tools leave blind spots that trigger massive fines. Too many manual spreadsheets waste your time. Wising builds the right infrastructure - So every action is fast, legally sound and 100% compliant."
                             className="px-0"
@@ -216,22 +217,29 @@ export function BetaLanding() {
                     </div>
                 </div>
 
-                {/* Combined Section 6 & 7: The Solution & Story */}
-                <div className="w-full flex justify-center pt-[15px] pb-32 bg-transparent relative z-20">
-                    <div className="w-full glass-navy-container rounded-[3rem]">
+                {/* Section 6: The Solution */}
+                <div className="w-full flex justify-center pt-[5px] pb-[5px] bg-transparent relative z-20">
+                    <div className="w-full glass-batman-container rounded-[3rem]">
                         <SolutionSection />
                     </div>
                 </div>
 
-                {/* Section 8: Security / Zero Trust - MOVED TO END */}
-                <StickyCard index={3}>
-                    <div className="w-full px-4 md:px-12 lg:px-24 py-16 glass-navy-container rounded-[3rem]">
-                        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-16">
+                {/* Section 7: Bento Grid Features */}
+                <div className="w-full flex justify-center pt-[5px] pb-[5px] bg-transparent relative z-20">
+                    <div className="w-full glass-navy-container rounded-[3rem] py-8">
+                        <BentoGrid />
+                    </div>
+                </div>
+
+                {/* Section 8: Security / Zero Trust */}
+                <div className="w-full flex justify-center pt-[5px] pb-32 bg-transparent relative z-20">
+                    <div className="w-full glass-navy-container rounded-[3rem]">
+                        <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24 py-20 flex flex-col md:flex-row items-center gap-16">
                             {/* Left: Text */}
-                            <div className="flex-[1.2] space-y-12 z-10 w-full mb-10 md:mb-0">
-                                <span className="px-6 py-2 text-[13px] bg-black text-white border border-white/20 rounded-full font-['Manrope',sans-serif] w-max font-bold tracking-wide">
+                            <div className="flex-1 space-y-12 z-10 w-full mb-10 md:mb-0">
+                                <Badge variant="secondary" className="px-5 py-2.5 text-[14px] bg-black/50 border border-white/10 backdrop-blur-md text-white/90 rounded-full font-['Manrope',sans-serif] font-semibold tracking-wider w-max shadow-[0_0_20px_rgba(255,255,255,0.05)]">
                                     Security Core
-                                </span>
+                                </Badge>
                                 <h2 className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold font-['Manrope',sans-serif] leading-[1.1] tracking-tight">
                                     Zero Trust Validation
                                 </h2>
@@ -239,15 +247,16 @@ export function BetaLanding() {
                                     Our core architecture assumes no entity is trustworthy by default. Wising integrates SASE to enforce least-privilege access, continuous microsegmentation, and strict verification—minimizing the attack surface and proactively preventing lateral movement across your resources.
                                 </p>
                             </div>
-                            <div className="flex-1 w-full max-w-xl md:max-w-2xl bg-transparent rounded-[2rem] border border-white/10 p-6 md:p-12 shadow-[0_0_80px_rgba(20,184,166,0.05)] flex items-center justify-center">
-                                <CpuArchitecture text="Zero Trust Security" className="w-full h-auto drop-shadow-2xl opacity-90" />
+                            {/* Right: Animation Container */}
+                            <div className="flex-[1.5] w-full max-w-2xl md:max-w-4xl bg-black rounded-[2.5rem] border border-white/10 p-4 md:p-8 shadow-2xl flex items-center justify-center overflow-hidden">
+                                <CpuArchitecture text="Zero Trust Security" className="w-full h-auto scale-110 drop-shadow-[0_0_30px_rgba(255,255,255,0.05)] opacity-95" />
                             </div>
                         </div>
                     </div>
-                </StickyCard>
+                </div>
 
                 {/* Final Section: High-Fidelity Footer — Restored to end */}
-                <div className="relative z-30 w-full min-h-screen bg-black flex flex-col items-center justify-end rounded-t-[3rem] mt-[-2rem] border-t border-white/10 overflow-hidden shadow-[0_-20px_50px_rgba(0,0,0,0.8)]">
+                <div className="relative z-30 w-full min-h-screen bg-black flex flex-col items-center justify-end rounded-t-[3rem] mt-[-2rem] border-t border-white/10 overflow-hidden">
                     <FlickeringFooter />
                 </div>
             </div>

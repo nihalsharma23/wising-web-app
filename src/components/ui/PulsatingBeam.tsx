@@ -6,6 +6,8 @@ import StarBorder from "./StarBorder";
 import wisingLogo from "../../assets/header_logo.png";
 import irsLogo from "../../assets/logos/irs-logo.png";
 import secLogo from "../../assets/logos/sec-logo.png";
+import itdLogo from "../../assets/logos/itd-logo.png";
+import rbiLogo from "../../assets/logos/rbi-logo.jpg";
 import indiaEmblem from "../../assets/logos/india-emblem.png";
 
 export const PulsatingBeamSection = () => {
@@ -65,9 +67,9 @@ export const PulsatingBeamSection = () => {
                    }}
                 >
 
-                   <div className="px-6 py-2 rounded-full bg-black text-white border border-white/20 mb-2 shadow-[0_0_30px_rgba(0,0,0,0.6)]">
-                      <motion.span 
-                        className="text-[13px] font-extrabold tracking-[0.2em] font-['Manrope',sans-serif] bg-[length:200%_auto] bg-clip-text text-transparent"
+                   <div className="px-5 py-2.5 rounded-full bg-black/50 border border-white/10 backdrop-blur-md mb-2 shadow-[0_0_20px_rgba(255,255,255,0.05)]">
+                       <motion.span 
+                        className="text-[14px] font-semibold tracking-wider font-['Manrope',sans-serif] bg-[length:200%_auto] bg-clip-text text-transparent"
                         style={{
                           backgroundImage: 'linear-gradient(110deg, #ffffff 0%, #a1a1a1 25%, #ffffff 50%, #a1a1a1 75%, #ffffff 100%)',
                         }}
@@ -82,17 +84,17 @@ export const PulsatingBeamSection = () => {
                     <img 
                       src={irsLogo} 
                       alt="IRS" 
-                      className="w-[56px] h-[56px] object-contain filter brightness-0 invert opacity-90" 
+                      className="w-[62px] h-[62px] object-contain filter brightness-0 invert opacity-90" 
                     />
                     <img 
                       src={secLogo} 
                       alt="SEC" 
-                      className="w-[56px] h-[56px] object-contain filter grayscale(1) invert(1)" 
+                      className="w-[62px] h-[62px] object-contain filter grayscale(1) invert(1)" 
                     />
                   </div>
 
                   <div className="flex flex-col gap-3.5 mt-2">
-                    {[ "Fbar Filed", "Form 8621 Optimized", "Fatca Verified" ].map((text, i) => (
+                    {[ "FBAR Filed", "Form 8621 Optimized", "FATCA Verified" ].map((text, i) => (
                       <div key={i} className="flex items-center gap-2">
                         <motion.div 
                           className="w-1.5 h-1.5 rounded-full bg-blue-500" 
@@ -100,7 +102,7 @@ export const PulsatingBeamSection = () => {
                           transition={{ duration: 1.5, repeat: Infinity, delay: i * 0.3 }}
                           style={{ boxShadow: "0 0 12px #0066cc" }} 
                         />
-                        <span className="text-white/90 font-['Manrope',sans-serif] text-xs font-bold tracking-wider capitalize">{text}</span>
+                        <span className="text-white/90 font-['Manrope',sans-serif] text-[13px] font-bold tracking-wider capitalize">{text}</span>
                       </div>
                     ))}
                   </div>
@@ -215,9 +217,9 @@ export const PulsatingBeamSection = () => {
                   }}
                 >
 
-                   <div className="px-6 py-2 rounded-full bg-black text-white border border-white/20 mb-2 shadow-[0_0_30px_rgba(0,0,0,0.6)]">
-                      <motion.span 
-                        className="text-[13px] font-extrabold tracking-[0.2em] font-['Manrope',sans-serif] bg-[length:200%_auto] bg-clip-text text-transparent"
+                   <div className="px-5 py-2.5 rounded-full bg-black/50 border border-white/10 backdrop-blur-md mb-2 shadow-[0_0_20px_rgba(255,255,255,0.05)]">
+                       <motion.span 
+                        className="text-[14px] font-semibold tracking-wider font-['Manrope',sans-serif] bg-[length:200%_auto] bg-clip-text text-transparent"
                         style={{
                           backgroundImage: 'linear-gradient(110deg, #ffffff 0%, #a1a1a1 25%, #ffffff 50%, #a1a1a1 75%, #ffffff 100%)',
                         }}
@@ -228,18 +230,23 @@ export const PulsatingBeamSection = () => {
                       </motion.span>
                    </div>
 
-                  <div className="flex items-center justify-end mt-2">
+                  <div className="flex items-center justify-end gap-4 mt-2">
                     <img 
-                      src={indiaEmblem} 
-                      alt="ITD" 
-                      className="w-[56px] h-[65px] object-contain filter brightness-0 invert opacity-90" 
+                      src={itdLogo} 
+                      alt="Income Tax" 
+                      className="w-[62px] h-[62px] object-contain opacity-90" 
+                    />
+                    <img 
+                      src={rbiLogo} 
+                      alt="RBI" 
+                      className="w-[62px] h-[62px] object-contain opacity-90" 
                     />
                   </div>
 
                   <div className="flex flex-col gap-3.5 items-end mt-2">
                     {[ "LRS Remittance Tracked", "FEMA Residency Verified", "DTAA Relief Applied" ].map((text, i) => (
                       <div key={i} className="flex items-center gap-2 justify-end">
-                        <span className="text-white/90 font-['Manrope',sans-serif] text-xs font-bold tracking-wider capitalize">{text}</span>
+                        <span className="text-white/90 font-['Manrope',sans-serif] text-[13px] font-bold tracking-wider capitalize">{text}</span>
                         <motion.div 
                           className="w-1.5 h-1.5 rounded-full bg-blue-500" 
                           animate={{ opacity: [0.4, 1, 0.4], scale: [1, 1.3, 1] }} 

@@ -72,7 +72,7 @@ export function Header({ variant = 'landing' }: HeaderProps) {
                                 <motion.button
                                     style={{ opacity: buttonOpacity, scale: buttonScale }}
                                     onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-                                    className="hidden md:flex items-center justify-center px-5 py-2 rounded-full border border-white/20 bg-white text-black text-[10px] font-['Manrope',sans-serif] font-bold tracking-[2px] uppercase hover:bg-white/90 transition-colors"
+                                    className="hidden md:flex items-center justify-center px-5 py-2 rounded-full border border-white/20 bg-white/10 backdrop-blur-md text-white text-[10px] font-['Manrope',sans-serif] font-bold tracking-[0.5px] uppercase hover:bg-white/20 transition-all shadow-[0_0_15px_rgba(255,255,255,0.05)]"
                                 >
                                     Join Waitlist
                                 </motion.button>

@@ -2,6 +2,7 @@ import * as React from "react";
 import { Card, CardContent } from "./card"; 
 import { Badge } from "./badge";
 import { motion } from "framer-motion";
+import { MagicText } from "./magic-text";
 import { AlertTriangle, DollarSign, FileText, Activity, ShieldCheck } from "lucide-react";
 
 const tasks = [
@@ -43,25 +44,21 @@ export default function FeatureSection() {
         
         {/* LEFT SIDE - Content */}
         <div className="space-y-8 flex-1 order-2 md:order-1 pt-14">
-          <Badge variant="secondary" className="px-6 py-2 text-[13px] bg-black text-white border border-white/20 rounded-full font-['Manrope',sans-serif] font-bold tracking-wider w-max">
+          <Badge variant="secondary" className="px-5 py-2.5 text-[14px] bg-black/50 border border-white/10 backdrop-blur-md text-white/90 rounded-full font-['Manrope',sans-serif] font-semibold tracking-wider w-max shadow-[0_0_20px_rgba(255,255,255,0.05)]">
             The Problem
           </Badge>
-          <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-4xl md:text-5xl lg:text-[3.5rem] font-bold leading-[1.1] tracking-tight font-['Manrope',sans-serif] capitalize !text-white"
-          >
-            Managing Global Wealth Means Guessing The Laws Every Time.
-          </motion.h2>
+          <MagicText 
+            text="Managing Global Wealth Means Guessing The Laws Every Time."
+            className="px-0"
+            wordClassName="text-4xl md:text-5xl lg:text-[3.5rem] font-bold leading-[1.1] tracking-tight font-['Manrope',sans-serif] !text-white"
+          />
         </div>
  
         {/* RIGHT SIDE - Task Loop with Vertical Bar */}
         <div className="relative w-full max-w-sm flex-1 order-1 md:order-2 flex flex-col items-center pt-14">
           
           <div className="w-full max-w-xs mb-10">
-            <Badge variant="secondary" className="px-6 py-2 text-[13px] bg-black text-white border border-white/20 rounded-full font-['Manrope',sans-serif] font-bold tracking-wider w-max break-words whitespace-normal text-left">
+            <Badge variant="secondary" className="px-5 py-2.5 text-[14px] bg-black/50 border border-white/10 backdrop-blur-md text-white/90 rounded-full font-['Manrope',sans-serif] font-semibold tracking-wider w-max break-words whitespace-normal text-left shadow-[0_0_20px_rgba(255,255,255,0.05)]">
               Average Cost Of Manual Cross-Border Wealth
             </Badge>
           </div>
@@ -130,7 +127,7 @@ export default function FeatureSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-center text-lg md:text-xl font-semibold !text-white font-['Manrope',sans-serif] tracking-tight mt-10 w-full z-30"
+            className="text-center text-lg md:text-xl font-semibold !text-white font-['Manrope',sans-serif] tracking-tight mt-[5px] w-full z-30"
           >
             Same Wealth. Better Protection.
           </motion.p>
