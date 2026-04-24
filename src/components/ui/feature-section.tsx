@@ -39,12 +39,12 @@ export default function FeatureSection() {
   };
 
   return (
-    <section className="relative w-full pt-[5px] pb-32 px-4 bg-transparent text-white font-['Manrope',sans-serif]">
+    <section className="relative w-full pt-[5px] pb-16 px-4 bg-transparent text-white font-['Manrope',sans-serif]">
       <div className="mx-auto max-w-6xl flex flex-col md:flex-row items-start gap-16">
         
         {/* LEFT SIDE - Content */}
-        <div className="space-y-8 flex-1 order-2 md:order-1 pt-14">
-          <Badge variant="secondary" className="px-5 py-2.5 text-[14px] bg-black/50 border border-white/10 backdrop-blur-md text-white/90 rounded-full font-['Manrope',sans-serif] font-semibold tracking-wider w-max shadow-[0_0_20px_rgba(255,255,255,0.05)]">
+        <div className="space-y-8 flex-1 order-1 pt-8">
+          <Badge variant="secondary" className="px-[22px] py-[11px] text-[15.5px] bg-black/50 border border-white/10 backdrop-blur-md text-white rounded-full font-['Manrope',sans-serif] font-semibold tracking-wider w-max shadow-[0_0_20px_rgba(255,255,255,0.05)]">
             The Problem
           </Badge>
           <MagicText 
@@ -55,10 +55,10 @@ export default function FeatureSection() {
         </div>
  
         {/* RIGHT SIDE - Task Loop with Vertical Bar */}
-        <div className="relative w-full max-w-sm flex-1 order-1 md:order-2 flex flex-col items-center pt-14">
+        <div className="relative w-full max-w-sm flex-1 order-2 flex flex-col items-center pt-8">
           
           <div className="w-full max-w-xs mb-10">
-            <Badge variant="secondary" className="px-5 py-2.5 text-[14px] bg-black/50 border border-white/10 backdrop-blur-md text-white/90 rounded-full font-['Manrope',sans-serif] font-semibold tracking-wider w-max break-words whitespace-normal text-left shadow-[0_0_20px_rgba(255,255,255,0.05)]">
+            <Badge variant="secondary" className="px-5 py-2.5 text-[14px] bg-black/50 border border-white/10 backdrop-blur-md text-white rounded-full font-['Manrope',sans-serif] font-semibold tracking-wider w-max break-words whitespace-normal text-left shadow-[0_0_20px_rgba(255,255,255,0.05)]">
               Average Cost Of Manual Cross-Border Wealth
             </Badge>
           </div>
@@ -127,7 +127,7 @@ export default function FeatureSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="text-center text-lg md:text-xl font-semibold !text-white font-['Manrope',sans-serif] tracking-tight mt-[5px] w-full z-30"
+            className="text-center text-lg md:text-xl font-semibold text-white font-['Manrope',sans-serif] tracking-tight mt-[7px] w-full z-30"
           >
             Same Wealth. Better Protection.
           </motion.p>

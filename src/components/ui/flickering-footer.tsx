@@ -367,7 +367,7 @@ export const FlickeringFooter = () => {
         </div>
       </div>
       <div className="w-full py-8 text-center text-white/30 text-xs border-t border-white/5">
-        &copy; {new Date().getFullYear()} Wising. All rights reserved.
+        &copy; {new Date().getFullYear()} Wising Intelligence Pvt. Ltd. All rights reserved.
       </div>
     </footer>
   );

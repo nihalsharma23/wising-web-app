@@ -5,9 +5,10 @@ import StarBorder from '../ui/StarBorder';
 interface StickyCardProps {
   children: React.ReactNode;
   index: number;
+  height?: string;
 }
 
-export function StickyCard({ children, index }: StickyCardProps) {
+export function StickyCard({ children, index, height = "100vh" }: StickyCardProps) {
   const container = useRef<HTMLDivElement>(null);
   
   // Track the scroll progress of THIS specific card's relative wrapper.
@@ -21,7 +22,7 @@ export function StickyCard({ children, index }: StickyCardProps) {
   const filter = useTransform(scrollYProgress, [0, 1], ["brightness(1)", "brightness(0.4)"]);
 
   return (
-    <div ref={container} className="h-screen w-full relative">
+    <div ref={container} style={{ height }} className="w-full relative">
       <div 
         className="sticky top-[80px] h-[calc(100vh-90px)] w-full flex items-center justify-center px-2 md:px-6 pb-2"
       >

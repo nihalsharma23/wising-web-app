@@ -7,7 +7,7 @@ import wisingLogo from "../../assets/header_logo.png";
 import irsLogo from "../../assets/logos/irs-logo.png";
 import secLogo from "../../assets/logos/sec-logo.png";
 import itdLogo from "../../assets/logos/itd-logo.png";
-import rbiLogo from "../../assets/logos/rbi-logo.jpg";
+import rbiLogo from "../../assets/logos/rbi-logo.png";
 import indiaEmblem from "../../assets/logos/india-emblem.png";
 
 export const PulsatingBeamSection = () => {
@@ -42,14 +42,10 @@ export const PulsatingBeamSection = () => {
     >
       <div className="sticky top-[80px] h-[calc(100vh-90px)] w-full flex items-center justify-center px-2 md:px-6 pb-2">
         
-        {/* --- GLASSMOPRHISM CONTAINER --- */}
-        <div className="w-full h-full relative overflow-hidden rounded-[2.5rem] md:rounded-[3rem] glass-batman-container flex flex-col items-center justify-center">
+        {/* --- NO CONTAINER --- */}
+        <div className="w-full h-full relative overflow-hidden flex flex-col items-center justify-center">
           
           <StarBorder as="div" color="#001f3f" speed="8s" thickness={3} className="w-full h-full">
-            {/* Top Edge Corner Shine highlights */}
-            <div className="absolute top-0 left-0 w-[150px] h-[1px] bg-gradient-to-r from-transparent via-white/40 to-transparent pointer-events-none z-10" />
-            <div className="absolute top-0 right-0 w-[150px] h-[1px] bg-gradient-to-r from-transparent via-white/40 to-transparent pointer-events-none z-10" />
-            <div className="absolute inset-x-0 -top-[50px] h-[100px] w-full bg-gradient-to-b from-white/5 to-transparent pointer-events-none z-10" />
 
             {/* --- MAIN CONTENT: FLEX ROW FOR AUTO-ALIGNMENT --- */}
             <div className="relative w-full h-full flex flex-col items-center justify-center z-10 px-4 md:px-20">
@@ -58,25 +54,26 @@ export const PulsatingBeamSection = () => {
                 
                 {/* --- LEFT: US JURISDICTION --- */}
                 <motion.div 
-                   className="flex flex-col items-start gap-6 z-20 pointer-events-auto relative px-6 py-8 rounded-[2rem] transition-all duration-300"
+                   className="flex flex-col items-start gap-6 z-20 pointer-events-auto relative px-10 py-10 rounded-[2rem] transition-all duration-300 min-w-[340px]"
                    style={{
                      opacity: dashboardsOpacity,
                      scale: dashboardsScale,
-                     background: useTransform(chargingGlow, [0, 1], ["rgba(0, 0, 0, 0.8)", "rgba(0, 31, 63, 0.4)"]),
-                     border: useTransform(chargingGlow, [0, 1], ["1px solid rgba(255, 255, 255, 0.02)", "1px solid rgba(255, 255, 255, 0.2)"]),
+                     background: useTransform(chargingGlow, [0, 1], ["rgba(0, 0, 0, 0.95)", "rgba(10, 10, 10, 0.8)"]),
+                     border: useTransform(chargingGlow, [0, 1], ["1px solid rgba(255, 255, 255, 0.05)", "1px solid rgba(255, 255, 255, 0.1)"]),
+                     backdropBlur: "20px"
                    }}
                 >
 
                    <div className="px-5 py-2.5 rounded-full bg-black/50 border border-white/10 backdrop-blur-md mb-2 shadow-[0_0_20px_rgba(255,255,255,0.05)]">
                        <motion.span 
-                        className="text-[14px] font-semibold tracking-wider font-['Manrope',sans-serif] bg-[length:200%_auto] bg-clip-text text-transparent"
+                        className="text-[14px] font-bold tracking-[0.2em] uppercase bg-[length:200%_auto] bg-clip-text text-transparent"
                         style={{
                           backgroundImage: 'linear-gradient(110deg, #ffffff 0%, #a1a1a1 25%, #ffffff 50%, #a1a1a1 75%, #ffffff 100%)',
                         }}
                         animate={{ backgroundPosition: ['0% center', '200% center'] }}
                         transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
                       >
-                        Us Jurisdiction
+                        US JURISDICTION
                       </motion.span>
                    </div>
 
@@ -84,12 +81,12 @@ export const PulsatingBeamSection = () => {
                     <img 
                       src={irsLogo} 
                       alt="IRS" 
-                      className="w-[62px] h-[62px] object-contain filter brightness-0 invert opacity-90" 
+                      className="w-[110px] h-[110px] object-contain filter brightness-0 invert opacity-90" 
                     />
                     <img 
                       src={secLogo} 
                       alt="SEC" 
-                      className="w-[62px] h-[62px] object-contain filter grayscale(1) invert(1)" 
+                      className="w-[110px] h-[110px] object-contain filter grayscale(1) invert(1)" 
                     />
                   </div>
 
@@ -123,7 +120,7 @@ export const PulsatingBeamSection = () => {
                     <LaserFlow
                       color="#004080"
                       width={800}  
-                      height={6} // Sleeker thickness
+                      height={12} // Increased thickness
                       direction="horizontal"
                       flowSpeed={0.5}
                       flowStrength={1.2}
@@ -196,7 +193,7 @@ export const PulsatingBeamSection = () => {
                     <LaserFlow
                       color="#004080"
                       width={800} 
-                      height={6}
+                      height={12}
                       direction="horizontal"
                       flowSpeed={0.5}
                       flowStrength={1.2}
@@ -208,25 +205,26 @@ export const PulsatingBeamSection = () => {
 
                 {/* --- RIGHT: INDIA JURISDICTION --- */}
                 <motion.div 
-                  className="flex flex-col items-end gap-6 z-20 pointer-events-auto text-right relative px-6 py-8 rounded-[2rem] transition-all duration-300"
+                  className="flex flex-col items-end gap-6 z-20 pointer-events-auto text-right relative px-10 py-10 rounded-[2rem] transition-all duration-300 min-w-[340px]"
                   style={{
                     opacity: dashboardsOpacity,
                     scale: dashboardsScale,
-                    background: useTransform(chargingGlow, [0, 1], ["rgba(0, 0, 0, 0.8)", "rgba(0, 31, 63, 0.4)"]),
-                    border: useTransform(chargingGlow, [0, 1], ["1px solid rgba(255, 255, 255, 0.02)", "1px solid rgba(255, 255, 255, 0.2)"]),
+                    background: useTransform(chargingGlow, [0, 1], ["rgba(0, 0, 0, 0.95)", "rgba(10, 10, 10, 0.8)"]),
+                    border: useTransform(chargingGlow, [0, 1], ["1px solid rgba(255, 255, 255, 0.05)", "1px solid rgba(255, 255, 255, 0.1)"]),
+                    backdropBlur: "20px"
                   }}
                 >
 
                    <div className="px-5 py-2.5 rounded-full bg-black/50 border border-white/10 backdrop-blur-md mb-2 shadow-[0_0_20px_rgba(255,255,255,0.05)]">
                        <motion.span 
-                        className="text-[14px] font-semibold tracking-wider font-['Manrope',sans-serif] bg-[length:200%_auto] bg-clip-text text-transparent"
+                        className="text-[14px] font-bold tracking-[0.2em] uppercase bg-[length:200%_auto] bg-clip-text text-transparent"
                         style={{
                           backgroundImage: 'linear-gradient(110deg, #ffffff 0%, #a1a1a1 25%, #ffffff 50%, #a1a1a1 75%, #ffffff 100%)',
                         }}
                         animate={{ backgroundPosition: ['0% center', '200% center'] }}
                         transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
                       >
-                        Indian Jurisdiction
+                        INDIAN JURISDICTION
                       </motion.span>
                    </div>
 
@@ -234,12 +232,12 @@ export const PulsatingBeamSection = () => {
                     <img 
                       src={itdLogo} 
                       alt="Income Tax" 
-                      className="w-[62px] h-[62px] object-contain opacity-90" 
+                      className="w-[110px] h-[110px] object-contain opacity-90" 
                     />
                     <img 
                       src={rbiLogo} 
                       alt="RBI" 
-                      className="w-[62px] h-[62px] object-contain opacity-90" 
+                      className="w-[132px] h-[132px] object-contain" 
                     />
                   </div>
 
