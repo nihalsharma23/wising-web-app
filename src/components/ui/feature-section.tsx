@@ -50,20 +50,20 @@ export default function FeatureSection() {
           <MagicText 
             text="Managing Global Wealth Means Guessing The Laws Every Time."
             className="px-0"
-            wordClassName="text-4xl md:text-5xl lg:text-[3.5rem] font-bold leading-[1.1] tracking-tight font-['Manrope',sans-serif] !text-white"
+            wordClassName="text-3xl md:text-5xl lg:text-[3.5rem] font-bold leading-[1.1] tracking-tight font-['Manrope',sans-serif] !text-white"
           />
         </div>
  
         {/* RIGHT SIDE - Task Loop with Vertical Bar */}
         <div className="relative w-full max-w-sm flex-1 order-2 flex flex-col items-center pt-8">
           
-          <div className="w-full max-w-xs mb-10">
-            <Badge variant="secondary" className="px-5 py-2.5 text-[14px] bg-black/50 border border-white/10 backdrop-blur-md text-white rounded-full font-['Manrope',sans-serif] font-semibold tracking-wider w-max break-words whitespace-normal text-left shadow-[0_0_20px_rgba(255,255,255,0.05)]">
+          <div className="w-full flex justify-center mb-8">
+            <Badge variant="secondary" className="px-5 py-2.5 text-[13px] md:text-[14px] bg-black/50 border border-white/10 backdrop-blur-md text-white rounded-full font-['Manrope',sans-serif] font-semibold tracking-wider flex items-center justify-center text-center shadow-[0_0_20px_rgba(255,255,255,0.05)] max-w-[260px] leading-tight">
               Average Cost Of Manual Cross-Border Wealth
             </Badge>
           </div>
  
-          <Card className="overflow-hidden glass-navy-container border-white/10 shadow-2xl rounded-[2rem] relative w-full h-[420px]">
+          <Card className="overflow-hidden glass-navy-container border-white/10 shadow-2xl rounded-[2rem] relative w-full h-[360px] md:h-[420px]">
             <CardContent className="relative h-full p-0 overflow-hidden">
               
               {/* Scrollable Container */}

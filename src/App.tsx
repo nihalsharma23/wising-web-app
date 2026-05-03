@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
-import { BetaLanding } from './pages/BetaLanding/BetaLanding';
+import { BetaLanding } from './pages/BetaLanding';
 import { AboutUs } from './pages/BetaLanding/AboutUs';
 
 export default function App() {

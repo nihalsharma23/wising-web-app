@@ -20,7 +20,7 @@ import { ArrowUp, ArrowRight, Menu, X, ChevronRight, Play, Globe as GlobeIcon, S
 import { ReactLenis } from 'lenis/react';
 import { StickyCard } from '../../components/layout/StickyCard';
 
-export function BetaLanding() {
+export function BetaLandingWeb() {
     const [email, setEmail] = useState('');
     const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
 
@@ -283,4 +283,4 @@ export function BetaLanding() {
     );
 }
 
-export default BetaLanding;
+export default BetaLandingWeb;
