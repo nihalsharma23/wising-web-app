@@ -315,29 +315,29 @@ const ChatAlertAnimation = () => {
 
 const bentoItems: BentoItem[] = [
     {
-        title: "Advisor Sync",
-        description: "Share verified financial data securely with your CA, CPA, or Wealth Manager.",
-        icon: <Users className="w-4 h-4 text-white/70" />,
-        status: "Secure",
-        tags: ["Chartered Accountant", "CPA", "Wealth Managers"],
-        component: <AdvisorSyncDiagram />,
-        colSpan: 2,
-    },
-    {
-        title: "Agent Agnostic",
-        description: "Compliance Engine for any LLM or agent. Connect in your preferred model. Wising provides you the deterministic compliance engine.",
-        icon: <Clock className="w-4 h-4 text-white/70" />,
-        status: "Auto",
-        tags: ["LLM", "Agentic AI", "MCP"],
-        component: <AgentAgnosticDiagram />,
-    },
-    {
         title: "Infrastructure for AI native Tax Firms",
         description: "Enterprise-grade compliance infrastructure. Connect Your LLM. Go AI Native instantly. Zero Hallucinations.",
         icon: <Globe className="w-4 h-4 text-white/70" />,
         status: "Unified",
         tags: ["Infrastructure", "DeterministicEngine", "API"],
         component: <LayeredInfrastructureDiagram />,
+        colSpan: 2,
+    },
+    {
+        title: "Agent Agnostic",
+        description: "Compliance Engine for any AI Agent. Connect MCP in your preferred model. Wising provides you the Deterministic Compliance Layer.",
+        icon: <Clock className="w-4 h-4 text-white/70" />,
+        status: "Auto",
+        tags: ["LLM", "Agentic AI", "MCP"],
+        component: <AgentAgnosticDiagram />,
+    },
+    {
+        title: "Advisor Sync",
+        description: "Share verified financial data securely with your CA, CPA, or Wealth Manager.",
+        icon: <Users className="w-4 h-4 text-white/70" />,
+        status: "Secure",
+        tags: ["Chartered Accountant", "CPA", "Wealth Managers"],
+        component: <AdvisorSyncDiagram />,
         colSpan: 2,
     },
     {
