@@ -58,7 +58,7 @@ export default function FeatureSection() {
         <div className="relative w-full max-w-sm flex-1 order-2 flex flex-col items-center pt-8">
           
           <div className="w-full flex justify-center mb-8">
-            <Badge variant="secondary" className="px-5 py-2.5 text-[13px] md:text-[14px] bg-black/50 border border-white/10 backdrop-blur-md text-white rounded-full font-['Manrope',sans-serif] font-semibold tracking-wider flex items-center justify-center text-center shadow-[0_0_20px_rgba(255,255,255,0.05)] max-w-[260px] leading-tight">
+            <Badge variant="secondary" className="px-5 py-3 h-auto min-h-[48px] whitespace-normal break-words text-[13px] md:text-[14px] bg-black/50 border border-white/10 backdrop-blur-md text-white rounded-[1.5rem] font-['Manrope',sans-serif] font-semibold tracking-wider flex items-center justify-center text-center shadow-[0_0_20px_rgba(255,255,255,0.05)] w-[85%] max-w-[280px] leading-snug">
               Average Cost Of Manual Cross-Border Wealth
             </Badge>
           </div>

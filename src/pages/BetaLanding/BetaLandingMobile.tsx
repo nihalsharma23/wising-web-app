@@ -63,27 +63,36 @@ export function BetaLandingMobile() {
                     <section className="w-full h-screen flex flex-col items-center justify-center px-4 relative">
 
                         {/* Headline — centered vertically + horizontally */}
-                        <div className="flex flex-col items-center text-center gap-3">
-                            <AnimatedText
-                                text="CROSS BORDER WEALTH"
-                                className="font-['Cormorant_Garamond',serif] text-[1.1rem] font-bold tracking-[0.3em] text-white mb-2"
-                                animationType="letters"
-                                staggerDelay={0.06}
-                                duration={0.8}
-                            />
+                        <div className="flex flex-col items-center text-center gap-3 -mt-12">
+                            <div className="flex flex-col items-center mb-4">
+                                <AnimatedText
+                                    text="PRE-EXECUTION"
+                                    className="font-['Cormorant_Garamond',serif] text-[1.1rem] font-bold tracking-[0.3em] text-white leading-tight"
+                                    animationType="letters"
+                                    staggerDelay={0.06}
+                                    duration={0.8}
+                                />
+                                <AnimatedText
+                                    text="CROSS BORDER"
+                                    className="font-['Cormorant_Garamond',serif] text-[1.1rem] font-bold tracking-[0.3em] text-white leading-tight mt-1"
+                                    animationType="letters"
+                                    staggerDelay={0.06}
+                                    duration={0.8}
+                                />
+                            </div>
 
                             {/* Two lines so text fits the mobile viewport */}
-                            <div className="flex flex-col items-center">
-                                <h1 className="font-['Syne',sans-serif] text-[2.8rem] leading-[0.95] font-bold tracking-[0.01em] globe-color-shimmer text-center">
-                                    COMPLIANCE
+                            <div className="flex flex-col items-center justify-center w-full px-2 text-center">
+                                <h1 className="font-['Syne',sans-serif] text-[2.65rem] leading-[0.95] font-bold tracking-[0.01em] globe-color-shimmer">
+                                    FINANCIAL
                                 </h1>
-                                <h1 className="font-['Syne',sans-serif] text-[2.8rem] leading-[0.95] font-bold tracking-[0.01em] globe-color-shimmer text-center">
-                                    FIREWALL
+                                <h1 className="font-['Syne',sans-serif] text-[2.65rem] leading-[0.95] font-bold tracking-[0.01em] globe-color-shimmer">
+                                    COMPLIANCE
                                 </h1>
                             </div>
 
                             <AnimatedText
-                                text="For Future Agents"
+                                text="For AI Agents."
                                 className="font-['Playfair_Display',serif] text-sm italic tracking-[0.3em] bg-gradient-to-r from-blue-400 via-emerald-400 to-indigo-500 bg-clip-text text-transparent uppercase"
                                 animationType="letters"
                                 staggerDelay={0.05}
@@ -93,7 +102,7 @@ export function BetaLandingMobile() {
 
                         {/* Waitlist form — pinned to bottom of hero */}
                         <div className="absolute bottom-10 left-0 right-0 flex flex-col items-center px-6">
-                            <form onSubmit={handleJoinWaitlist} className="w-full max-w-[280px] mx-auto relative">
+                            <form onSubmit={handleJoinWaitlist} className="w-full max-w-[275px] mx-auto relative">
                                 <div
                                     className="absolute -inset-[1px] rounded-[12px] pointer-events-none opacity-70"
                                     style={{
@@ -118,7 +127,7 @@ export function BetaLandingMobile() {
                                 <button
                                     type="submit"
                                     disabled={status === 'loading'}
-                                    className="flex gap-2 items-center justify-center py-3 rounded-bl-[12px] rounded-br-[12px] w-full font-['Montserrat',sans-serif] font-bold text-[11px] text-black tracking-[2px] uppercase cursor-pointer disabled:opacity-70"
+                                    className="flex gap-2 items-center justify-center py-[14px] rounded-bl-[12px] rounded-br-[12px] w-full font-['Montserrat',sans-serif] font-bold text-[11px] text-black tracking-[2px] uppercase cursor-pointer disabled:opacity-70"
                                     style={{ backgroundImage: "linear-gradient(135deg,#fff 0%,#d1d5db 50%,#9ca3af 100%)" }}
                                 >
                                     {status === 'loading' ? 'Joining...' : status === 'success' ? 'Joined! ✓' : 'Join Waitlist →'}

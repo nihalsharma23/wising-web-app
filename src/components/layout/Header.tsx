@@ -14,6 +14,7 @@ export function Header({ variant = 'landing' }: HeaderProps) {
     const isLanding = variant === 'landing';
     const [isSearchOpen, setIsSearchOpen] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
     const searchInputRef = useRef<HTMLInputElement>(null);
 
     // "Join Waitlist" button in header fades in after scrolling 200–400px
@@ -77,13 +78,13 @@ export function Header({ variant = 'landing' }: HeaderProps) {
                                     Join Waitlist
                                 </motion.button>
 
-                                <Link to="/blog" className="flex content-stretch flex-col h-10 items-end justify-center py-3 relative cursor-pointer hover:opacity-80 transition-opacity">
+                                <Link to="/blog" className={`content-stretch flex-col h-10 items-end justify-center py-3 relative cursor-pointer hover:opacity-80 transition-opacity ${isScrolled ? 'hidden md:flex' : 'flex'}`}>
                                     <div className="flex flex-col font-['Manrope',sans-serif] font-medium justify-center leading-[0] not-italic text-white text-sm tracking-normal capitalize whitespace-nowrap">
                                         <p className="leading-[15px] whitespace-pre-wrap">Blog</p>
                                     </div>
                                 </Link>
 
-                                <Link to="/about" className="flex content-stretch flex-col h-10 items-end justify-center py-3 relative cursor-pointer hover:opacity-80 transition-opacity">
+                                <Link to="/about" className={`content-stretch flex-col h-10 items-end justify-center py-3 relative cursor-pointer hover:opacity-80 transition-opacity ${isScrolled ? 'hidden md:flex' : 'flex'}`}>
                                     <div className="flex flex-col font-['Manrope',sans-serif] font-medium justify-center leading-[0] not-italic text-white text-sm tracking-normal capitalize whitespace-nowrap">
                                         <p className="leading-[15px] whitespace-pre-wrap">About Us</p>
                                     </div>
@@ -115,6 +116,25 @@ export function Header({ variant = 'landing' }: HeaderProps) {
                                         {isSearchOpen ? <X size={16} /> : <Search size={16} />}
                                     </button>
                                 </div>
+
+                                {/* Mobile Hamburger Button (Only shows when scrolled) */}
+                                {isScrolled && (
+                                    <button
+                                        onClick={() => setIsMenuOpen(!isMenuOpen)}
+                                        className="md:hidden flex flex-col justify-center items-center w-8 h-8 z-[1001] relative ml-1"
+                                    >
+                                        <motion.div
+                                            animate={isMenuOpen ? { rotate: 45, y: 0 } : { rotate: 0, y: -4 }}
+                                            className="w-5 h-[1.5px] bg-white absolute rounded-full"
+                                            transition={{ duration: 0.3 }}
+                                        />
+                                        <motion.div
+                                            animate={isMenuOpen ? { rotate: -45, y: 0 } : { rotate: 0, y: 4 }}
+                                            className="w-5 h-[1.5px] bg-white absolute rounded-full"
+                                            transition={{ duration: 0.3 }}
+                                        />
+                                    </button>
+                                )}
                             </div>
                         </>
                     ) : (
@@ -126,6 +146,45 @@ export function Header({ variant = 'landing' }: HeaderProps) {
                     )}
                 </div>
             </motion.div>
+
+            {/* Mobile Glassmorphic Slider Menu */}
+            <AnimatePresence>
+                {isMenuOpen && isScrolled && (
+                    <motion.div
+                        initial={{ x: "100%" }}
+                        animate={{ x: 0 }}
+                        exit={{ x: "100%" }}
+                        transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                        className="fixed top-0 right-0 h-screen w-[280px] bg-black/80 backdrop-blur-2xl border-l border-white/10 z-[1000] flex flex-col pt-24 px-8 md:hidden pointer-events-auto shadow-2xl"
+                    >
+                        <div className="flex flex-col h-full">
+                            <div className="flex flex-col gap-8 mt-4">
+                                <Link 
+                                    to="/blog" 
+                                    onClick={() => setIsMenuOpen(false)} 
+                                    className="text-white text-xl font-['Manrope',sans-serif] font-medium tracking-wide hover:text-emerald-400 transition-colors"
+                                >
+                                    Blog
+                                </Link>
+                                <Link 
+                                    to="/about" 
+                                    onClick={() => setIsMenuOpen(false)} 
+                                    className="text-white text-xl font-['Manrope',sans-serif] font-medium tracking-wide hover:text-emerald-400 transition-colors"
+                                >
+                                    About Us
+                                </Link>
+                                <div className="w-full h-[1px] bg-white/10 mt-4" />
+                            </div>
+
+                            <div className="mt-auto pb-12">
+                                <div className="text-white/40 text-[10px] uppercase tracking-[2px] font-['Manrope',sans-serif] leading-relaxed">
+                                    © WISING INTELLIGENCE PVT. LTD - 2026
+                                </div>
+                            </div>
+                        </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </header>
     );
 }

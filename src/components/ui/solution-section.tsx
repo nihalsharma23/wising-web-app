@@ -37,7 +37,7 @@ const timelineData: TimelineItem[] = [
 
 export default function SolutionSection() {
   return (
-    <section className="relative w-full pt-8 pb-20 px-6 md:px-12 lg:px-24 flex flex-col gap-16 z-20">
+    <section className="relative w-full pt-8 pb-20 px-2 md:px-12 lg:px-24 flex flex-col gap-16 z-20">
       
       {/* HEADER PART */}
       <div className="flex flex-col items-center text-center gap-4">
@@ -120,7 +120,7 @@ export default function SolutionSection() {
               ) : idx === 2 ? (
                 // Placeholder 3: MacOS Dashboard Demo
                 <div className="w-full max-w-[530px] h-[375px] md:h-[420px] bg-black border border-white/10 shadow-2xl rounded-3xl overflow-hidden relative group flex items-center justify-center p-0">
-                   <div className="w-full h-full flex items-center justify-center">
+                   <div className="w-[120%] h-[120%] md:w-full md:h-full flex items-center justify-center scale-[0.85] md:scale-100 origin-center transform-gpu">
                       <WisingMacOSDemo />
                    </div>
                 </div>

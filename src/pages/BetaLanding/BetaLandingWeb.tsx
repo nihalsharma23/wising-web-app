@@ -70,7 +70,7 @@ export function BetaLandingWeb() {
                             {/* Hero Content */}
                             <div className="relative z-10 flex flex-col items-center text-center space-y-4 pt-16 px-4">
                                 <AnimatedText 
-                                    text="CROSS BORDER WEALTH" 
+                                    text="PRE-EXECUTION CROSS BORDER" 
                                     className="font-['Cormorant_Garamond',serif] text-lg md:text-xl lg:text-2xl font-bold tracking-[0.3em] text-white mb-2"
                                     animationType="letters"
                                     staggerDelay={0.06}
@@ -79,7 +79,7 @@ export function BetaLandingWeb() {
                                 
                                 <div className="mt-1">
                                     <AnimatedText 
-                                        text="COMPLIANCE FIREWALL" 
+                                        text="FINANCIAL COMPLIANCE" 
                                         className="font-['Syne',sans-serif] text-[32px] md:text-[50px] lg:text-[74px] font-bold tracking-[0.1em] globe-color-shimmer"
                                         animationType="letters"
                                         staggerDelay={0.04}
@@ -89,7 +89,7 @@ export function BetaLandingWeb() {
 
                                 <div className="mt-2">
                                     <AnimatedText 
-                                        text="For Future Agents" 
+                                        text="For AI Agents." 
                                         className="font-['Playfair_Display',serif] text-sm md:text-base lg:text-lg italic tracking-[0.5em] bg-gradient-to-r from-blue-400 via-emerald-400 to-indigo-500 bg-clip-text text-transparent uppercase"
                                         animationType="letters"
                                         staggerDelay={0.05}
