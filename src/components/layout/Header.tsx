@@ -117,24 +117,22 @@ export function Header({ variant = 'landing' }: HeaderProps) {
                                     </button>
                                 </div>
 
-                                {/* Mobile Hamburger Button (Only shows when scrolled) */}
-                                {isScrolled && (
-                                    <button
-                                        onClick={() => setIsMenuOpen(!isMenuOpen)}
-                                        className="md:hidden flex flex-col justify-center items-center w-8 h-8 z-[1001] relative ml-1"
-                                    >
-                                        <motion.div
-                                            animate={isMenuOpen ? { rotate: 45, y: 0 } : { rotate: 0, y: -4 }}
-                                            className="w-5 h-[1.5px] bg-white absolute rounded-full"
-                                            transition={{ duration: 0.3 }}
-                                        />
-                                        <motion.div
-                                            animate={isMenuOpen ? { rotate: -45, y: 0 } : { rotate: 0, y: 4 }}
-                                            className="w-5 h-[1.5px] bg-white absolute rounded-full"
-                                            transition={{ duration: 0.3 }}
-                                        />
-                                    </button>
-                                )}
+                                {/* Mobile Hamburger Button */}
+                                <button
+                                    onClick={() => setIsMenuOpen(!isMenuOpen)}
+                                    className="md:hidden flex flex-col justify-center items-center w-10 h-10 z-[1001] relative ml-2"
+                                >
+                                    <motion.div
+                                        animate={isMenuOpen ? { rotate: 45, y: 0 } : { rotate: 0, y: -4 }}
+                                        className="w-6 h-[2px] bg-white absolute rounded-full"
+                                        transition={{ duration: 0.3 }}
+                                    />
+                                    <motion.div
+                                        animate={isMenuOpen ? { rotate: -45, y: 0 } : { rotate: 0, y: 4 }}
+                                        className="w-6 h-[2px] bg-white absolute rounded-full"
+                                        transition={{ duration: 0.3 }}
+                                    />
+                                </button>
                             </div>
                         </>
                     ) : (
@@ -149,40 +147,50 @@ export function Header({ variant = 'landing' }: HeaderProps) {
 
             {/* Mobile Glassmorphic Slider Menu */}
             <AnimatePresence>
-                {isMenuOpen && isScrolled && (
-                    <motion.div
-                        initial={{ x: "100%" }}
-                        animate={{ x: 0 }}
-                        exit={{ x: "100%" }}
-                        transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                        className="fixed top-0 right-0 h-screen w-[280px] bg-black/80 backdrop-blur-2xl border-l border-white/10 z-[1000] flex flex-col pt-24 px-8 md:hidden pointer-events-auto shadow-2xl"
-                    >
-                        <div className="flex flex-col h-full">
-                            <div className="flex flex-col gap-8 mt-4">
-                                <Link 
-                                    to="/blog" 
-                                    onClick={() => setIsMenuOpen(false)} 
-                                    className="text-white text-xl font-['Manrope',sans-serif] font-medium tracking-wide hover:text-emerald-400 transition-colors"
-                                >
-                                    Blog
-                                </Link>
-                                <Link 
-                                    to="/about" 
-                                    onClick={() => setIsMenuOpen(false)} 
-                                    className="text-white text-xl font-['Manrope',sans-serif] font-medium tracking-wide hover:text-emerald-400 transition-colors"
-                                >
-                                    About Us
-                                </Link>
-                                <div className="w-full h-[1px] bg-white/10 mt-4" />
-                            </div>
+                {isMenuOpen && (
+                    <>
+                        {/* Backdrop Overlay to close on click outside */}
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            onClick={() => setIsMenuOpen(false)}
+                            className="fixed inset-0 bg-black/60 backdrop-blur-sm z-[999] md:hidden pointer-events-auto"
+                        />
+                        <motion.div
+                            initial={{ x: "100%" }}
+                            animate={{ x: 0 }}
+                            exit={{ x: "100%" }}
+                            transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                            className="fixed top-0 right-0 h-screen w-[280px] bg-black/90 backdrop-blur-2xl border-l border-white/10 z-[1000] flex flex-col pt-24 px-8 md:hidden pointer-events-auto shadow-2xl"
+                        >
+                            <div className="flex flex-col h-full">
+                                <div className="flex flex-col gap-8 mt-4">
+                                    <Link 
+                                        to="/blog" 
+                                        onClick={() => setIsMenuOpen(false)} 
+                                        className="text-white text-xl font-['Manrope',sans-serif] font-medium tracking-wide hover:text-emerald-400 transition-colors"
+                                    >
+                                        Blog
+                                    </Link>
+                                    <Link 
+                                        to="/about" 
+                                        onClick={() => setIsMenuOpen(false)} 
+                                        className="text-white text-xl font-['Manrope',sans-serif] font-medium tracking-wide hover:text-emerald-400 transition-colors"
+                                    >
+                                        About Us
+                                    </Link>
+                                    <div className="w-full h-[1px] bg-white/10 mt-4" />
+                                </div>
 
-                            <div className="mt-auto pb-12">
-                                <div className="text-white/40 text-[10px] uppercase tracking-[2px] font-['Manrope',sans-serif] leading-relaxed">
-                                    © WISING INTELLIGENCE PVT. LTD - 2026
+                                <div className="mt-auto pb-12">
+                                    <div className="text-white/40 text-[10px] uppercase tracking-[2px] font-['Manrope',sans-serif] leading-relaxed">
+                                        © WISING INTELLIGENCE PVT. LTD - 2026
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </motion.div>
+                        </motion.div>
+                    </>
                 )}
             </AnimatePresence>
         </header>
