@@ -342,7 +342,7 @@ const bentoItems: BentoItem[] = [
     },
     {
         title: "Compliance Engine MCP",
-        description: "Pre Exection firewall between your AI agents, financial intent and execution",
+        description: "Pre Execution check between your AI agents, Financial Intent and Executions",
         icon: <Activity className="w-4 h-4 text-white/70" />,
         status: "AI",
         tags: ["Compliance Firewall", "MCP", "CLI", "API"],
