@@ -13,8 +13,11 @@ import {
     Users,
     Activity,
     LineChart,
-    ShieldCheck,
-    ChevronRight
+    Calculator,
+    Calendar,
+    AlertTriangle,
+    ChevronRight,
+    ChevronLeft
 } from "lucide-react";
 
 export interface BentoItem {
@@ -32,321 +35,240 @@ export interface BentoItem {
 
 // --- DIAGRAM COMPONENTS ---
 
-const AdvisorSyncDiagram = () => (
-    <div className="relative w-full h-full min-h-[140px] flex items-center justify-center overflow-hidden">
-        <svg viewBox="0 0 200 150" className="w-full h-full max-w-[200px] drop-shadow-[0_0_20px_rgba(255,255,255,0.15)]">
-            <motion.path
-                d="M 100 30 L 50 110 L 150 110 Z"
-                fill="none"
-                stroke="rgba(255,255,255,0.2)"
-                strokeWidth="2"
-                strokeDasharray="4 4"
-                initial={{ pathLength: 0 }}
-                animate={{ pathLength: 1 }}
-                transition={{ duration: 3, repeat: Infinity }}
-            />
-            {[
-                "M 100 30 L 50 110",
-                "M 50 110 L 150 110",
-                "M 150 110 L 100 30"
-            ].map((d, i) => (
-                <motion.circle key={i} r="3" fill="#fff">
-                    <animateMotion dur={`${2 + i}s`} repeatCount="indefinite" path={d} />
-                </motion.circle>
-            ))}
-            <g transform="translate(100, 30)">
-                <circle r="10" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.5)" />
-                <text y="26" fontSize="10" fill="#fff" textAnchor="middle" className="font-bold font-['Manrope',sans-serif]">YOU</text>
-            </g>
-            <g transform="translate(50, 110)">
-                <circle r="10" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.5)" />
-                <text y="26" fontSize="10" fill="#fff" textAnchor="middle" className="font-bold font-['Manrope',sans-serif]">CA</text>
-            </g>
-            <g transform="translate(150, 110)">
-                <circle r="10" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.5)" />
-                <text y="26" fontSize="10" fill="#fff" textAnchor="middle" className="font-bold font-['Manrope',sans-serif]">CPA</text>
-            </g>
-        </svg>
+const FtcCalculatorDiagram = () => (
+    <div className="relative w-full h-full min-h-[180px] flex flex-col md:flex-row items-center justify-center gap-4 py-3 font-mono w-full">
+           {/* Left Box: India Tax */}
+           <motion.div 
+               className="w-[130px] bg-[#050505] border border-emerald-500/30 rounded-xl p-3 text-center shadow-[0_0_15px_rgba(16,185,129,0.15)] backdrop-blur-md shrink-0"
+               animate={{ x: [0, -3, 0] }}
+               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+           >
+               <div className="text-[8px] text-emerald-400/80 mb-1 font-bold tracking-widest">INDIA TAX (PAID)</div>
+               <div className="text-[15px] text-emerald-300 font-bold">$12,500</div>
+           </motion.div>
+
+           {/* Flow Arrow 1 */}
+           <motion.div 
+               className="text-emerald-500/50 hidden md:block"
+               animate={{ opacity: [0.2, 1, 0.2], x: [0, 5, 0] }}
+               transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
+           >
+               <ChevronRight className="w-8 h-8" />
+           </motion.div>
+           
+           {/* Output Box */}
+           <motion.div 
+               className="w-[210px] bg-[#050505] border border-purple-500/40 rounded-xl p-3.5 text-center shadow-[0_0_20px_rgba(168,85,247,0.2)] backdrop-blur-md shrink-0 z-10"
+               animate={{ scale: [1, 1.03, 1] }}
+               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+           >
+               <div className="text-[9px] text-purple-400 mb-2 font-bold tracking-widest">FTC APPLIED & RESIDUAL</div>
+               <div className="flex justify-between text-[11px] mt-1 mb-1.5 px-2 text-white/60">
+                  <span>Gross US Tax</span>
+                  <span>$18,000</span>
+               </div>
+               <div className="flex justify-between text-[11px] mb-2.5 px-2 text-emerald-400/80">
+                  <span>Foreign Tax Credit</span>
+                  <span>-$12,500</span>
+               </div>
+               <div className="h-[1px] w-full bg-white/10 mb-2.5"></div>
+               <div className="flex justify-between text-[15px] font-bold px-2 text-purple-300">
+                  <span>Net US Payable</span>
+                  <span>$5,500</span>
+               </div>
+           </motion.div>
+
+           {/* Flow Arrow 2 */}
+           <motion.div 
+               className="text-blue-500/50 hidden md:block"
+               animate={{ opacity: [0.2, 1, 0.2], x: [0, -5, 0] }}
+               transition={{ duration: 2, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+           >
+               <ChevronLeft className="w-8 h-8" />
+           </motion.div>
+
+           {/* Right Box: US Tax */}
+           <motion.div 
+               className="w-[130px] bg-[#050505] border border-blue-500/30 rounded-xl p-3 text-center shadow-[0_0_15px_rgba(59,130,246,0.15)] backdrop-blur-md shrink-0"
+               animate={{ x: [0, 3, 0] }}
+               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+           >
+               <div className="text-[8px] text-blue-400/80 mb-1 font-bold tracking-widest">US TAX (LIAB)</div>
+               <div className="text-[15px] text-blue-300 font-bold">$18,000</div>
+           </motion.div>
     </div>
 );
 
-const AgentAgnosticDiagram = () => (
-    <div className="relative w-full h-[180px] flex items-center justify-center overflow-hidden py-4">
-        <svg viewBox="0 0 240 160" className="w-full h-full max-w-[280px] drop-shadow-[0_0_20px_rgba(96,165,250,0.2)]">
-            {/* Connecting lines */}
-            {[
-                "M 40 80 L 95 80",
-                "M 200 80 L 145 80",
-                "M 120 20 L 120 55",
-                "M 120 140 L 120 105"
-            ].map((d, i) => (
-                <path key={`line-${i}`} d={d} stroke="rgba(255,255,255,0.15)" strokeWidth="1.5" strokeDasharray="4 4" fill="none" />
-            ))}
-
-            {/* Animated Pulses */}
-            {[
-                { path: "M 40 80 L 95 80", delay: "0s" },
-                { path: "M 200 80 L 145 80", delay: "0.5s" },
-                { path: "M 120 20 L 120 55", delay: "1s" },
-                { path: "M 120 140 L 120 105", delay: "1.5s" }
-            ].map((p, i) => (
-                <circle key={`pulse-${i}`} r="2.5" fill="#60a5fa">
-                    <animateMotion dur="2.5s" repeatCount="indefinite" path={p.path} begin={p.delay} />
-                </circle>
-            ))}
-
-            {/* Agent Nodes */}
-            <g transform="translate(40, 80)">
-                <circle r="18" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.2)" />
-                <svg viewBox="0 0 24 24" x="-10" y="-10" width="20" height="20" fill="white" opacity="0.8">
-                    <path d="M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0462 6.0462 0 0 0-6.5098-2.9A6.0651 6.0651 0 0 0 4.9807 4.1818a5.9847 5.9847 0 0 0-3.9977 2.9 6.0462 6.0462 0 0 0 .7427 7.0966 5.98 5.98 0 0 0 .511 4.9107 6.051 6.051 0 0 0 6.5146 2.9001A5.9847 5.9847 0 0 0 13.2599 24a6.0557 6.0557 0 0 0 5.7718-4.2058 5.9894 5.9894 0 0 0 3.9977-2.9001 6.0557 6.0557 0 0 0-.7475-7.073zm-9.022 12.6081a4.4755 4.4755 0 0 1-2.8764-1.0408l.1419-.0804 4.7783-2.7582a.7948.7948 0 0 0 .3927-.6813v-6.7369l2.02 1.1686a.071.071 0 0 1 .038.052v5.5826a4.504 4.504 0 0 1-4.4945 4.4944zm-9.6607-4.1254a4.4708 4.4708 0 0 1-.5346-3.0137l.142.0852 4.783 2.7582a.7712.7712 0 0 0 .7806 0l5.8428-3.3685v2.3324a.0804.0804 0 0 1-.0332.0615L9.74 19.9502a4.4992 4.4992 0 0 1-6.1408-1.6464zM2.3408 7.8956a4.485 4.485 0 0 1 2.3655-1.9728V11.6a.7664.7664 0 0 0 .3879.6765l5.8144 3.3543-2.0201 1.1685a.0757.0757 0 0 1-.071 0l-4.8303-2.7865A4.504 4.504 0 0 1 2.3408 7.8956zm16.0993 3.8558L12.5973 8.3829v-2.3324a.0757.0757 0 0 1 .0332-.0615l4.8303-2.7866a4.4992 4.4992 0 0 1 6.6802 4.66l-.1467-.0852-4.783-2.7582a.7712.7712 0 0 0-.7806 0zM8.5692 4.1673a4.4802 4.4802 0 0 1 2.8764 1.0407l-.1419.0804-4.7783 2.7582a.7948.7948 0 0 0-.3927.6813V15.465l-2.02-1.1686a.071.071 0 0 1-.038-.052V8.6618a4.504 4.504 0 0 1 4.4945-4.4945zm6.5413 5.434l-2.0533-1.1874 2.0533-1.1874V9.6013zm-3.6934-.5552-2.0533 1.1874-2.0533-1.1874 2.0533-1.1874 2.0533 1.1874zm-2.0533 3.562 2.0533 1.1874v-2.3748l-2.0533-1.1874v2.3748z"/>
-                </svg>
-            </g>
-            <g transform="translate(200, 80)">
-                <circle r="18" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.2)" />
-                <image href="https://cdn.simpleicons.org/anthropic/white" x="-10" y="-10" width="20" height="20" opacity="0.8" />
-            </g>
-            <g transform="translate(120, 20)">
-                <circle r="18" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.2)" />
-                <image href="https://cdn.simpleicons.org/googlegemini/white" x="-10" y="-10" width="20" height="20" opacity="0.8" />
-            </g>
-            <g transform="translate(120, 140)">
-                <circle r="18" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.2)" />
-                <image href="https://cdn.simpleicons.org/meta/white" x="-10" y="-10" width="20" height="20" opacity="0.8" />
-            </g>
-
-            {/* Central Engine (MCP) */}
-            <g transform="translate(120, 80)">
-                <motion.circle 
-                    r="26" 
-                    fill="rgba(96,165,250,0.1)" 
-                    stroke="rgba(96,165,250,0.5)" 
-                    strokeWidth="1.5"
-                    animate={{ r: [24, 30, 24], strokeWidth: [1.5, 2.5, 1.5], opacity: [0.7, 1, 0.7] }}
-                    transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                />
-                <circle r="18" fill="#050505" stroke="rgba(255,255,255,0.2)" />
-                <text y="3.5" fontSize="10" fill="#60a5fa" textAnchor="middle" className="font-bold font-['Manrope',sans-serif] tracking-wider">MCP</text>
-            </g>
-        </svg>
-    </div>
-);
-
-const LayeredInfrastructureDiagram = () => {
-    return (
-        <div className="relative w-full h-[220px] flex items-center justify-center overflow-visible py-3">
-            
-            <div className="relative w-full max-w-[280px] h-full flex flex-col z-10 scale-[1.05]">
-                
-                {/* 1. Raw LLM Node (Top) */}
-                <div className="mx-auto w-36 bg-[#050505] border border-white/10 rounded-md px-2 py-1.5 flex items-center justify-center gap-2 z-20 shadow-md">
-                    <div className="w-1.5 h-1.5 rounded-full bg-white/40 animate-pulse" />
-                    <span className="text-[8px] font-bold text-white/60 tracking-widest uppercase">Any LLM Agent</span>
+const AssetConflictDiagram = () => (
+    <div className="relative w-full h-[220px] flex items-start justify-center overflow-visible pt-6 font-mono">
+        <div className="w-full max-w-[250px] flex flex-col relative">
+            {/* The scanning window */}
+            <div className="w-full bg-[#050505] border border-white/10 rounded-xl shadow-xl overflow-hidden text-[10px] text-white/60">
+                {/* Header */}
+                <div className="w-full bg-white/5 px-3 py-2 flex items-center gap-1.5 border-b border-white/5">
+                    <div className="w-2.5 h-2.5 rounded-full bg-red-500/50" />
+                    <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/50" />
+                    <div className="w-2.5 h-2.5 rounded-full bg-emerald-500/50" />
+                    <span className="ml-1 text-white/30 text-[8px] tracking-widest font-bold">PORTFOLIO_SCANNER</span>
                 </div>
-
-                {/* Gap 1: Hallucinations Falling */}
-                <div className="flex-1 relative w-full pointer-events-none min-h-[30px]">
+                {/* Content */}
+                <div className="p-3 flex flex-col gap-2.5">
                     <motion.div 
-                        className="absolute left-[15%] text-[7px] md:text-[7.5px] font-mono text-red-400/90 whitespace-nowrap"
-                        animate={{ top: ["10%", "80%"], opacity: [0, 1, 0], x: [0, -10] }}
-                        transition={{ duration: 1.5, repeat: Infinity, delay: 0 }}
+                        initial={{ opacity: 0 }} 
+                        animate={{ opacity: [0, 1, 1, 0] }} 
+                        transition={{ duration: 6, repeat: Infinity, times: [0, 0.05, 0.95, 1] }}
+                        className="flex items-center gap-2"
                     >
-                        calc_tax(???)
+                        <CheckCircle className="w-3.5 h-3.5 text-emerald-500/80" />
+                        <span>AAPL &bull; Held: 420d</span>
                     </motion.div>
-                    <motion.div 
-                        className="absolute left-[50%] text-[7px] md:text-[7.5px] font-mono text-orange-400/90 whitespace-nowrap"
-                        animate={{ top: ["0%", "90%"], opacity: [0, 1, 0], x: [0, 10] }}
-                        transition={{ duration: 1.5, repeat: Infinity, delay: 0.5 }}
-                    >
-                        "hallucinated_value"
-                    </motion.div>
-                    <motion.div 
-                        className="absolute left-[35%] text-[7px] md:text-[7.5px] font-mono text-red-500/90 whitespace-nowrap"
-                        animate={{ top: ["20%", "80%"], opacity: [0, 1, 0], scale: [0.8, 1.2, 0.8] }}
-                        transition={{ duration: 1.5, repeat: Infinity, delay: 1 }}
-                    >
-                        ! NaN
-                    </motion.div>
-                </div>
-
-                {/* 2. Wising Infrastructure Layers (Middle) */}
-                <div className="flex flex-col gap-1.5 w-full z-10 px-4">
-                    {/* Layer 1 */}
-                    <div className="w-full h-5 bg-[#0a0a0a] border border-blue-500/30 rounded flex items-center justify-center shadow-[0_0_10px_rgba(59,130,246,0.1)] overflow-hidden relative">
-                        <motion.div 
-                            className="absolute inset-0 bg-gradient-to-r from-transparent via-blue-500/20 to-transparent"
-                            animate={{ x: ["-100%", "100%"] }}
-                            transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-                        />
-                        <span className="text-[6.5px] font-bold text-blue-400 tracking-[0.2em] uppercase relative z-10">L1: Context & Intent Parsing</span>
-                    </div>
-
-                    {/* Layer 2 */}
-                    <div className="w-full h-5 bg-[#0a0a0a] border border-purple-500/30 rounded flex items-center justify-center shadow-[0_0_10px_rgba(168,85,247,0.1)] overflow-hidden relative">
-                         <motion.div 
-                            className="absolute inset-0 bg-gradient-to-l from-transparent via-purple-500/20 to-transparent"
-                            animate={{ x: ["100%", "-100%"] }}
-                            transition={{ duration: 2, repeat: Infinity, ease: "linear", delay: 0.5 }}
-                        />
-                        <span className="text-[6.5px] font-bold text-purple-400 tracking-[0.2em] uppercase relative z-10">L2: Deterministic Tax Engine</span>
-                    </div>
-
-                    {/* Layer 3 */}
-                    <div className="w-full h-5 bg-[#0a0a0a] border border-emerald-500/30 rounded flex items-center justify-center shadow-[0_0_10px_rgba(16,185,129,0.1)] overflow-hidden relative">
-                         <motion.div 
-                            className="absolute inset-0 bg-emerald-500/10"
-                            animate={{ opacity: [0.2, 0.6, 0.2] }}
-                            transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-                        />
-                        <span className="text-[6.5px] font-bold text-emerald-400 tracking-[0.2em] uppercase relative z-10">L3: Zero Hallucination Filter</span>
-                    </div>
-                </div>
-
-                {/* Gap 2: Verified Data Falling */}
-                <div className="flex-1 relative w-full pointer-events-none min-h-[30px]">
-                    <motion.div 
-                        className="absolute left-[20%] text-[7px] md:text-[7.5px] font-mono text-emerald-400 whitespace-nowrap"
-                        animate={{ top: ["10%", "80%"], opacity: [0, 1, 0] }}
-                        transition={{ duration: 1.5, repeat: Infinity, delay: 0.2 }}
-                    >
-                        {`{tax_liability: $10k}`}
-                    </motion.div>
-                    <motion.div 
-                        className="absolute left-[50%] text-[7px] md:text-[7.5px] font-mono text-emerald-400 whitespace-nowrap"
-                        animate={{ top: ["0%", "90%"], opacity: [0, 1, 0] }}
-                        transition={{ duration: 1.5, repeat: Infinity, delay: 0.8 }}
-                    >
-                        verified_execution()
-                    </motion.div>
-                </div>
-
-                {/* 3. Wising Output Endpoint (Bottom) */}
-                <div className="mx-auto w-48 bg-[#050505] border border-emerald-500/40 rounded px-2 py-2 flex items-center justify-center gap-1.5 z-20 shadow-[0_0_15px_rgba(16,185,129,0.15)]">
-                    <CheckCircle className="w-3.5 h-3.5 text-emerald-400" />
-                    <span className="text-[7.5px] font-bold text-emerald-400 tracking-widest uppercase">Deterministic Financial Output</span>
-                </div>
-            </div>
-        </div>
-    );
-};
-
-const ChatAlertAnimation = () => {
-    return (
-        <div className="relative w-full h-[240px] flex flex-col overflow-hidden py-3 px-4">
-            {/* Header */}
-            <div className="w-full border-b border-white/5 pb-2 mb-3 flex items-center gap-1.5 shrink-0">
-                <div className="w-2 h-2 rounded-full bg-red-500/50" />
-                <div className="w-2 h-2 rounded-full bg-yellow-500/50" />
-                <div className="w-2 h-2 rounded-full bg-emerald-500/50" />
-                <span className="text-[8px] text-white/30 ml-1 font-mono uppercase tracking-wider">AI Advisor Chat</span>
-            </div>
-
-            {/* Chat Container */}
-            <div className="flex-1 flex flex-col gap-2 relative">
-                
-                {/* 1. User Chat Bubble */}
-                <motion.div 
-                    className="self-end bg-blue-500/10 border border-blue-500/20 text-blue-100 text-[10px] px-3 py-2 rounded-xl rounded-tr-sm shadow-sm max-w-[90%] shrink-0"
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: [0, 1, 1, 0], y: [10, 0, 0, 0] }}
-                    transition={{ duration: 12, repeat: Infinity, times: [0, 0.05, 0.95, 1] }}
-                >
-                    Liquidate ₹5 Lakhs from my Nifty 50 Index Fund to bank account.
-                </motion.div>
-
-                {/* Overlapping Alerts Container */}
-                <div className="relative flex-1 w-full mt-1">
                     
-                    {/* 2. Agent Action Alert */}
                     <motion.div 
-                        className="absolute top-0 left-0 flex items-center gap-1.5 text-yellow-400/80 text-[8px] font-mono px-1 w-full"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: [0, 0, 1, 1, 0, 0], y: [5, 5, 0, 0, -5, -5] }}
-                        transition={{ duration: 12, repeat: Infinity, times: [0, 0.1, 0.15, 0.35, 0.4, 1] }}
+                        initial={{ opacity: 0 }} 
+                        animate={{ opacity: [0, 0, 1, 1, 0] }} 
+                        transition={{ duration: 6, repeat: Infinity, times: [0, 0.1, 0.15, 0.95, 1] }}
+                        className="flex items-center gap-2"
                     >
-                        <Activity className="w-3 h-3 shrink-0" />
-                        [AGENT_ACTION] Preparing transaction payload...
+                        <CheckCircle className="w-3.5 h-3.5 text-emerald-500/80" />
+                        <span>GOOG &bull; Held: 512d</span>
                     </motion.div>
 
-                    {/* 3. MCP Call Alert */}
                     <motion.div 
-                        className="absolute top-0 left-0 bg-purple-500/5 border border-purple-500/20 px-2 py-1.5 rounded-md shadow-sm max-w-[95%] w-full"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: [0, 0, 1, 1, 0, 0], y: [5, 5, 0, 0, -5, -5] }}
-                        transition={{ duration: 12, repeat: Infinity, times: [0, 0.35, 0.4, 0.6, 0.65, 1] }}
+                        initial={{ opacity: 0 }} 
+                        animate={{ opacity: [0, 0, 1, 1, 0] }} 
+                        transition={{ duration: 6, repeat: Infinity, times: [0, 0.2, 0.25, 0.95, 1] }}
+                        className="flex items-center gap-2 text-red-400 font-bold bg-red-500/10 -mx-3 px-3 py-1.5 border-l-2 border-red-500"
                     >
-                        <div className="flex items-center gap-1.5 text-purple-400 font-bold font-mono text-[8px]">
-                            <Globe className="w-3 h-3 shrink-0" />
-                            [MCP_CALL] wising.project_tax_impact
-                        </div>
-                        <div className="text-[7.5px] text-purple-200/70 font-mono mt-0.5 ml-4">
-                            asset_id: "MF-NIFTY-01", action: "SELL", amt: 500k
-                        </div>
-                    </motion.div>
-
-                    {/* 4. Wising Response Bubble */}
-                    <motion.div 
-                        className="absolute top-0 left-0 bg-emerald-500/10 border border-emerald-500/20 px-3 py-2 rounded-xl rounded-tl-sm shadow-sm max-w-[100%] w-full"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: [0, 0, 1, 1, 0], y: [5, 5, 0, 0, -5] }}
-                        transition={{ duration: 12, repeat: Infinity, times: [0, 0.6, 0.65, 0.95, 1] }}
-                    >
-                        <div className="flex items-center gap-1.5 text-emerald-400 font-bold tracking-wider text-[8px] mb-1">
-                            <CheckCircle className="w-3 h-3 shrink-0" />
-                            PRE-CHECK COMPLETED
-                        </div>
-                        <pre className="text-[8.5px] font-mono text-emerald-100/90 leading-relaxed">
-{`{
-  "projected_ltcg": 185000,
-  "exemption_112A_remaining": 95000,
-  "taxable_amount": 90000,
-  "projected_tax_liability": 11250
-}`}
-                        </pre>
+                        <AlertTriangle className="w-3.5 h-3.5" />
+                        <span>AMZN &bull; Held: 450d</span>
                     </motion.div>
                 </div>
+            </div>
 
+            {/* Conflict Details Tooltip (Appears after AMZN is flagged) */}
+            <motion.div 
+                className="absolute -right-2 top-[30%] w-[150px] bg-[#050505] border border-red-500/40 rounded-xl p-3 shadow-[0_0_20px_rgba(239,68,68,0.2)] backdrop-blur-md z-20"
+                initial={{ opacity: 0, x: -10, scale: 0.95 }}
+                animate={{ opacity: [0, 0, 1, 1, 0], x: [-10, -10, 0, 0, -5], scale: [0.95, 0.95, 1, 1, 0.98] }}
+                transition={{ duration: 6, repeat: Infinity, times: [0, 0.35, 0.4, 0.9, 1] }}
+            >
+                <div className="text-[9px] text-red-400 font-bold tracking-widest mb-2 border-b border-red-500/20 pb-1.5">RULE MISMATCH</div>
+                <div className="flex justify-between items-center text-[11px] mb-1">
+                    <span className="text-white/50">India Tax</span>
+                    <span className="text-yellow-400 font-bold">STCG</span>
+                </div>
+                <div className="text-[8px] text-white/30 text-right mb-2.5 leading-none">{'< 24 months'}</div>
+                
+                <div className="flex justify-between items-center text-[11px] mb-1">
+                    <span className="text-white/50">US Tax</span>
+                    <span className="text-blue-400 font-bold">LTCG</span>
+                </div>
+                <div className="text-[8px] text-white/30 text-right leading-none">{'> 12 months'}</div>
+            </motion.div>
+        </div>
+    </div>
+);
+
+const ComplianceCalendarDiagram = () => (
+    <div className="relative w-full h-[220px] flex items-center justify-center overflow-visible py-4 font-mono w-full">
+        <div className="relative w-full max-w-[500px] h-full flex flex-col justify-between">
+            {/* Top Row: US Tax (Jan - Dec Calendar) */}
+            <div className="flex items-end px-4 text-blue-400 h-14 relative w-full">
+                {/* Connecting lines dropping down */}
+                <motion.div className="absolute left-[15%] bottom-0 w-px h-[20px] bg-gradient-to-b from-blue-500/80 to-transparent" animate={{ opacity: [0.3, 1, 0.3] }} transition={{ duration: 3, repeat: Infinity }} />
+                <motion.div className="absolute left-[35%] bottom-0 w-px h-[20px] bg-gradient-to-b from-blue-500/80 to-transparent" animate={{ opacity: [0.3, 1, 0.3] }} transition={{ duration: 3, repeat: Infinity, delay: 1 }} />
+                <motion.div className="absolute left-[90%] bottom-0 w-px h-[20px] bg-gradient-to-b from-blue-500/80 to-transparent" animate={{ opacity: [0.3, 1, 0.3] }} transition={{ duration: 3, repeat: Infinity, delay: 2 }} />
+                
+                <div className="text-center absolute left-[15%] -translate-x-1/2 bottom-[26px] w-24">
+                    <div className="text-[10px] font-bold">APR 15</div>
+                    <div className="text-[8px] text-blue-300/70 tracking-wider mt-0.5">Form 1040</div>
+                </div>
+                <div className="text-center absolute left-[35%] -translate-x-1/2 bottom-[26px] w-24">
+                    <div className="text-[10px] font-bold">JUN 15</div>
+                    <div className="text-[8px] text-blue-300/70 tracking-wider mt-0.5">Q2 Est. Tax</div>
+                </div>
+                <div className="text-center absolute left-[90%] -translate-x-1/2 bottom-[26px] w-24">
+                    <div className="text-[10px] font-bold">OCT 15</div>
+                    <div className="text-[8px] text-blue-300/70 tracking-wider mt-0.5">FBAR & Ext</div>
+                </div>
+            </div>
+
+            {/* Middle Row: The Unified Wising Timeline */}
+            <div className="relative w-full h-[40px] flex items-center justify-center">
+                {/* Base track */}
+                <div className="absolute w-full h-[2px] bg-white/10 rounded-full" />
+                {/* Glowing progress track */}
+                <motion.div 
+                    className="absolute left-0 h-[3px] bg-gradient-to-r from-purple-600 via-fuchsia-500 to-purple-600 rounded-full shadow-[0_0_15px_rgba(168,85,247,0.5)]"
+                    animate={{ width: ["0%", "100%", "0%"] }}
+                    transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                />
+                
+                {/* Unified Dots */}
+                {[15, 35, 55, 75, 90].map((left, idx) => (
+                    <motion.div 
+                        key={idx}
+                        className="absolute w-3 h-3 rounded-full bg-[#050505] border-[2px] border-purple-400 z-10 -translate-x-1/2 shadow-[0_0_10px_rgba(168,85,247,0.4)]" 
+                        style={{ left: `${left}%` }}
+                        animate={{ scale: [1, 1.4, 1] }}
+                        transition={{ duration: 2, repeat: Infinity, delay: idx * 0.4 }}
+                    />
+                ))}
+            </div>
+
+            {/* Bottom Row: India Tax (Apr - Mar FY) */}
+            <div className="flex items-start px-4 text-emerald-400 h-14 relative w-full">
+                {/* Connecting lines rising up */}
+                <motion.div className="absolute left-[35%] top-0 w-px h-[20px] bg-gradient-to-t from-emerald-500/80 to-transparent" animate={{ opacity: [0.3, 1, 0.3] }} transition={{ duration: 3, repeat: Infinity, delay: 0.5 }} />
+                <motion.div className="absolute left-[55%] top-0 w-px h-[20px] bg-gradient-to-t from-emerald-500/80 to-transparent" animate={{ opacity: [0.3, 1, 0.3] }} transition={{ duration: 3, repeat: Infinity, delay: 1 }} />
+                <motion.div className="absolute left-[75%] top-0 w-px h-[20px] bg-gradient-to-t from-emerald-500/80 to-transparent" animate={{ opacity: [0.3, 1, 0.3] }} transition={{ duration: 3, repeat: Infinity, delay: 1.5 }} />
+                
+                <div className="text-center absolute left-[35%] -translate-x-1/2 top-[26px] w-24">
+                    <div className="text-[10px] font-bold">JUN 15</div>
+                    <div className="text-[8px] text-emerald-300/70 tracking-wider mt-0.5">Q1 Advance</div>
+                </div>
+                <div className="text-center absolute left-[55%] -translate-x-1/2 top-[26px] w-24">
+                    <div className="text-[10px] font-bold">JUL 31</div>
+                    <div className="text-[8px] text-emerald-300/70 tracking-wider mt-0.5">ITR Filing</div>
+                </div>
+                <div className="text-center absolute left-[75%] -translate-x-1/2 top-[26px] w-24">
+                    <div className="text-[10px] font-bold">SEP 15</div>
+                    <div className="text-[8px] text-emerald-300/70 tracking-wider mt-0.5">Q2 Advance</div>
+                </div>
             </div>
         </div>
-    );
-};
+    </div>
+);
 
 // --- BENTO GRID COMPONENT ---
 
 const bentoItems: BentoItem[] = [
     {
-        title: "Infrastructure for AI native Tax Firms",
-        description: "Enterprise-grade compliance infrastructure. Connect Your LLM. Go AI Native instantly. Zero Hallucinations.",
-        icon: <Globe className="w-4 h-4 text-white/70" />,
-        status: "Unified",
-        tags: ["Infrastructure", "DeterministicEngine", "API"],
-        component: <LayeredInfrastructureDiagram />,
+        title: "Double Tax (FTC) Calculator",
+        description: "Instantly calculate combined tax liabilities and Foreign Tax Credit (FTC) residuals across overlapping fiscal calendars.",
+        icon: <Calculator className="w-4 h-4 text-white/70" />,
+        status: "Real-time",
+        tags: ["FTC", "Double Taxation", "Reconciliation"],
+        component: <FtcCalculatorDiagram />,
+        colSpan: 3,
+    },
+    {
+        title: "Asset-Level Conflict Detection",
+        description: "Different rules mean different tax treatment. Wising scans the portfolio and flags exact mismatches.",
+        icon: <AlertTriangle className="w-4 h-4 text-white/70" />,
+        status: "Active",
+        tags: ["Capital Gains", "Mismatches", "DTAA"],
+        component: <AssetConflictDiagram />,
+        colSpan: 1,
+    },
+    {
+        title: "Cross-Border Compliance Calendar",
+        description: "India's fiscal year and the US calendar year don't line up. Wising automatically syncs overlapping deadlines into one unified timeline.",
+        icon: <Calendar className="w-4 h-4 text-white/70" />,
+        status: "Sync",
+        tags: ["1040", "ITR", "FBAR", "Advance Tax"],
+        component: <ComplianceCalendarDiagram />,
         colSpan: 2,
-    },
-    {
-        title: "Agent Agnostic",
-        description: "Compliance Engine for any AI Agent. Connect MCP in your preferred model. Wising provides you the Deterministic Compliance Layer.",
-        icon: <Clock className="w-4 h-4 text-white/70" />,
-        status: "Auto",
-        tags: ["LLM", "Agentic AI", "MCP"],
-        component: <AgentAgnosticDiagram />,
-    },
-    {
-        title: "Advisor Sync",
-        description: "Share verified financial data securely with your CA, CPA, or Wealth Manager.",
-        icon: <Users className="w-4 h-4 text-white/70" />,
-        status: "Secure",
-        tags: ["Chartered Accountant", "CPA", "Wealth Managers"],
-        component: <AdvisorSyncDiagram />,
-        colSpan: 2,
-    },
-    {
-        title: "Compliance Engine MCP",
-        description: "Pre Execution check between your AI agents, Financial Intent and Executions",
-        icon: <Activity className="w-4 h-4 text-white/70" />,
-        status: "AI",
-        tags: ["Compliance Firewall", "MCP", "CLI", "API"],
-        component: <ChatAlertAnimation />,
     },
 ];
 
@@ -361,7 +283,7 @@ export function BentoGrid() {
                         "border border-white/5 bg-black backdrop-blur-3xl",
                         "hover:border-white/10 hover:shadow-[0_0_60px_rgba(255,255,255,0.02)]",
                         "hover:-translate-y-1 will-change-transform flex flex-col",
-                        item.colSpan === 2 ? "md:col-span-2 min-h-[180px]" : "col-span-1 min-h-[260px]"
+                        item.colSpan === 3 ? "md:col-span-3 min-h-[220px]" : item.colSpan === 2 ? "md:col-span-2 min-h-[180px]" : "col-span-1 min-h-[260px]"
                     )}
                 >
                     <div className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-700 pointer-events-none bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[size:16px_16px]" />
@@ -376,7 +298,7 @@ export function BentoGrid() {
                             </span>
                         </div>
 
-                        {item.colSpan === 2 ? (
+                        {item.colSpan === 3 || item.colSpan === 2 ? (
                             <div className="flex flex-col md:flex-row items-center gap-8 h-full">
                                 <div className="flex-[0.8] space-y-3">
                                     <h3 className="font-bold text-white tracking-tight text-[22px] md:text-[26px] font-['Manrope',sans-serif] leading-tight">

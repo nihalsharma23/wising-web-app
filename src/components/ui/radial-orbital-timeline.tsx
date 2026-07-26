@@ -1,6 +1,14 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
-import { Zap } from "lucide-react";
+import { Zap, FileText, Database, Cpu, AlertTriangle, LayoutDashboard } from "lucide-react";
+
+const iconConfig = {
+  "FileText": { icon: <FileText className="text-white w-5 h-5 drop-shadow-md" />, bg: "bg-gradient-to-br from-[#ffbc00] to-[#ff0058] shadow-[0_0_15px_rgba(255,0,88,0.5)]" },
+  "Database": { icon: <Database className="text-white w-5 h-5 drop-shadow-md" />, bg: "bg-gradient-to-br from-[#ff0058] to-[#9d00ff] shadow-[0_0_15px_rgba(157,0,255,0.5)]" },
+  "Cpu": { icon: <Cpu className="text-white w-5 h-5 drop-shadow-md" />, bg: "bg-gradient-to-br from-[#9d00ff] to-[#0051ff] shadow-[0_0_15px_rgba(0,81,255,0.5)]" },
+  "AlertTriangle": { icon: <AlertTriangle className="text-white w-5 h-5 drop-shadow-md" />, bg: "bg-gradient-to-br from-[#0051ff] to-[#00a6e6] shadow-[0_0_15px_rgba(0,166,230,0.5)]" },
+  "LayoutDashboard": { icon: <LayoutDashboard className="text-white w-5 h-5 drop-shadow-md" />, bg: "bg-gradient-to-br from-[#00a6e6] to-[#00ffc8] shadow-[0_0_15px_rgba(0,255,200,0.5)]" }
+};
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import imgHeaderLogo from "../../assets/header_logo.png";
@@ -15,6 +23,7 @@ export interface TimelineItem {
   content: string;
   status: "completed" | "in-progress" | "pending";
   energy: number;
+  iconName?: "FileText" | "Database" | "Cpu" | "AlertTriangle" | "LayoutDashboard";
 }
 
 interface RadialOrbitalTimelineProps {
@@ -135,14 +144,13 @@ export default function RadialOrbitalTimeline({
   const getStatusDisplay = (status: "completed" | "in-progress" | "pending") => {
     switch (status) {
       case "pending": return { label: "Pending", style: "text-white/60 bg-black/40 border-white/20" };
-      case "in-progress": return { label: "Retrieving Data", style: "text-yellow-300 bg-yellow-900/30 border-yellow-400/40 animate-pulse" };
-      case "completed": return { label: "Connected", style: "text-green-400 bg-green-900/30 border-green-400/50" };
+      case "in-progress": return { label: "Processing", style: "text-yellow-300 bg-yellow-900/30 border-yellow-400/40 animate-pulse" };
+      case "completed": return { label: "Success", style: "text-green-400 bg-green-900/30 border-green-400/50" };
     }
   };
 
   const getCurrencySymbol = (brokerName: string) => {
-    const usBrokers = ["Interactive Brokers", "Fidelity", "Robinhood"];
-    return usBrokers.some(b => brokerName.toLowerCase().includes(b.toLowerCase())) ? "$" : "₹";
+    return "";
   };
 
   return (
@@ -175,9 +183,9 @@ export default function RadialOrbitalTimeline({
 
             const statusDisplay = getStatusDisplay(currentStatus);
             
-            let energyLabel = "Connecting...";
-            if (currentEnergy >= 40 && currentEnergy < 85) energyLabel = "Retrieving Data...";
-            else if (currentEnergy >= 85) energyLabel = "Connected";
+            let energyLabel = "Initializing...";
+            if (currentEnergy >= 40 && currentEnergy < 85) energyLabel = "Computing...";
+            else if (currentEnergy >= 85) energyLabel = "Complete";
 
             const energyColor = currentEnergy >= 85 ? "from-green-400 to-emerald-500" : "from-blue-500 to-purple-500";
 
@@ -191,10 +199,16 @@ export default function RadialOrbitalTimeline({
                   className={`
                   w-10 h-10 rounded-full flex items-center justify-center bg-black/80
                   border-2 transition-all duration-300 transform overflow-hidden
-                  ${isExpanded ? "border-white shadow-[0_0_20px_rgba(255,255,255,0.4)] ring-2 ring-white/60 scale-150" : "border-white/40"}
+                  ${isExpanded ? "border-white shadow-[0_0_20px_rgba(255,255,255,0.4)] ring-2 ring-white/60 scale-150" : "border-white/20"}
                 `}
                 >
-                  <img src={item.logoUrl} alt={item.brokerName} className="w-full h-full object-cover rounded-full" />
+                  {item.iconName && iconConfig[item.iconName] ? (
+                    <div className={`flex items-center justify-center w-full h-full rounded-full ${iconConfig[item.iconName].bg}`}>
+                      {iconConfig[item.iconName].icon}
+                    </div>
+                  ) : (
+                    <img src={item.logoUrl} alt={item.brokerName} className="w-full h-full object-cover rounded-full" />
+                  )}
                 </div>
 
                 {isExpanded && (
@@ -210,7 +224,7 @@ export default function RadialOrbitalTimeline({
                       <CardTitle className="text-sm mt-1 font-['Manrope',sans-serif] text-white">{item.brokerName}</CardTitle>
                     </CardHeader>
                     <CardContent className="text-xs text-white/80 pb-3">
-                      <p className="opacity-60 text-[11px] leading-tight mb-2">Establishing secure connection and retrieving global assets.</p>
+                      <p className="opacity-60 text-[11px] leading-tight mb-2">Processing state and executing core engine functionality.</p>
 
                       <div className="mt-2 pt-3 border-t border-white/10">
                         <div className="flex justify-between items-center text-[10px] mb-2 text-white/70">
@@ -230,13 +244,13 @@ export default function RadialOrbitalTimeline({
 
                       <div className="mt-4 pt-3 border-t border-white/10 overflow-hidden h-[60px] relative">
                          <h4 className="text-[10px] uppercase tracking-wider font-medium text-white/50 mb-1">
-                            Portfolio Synced
+                            Data Synced
                          </h4>
                          <div className={`transition-all duration-400 ${isVisibleValuation ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
                             <div className="text-2xl font-mono font-bold text-green-400">
                                {getCurrencySymbol(item.brokerName)}{item.portfolioValue}
                             </div>
-                            <div className="text-[9px] text-white/40 mt-0.5">Total Account Value</div>
+                            <div className="text-[9px] text-white/40 mt-0.5">Items Processed</div>
                          </div>
                       </div>
                     </CardContent>

@@ -70,7 +70,7 @@ export function BetaLandingWeb() {
                             {/* Hero Content */}
                             <div className="relative z-10 flex flex-col items-center text-center space-y-4 pt-16 px-4">
                                 <AnimatedText 
-                                    text="PRE-EXECUTION CROSS BORDER" 
+                                    text="CROSS-BORDER" 
                                     className="font-['Cormorant_Garamond',serif] text-lg md:text-xl lg:text-2xl font-bold tracking-[0.3em] text-white mb-2"
                                     animationType="letters"
                                     staggerDelay={0.06}
@@ -79,7 +79,7 @@ export function BetaLandingWeb() {
                                 
                                 <div className="mt-1">
                                     <AnimatedText 
-                                        text="FINANCIAL COMPLIANCE" 
+                                        text="TAX CONFLICT DETECTION" 
                                         className="font-['Syne',sans-serif] text-[32px] md:text-[50px] lg:text-[74px] font-bold tracking-[0.1em] globe-color-shimmer"
                                         animationType="letters"
                                         staggerDelay={0.04}
@@ -89,7 +89,7 @@ export function BetaLandingWeb() {
 
                                 <div className="mt-2">
                                     <AnimatedText 
-                                        text="For AI Agents." 
+                                        text="For Tax Professionals." 
                                         className="font-['Playfair_Display',serif] text-sm md:text-base lg:text-lg italic tracking-[0.5em] bg-gradient-to-r from-blue-400 via-emerald-400 to-indigo-500 bg-clip-text text-transparent uppercase"
                                         animationType="letters"
                                         staggerDelay={0.05}
@@ -185,7 +185,7 @@ export function BetaLandingWeb() {
                         <section className="w-full flex items-center justify-start px-4 md:px-12 lg:px-24 min-h-screen bg-transparent pb-0">
                             <div className="max-w-2xl w-full text-left pl-0 md:pl-8">
                                 <MagicText
-                                    text="Wising Enforces real-time US (IRS), Indian Tax Law and FEMA Compliance on every agentic action. You get instant feedback. Your CAs, CPAs and Wealth Manager receive a Professional Brief about the action. Issues get fixed at the source. Everyone Moves Faster."
+                                    text="Income that is fully compliant in one country can easily trigger overlapping liabilities in another. Often, this gets missed until a return is already filed. Wising checks multiple tax codes against the same facts and shows you exactly where the overlap happens, with the math behind it. One monitor for your entire client book, not isolated spreadsheets for every jurisdiction."
                                     wordClassName="text-xl md:text-2xl lg:text-[1.75rem] font-normal font-['Manrope',sans-serif] text-white"
                                 />
                             </div>
@@ -205,17 +205,6 @@ export function BetaLandingWeb() {
                     </div>
                 </StickyCard>
 
-                {/* Section 4: Magic Text Reveal 2 (Section 5 in User Request) - REMOVED STICKYCARD CONTAINER */}
-                <div className="w-full flex justify-center pt-[5px] pb-[10px] bg-transparent relative z-20">
-                    <div className="w-full py-0 bg-black rounded-[2rem] px-8 md:px-12 py-12">
-                        <MagicText
-                            text="Every Brokerage handles the same trades. [fidelity] [zerodha] [groww] [robinhood] [binance] The Difference is Infrastructure. Too many tools leave blind spots that trigger massive fines. Too many manual spreadsheets waste your time. Wising builds the right infrastructure - So every action is fast, legally sound and 100% compliant."
-                            className="px-0"
-                            wordClassName="text-[24px] md:text-[29px] lg:text-[33px] font-normal font-['Manrope',sans-serif]"
-                            iconSizeClassName="w-10 h-10 md:w-12 md:h-12 lg:w-14 lg:h-14"
-                        />
-                    </div>
-                </div>
 
                 {/* Section 6: The Solution */}
                 <div className="w-full flex justify-center pt-[15px] pb-[5px] bg-transparent relative z-20">

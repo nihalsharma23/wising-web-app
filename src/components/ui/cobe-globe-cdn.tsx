@@ -23,25 +23,21 @@ interface GlobeCdnProps {
 }
 
 const defaultMarkers: CdnMarker[] = [
-  { id: "cdn-iad", location: [38.95, -77.45], region: "IRS Audit" },
-  { id: "cdn-sfo", location: [37.62, -122.38], region: "$50k Penalty" },
-  { id: "cdn-cdg", location: [49.01, 2.55], region: "FEMA Violation" },
-  { id: "cdn-hnd", location: [35.55, 139.78], region: "Compliance Breach" },
-  { id: "cdn-syd", location: [-33.95, 151.18], region: "Account Frozen" },
-  { id: "cdn-gru", location: [-23.43, -46.47], region: "Late Filing Fee" },
-  { id: "cdn-sin", location: [1.36, 103.99], region: "Regulatory Hold" },
-  { id: "cdn-arn", location: [59.65, 17.93], region: "Reporting Error" },
-  { id: "cdn-dub", location: [53.43, -6.25], region: "Tax Evasion Risk" },
-  { id: "cdn-bom", location: [19.09, 72.87], region: "FDI Violation" },
+  { id: "conflict-us-1", location: [38.90, -77.03], region: "Form 8938 Discrepancy" },
+  { id: "conflict-in-1", location: [19.07, 72.87], region: "FEMA §4 Violation" },
+  { id: "conflict-us-2", location: [37.77, -122.41], region: "PFIC Reporting Error" },
+  { id: "conflict-in-2", location: [28.61, 77.20], region: "Double Taxation Risk" },
+  { id: "conflict-us-3", location: [40.71, -74.00], region: "FTC §904(d) Mismatch" },
+  { id: "conflict-in-3", location: [12.97, 77.59], region: "Residency Conflict" },
 ]
 
 const defaultArcs: CdnArc[] = [
-  { id: "cdn-arc-1", from: [38.95, -77.45], to: [49.01, 2.55] },
-  { id: "cdn-arc-2", from: [37.62, -122.38], to: [35.55, 139.78] },
-  { id: "cdn-arc-3", from: [49.01, 2.55], to: [1.36, 103.99] },
-  { id: "cdn-arc-4", from: [38.95, -77.45], to: [-23.43, -46.47] },
-  { id: "cdn-arc-5", from: [35.55, 139.78], to: [-33.95, 151.18] },
-  { id: "cdn-arc-6", from: [49.01, 2.55], to: [19.09, 72.87] },
+  { id: "arc-1", from: [38.90, -77.03], to: [19.07, 72.87] },
+  { id: "arc-2", from: [37.77, -122.41], to: [28.61, 77.20] },
+  { id: "arc-3", from: [19.07, 72.87], to: [40.71, -74.00] },
+  { id: "arc-4", from: [12.97, 77.59], to: [37.77, -122.41] },
+  { id: "arc-5", from: [28.61, 77.20], to: [38.90, -77.03] },
+  { id: "arc-6", from: [40.71, -74.00], to: [12.97, 77.59] },
 ]
 
 export function GlobeCdn({

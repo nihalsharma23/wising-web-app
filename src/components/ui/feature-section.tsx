@@ -13,8 +13,8 @@ const tasks = [
 ];
 
 export default function FeatureSection() {
-  const headline = "Managing Global Wealth Means Guessing The Laws Every Time.";
-  const bottomText = "Same Wealth. Better Protection.";
+  const headline = "Your client's India and US filings are prepared separately, by separate rules. Nothing checks that the two sides actually agree until a notice forces the comparison.";
+  const bottomText = "Catch It Before The Notice Does.";
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -48,9 +48,9 @@ export default function FeatureSection() {
             The Problem
           </Badge>
           <MagicText 
-            text="Managing Global Wealth Means Guessing The Laws Every Time."
+            text="Your client's India and US filings are prepared separately, by separate rules. Nothing checks that the two sides actually agree until a notice forces the comparison."
             className="px-0"
-            wordClassName="text-3xl md:text-5xl lg:text-[3.5rem] font-bold leading-[1.1] tracking-tight font-['Manrope',sans-serif] !text-white"
+            wordClassName="text-2xl md:text-3xl lg:text-[2.5rem] font-semibold leading-[1.2] tracking-tight font-['Manrope',sans-serif] !text-white/90"
           />
         </div>
  
@@ -59,7 +59,7 @@ export default function FeatureSection() {
           
           <div className="w-full flex justify-center mb-8">
             <Badge variant="secondary" className="px-5 py-3 h-auto min-h-[48px] whitespace-normal break-words text-[13px] md:text-[14px] bg-black/50 border border-white/10 backdrop-blur-md text-white rounded-[1.5rem] font-['Manrope',sans-serif] font-semibold tracking-wider flex items-center justify-center text-center shadow-[0_0_20px_rgba(255,255,255,0.05)] w-[85%] max-w-[280px] leading-snug">
-              Average Cost Of Manual Cross-Border Wealth
+              What Manual Cross-Border Filing Actually Costs
             </Badge>
           </div>
  
@@ -129,7 +129,7 @@ export default function FeatureSection() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-center text-lg md:text-xl font-semibold text-white font-['Manrope',sans-serif] tracking-tight mt-[7px] w-full z-30"
           >
-            Same Wealth. Better Protection.
+            Catch It Before The Notice Does.
           </motion.p>
         </div>
  
