@@ -46,7 +46,7 @@ export default function AnimatedText({
       opacity: animateOpacity,
       transition: {
         duration: duration,
-        ease: "easeOut"
+        ease: "easeOut" as any
       }
     }
   };

@@ -5,11 +5,11 @@ import Globe, { GlobeMethods } from 'react-globe.gl';
 import { useScroll, useVelocity, useMotionValueEvent, useSpring } from 'framer-motion';
 
 interface EarthGlobeMobileProps {
-  containerRef: React.RefObject<HTMLDivElement>;
+  containerRef: React.RefObject<HTMLDivElement | null>;
 }
 
 export default function EarthGlobeMobile({ containerRef }: EarthGlobeMobileProps) {
-  const globeEl = useRef<GlobeMethods>();
+  const globeEl = useRef<GlobeMethods>(null);
   const [mounted, setMounted] = useState(false);
   const [size, setSize] = useState(600);
 
@@ -61,7 +61,6 @@ export default function EarthGlobeMobile({ containerRef }: EarthGlobeMobileProps
         backgroundColor="rgba(0,0,0,0)"
         showAtmosphere={true}
         atmosphereColor="#4e6699"
-        atmosphereDayAlpha={0.2}
         showStars={false}
         globeImageUrl="https://unpkg.com/three-globe/example/img/earth-night.jpg"
         bumpImageUrl="https://unpkg.com/three-globe/example/img/earth-topology.png"

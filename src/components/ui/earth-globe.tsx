@@ -5,7 +5,7 @@ import Globe, { GlobeMethods } from 'react-globe.gl';
 import { motion, useScroll, useTransform, useVelocity, useMotionValueEvent, useSpring } from 'framer-motion';
 
 export default function EarthGlobe() {
-  const globeEl = useRef<GlobeMethods>();
+  const globeEl = useRef<GlobeMethods>(null);
   const [mounted, setMounted] = React.useState(false);
 
   // Hook into page scroll
@@ -88,7 +88,6 @@ export default function EarthGlobe() {
                 backgroundColor="rgba(0,0,0,0)"
                 showAtmosphere={true}
                 atmosphereColor="#4e6699"
-                atmosphereDayAlpha={0.2}
                 showStars={true}
                 globeImageUrl="https://unpkg.com/three-globe/example/img/earth-night.jpg"
                 bumpImageUrl="https://unpkg.com/three-globe/example/img/earth-topology.png"

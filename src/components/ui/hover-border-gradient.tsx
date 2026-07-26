@@ -58,8 +58,9 @@ export default function HoverBorderGradient({
     }
   }, [hovered])
 
-  return (
-    <Element
+    const Tag = Element as any;
+    return (
+    <Tag
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       className={cn(
@@ -95,6 +96,6 @@ export default function HoverBorderGradient({
         transition={{ ease: 'linear', duration: duration ?? 1 }}
       />
       <div className='absolute inset-[2px] z-1 flex-none rounded-full bg-black' />
-    </Element>
+    </Tag>
   )
 }

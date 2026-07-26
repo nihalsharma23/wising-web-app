@@ -17,6 +17,7 @@ import Starfield from '../../components/ui/Starfield';
 import { FlickeringFooter } from '../../components/ui/flickering-footer';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowUp, ArrowRight, Menu, X, ChevronRight, Play, Globe as GlobeIcon, Shield, Zap, Lock, Cpu, Database, BarChart3, Fingerprint, Network } from 'lucide-react';
+// @ts-ignore
 import { ReactLenis } from 'lenis/react';
 import { StickyCard } from '../../components/layout/StickyCard';
 

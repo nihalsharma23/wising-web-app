@@ -13,6 +13,7 @@ interface LaserFlowProps {
   verticalBeamOffset?: number;
   horizontalBeamOffset?: number;
   direction?: 'horizontal' | 'vertical';
+  sharpEnds?: boolean;
   className?: string;
 }
 

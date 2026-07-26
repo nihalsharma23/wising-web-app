@@ -60,7 +60,7 @@ export const PulsatingBeamSection = () => {
                      scale: dashboardsScale,
                      background: useTransform(chargingGlow, [0, 1], ["rgba(0, 0, 0, 0.95)", "rgba(10, 10, 10, 0.8)"]),
                      border: useTransform(chargingGlow, [0, 1], ["1px solid rgba(255, 255, 255, 0.05)", "1px solid rgba(255, 255, 255, 0.1)"]),
-                     backdropBlur: "20px"
+                     filter: "backdrop-blur(20px)"
                    }}
                 >
 
@@ -211,7 +211,7 @@ export const PulsatingBeamSection = () => {
                     scale: dashboardsScale,
                     background: useTransform(chargingGlow, [0, 1], ["rgba(0, 0, 0, 0.95)", "rgba(10, 10, 10, 0.8)"]),
                     border: useTransform(chargingGlow, [0, 1], ["1px solid rgba(255, 255, 255, 0.05)", "1px solid rgba(255, 255, 255, 0.1)"]),
-                    backdropBlur: "20px"
+                    filter: "backdrop-blur(20px)"
                   }}
                 >
 
