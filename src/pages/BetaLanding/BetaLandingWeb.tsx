@@ -81,7 +81,7 @@ export function BetaLandingWeb() {
                                 <div className="mt-1">
                                     <AnimatedText 
                                         text="TAX CONFLICT DETECTION" 
-                                        className="font-['Syne',sans-serif] text-[32px] md:text-[50px] lg:text-[74px] font-bold tracking-[0.1em] globe-color-shimmer"
+                                        className="font-['Syne',sans-serif] text-4xl md:text-5xl lg:text-6xl font-bold tracking-[0.1em] globe-color-shimmer"
                                         animationType="letters"
                                         staggerDelay={0.04}
                                         duration={0.8}
