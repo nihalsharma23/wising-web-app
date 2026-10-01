@@ -4,23 +4,24 @@ import { MagicText } from "./magic-text";
 import { motion } from 'framer-motion';
 import RadialOrbitalTimeline, { TimelineItem } from "./radial-orbital-timeline";
 import { GlobeCdn } from "./cobe-globe-cdn";
+import LaserFlow from "./LaserFlow";
 
 const cards = [
   {
-    title: 'SINGLE SOURCE OF TRUTH',
-    desc: 'Enter residency days, income, entity types, and elections once, then update as things change. No more keeping a separate US and India file lined up by hand.',
+    title: 'UNIFIED DATA INTAKE',
+    desc: "Simply enter the client's raw India and US financial facts once. Wising's engine takes over from there, eliminating the need to keep separate, fragmented spreadsheets lined up by hand.",
     gradientFrom: '#ffbc00',
     gradientTo: '#ff0058',
   },
   {
     title: 'SIMULTANEOUS COMPUTATION',
-    desc: 'Wising runs those facts through India and US tax law at the exact same time. It instantly flags mismatches in the overlapping code so you can fix them before filing.',
+    desc: 'Our engine computes taxes for both countries simultaneously while applying relevant tax treaties. It instantly flags cross-border conflicts, double taxation risks, and handles complex foreign tax credits.',
     gradientFrom: '#03a9f4',
     gradientTo: '#ff0058',
   },
   {
-    title: 'ONE MONITOR, WHOLE BOOK',
-    desc: "India's fiscal year and the US calendar year never line up. Wising rechecks every cross-border client each quarter, exposing drift and deadlines in one dashboard before it reaches a notice.",
+    title: 'UNIFIED DASHBOARD',
+    desc: "Wising acts as your continuous monitor, instantly flagging exactly what needs to be filed and when in both countries, freeing you to focus on high-level strategy rather than manual reconciliation.",
     gradientFrom: '#4dff03',
     gradientTo: '#00d0ff',
   },
@@ -44,9 +45,9 @@ export default function SolutionSection() {
           The Solution
         </Badge>
         <MagicText 
-          text="Every tax professional can file a return. The difference is what happens when the same client has to be filed in two countries at once. Right now, the India side and the US side get prepared separately. That's exactly where mismatches hide, until a notice finds them first. Wising runs both sides from one set of facts, so the two returns are checked against each other before either one is filed."
+          text="We built the ultimate cross-border tax engine. Wising automates the entire backend of your engagement by seamlessly reconciling tax codes and treaties. By eliminating the fragmented, manual workflows that cap your capacity, Wising cuts prep time by 50% to help your firm overcome stagnant profit margins. Double your client capacity and unlock new revenue growth, freeing you to focus on high-level tax strategy."
           className="justify-center"
-          wordClassName="text-2xl md:text-3xl lg:text-[2.25rem] font-semibold leading-[1.3] tracking-tight font-['Manrope',sans-serif] text-white/90"
+          wordClassName="text-xl md:text-2xl lg:text-[2.25rem] font-medium leading-[1.3] tracking-tight font-['Manrope',sans-serif] text-white/90"
         />
       </div>
 
@@ -109,12 +110,12 @@ export default function SolutionSection() {
                   />
                 )}
                 {idx === 0 ? (
-                  // Placeholder 1: Fully Automated Orbital Timeline
+                  // Step 1: Data Intake Flow
                   <div className="w-full max-w-[530px] h-[375px] md:h-[420px] bg-black border border-white/10 shadow-2xl rounded-3xl overflow-hidden relative group flex items-center justify-center">
                      <RadialOrbitalTimeline timelineData={timelineData} />
                   </div>
                 ) : idx === 1 ? (
-                  // Placeholder 2: Globe CDN Animation
+                  // Step 2: Conflict Flagging Globe
                   <div className="w-full max-w-[530px] h-[375px] md:h-[420px] bg-black border border-white/10 shadow-2xl rounded-3xl overflow-hidden relative group flex items-center justify-center p-4">
                      <div className="w-full max-w-sm">
                         <GlobeCdn />

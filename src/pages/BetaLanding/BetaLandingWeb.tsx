@@ -13,10 +13,11 @@ import { CpuArchitecture } from '../../components/ui/cpu-architecture';
 import SkewCards from '../../components/ui/gradient-card-showcase';
 import { PulsatingBeamSection } from '../../components/ui/PulsatingBeam';
 import Starfield from '../../components/ui/Starfield';
+import FaqSection from '../../components/ui/faq-section';
 
 import { FlickeringFooter } from '../../components/ui/flickering-footer';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ArrowUp, ArrowRight, Menu, X, ChevronRight, Play, Globe as GlobeIcon, Shield, Zap, Lock, Cpu, Database, BarChart3, Fingerprint, Network } from 'lucide-react';
+import { ArrowUp, ArrowRight, Menu, X, ChevronRight, Play, Globe as GlobeIcon, Shield, Zap, Lock, Cpu, Database, BarChart3, Fingerprint, Network, Star } from 'lucide-react';
 // @ts-ignore
 import { ReactLenis } from 'lenis/react';
 import { StickyCard } from '../../components/layout/StickyCard';
@@ -70,32 +71,31 @@ export function BetaLandingWeb() {
                         <main className="w-full flex flex-col items-center justify-center relative min-h-screen bg-transparent overflow-hidden">
                             {/* Hero Content */}
                             <div className="relative z-10 flex flex-col items-center text-center space-y-4 pt-16 px-4">
-                                <AnimatedText 
-                                    text="CROSS-BORDER" 
-                                    className="font-['Cormorant_Garamond',serif] text-lg md:text-xl lg:text-2xl font-bold tracking-[0.3em] text-white mb-2"
-                                    animationType="letters"
-                                    staggerDelay={0.06}
-                                    duration={0.8}
-                                />
-                                
-                                <div className="mt-1">
+                                <div className="mt-2 flex flex-col items-center gap-1 md:gap-2">
+                                    <div className="mb-4 inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-white/70 text-[11px] font-bold tracking-[0.2em] uppercase shadow-[0_0_15px_rgba(255,255,255,0.03)] backdrop-blur-sm animate-in fade-in slide-in-from-bottom-4 duration-1000">
+                                        <Star className="w-3.5 h-3.5 text-purple-400" />
+                                        Designed by India-US Tax Consultants
+                                    </div>
                                     <AnimatedText 
-                                        text="TAX CONFLICT DETECTION" 
-                                        className="font-['Syne',sans-serif] text-4xl md:text-5xl lg:text-6xl font-bold tracking-[0.1em] globe-color-shimmer"
+                                        text="Every Cross-Border Tax Engagement." 
+                                        className="font-['Manrope',sans-serif] text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white"
                                         animationType="letters"
-                                        staggerDelay={0.04}
+                                        staggerDelay={0.02}
+                                        duration={0.8}
+                                    />
+                                    <AnimatedText 
+                                        text="Made Effortless." 
+                                        className="font-['Manrope',sans-serif] text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-white"
+                                        animationType="letters"
+                                        staggerDelay={0.02}
                                         duration={0.8}
                                     />
                                 </div>
-
-                                <div className="mt-2">
-                                    <AnimatedText 
-                                        text="For Tax Professionals." 
-                                        className="font-['Playfair_Display',serif] text-sm md:text-base lg:text-lg italic tracking-[0.5em] bg-gradient-to-r from-blue-400 via-emerald-400 to-indigo-500 bg-clip-text text-transparent uppercase"
-                                        animationType="letters"
-                                        staggerDelay={0.05}
-                                        duration={0.8}
-                                    />
+                                
+                                <div className="mt-6 max-w-2xl mx-auto px-4">
+                                    <p className="text-[#a1a1aa] font-['Manrope',sans-serif] text-base md:text-lg leading-relaxed text-center animate-in fade-in duration-1000 delay-500 fill-mode-both">
+                                        Wising simultaneously checks India and US tax codes, along with tax treaties, against your client's facts to reveal conflicts, compute taxes, and map out filing calendars. Cut manual prep time by 50% to restore profit margins, and double your firm's capacity to unlock new revenue.
+                                    </p>
                                 </div>
                             </div>
 
@@ -184,11 +184,13 @@ export function BetaLandingWeb() {
 
                         {/* Tracking/Value Prop Section 1 (Section 2 in User Request) */}
                         <section className="w-full flex items-center justify-start px-4 md:px-12 lg:px-24 min-h-screen bg-transparent pb-0">
-                            <div className="max-w-2xl w-full text-left pl-0 md:pl-8">
-                                <MagicText
-                                    text="Income that is fully compliant in one country can easily trigger overlapping liabilities in another. Often, this gets missed until a return is already filed. Wising checks multiple tax codes against the same facts and shows you exactly where the overlap happens, with the math behind it. One monitor for your entire client book, not isolated spreadsheets for every jurisdiction."
-                                    wordClassName="text-xl md:text-2xl lg:text-[1.75rem] font-normal font-['Manrope',sans-serif] text-white"
-                                />
+                            <div className="max-w-xl w-full text-left pl-0 md:pl-8 flex flex-col gap-6">
+                                <h2 className="text-4xl md:text-5xl lg:text-6xl font-['Manrope',sans-serif] font-bold tracking-tight text-white leading-[1.1]">
+                                    Two tax codes.<br />Infinite complexity.
+                                </h2>
+                                <p className="text-[#a1a1aa] font-['Manrope',sans-serif] text-lg md:text-xl leading-relaxed animate-in fade-in duration-1000 delay-500 fill-mode-both">
+                                    A cross-border client operating in just two jurisdictions triggers a web of overlapping rules, hidden treaties, and conflicting fiscal calendars. Navigating this without a unified engine is a mathematical nightmare.
+                                </p>
                             </div>
                         </section>
                     </div>
@@ -236,7 +238,7 @@ export function BetaLandingWeb() {
                                     wordClassName="text-4xl md:text-5xl lg:text-[3.5rem] font-bold font-['Manrope',sans-serif] leading-[1.1] tracking-tight !text-white"
                                 />
                                 <p className="text-white font-['Manrope',sans-serif] text-base md:text-lg leading-relaxed max-w-lg mt-1">
-                                    Our core architecture assumes no entity is trustworthy by default. Wising integrates SASE to enforce least-privilege access, continuous microsegmentation, and strict verification—minimizing the attack surface and proactively preventing lateral movement across your resources.
+                                    Our core architecture assumes no entity is trustworthy by default. Wising integrates SASE to enforce least-privilege access, continuous microsegmentation, and strict verification, minimizing the attack surface and proactively preventing lateral movement across your resources.
                                 </p>
                             </div>
                             <motion.div 
@@ -263,6 +265,11 @@ export function BetaLandingWeb() {
                         </div>
                     </div>
                 </StickyCard>
+
+                {/* FAQ Section */}
+                <div className="w-full relative z-20 bg-transparent py-10">
+                    <FaqSection />
+                </div>
 
                 {/* Final Section: High-Fidelity Footer — Restored to end */}
                 <div className="relative z-30 w-full min-h-screen bg-black flex flex-col items-center justify-end rounded-t-[3rem] mt-12 border-t border-white/10 overflow-hidden shadow-[0_-20px_50px_rgba(0,0,0,0.8)]">

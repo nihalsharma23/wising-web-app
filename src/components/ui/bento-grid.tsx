@@ -245,7 +245,7 @@ const ComplianceCalendarDiagram = () => (
 const bentoItems: BentoItem[] = [
     {
         title: "Double Tax (FTC) Calculator",
-        description: "Instantly calculate combined tax liabilities and Foreign Tax Credit (FTC) residuals across overlapping fiscal calendars.",
+        description: "Instantly calculate combined tax liabilities and Foreign Tax Credit (FTC) residuals without grueling manual spreadsheet reconciliation.",
         icon: <Calculator className="w-4 h-4 text-white/70" />,
         status: "Real-time",
         tags: ["FTC", "Double Taxation", "Reconciliation"],
@@ -254,7 +254,7 @@ const bentoItems: BentoItem[] = [
     },
     {
         title: "Asset-Level Conflict Detection",
-        description: "Different rules mean different tax treatment. Wising scans the portfolio and flags exact mismatches.",
+        description: "Different rules mean different tax treatment. Wising scans the raw facts and flags exact mismatches before they trigger penalties.",
         icon: <AlertTriangle className="w-4 h-4 text-white/70" />,
         status: "Active",
         tags: ["Capital Gains", "Mismatches", "DTAA"],
@@ -274,7 +274,7 @@ const bentoItems: BentoItem[] = [
 
 export function BentoGrid() {
     return (
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 w-full mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 w-full max-w-[1200px] mx-auto px-4 lg:px-0">
             {bentoItems.map((item, index) => (
                 <div
                     key={index}
@@ -299,8 +299,8 @@ export function BentoGrid() {
                         </div>
 
                         {item.colSpan === 3 || item.colSpan === 2 ? (
-                            <div className="flex flex-col md:flex-row items-center gap-8 h-full">
-                                <div className="flex-[0.8] space-y-3">
+                            <div className="flex flex-col md:flex-row items-start gap-8 h-full">
+                                <div className="flex-[0.8] space-y-3 md:pt-4">
                                     <h3 className="font-bold text-white tracking-tight text-[22px] md:text-[26px] font-['Manrope',sans-serif] leading-tight">
                                         {item.title}
                                     </h3>
@@ -313,7 +313,7 @@ export function BentoGrid() {
                                         ))}
                                     </div>
                                 </div>
-                                <div className="flex-1 w-full flex justify-center">
+                                <div className="flex-1 w-full flex items-center justify-center h-full min-h-[180px]">
                                     {item.component}
                                 </div>
                             </div>

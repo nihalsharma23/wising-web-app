@@ -11,7 +11,8 @@ import { PulsatingBeamMobile } from '../../components/ui/PulsatingBeamMobile';
 import Starfield from '../../components/ui/Starfield';
 import { FlickeringFooter } from '../../components/ui/flickering-footer';
 import { motion } from 'framer-motion';
-import { ArrowUp } from 'lucide-react';
+import { ArrowUp, Star } from 'lucide-react';
+import FaqSection from '../../components/ui/faq-section';
 
 export function BetaLandingMobile() {
     const [email, setEmail] = useState('');
@@ -64,39 +65,38 @@ export function BetaLandingMobile() {
 
                         {/* Headline — centered vertically + horizontally */}
                         <div className="relative z-10 flex flex-col items-center text-center space-y-4 pt-16 px-4">
-                            <AnimatedText 
-                                text="CROSS-BORDER" 
-                                className="font-['Cormorant_Garamond',serif] text-lg font-bold tracking-[0.3em] text-white mb-2"
-                                animationType="letters"
-                                staggerDelay={0.06}
-                                duration={0.8}
-                            />
-                            
-                            <div className="mt-1 flex flex-col items-center">
+                            <div className="mt-2 flex flex-col items-center gap-1">
+                                <div className="mb-3 inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-white/70 text-[9px] font-bold tracking-[0.2em] uppercase shadow-[0_0_15px_rgba(255,255,255,0.03)] backdrop-blur-sm animate-in fade-in slide-in-from-bottom-4 duration-1000">
+                                    <Star className="w-3 h-3 text-purple-400" />
+                                    Designed by India-US Tax Consultants
+                                </div>
                                 <AnimatedText 
-                                    text="TAX CONFLICT" 
-                                    className="font-['Syne',sans-serif] text-[36px] leading-[1.1] font-bold tracking-[0.1em] globe-color-shimmer"
+                                    text="Every Cross-Border" 
+                                    className="font-['Manrope',sans-serif] text-[32px] md:text-5xl leading-[1.1] font-bold tracking-tight text-white text-center"
                                     animationType="letters"
-                                    staggerDelay={0.04}
+                                    staggerDelay={0.02}
                                     duration={0.8}
                                 />
                                 <AnimatedText 
-                                    text="DETECTION" 
-                                    className="font-['Syne',sans-serif] text-[36px] leading-[1.1] font-bold tracking-[0.1em] globe-color-shimmer"
+                                    text="Tax Engagement." 
+                                    className="font-['Manrope',sans-serif] text-[32px] md:text-5xl leading-[1.1] font-bold tracking-tight text-white text-center"
                                     animationType="letters"
-                                    staggerDelay={0.04}
+                                    staggerDelay={0.02}
+                                    duration={0.8}
+                                />
+                                <AnimatedText 
+                                    text="Made Effortless." 
+                                    className="font-['Manrope',sans-serif] text-[32px] md:text-5xl leading-[1.1] font-bold tracking-tight text-white text-center mt-1"
+                                    animationType="letters"
+                                    staggerDelay={0.02}
                                     duration={0.8}
                                 />
                             </div>
-
-                            <div className="mt-2">
-                                <AnimatedText 
-                                    text="For Tax Professionals." 
-                                    className="font-['Playfair_Display',serif] text-xs italic tracking-[0.3em] bg-gradient-to-r from-blue-400 via-emerald-400 to-indigo-500 bg-clip-text text-transparent uppercase"
-                                    animationType="letters"
-                                    staggerDelay={0.05}
-                                    duration={0.8}
-                                />
+                            
+                            <div className="mt-5 max-w-[340px] mx-auto px-2">
+                                <p className="text-[#a1a1aa] font-['Manrope',sans-serif] text-[13px] leading-relaxed text-center animate-in fade-in duration-1000 delay-500 fill-mode-both">
+                                    Wising simultaneously checks India and US tax codes, along with tax treaties, against your client's facts to reveal conflicts, compute taxes, and map out filing calendars. Cut manual prep time by 50% to restore profit margins, and double your firm's capacity to unlock new revenue.
+                                </p>
                             </div>
                         </div>
 
@@ -157,11 +157,13 @@ export function BetaLandingMobile() {
 
                     {/* ── SECTION 2: Magic Text (100vh, globe still visible behind) ── */}
                     <section className="w-full h-[100svh] flex items-center justify-start px-5 pb-20">
-                        <div className="max-w-full w-full">
-                            <MagicText
-                                text="Income that is fully compliant in one country can easily trigger overlapping liabilities in another. Often, this gets missed until a return is already filed. Wising checks multiple tax codes against the same facts and shows you exactly where the overlap happens, with the math behind it. One monitor for your entire client book, not isolated spreadsheets for every jurisdiction."
-                                wordClassName="text-[1.25rem] leading-[1.4] font-medium font-['Manrope',sans-serif] text-white"
-                            />
+                        <div className="max-w-full w-full flex flex-col gap-4">
+                            <h2 className="text-3xl md:text-5xl font-['Manrope',sans-serif] font-bold tracking-tight text-white leading-[1.1]">
+                                Two tax codes.<br />Infinite complexity.
+                            </h2>
+                            <p className="text-[#a1a1aa] font-['Manrope',sans-serif] text-[15px] leading-relaxed animate-in fade-in duration-1000 delay-500 fill-mode-both">
+                                A cross-border client operating in just two jurisdictions triggers a web of overlapping rules, hidden treaties, and conflicting fiscal calendars. Navigating this without a unified engine is a mathematical nightmare.
+                            </p>
                         </div>
                     </section>
 
@@ -204,7 +206,7 @@ export function BetaLandingMobile() {
                             wordClassName="text-3xl font-bold font-['Manrope',sans-serif] leading-[1.1] tracking-tight !text-white text-center"
                         />
                         <p className="text-white/80 font-['Manrope',sans-serif] text-sm leading-relaxed px-2">
-                            Our core architecture assumes no entity is trustworthy by default. Wising integrates SASE to enforce least-privilege access, continuous microsegmentation, and strict verification—minimizing the attack surface and proactively preventing lateral movement across your resources.
+                            Our core architecture assumes no entity is trustworthy by default. Wising integrates SASE to enforce least-privilege access, continuous microsegmentation, and strict verification, minimizing the attack surface and proactively preventing lateral movement across your resources.
                         </p>
                     </div>
                     <motion.div
@@ -227,6 +229,11 @@ export function BetaLandingMobile() {
                         Join the waitlist <ArrowUp className="w-4 h-4" />
                     </motion.button>
                 </div>
+            </div>
+
+            {/* FAQ Section */}
+            <div className="w-full relative z-20 bg-transparent pt-4 pb-12">
+                <FaqSection />
             </div>
 
             {/* ── FOOTER ── */}

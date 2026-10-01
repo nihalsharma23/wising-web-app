@@ -3,13 +3,13 @@ import { Card, CardContent } from "./card";
 import { Badge } from "./badge";
 import { motion } from "framer-motion";
 import { MagicText } from "./magic-text";
-import { AlertTriangle, DollarSign, FileText, Activity, ShieldCheck } from "lucide-react";
+import { AlertTriangle, DollarSign, Clock, Users, ShieldCheck, Calendar } from "lucide-react";
 
 const tasks = [
-  { title: "Undetected PFIC", subtitle: "$5,000+", icon: <AlertTriangle className="text-red-500 w-5 h-5 flex-shrink-0" /> },
-  { title: "IRS/FEMA FINES", subtitle: "$10,000+", icon: <DollarSign className="text-red-500 w-5 h-5 flex-shrink-0" /> },
-  { title: "The 'Double Tax' Trap", subtitle: "$8,500/Yr", icon: <FileText className="text-red-500 w-5 h-5 flex-shrink-0" /> },
-  { title: "DIY Spread Sheets", subtitle: "100+hrs/Yr", icon: <Activity className="text-red-500 w-5 h-5 flex-shrink-0" /> },
+  { title: "Cross-Team Coordination", subtitle: "2-5 Weeks Turnaround", icon: <Users className="text-red-500 w-5 h-5 flex-shrink-0" /> },
+  { title: "External Partner Fees", subtitle: "$1,500+/Engagement", icon: <DollarSign className="text-red-500 w-5 h-5 flex-shrink-0" /> },
+  { title: "Manual Reconciliation", subtitle: "15+ Hrs/Client", icon: <Clock className="text-red-500 w-5 h-5 flex-shrink-0" /> },
+  { title: "Fiscal Year Mismatches", subtitle: "Complex Calendar Logic", icon: <Calendar className="text-red-500 w-5 h-5 flex-shrink-0" /> },
 ];
 
 export default function FeatureSection() {
@@ -48,9 +48,9 @@ export default function FeatureSection() {
             The Problem
           </Badge>
           <MagicText 
-            text="Your client's India and US filings are prepared separately, by separate rules. Nothing checks that the two sides actually agree until a notice forces the comparison."
+            text="Large firms lose weeks passing data between separate US and India teams, while smaller firms are stuck doing the math in messy spreadsheets. Either way, the work is completely fragmented. Your firm wastes hundreds of hours trying to make the numbers match, stealing time that should be spent serving more clients."
             className="px-0"
-            wordClassName="text-2xl md:text-3xl lg:text-[2.5rem] font-semibold leading-[1.2] tracking-tight font-['Manrope',sans-serif] !text-white/90"
+            wordClassName="text-xl md:text-2xl lg:text-[2rem] font-medium leading-[1.3] tracking-tight font-['Manrope',sans-serif] !text-white/90"
           />
         </div>
  
@@ -115,7 +115,7 @@ export default function FeatureSection() {
                       >
                         With Wising
                       </motion.p>
-                      <p className="text-[11px] font-bold text-white tracking-wider mt-0.5 font-['Manrope',sans-serif]">$0 Penalties + 100% Automation</p>
+                      <p className="text-[11px] font-bold text-white tracking-wider mt-0.5 font-['Manrope',sans-serif]">Unlock Revenue + Protect Margins</p>
                     </div>
                  </div>
               </div>
@@ -129,7 +129,7 @@ export default function FeatureSection() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-center text-lg md:text-xl font-semibold text-white font-['Manrope',sans-serif] tracking-tight mt-[7px] w-full z-30"
           >
-            Catch It Before The Notice Does.
+            Automate the Reconciliation. Restore Profitability.
           </motion.p>
         </div>
  
