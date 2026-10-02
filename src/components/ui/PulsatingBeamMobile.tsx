@@ -38,7 +38,7 @@ export const PulsatingBeamMobile = () => {
 
   return (
     <section
-      className="h-[400vh] bg-black w-full relative z-30"
+      className="h-[200vh] bg-black w-full relative z-30"
       ref={ref}
     >
       <div className="sticky top-0 h-screen w-full flex items-center justify-center p-2">
